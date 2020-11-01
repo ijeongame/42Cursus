@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 03:55:08 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/28 17:08:11 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/18 17:46:07 by hkwon             #+#    #+#             */
+/*   Updated: 2020/10/28 17:08:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+char	*ft_strdup(const char *src)
 {
-	size_t	s_len;
-	size_t	d_len;
+	size_t	len;
+	char	*dest;
 
-	s_len = ft_strlen(src);
-	d_len = ft_strlen(dest);
-	if (d_len > size)
-		d_len = size;
-	if (d_len == size)
-		return (size + s_len);
-	if (s_len < size - d_len)
+	len = ft_strlen(src);
+	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))));
+		return (0);
+	len = 0;
+	while (src[len])
 	{
-		ft_memcpy(dest + d_len, src, s_len);
-		dest[d_len + s_len] = '\0';
+		dest[len]  = src[len];
+		len++;
 	}
-	else
-	{
-		ft_memcpy(dest + d_len, src, size - d_len - 1);
-		dest[size - 1] = '\0';
-	}
-	return (d_len + s_len);	
+	dest[len] = '\0';
+	return (dest);
 }

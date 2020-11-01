@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 03:56:28 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/28 16:19:28 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/28 17:06:21 by hkwon             #+#    #+#             */
+/*   Updated: 2020/10/28 17:08:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

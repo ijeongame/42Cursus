@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 03:55:08 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/28 17:08:11 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/28 16:47:47 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/01 16:18:09 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	s_len;
-	size_t	d_len;
+	size_t	i;
+	char	*res;
 
-	s_len = ft_strlen(src);
-	d_len = ft_strlen(dest);
-	if (d_len > size)
-		d_len = size;
-	if (d_len == size)
-		return (size + s_len);
-	if (s_len < size - d_len)
+	if (!s)
+		return (0);
+	if (!(res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (0);
+	i = 0;
+	while (s[i])
 	{
-		ft_memcpy(dest + d_len, src, s_len);
-		dest[d_len + s_len] = '\0';
+		res[i] = f(i, s[i]);
+		i++;
 	}
-	else
-	{
-		ft_memcpy(dest + d_len, src, size - d_len - 1);
-		dest[size - 1] = '\0';
-	}
-	return (d_len + s_len);	
+	res[i] = '\0';
+	return (res);
 }
