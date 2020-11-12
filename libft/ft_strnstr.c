@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:55:57 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/12 13:25:14 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:27:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	if (*s2 == '\0')
 		return (char *)s1;
 	len = ft_strlen(s2);
-	while(*s1 && n >= len)
+	while (*s1 && n >= len)
 	{
 		if (*s1 == *s2 && ft_strncmp(s1, s2, len) == 0)
 			return (char *)s1;
