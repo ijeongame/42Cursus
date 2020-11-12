@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:09:01 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/07 10:54:58 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/09 16:44:42 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/09 17:24:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*strjoin(char const *s1, char const *s2)
 {
-	unsigned int nbr;
+	int		len1;
+	int		len2;
+	char	*res;
 
-	nbr = n;
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr = -n;
-	}
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd(nbr % 10 + '0', fd);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (!(res = (char *)malloc(sizeof(char) + (len1 + len2 + 1))))
+		return (0);
+	ft_memcpy(res, s1, len1);
+	ft_memcpy(res + len1, s2, len2);
+	res[len1 + len2] = '\0';
+	return (res);
 }

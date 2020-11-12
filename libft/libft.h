@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwon <kwon@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2020/10/17 03:26:20 by kwon             ###   ########.fr       */
+/*   Updated: 2020/11/07 12:54:05 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 //문자열 함수와 문자 판별 함수를 사용하기 위해 써줘야 하는게 아닌가?
 // #include    <string.h>
 // #include    <ctype.h>
+
+typedef struct	s_list
+{
+	void			*content;
+	struct	s_list	*next;
+}				t_list;
 
 void	*ft_memset(void *ptr, int value, size_t size);
 void	ft_bzero(void *ptr, size_t size);
@@ -46,5 +52,19 @@ int		ft_isascii(char c);
 int		ft_isprint(char c);
 int		ft_toupper(char c);
 int		ft_tolower(char c);
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

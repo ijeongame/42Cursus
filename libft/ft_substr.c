@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:09:01 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/07 10:54:58 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/09 16:44:11 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/09 16:58:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int nbr;
+	char *res;
 
-	nbr = n;
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr = -n;
-	}
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd(nbr % 10 + '0', fd);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	ft_memcpy(*res, s + start, len);
+	res[len] = '\0';
+	return (res);
 }
