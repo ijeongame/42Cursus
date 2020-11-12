@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:50:54 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:50:57 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 14:42:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
-	while (*str >= 9 && *str <= 13 || *str == ' ')
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
 	if (*str == '+' || *str == '-')
 		if (*str++ == '-')

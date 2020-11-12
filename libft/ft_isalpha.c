@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:52:14 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:52:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:56:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(char c)
+int		ft_isalpha(int c)
 {
 	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
 }

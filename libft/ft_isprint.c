@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:53:32 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:53:33 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:57:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(char c)
+int		ft_isprint(int c)
 {
 	return (c >= ' ' && c <= '~');
 }

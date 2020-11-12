@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:55:08 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/28 17:08:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:33:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		ft_memcpy(dest + d_len, src, size - d_len - 1);
 		dest[size - 1] = '\0';
 	}
-	return (d_len + s_len);	
+	return (d_len + s_len);
 }

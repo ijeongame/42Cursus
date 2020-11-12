@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:53:24 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:53:25 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:57:07 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(char c)
+int		ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }

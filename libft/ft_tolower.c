@@ -6,7 +6,15 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:56:19 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:56:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:56:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int		ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}

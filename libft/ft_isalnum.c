@@ -6,15 +6,15 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:51:59 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:52:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 13:56:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "libft.h"
+#include "libft.h"
 
-int     ft_isalnum(char c)
+int		ft_isalnum(int c)
 {
-    if(ft_isalpha(c) || ft_isdigit(c))
-        return (1);
-    return (0);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
 }

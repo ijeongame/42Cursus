@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:36:54 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/09 16:38:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 14:02:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*s != c)
+	while (*str != c)
 	{
-		if (*s == '\0')
+		if (*str == '\0')
 			return (0);
-		s++;
+		str++;
 	}
-	return (char *)s;
+	return (char *)str;
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:34:35 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/28 17:08:14 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 14:58:31 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ static int		cnt_word(char const *s, char c)
 	return (cnt);
 }
 
-static void		arr_free(char **arr, int i)
+static char		**arr_free(char **arr, int i)
 {
 	while (i--)
 		free(arr[i]);
 	free(arr);
+	return (0);
 }
 
 char			**ft_split(const char *s, char c)
@@ -54,8 +55,6 @@ char			**ft_split(const char *s, char c)
 	int		i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	if (!(res = (char **)malloc(sizeof(char *) * (cnt_word(s, c) + 1))))
 		return (0);
 	while (*s)
@@ -64,7 +63,7 @@ char			**ft_split(const char *s, char c)
 		{
 			size = cnt_size(s, c);
 			if (!(res[i] = malloc(size + 1)))
-				return (all_free(res, i));
+				return (arr_free(res, i));
 			ft_strlcpy(res[i++], s, size + 1);
 			while (*s && *s != c)
 				s++;
