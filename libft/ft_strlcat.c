@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:55:08 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/12 13:33:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/13 16:59:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		d_len = size;
 	if (d_len == size)
 		return (size + s_len);
-	if (s_len < size - d_len)
+	if (s_len + d_len < size)
 	{
 		ft_memcpy(dest + d_len, src, s_len);
 		dest[d_len + s_len] = '\0';
