@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:54:35 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:55:17 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/13 16:33:23 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 	if (!dest && !src)
 		return (0);
 	dp = (unsigned char *)dest;
-	sp = (unsigned char *)src;
+	sp = (const unsigned char *)src;
 	if (dp > sp)
 	{
 		dp += size;
