@@ -64,7 +64,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 			$(AR) $(ARFLAGS) $@ $^
 
-bonus : $(OBJS_BONUS) $(OBJS)
+bonus : $(NAME) $(OBJS_BONUS) $(OBJS)
 		$(AR) $(ARFLAGS) $(NAME) $^
 
 .c.o : $(SRCS) $(INCLUDES)

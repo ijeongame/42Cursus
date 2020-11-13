@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:50:54 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/12 14:42:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/13 18:08:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int		res;
-	int		sign;
+	int	res;
+	int	sign;
 
 	res = 0;
 	sign = 1;
