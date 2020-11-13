@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:42:12 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/12 13:02:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 17:55:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list *tmp;
 
+	if (lst == NULL)
+		return ;
 	while (*lst)
 	{
-		del((*lst)->content);
 		tmp = (*lst)->next;
-		*lst = tmp;
+		del((*lst)->content);
 		free(tmp);
+		*lst = tmp;
 	}
 	*lst = 0;
 }

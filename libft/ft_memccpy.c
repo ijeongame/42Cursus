@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 03:54:01 by hkwon             #+#    #+#             */
-/*   Updated: 2020/10/17 03:54:02 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 16:35:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 void	*ft_memccpy(void *dest, const void *src, int c, size_t size)
 {
 	unsigned char		*dp;
-	const unsigned char	*sp;
+	unsigned char		*sp;
+	size_t				i;
 
 	if (!dest && !src)
 		return (0);
-	dp = dest;
-	sp = src;
-	while (size--)
+	sp = (unsigned char*)src;
+	dp = (unsigned char*)dest;
+	i = 0;
+	while (i < size)
 	{
-		if ((*dp++ == *sp++) == (unsigned char)c)
-			return (dp);
+		dp[i] = sp[i];
+		if (sp[i] == (unsigned char)c)
+			return (&dp[i] + 1);
+		i++;
 	}
 	return (0);
 }

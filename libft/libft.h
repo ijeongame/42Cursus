@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2020/11/12 15:30:05 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/12 17:36:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char			*ft_strrchr(const char *str, int c);
 char			*ft_strnstr(const char *big, const char *little, size_t size);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
-char			*ft_strdup(const char *s);
+char			*ft_strdup(const char *src);
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -51,7 +51,7 @@ int				ft_toupper(int c);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s1, char const *set);
-char			*strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char const *s1, char const *s2);
 char			**ft_split(const char *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -71,4 +71,5 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst,
 								void *(*f)(void *),
 								void (*del)(void *));
+
 #endif

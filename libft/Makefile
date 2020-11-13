@@ -50,7 +50,7 @@ SRCS_BONUS = ft_lstnew.c\
 			ft_lstadd_front.c\
 			ft_lstsize.c\
 			ft_lstlast.c\
-			ft_lstback.c\
+			ft_lstadd_back.c\
 			ft_lstdelone.c\
 			ft_lstclear.c\
 			ft_lstiter.c\
@@ -65,13 +65,13 @@ $(NAME) : $(OBJS)
 			$(AR) $(ARFLAGS) $@ $^
 
 bonus : $(OBJS_BONUS) $(OBJS)
-		$(AR) $(ARFLAGS$(NAME) $^
+		$(AR) $(ARFLAGS) $(NAME) $^
 
 .c.o : $(SRCS) $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(RM) $(RMFLAGS) $(OBJS) $(BOBJS)
+	$(RM) $(RMFLAGS) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
 	$(RM) $(RMFLAGS) $(NAME)
