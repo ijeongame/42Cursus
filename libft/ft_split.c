@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:34:35 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/13 18:25:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/13 20:09:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@ static int		cnt_size(char const *s, char c)
 	int	size;
 
 	size = 0;
-	while (*s && *s++ != c)
+	while (*s && *s != c)
+	{
 		size++;
+		s++;
+	}
 	return (size);
 }
 
 static int		cnt_word(char const *s, char c)
 {
-	int	cnt;
+	int i;
+	int cnt;
 
+	i = 0;
 	cnt = 0;
-	while (*s && *s == c)
-		s++;
-	while (*s)
+	while (s[i])
 	{
-		cnt++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
+		if (s[i] != c)
+		{
+			cnt++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (cnt);
 }
