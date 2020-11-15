@@ -1,3 +1,5 @@
+**Libft**
+
 1. ft_memset.c
 
 ```c
@@ -21,11 +23,16 @@ value는 unsigned char로 형변환된다.
 메모리에 접근할 때 **unsigned char** 형을 사용하는 이유
 
 - unsigned char 외에 다른 type의 경우, 내부 비트의 일부를 값을 표현하는데 사용할 뿐만 아니라 부호비트로도 사용하지만 unsigned char는 그렇지 않음. → 부호를 고려하지 않음.
+
 - 임의의 메모리에 byte단위로 접근하여 값을 다룰 때는 unsigned char를 사용해야 full portability(이식성)을 얻을 수 있다.
+
 - 1byte씩 참조해서 값을 넣는 작업을 할 때 부호비트로 잘못 넣지 말라는 의미로 사용. → byte단위로 사용하는 이유는 포인터의 주소를 참조하기 위한 것.
+
   - 포인터의 크기는 32bit(4byte), 64bit(8byte)
 
-1. ft_bzero.c
+
+
+2. ft_bzero.c
 
 ```c
 void	ft_bzero(void *ptr, size_t size)
@@ -37,7 +44,9 @@ void	ft_bzero(void *ptr, size_t size)
 
 시작 주소 ptr부터 size(byte)만큼 0으로 초기화하는 함수.
 
-1. ft_memcpy.c
+
+
+3. ft_memcpy.c
 
 ```c
 void	*ft_memcpy(void *dest, const void *src, size_t size)
@@ -66,11 +75,16 @@ void	*ft_memcpy(void *dest, const void *src, size_t size)
 src가 가르키는 곳부터 size(byte)만큼을 dest에 복사하는 함수.
 
 - 메모리 영역은 겹치지 않으며, 만약 겹쳐서 사용한다면 memmove를 사용한다.
+
 - src의 null 문자를 검사하지 않는다. 언제나 size(byte)만큼을 복사.
+
 - overflow 문제를 방지하기 위해 dest와 src가 가리키는 배열의 크기는 반드시 size(byte) 이상이어야 하며, 서로 겹치면 안된다.
+
   - 만일 두 메모리 블록이 겹쳐있다면 memmove 함수를 이용하는 것이 좋다.
 
-1. ft_memccpy.c
+
+
+4. ft_memccpy.c
 
 ```c
 void	*ft_memccpy(void *dest, const void *src, int c, size_t size)
@@ -99,9 +113,12 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t size)
 src가 가르키는 곳부터 size(byte)만큼 c를 만날 때 까지 dest에 복사하는 함수.
 
 - 복사 중 src에서 c를 만나면 c까지 복사하고 중단하고 복사가 끝난 **dest의 다음 주소를 반환**한다.
+
 - c를 만나지 않으면 size(byte)만큼 복사 후 null를 반환.
 
-1. ft_memmove.c
+
+
+5. ft_memmove.c
 
 ```c
 void	*ft_memmove(void *dest, const void *src, size_t size)
@@ -136,10 +153,14 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 src가 가르키는 곳부터 size(byte)만큼 dest에 옮기는 함수.
 
 - 메모리주소가 겹칠 경우 memcpy 대신 사용.
+
 - man page
+
   - The memmove() function copies len bytes from string src to string dst. The two strings may overlap; the copy is always done in a non-destructive manner.
 
-1. ft_memchr.c
+
+
+6. ft_memchr.c
 
 ```c
 void	*ft_memchr(const void *ptr, int value, size_t size)
@@ -159,7 +180,9 @@ void	*ft_memchr(const void *ptr, int value, size_t size)
 
 ptr의 데이터 중 size(byte)만큼 검사하여 value를 찾아 그 주소를 반환하는 함수.
 
-1. ft_memcmp.c
+
+
+7. ft_memcmp.c
 
 ```c
 int		ft_memcmp(const void *s1, const void *s2, size_t size)
@@ -184,9 +207,12 @@ int		ft_memcmp(const void *s1, const void *s2, size_t size)
 s1이 가르키는 size(byte)의 데이터와 s2가 가르키는 size(byte)의 데이터를 비교하는 함수.
 
 - 같으면 0 반환.
+
 - 다르면 0이 아닌 다른 값 반환.
 
-1. ft_strlen.c
+
+
+8. ft_strlen.c
 
 ```c
 size_t	ft_strlen(const char *str)
@@ -203,9 +229,12 @@ size_t	ft_strlen(const char *str)
 str 이 가르키는 문자열의 길이를 반환한다.
 
 - size_t
+
   - C언어에서의 임의의 객체가 가질 수 있는 최대 크기를 나타낸다.
 
-1. ft_strlcpy.c
+
+
+9. ft_strlcpy.c
 
 ```c
 size_t		ft_strlcpy(char *dest, const char *src, size_t size)
@@ -255,9 +284,12 @@ size_t  ft_strlcpy(char *dest, const char *src, size_t size)
 src에서 dest로 size-1개의 문자열을 복사하고 size-1번째에는 null을 붙인다.
 
 - **반환값은 src의 길이다.** (null을 제외한 문자의 길이)
+
 - src+1의 길이가 size보다 작을 경우 src의 길이만큼 복사하고 null를 붙인다.
 
-1. ft_strlcat.c
+
+
+10. ft_strlcat.c
 
 ```c
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -290,13 +322,20 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 dest뒤에 src를 붙이는 함수.
 
 - size = strlen(dest) + strlen(src) + nulll
+
 - 반환값
+
   - 만들고자 하는 문자열의 길이(d_len + s_len)
+
   - size == 0 → src의 길이 return.
+
   - dest < size → src + dest의 길이 return.
+
   - dest ≥ size → src + size의 길이 return.
 
-1. ft_strchr.c
+
+
+11. ft_strchr.c
 
 ```c
 char	*ft_strchr(const char *str, int c)
@@ -316,7 +355,9 @@ str 문자열에서 특정문자 c를 찾는 함수.
 
 c를 찾으면 해당 문자의 포인터를 반환한다.
 
-1. ft_strrchr.c
+
+
+12. ft_strrchr.c
 
 ```c
 char	*ft_strrchr(const char *str, int c)
@@ -338,7 +379,9 @@ str 문자열에서 마지막으로 있는 문자 c를 찾는 함수.
 
 마지막으로 있는 c를 찾는 것이기 때문에 문자열의 뒤에서부터 비교를 한다.
 
-1. ft_strnstr.c
+
+
+13. ft_strnstr.c
 
 ```c
 char	*ft_strnstr(const char *big, const char *little, size_t size)
@@ -377,11 +420,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t size)
 big 문자열의 size 길이 중에서 little 문자열을 찾는 함수.
 
 - 반환값
+
   - little 문자열이 비었을 경우, big return.
+
   - big에서 little을 찾지못할 경우, null return.
+
   - little 문자열을 찾은 경우, big에서 little의 시작 부분 주소를 return.
 
-1. ft_strncmp.c
+
+
+14. ft_strncmp.c
 
 ```c
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -411,11 +459,16 @@ s1 과 s2 문자열을 n만큼 비교하는 함수.
 두 문자열의 비교는 ascii 값을 비교한다.
 
 - 반환값
+
   - 문자열이 같은 경우, 0 return.
+
   - s1이 작은 경우, 0보다 작은 수 return.
+
   - s1이 큰 경우, 0보다 큰 수 return.
 
-1. ft_atoi.c
+
+
+15. ft_atoi.c
 
 ```c
 int		ft_atoi(const char *str)
@@ -442,10 +495,14 @@ int		ft_atoi(const char *str)
 str 문자열을 정수로 변환해주는 함수.
 
 - white space를 만나면 문자열을 증가.
+
 - '-' 부호를 만났을 때, 음수가 출력되게 끔 한다.
+
 - 문자가 정수인지 판단하여 결과값을 저장하는 res에 담는다.
 
-1. ft_isalpha.c
+
+
+16. ft_isalpha.c
 
 ```c
 int		ft_isalpha(int c)
@@ -456,7 +513,9 @@ int		ft_isalpha(int c)
 
 c의 ascii값이 영문자이면 1을 반환하는 함수. 영문자가 아니라면 0을 반환.
 
-1. ft_isdigit.c
+
+
+17. ft_isdigit.c
 
 ```c
 int		ft_isdigit(int c)
@@ -467,7 +526,9 @@ int		ft_isdigit(int c)
 
 c의 ascii값이 0~9에 해당하는지 판별하는 함수.
 
-1. ft_isalnum.c
+
+
+18. ft_isalnum.c
 
 ```c
 int		ft_isalnum(int c)
@@ -480,7 +541,9 @@ int		ft_isalnum(int c)
 
 c가 숫자 또는 영문자인지 판별하는 함수.
 
-1. ft_isascii.c
+
+
+19. ft_isascii.c
 
 ```c
 int		ft_isascii(int c)
@@ -491,7 +554,9 @@ int		ft_isascii(int c)
 
 c가 ascii 문자인지 검사하는 함수.
 
-1. ft_isprint.c
+
+
+20. ft_isprint.c
 
 ```c
 int		ft_isprint(int c)
@@ -502,7 +567,9 @@ int		ft_isprint(int c)
 
 c가 출력가능한 문자인지 판별하는 함수.
 
-1. ft_toupper.c
+
+
+21. ft_toupper.c
 
 ```c
 int		ft_toupper(int c)
@@ -515,7 +582,9 @@ int		ft_toupper(int c)
 
 c가 소문자라면 대문자로 변환하는 함수.
 
-1. ft_tolower.c
+
+
+22. ft_tolower.c
 
 ```c
 int		ft_tolower(int c)
@@ -528,7 +597,9 @@ int		ft_tolower(int c)
 
 c가 대문자라면 소문자로 변환하는 함수.
 
-1. ft_calloc.c
+
+
+23. ft_calloc.c
 
 ```c
 void	*ft_calloc(size_t nelem, size_t size)
@@ -546,7 +617,9 @@ size크기의 변수를 nelem개 저장할 수 있는 공간을 할당하는 함
 
 - 할당된 공간의 값을 모두 0으로 초기화 한다.
 
-1. ft_strdup.c
+
+
+24. ft_strdup.c
 
 ```c
 char	*ft_strdup(const char *src)
@@ -572,6 +645,8 @@ char	*ft_strdup(const char *src)
 
 - strcpy의 동작에 malloc을 추가.
 
+
+
 **PART 2**
 
 1. ft_substr.c
@@ -596,9 +671,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 s문자열의 start index부터 len만큼 복제하여 부분 문자열을 가져오는 함수.
 
 - s문자열의 길이가 start보다 작을 경우 빈 문자열을 반환한다.
+
   - 시작 인덱스가 10인데 문자열이 5이면 복사를 하지못하므로 빈 문자열 반환.
 
-1. ft_strjoin.c
+
+
+2. ft_strjoin.c
 
 ```c
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -624,7 +702,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 - strlcat과 비슷해 보일 수 있지만, strlcat은 dest 뒤에 이어붙이는 함수이고 strjoin은 새로운 문자열 배열에 저장하는 함수.
 
-1. ft_strtrim.c
+
+
+3. ft_strtrim.c
 
 ```c
 char	*ft_strtrim(char const *s1, char const *set)
@@ -655,10 +735,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 문자열 s1에서 앞, 뒤에 있는 set을 잘라낸 새로운 문자열을 반환하는 함수.
 
 - 중간에 있는건 잘라내지 않는다.
-- 보통 white space 를 넣어주어 공백제거에 사용함.
-- 문자열 s1이 중간에서 멈추지않고 전부 다 잘리는 경우 null이 아닌 빈 문자열을 리턴.
 
-1. ft_split.c
+- 보통 white space 를 넣어주어 공백제거에 사용함.
+
+- 문자열 s1이 중간에서 멈추지않고 전부 다 잘리는 경우 null이 아닌 빈 문자열을 반환.
+
+
+
+4. ft_split.c
 
 ```c
 //각 배열에 저장할 문자열의 길이를 구한다.
@@ -773,10 +857,14 @@ char			**ft_split(const char *s, char c)
 문자열 s를 구분자 c를 기준으로 나누는 함수.
 
 - 이차원배열을 할당하여 각 열마다 문자열을 저장한다.
+
 - 행(저장할 문자열의 개수)의 개수를 세는 것이 cnt_word.
+
 - 열(저장할 문자열의 길이)의 개수를 세는 것이 cnt_size.
 
-1. ft_itoa.c
+
+
+5. ft_itoa.c
 
 ```c
 //문자열의 길이를 구한다.
@@ -841,12 +929,18 @@ char			*ft_itoa(int n)
 정수를 문자열로 변환하는 함수
 
 - 변환하고자하는 숫자가 0이면 "0"을 반환.
+
 - 문자열로 변환하기 위해서는 문자열의 길이를 알아야한다.
+
   - 숫자가 음수라면 '-'부호가 들어가야 하므로 구한 길이에 + 1을 더해준다.
+
 - 10으로 나눈 몫을 저장하면 1의 자리를 저장하지 못하기 때문에 나머지부터 저장한다.
+
   - 나머지부터 저장할 때 문자열의 뒤에서부터 저장한다.
 
-1. ft_strmapi.c
+
+
+6. ft_strmapi.c
 
 ```c
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -873,7 +967,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 문자열 s의 인덱스와 그 인덱스에 해당하는 문자를 f함수에 보내 변환하고 그 문자를 반환받아 새로운 문자열을 만드는 함수.
 
-1. ft_putchar_fd.c
+
+
+7. ft_putchar_fd.c
 
 ```c
 void	ft_putchar_fd(char c, int fd)
@@ -884,7 +980,9 @@ void	ft_putchar_fd(char c, int fd)
 
 문자 c를 fd 파일 디스크립터에 출력하는 함수.
 
-1. ft_putstr_fd.c
+
+
+8. ft_putstr_fd.c
 
 ```c
 void	ft_putstr_fd(char *s, int fd)
@@ -895,7 +993,9 @@ void	ft_putstr_fd(char *s, int fd)
 
 문자열 s를 fd 파일 디스크립터에 출력하는 함수.
 
-1. ft_putendl_fd.c
+
+
+9. ft_putendl_fd.c
 
 ```c
 void	ft_putendl_fd(char *s, int fd)
@@ -907,7 +1007,9 @@ void	ft_putendl_fd(char *s, int fd)
 
 문자열 s를 fd 파일 디스크립터에 출력한 후 줄바꿈하는 함수.
 
-1. ft_putnbr_fd.c
+
+
+10. ft_putnbr_fd.c
 
 ```c
 void	ft_putnbr_fd(int n, int fd)
@@ -928,6 +1030,8 @@ void	ft_putnbr_fd(int n, int fd)
 
 정수 n을 fd 파일 디스크립터에 출력하는 함수.
 
+
+
 **BONUS PART**
 
 struct
@@ -941,6 +1045,8 @@ typedef struct	s_list
 ```
 
 s_list 구조체를 선언후 t_list의 이름을 부여.
+
+
 
 1. ft_lstnew
 
@@ -959,7 +1065,9 @@ t_list	*ft_lstnew(void *content)
 
 t_list구조체 멤버 *content에 새로만들고자 하는 res 리스트의 *content를 매칭하는 함수.
 
-1. ft_lstadd_front
+
+
+2. ft_lstadd_front
 
 ```c
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -971,7 +1079,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 기존 list의 맨 앞에  새로운 new 리스트를 추가하는 함수.
 
-1. ft_lstsize
+
+
+3. ft_lstsize
 
 ```c
 int		ft_lstsize(t_list *lst)
@@ -991,7 +1101,9 @@ int		ft_lstsize(t_list *lst)
 
 리스트의 개수를 구하는 함수.
 
-1. ft_lstlast
+
+
+4. ft_lstlast
 
 ```c
 t_list	*ft_lstlast(t_list *lst)
@@ -1006,7 +1118,9 @@ t_list	*ft_lstlast(t_list *lst)
 
 리스트 마지막 요소의 주소를 반환한다.
 
-1. ft_lstadd_back
+
+
+5. ft_lstadd_back
 
 ```c
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -1021,9 +1135,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 기존 list의 맨 뒤에 새로운 new 리스트를 추가하는 함수.
 
 - 리스트가 비어있다면 바로 new 리스트를 생성.
+
 - 마지막 리스트 뒤에 새로운 리스트를 추가해야하므로 ft_lstlast 함수를 이용해 마지막 리스트를 찾는다.
 
-1. ft_lstdelone
+
+
+6. ft_lstdelone
 
 ```c
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
@@ -1035,7 +1152,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 
 리스트의 content를 del로 보내 내용을 삭제한 후 리스트를 free해주는 함수.
 
-1. ft_ lstclear
+
+
+7. ft_ lstclear
 
 ```c
 void	ft_lstclear(t_list **lst, void (*del)(void *))
@@ -1046,6 +1165,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	//리스트 전체를 free해준다.
 	//tmp에 리스트의 주소를 저장해 lst를 삭제한다.
+	//현재 lst를 삭제해야했는데 다음 lst를 삭제해버렸다.
 	while (*lst)
 	{
 		tmp = (*lst)->next;
@@ -1059,7 +1179,15 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 리스트의 content를 전부 del한 후 리스트 전체를 free해주는 함수.
 
-1. ft_lstiter
+- ko
+  - 수정 전 free(tmp) → 수정 후 free(*lst);
+  - 수정 전에 현재 리스트가 아닌 다음 리스트를 저장하고 있는 tmp를 free를 해주었다.
+  - 테스터에서 통과가 된 이유는 바로 null값을 가르키고 프로그램이 종료되어 통과로 인식한 것 같다.
+
+
+
+
+8. ft_lstiter
 
 ```c
 void	ft_lstiter(t_list *lst, void (*f)(void *))
@@ -1074,7 +1202,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 
 리스트의 모든 content에 대해 f함수 처리를 해주는 함수.
 
-1. ft_lstmap
+
+
+9. ft_lstmap
 
 ```c
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
@@ -1109,6 +1239,8 @@ f함수를 적용한 새로운 리스트를 만드는 함수.
 
 - 새롭게 만든 res를 반환하고, curr을 이용하여 res를 만든다.
 - 리스트를 만들다 실패하면 지금까지 만들었던 리스트 전부를 삭제한 후 0을 반한다.
+
+
 
 **MAKEFILE**
 
