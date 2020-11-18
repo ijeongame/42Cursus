@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/16 19:36:49 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/18 19:19:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 //list에 들어가면 좋을만한 옵션을 정하는 것이 중요.
 //1. create flag list
 typedef struct	s_flag{
-	int			minus;
-	int			plus;
+	int			left;
+	int			sign;
 	int			space;
-	int			hash;
+	int			base;
 	int			zero;
 }				t_flag;
 
@@ -34,6 +34,7 @@ typedef struct s_format{
 	int			type;
 }				t_format;
 
-int		ft_printf(const char *format, ...);
+int				ft_printf(const char *format, ...);
+void			ft_print_int(va_list ap, const char **format);
 
 #endif
