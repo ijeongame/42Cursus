@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/18 19:50:49 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/25 21:10:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ void	ft_print_int(va_list ap, const char **format)
 
 	while (*format)
 	{
+		if (**format == '-')
+		{
+			res = 
+		}
 		if (**format == 'd')
 		{
 			res = ft_itoa(va_arg(ap, int *));
