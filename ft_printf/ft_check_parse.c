@@ -1,43 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_check_parse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/27 20:49:40 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/27 20:33:04 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/27 22:13:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_check_parse(const char *format)
 {
-	va_list	ap;
-	int		cnt;
+	t_format *flist;
 
-	va_start(ap, format);
-	while(*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			write(1, format, 1);
-			//if(//write option)
-			//create function
-		}
-		else
-		{
-			write(1, format, 1);
-			cnt++;
-		}
-		format++;
-	}
-	return (cnt);
-}
-
-int main(void)
-{
-	ft_printf("1234567%d\n");
+	
+	return (-1);
 }
