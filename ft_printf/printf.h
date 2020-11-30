@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/29 14:39:41 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/30 22:55:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_format{
 }				t_format;
 
 int				ft_printf(const char *format, ...);
-int				ft_format_parse(const char **format);
-int				ft_flag_parse(const char **format, t_flag *flag);
+int				ft_format_parse(va_list ap, const char **format);
+int				ft_flag_parse(const char **format, t_format *op);
 t_format		*ft_init_flist(const char **format);
 #endif

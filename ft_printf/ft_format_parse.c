@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 20:33:04 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/29 14:50:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/11/30 21:36:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_format_parse(va_list ap, const char **format)
 
 	if (!(flist = ft_init_flist(format)))
 		return (-1);
-	if (ft_strchr("-0+# ",**format))
+	if (ft_strchr("-0+# ", **format))
 		ft_flag_parse();
 	if (ft_strchr("123456789*", **format))
 		ft_width_parse();
