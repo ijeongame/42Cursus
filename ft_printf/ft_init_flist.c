@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 20:33:17 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/28 20:07:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/12/02 19:09:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void		ft_init_flag(t_flag *flag)
+t_flag		ft_init_flag(t_flag *flag)
 {
 	flag->left = 0;
 	flag->zero = 0;
@@ -25,7 +25,11 @@ t_format	*ft_init_flist(const char **format)
 {
 	t_format *op;
 
+	if (!(op = malloc(sizeof(t_format))))
+		return (0);
+	ft_init_flag(&op->flag);
 	op->width = 0;
-	op->prec = -1;
+	op->prec = 0;
 	op->type = 0;
+	op->len = 0;
 }
