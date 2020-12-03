@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:53:14 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/02 18:22:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/12/03 20:43:29 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ int	ft_width_parse(va_list ap, const char **format, t_format *op)
 	s_width = 0;
 	if (**format == '*')
 	{
-		
+		if ((s_width = va_arg(ap, int)) < 0)
+		{
+			s_width = -s_width;
+			**(format)++;
+		}
 	}
 	else
 	{
