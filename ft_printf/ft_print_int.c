@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 16:05:18 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/12 23:26:10 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/12/26 16:18:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@ static int	ft_print_width(t_format *op)
 
 }
 
-//static int ft_print_prec(t_format *op)
+static int	ft_print_prec(t_format *op)
+{
+
+}
 
 int			ft_print_int(va_list ap, t_format *op, const char **format)
 {
-	long long 	num;
-	char		*num_str;
-	int			n_len;
-	int			cnt;
+	long long int	num;
+	char			*num_str;
+	int				n_len;
+	int				cnt;
 
 	num = va_arg(ap, long long);
 	num_str = ft_new_itoa(num);

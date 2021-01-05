@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_parse.c                                    :+:      :+:    :+:   */
+/*   ft_parse_type.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:55:14 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/12 23:26:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/12/18 19:03:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_type_parse(va_list ap, const char **format, t_format *op)
+int	ft_parse_type(va_list ap, const char **format, t_format *op)
 {
 	if (**format == 'd' || **format == 'i')
 		ft_print_int(ap, op, **format);

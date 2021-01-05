@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:53:14 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/03 20:43:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2020/12/18 18:47:33 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_width_parse(va_list ap, const char **format, t_format *op)
+int	ft_parse_width(va_list ap, const char **format, t_format *op)
 {
 	int	s_width;
 
