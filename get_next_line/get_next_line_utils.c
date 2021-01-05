@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 19:21:20 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/04 20:44:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/05 20:45:05 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,6 @@ size_t	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	*ft_memcpy(void *dest, const void *src, size_t size)
-{
-	unsigned char		*dp;
-	const unsigned char	*sp;
-	size_t				i;
-
-	if (!dest && !src)
-		return (0);
-	dp = (unsigned char *)dest;
-	sp = (const unsigned char *)src;
-	i = 0;
-	while (i < size)
-	{
-		dp[i] = sp[i];
-		i++;
-	}
-	return (dest);
 }
 
 char	*ft_strchr(const char *str, int c)
@@ -55,11 +36,35 @@ char	*ft_strchr(const char *str, int c)
 char	*ft_strndup(const char *src, size_t n)
 {
 	char	*dest;
+	int		i;
 
+	i = 0;
 	if (!(dest = (char*)malloc(sizeof(char) * (n + 1))))
 		return (0);
-	ft_memcpy(dest, src, n);
-	dest[n] = '\0';
+	while (i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strdup(const char *src)
+{
+	size_t	len;
+	char	*dest;
+
+	len = ft_strlen(src);
+	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	len = 0;
+	while (src[len])
+	{
+		dest[len] = src[len];
+		len++;
+	}
+	dest[len] = '\0';
 	return (dest);
 }
 
