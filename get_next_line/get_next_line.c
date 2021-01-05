@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 17:24:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/05 20:50:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/05 21:11:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static int	get_store(char **store, char *buf, int read_size)
 	}
 	else
 		tmp = ft_strdup("");
-	if (!(*store = ft_strjoin(tmp, buf)))
-		return (-1);
+	*store = ft_strjoin(tmp, buf);
 }
 
 int			get_next_line(int fd, char **line)
