@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 17:24:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/06 22:52:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/06 23:46:24 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,22 @@ static int	get_set_store(char **store, char *buf, int read_size)
 	buf[read_size] = '\0';
 	if (*store != 0)
 	{
-		tmp = ft_strjoin(*store, buf);	
+		tmp = ft_strdup(*store);	
 		free(*store);
 	}
 	else
 		tmp = ft_strdup("");
 	*store = ft_strjoin(tmp, buf);
+	free(tmp);
+	return (0);
+}
+
+static int get_store_line(char **store, char **line)
+{
+
+	if()//continue
+	else//finish
+		return (0);
 }
 
 int			get_next_line(int fd, char **line)
@@ -37,23 +47,11 @@ int			get_next_line(int fd, char **line)
 		return (-1);
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) >= 0)
 	{
-		get_store(&store[fd], buf, read_size);
-		// buf[read_size] = '\0';
-		// if (store[fd] != 0)
-		// {
-		// 	tmp = ft_strjoin(store[fd], buf);
-		// 	free(store[fd]);
-		// }
-		// else
-		// 	tmp = ft_strdup("");
-		// if (!(store[fd] = ft_strjoin(tmp, buf)))
-		// 	return (-1);
-		// if (ft_strchr(store[fd], '\n') || read_size == 0)
-		// 	break;
+		get_set_store(&store[fd], buf, read_size);
 		if (ft_strchr(*store, '\n') || read_size == 0)
 			break;
 	}
 	if (read_size < 0)
 		return (-1);
-	return (read_size);
+	return (get_store_line());
 }
