@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 17:24:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/05 21:11:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/06 22:52:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	get_store(char **store, char *buf, int read_size)
+static int	get_set_store(char **store, char *buf, int read_size)
 {
 	char *tmp;
 
@@ -38,8 +38,6 @@ int			get_next_line(int fd, char **line)
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) >= 0)
 	{
 		get_store(&store[fd], buf, read_size);
-		if (ft_strchr(*store, '\n') || read_size == 0)
-			break;
 		// buf[read_size] = '\0';
 		// if (store[fd] != 0)
 		// {
@@ -52,6 +50,8 @@ int			get_next_line(int fd, char **line)
 		// 	return (-1);
 		// if (ft_strchr(store[fd], '\n') || read_size == 0)
 		// 	break;
+		if (ft_strchr(*store, '\n') || read_size == 0)
+			break;
 	}
 	if (read_size < 0)
 		return (-1);
