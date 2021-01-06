@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 20:33:17 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/18 19:14:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/06 22:25:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ t_format	*ft_init_flist(const char **format)
 	op->prec = 0;
 	op->type = 0;
 	op->len = 0;
+	op->prec = -1;
+	op->fmat = **format;
 	return (op);
 }

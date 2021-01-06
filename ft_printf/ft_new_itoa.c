@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 21:36:13 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/12 21:45:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/06 22:26:24 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static int		cnt_num(unsigned long long n)
+static int		cnt_num(long long n)
 {
 	int	cnt;
 
@@ -25,7 +25,7 @@ static int		cnt_num(unsigned long long n)
 	return (cnt);
 }
 
-static void		write_num(char *dest, unsigned int n)
+static void		write_num(char *dest, unsigned long long n)
 {
 	if (n < 10)
 		*dest = n + '0';
@@ -36,11 +36,11 @@ static void		write_num(char *dest, unsigned int n)
 	}
 }
 
-char			*ft_new_itoa(unsigned long long n)
+char			*ft_new_itoa(long long n)
 {
-	char			*res;
-	unsigned int	nbr;
-	int				len;
+	char				*res;
+	unsigned long long	nbr;
+	int					len;
 
 	nbr = n;
 	if (n == 0)
