@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 17:24:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/06 23:46:24 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/07 17:37:24 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	get_set_store(char **store, char *buf, int read_size)
 {
-	char *tmp;
+	char	*tmp;
 
 	buf[read_size] = '\0';
 	if (*store != 0)
@@ -31,10 +31,12 @@ static int	get_set_store(char **store, char *buf, int read_size)
 
 static int get_store_line(char **store, char **line)
 {
+	char	*res;
+	char	*tmp;
 
-	if()//continue
-	else//finish
-		return (0);
+	if (ft_strchr(*store, '\n'))
+	else
+	return (0);
 }
 
 int			get_next_line(int fd, char **line)
