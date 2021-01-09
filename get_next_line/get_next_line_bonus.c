@@ -6,29 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:23:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/09 21:06:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 22:16:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-char		*ft_strdup(const char *src)
-{
-	size_t	len;
-	char	*dest;
-
-	len = ft_strlen(src);
-	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))))
-		return (0);
-	len = 0;
-	while (src[len])
-	{
-		dest[len] = src[len];
-		len++;
-	}
-	dest[len] = '\0';
-	return (dest);
-}
 
 static int	get_set_store(char **store, char *buf, int read_size)
 {
@@ -37,11 +19,11 @@ static int	get_set_store(char **store, char *buf, int read_size)
 	buf[read_size] = '\0';
 	if (*store != 0)
 	{
-		tmp = ft_strdup(*store);
+		tmp = ft_strndup(*store, ft_strlen(*store));
 		free(*store);
 	}
 	else
-		tmp = ft_strdup("");
+		tmp = ft_strndup("", 1);
 	*store = ft_strjoin(tmp, buf);
 	free(tmp);
 	if (ft_strchr(*store, '\n'))
@@ -60,7 +42,7 @@ static int	get_store_line(char **store, char **line)
 		while ((*store)[i] && (*store)[i] != '\n')
 			i++;
 		*line = ft_strndup(*store, i);
-		tmp = ft_strdup(*store + i + 1);
+		tmp = ft_strndup(*store + i + 1, ft_strlen(*store + i + 1));
 		free(*store);
 		*store = tmp;
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:23:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/09 21:07:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 22:16:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		get_next_line(int fd, char **line);
 
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);
-char	*ft_strndup(const char *src, size_t n);
+char	*ft_strndup(const char *src, int n);
 char	*ft_strdup(const char *src);
 char	*ft_strjoin(const char *s1, const char *s2);
 

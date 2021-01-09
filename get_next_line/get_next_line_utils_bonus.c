@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:24:03 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/09 20:01:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 22:16:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strchr(const char *str, int c)
 	return (char *)str;
 }
 
-char	*ft_strndup(const char *src, size_t n)
+char	*ft_strndup(const char *src, int n)
 {
 	char	*dest;
 	int		i;
@@ -74,7 +74,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len1;
 	int		len2;
 	char	*res;
-	int		i;
 
 	if (!s1 || !s2)
 		return (0);
