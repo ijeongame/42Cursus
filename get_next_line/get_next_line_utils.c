@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 19:21:20 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/05 20:45:05 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 19:55:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,22 @@ char	*ft_strndup(const char *src, size_t n)
 	return (dest);
 }
 
-char	*ft_strdup(const char *src)
+void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	size_t	len;
-	char	*dest;
+	unsigned char		*dp;
+	const unsigned char	*sp;
+	size_t				i;
 
-	len = ft_strlen(src);
-	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))))
+	if (!dest && !src)
 		return (0);
-	len = 0;
-	while (src[len])
+	dp = (unsigned char *)dest;
+	sp = (const unsigned char *)src;
+	i = 0;
+	while (i < size)
 	{
-		dest[len] = src[len];
-		len++;
+		dp[i] = sp[i];
+		i++;
 	}
-	dest[len] = '\0';
 	return (dest);
 }
 
@@ -73,6 +74,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len1;
 	int		len2;
 	char	*res;
+	int		i;
 
 	if (!s1 || !s2)
 		return (0);

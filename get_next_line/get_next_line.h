@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 16:40:41 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/05 20:25:35 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 20:08:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+#include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5000
