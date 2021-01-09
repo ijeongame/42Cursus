@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 17:24:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/09 20:03:22 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/09 21:05:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strdup(const char *src)
+char		*ft_strdup(const char *src)
 {
 	size_t	len;
 	char	*dest;
@@ -37,7 +37,7 @@ static int	get_set_store(char **store, char *buf, int read_size)
 	buf[read_size] = '\0';
 	if (*store != 0)
 	{
-		tmp = ft_strdup(*store);	
+		tmp = ft_strdup(*store);
 		free(*store);
 	}
 	else
@@ -49,7 +49,7 @@ static int	get_set_store(char **store, char *buf, int read_size)
 	return (0);
 }
 
-static int get_store_line(char **store, char **line)
+static int	get_store_line(char **store, char **line)
 {
 	char	*tmp;
 	int		i;
@@ -60,7 +60,7 @@ static int get_store_line(char **store, char **line)
 		while ((*store)[i] && (*store)[i] != '\n')
 			i++;
 		*line = ft_strndup(*store, i);
-		tmp = ft_strdup(*store + i +1);
+		tmp = ft_strdup(*store + i + 1);
 		free(*store);
 		*store = tmp;
 		return (1);
@@ -75,7 +75,7 @@ static int get_store_line(char **store, char **line)
 
 int			get_next_line(int fd, char **line)
 {
-	static char	*store[OPEN_MAX];
+	static char	*store[OPEN_MAX + 1];
 	char		buf[BUFFER_SIZE + 1];
 	int			read_size;
 
@@ -84,7 +84,7 @@ int			get_next_line(int fd, char **line)
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) >= 0)
 	{
 		if (get_set_store(&store[fd], buf, read_size) || read_size == 0)
-			break;
+			break ;
 	}
 	if (read_size < 0)
 		return (-1);
