@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/26 16:24:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/11 20:20:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft.h"
 
 typedef struct	s_flag{
 	int			left;
@@ -32,11 +31,12 @@ typedef struct	s_format{
 	int			prec;
 	int			type;
 	int			len;
-	char		**fmat;
 }				t_format;
 
-t_format		*ft_init_flist(const char **format);
 int				ft_printf(const char *format, ...);
+
+
+t_format		*ft_init_flist(const char **format);
 int				ft_parse_format(va_list ap, const char **format);
 int				ft_parse_flag(const char **format, t_format *op);
 int				ft_parse_width(va_list ap, const char **format, t_format *op);

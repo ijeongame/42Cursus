@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/06 22:26:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/11 20:40:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_printf(const char *format, ...)
 	va_list	ap;
 	int		cnt;
 
+	cnt = 0;
 	va_start(ap, format);
 	while (*format)
 	{
@@ -28,16 +29,10 @@ int		ft_printf(const char *format, ...)
 		}
 		else
 		{
-			write(1, format, 1);
-			cnt++;
+			cnt += write(1, format, 1);
+			format++;
 		}
-		format++;
 	}
 	va_end(ap);
 	return (cnt);
-}
-
-int main(void)
-{
-	ft_printf("1234567%d\n");
 }
