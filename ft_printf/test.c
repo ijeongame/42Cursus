@@ -2,5 +2,5 @@
 
 int main(void)
 {
-	printf("%*d끝\n", 5, -42);
+	printf("%010d끝\n", 12345);
 }

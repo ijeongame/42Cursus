@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_width_parse.c                                   :+:      :+:    :+:   */
+/*   ft_parse_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:53:14 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/18 18:47:33 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/14 22:25:17 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+int		ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
 
 int	ft_parse_width(va_list ap, const char **format, t_format *op)
 {
@@ -20,20 +25,18 @@ int	ft_parse_width(va_list ap, const char **format, t_format *op)
 	if (**format == '*')
 	{
 		if ((s_width = va_arg(ap, int)) < 0)
-		{
 			s_width = -s_width;
-			**(format)++;
-		}
+		++(*format);
 	}
 	else
 	{
-		if (ft_isdigit(**format))
+		while (ft_isdigit(**format))
 		{
 			s_width *= 10;
 			s_width += **format - '0';
-			**(format)++;
+			++(*format);
 		}
 	}
 	op->width = s_width;
-	return (0);
+	return (ft_parse_format(ap, format, op));
 }

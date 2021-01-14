@@ -6,23 +6,24 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:53:30 by hkwon             #+#    #+#             */
-/*   Updated: 2020/12/18 20:04:57 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/12 18:47:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_parse_flag(const char **format, t_format *op)
+int	ft_parse_flag(va_list ap, const char **format, t_format *op)
 {
 	if (**format == '-')
-		op->flag.left = 1;
+		op->left = 1;
 	if (**format == '0')
-		op->flag.zero = 1;
+		op->zero = 1;
 	if (**format == '#')
-		op->flag.base = 1;
+		op->base = 1;
 	if (**format == ' ')
-		op->flag.space = 1;
+		op->space = 1;
 	if (**format == '+')
-		op->flag.sign = 1;
-	return (0);
+		op->sign = 1;
+	++(*format);
+	return (ft_parse_format(ap, format, op));
 }
