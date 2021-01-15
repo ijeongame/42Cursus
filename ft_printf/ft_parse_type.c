@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:55:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/14 22:05:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/15 16:48:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 int	ft_parse_type(va_list ap, const char **format, t_format *op)
 {
 	if (**format == 'c')
-		ft_print_c(ap, format);
+		ft_print_char(ap, format);
 	if (**format == 's')
-		ft_print_s(ap, format);
+		ft_print_str(ap, format);
 	if (**format == 'p')
-		ft_print_p(ap, format);
+		ft_print_ptr(ap, format);
 	if (**format == 'd' || **format == 'i')
-		ft_print_di(ap, op, **format);
-
+		ft_print_int(ap, op, **format);
 	if (**format == 'u')
-	if (**format == 'x' || **format == 'X')
-	if (**format == '%')
-
-	if (**format == 'o')
-	if (**format == 'n')
-	if (**format == 'f' || **format == 'e' || **format == 'g')
-	
+		ft_print_un_int(ap, format, op);
+	// if (**format == 'x' || **format == 'X')
+	// 	ft_print_hex();
+	// if (**format == '%')
+	// 	ft_print_per();
+	// if (**format == 'n')
+	// if (**format == 'f' || **format == 'e' || **format == 'g')
+	return (0);
 }

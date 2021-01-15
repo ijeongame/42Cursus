@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_parse_start.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/15 17:33:21 by hkwon            ###   ########.fr       */
+/*   Created: 2021/01/15 18:03:30 by hkwon             #+#    #+#             */
+/*   Updated: 2021/01/15 18:10:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#include <stdio.h>
 
-static void	*ft_init_flist(t_format *op)
+t_format	*ft_set_list(const char **format, int cnt)
 {
+	t_format	*op;
+
+	if (!(op = malloc(sizeof(t_format))))
+		return (0);
 	op->left = 0;
 	op->zero = 0;
 	op->base = 0;
@@ -23,33 +26,16 @@ static void	*ft_init_flist(t_format *op)
 	op->width = 0;
 	op->prec = 0;
 	op->type = 0;
+	op->len = cnt;
+	op->str = format;
+	return (op);
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_parse_start(va_list ap, const char **format, int cnt)
 {
-	va_list		ap;
-	int			cnt; //구조체에 넣어서 해결
+	t_format	*op;
 
-	va_start(ap, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			++format;
-			if (!(ft_init_flist(ap, &format, cnt)))
-				return (-1);
-		}
-		else
-		{
-			cnt += write(1, format, 1);
-			format++;
-		}
-	}
-	va_end(ap);
-	return (cnt);
-}
-
-int main(void)
-{
-	ft_printf("%-0# +10d",123123123123);
+	if (!(op = ft_set_list(format, cnt)))
+		return (-1);
+	return (ft_parse_format(ap, op));
 }
