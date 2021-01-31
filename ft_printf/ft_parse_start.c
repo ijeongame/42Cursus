@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 18:03:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/15 18:10:22 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/31 15:58:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,22 @@ t_format	*ft_set_list(const char **format, int cnt)
 	op->len = cnt;
 	op->str = format;
 	return (op);
+}
+
+int			ft_parse_format(va_list ap, t_format *op)
+{
+	char **format;
+
+	format = op->str;
+	if (ft_strchr("-0# +", **format))
+		ft_parse_flag(ap, op);
+	if (ft_strchr("123456789*", **format))
+		ft_parse_width(ap, op);
+	if (ft_strchr(".", **format))
+	 	ft_parse_prec(ap, op);
+	if (ft_strchr("cspdiuxX%", **format))
+		ft_parse_type(ap, op);
+	return (0);
 }
 
 int			ft_parse_start(va_list ap, const char **format, int cnt)
