@@ -6,24 +6,12 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/15 17:33:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/01/24 21:26:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <stdio.h>
-
-static void	*ft_init_flist(t_format *op)
-{
-	op->left = 0;
-	op->zero = 0;
-	op->base = 0;
-	op->space = 0;
-	op->sign = 0;
-	op->width = 0;
-	op->prec = 0;
-	op->type = 0;
-}
 
 int		ft_printf(const char *format, ...)
 {
