@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:53:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 16:20:27 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 16:22:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,16 @@ int		ft_parse_prec(va_list ap, t_format *op)
 	return (ft_parse_format(ap, op));
 }
 
+int		ft_parse_extend(va_list ap, t_format *op)
+{
+	if (**op->str == 'h')
+		op->len_h += 1;
+	if (**op->str == 'l')
+		op->len_l += 1;
+	++(*op->str);
+	return (ft_parse_check(ap, op));
+}
+
 int		ft_parse_type(va_list ap, t_format *op)
 {
 	if (**op->str == 'c')
@@ -90,20 +100,5 @@ int		ft_parse_type(va_list ap, t_format *op)
 		ft_print_un_int(ap, op);
 	if (**op->str == '%')
 		ft_print_per(ap, op);
-	return (0);
-}
-
-int			ft_parse_format(va_list ap, t_format *op)
-{
-	if (ft_strchr("-0# +", **op->str))
-		ft_parse_flag(ap, op);
-	if (ft_strchr("123456789*", **op->str))
-		ft_parse_width(ap, op);
-	if (ft_strchr(".", **op->str))
-		ft_parse_prec(ap, op);
-	if (ft_strcht("lh", **op->str))
-		ft_parse_extend(ap, op);
-	if (ft_strchr("cspdiuxX%", **op->str))
-		ft_parse_type(ap, op);
 	return (0);
 }
