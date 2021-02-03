@@ -6,11 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 21:36:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 18:21:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 18:24:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int		cnt_num(long long n)
 {
