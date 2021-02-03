@@ -6,26 +6,29 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/01/24 21:26:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 17:01:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#include <stdio.h>
 
 int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
-	int			cnt; //구조체에 넣어서 해결
+	int			cnt;
+	int			s_cnt;
 
+	cnt = 0;
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			++format;
-			if (!(ft_init_flist(ap, &format, cnt)))
-				return (-1);
+			s_cnt = ft_parse_start(ap, &format, cnt);
+			if (s_cnt == -1)
+				return (0);
+			cnt += s_cnt;
 		}
 		else
 		{
@@ -35,9 +38,4 @@ int		ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (cnt);
-}
-
-int main(void)
-{
-	ft_printf("%-0# +10d",123123123123);
 }
