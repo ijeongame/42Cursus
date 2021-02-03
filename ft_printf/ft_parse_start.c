@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 18:03:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 17:59:41 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 18:29:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			ft_parse_format(va_list ap, t_format *op)
 	return (0);
 }
 
-int			ft_parse_start(va_list ap, const char **format, int cnt)
+int			ft_parse_start(va_list ap, const char **format)
 {
 	t_format	*op;
 
