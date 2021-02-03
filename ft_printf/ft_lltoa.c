@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 21:36:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 15:23:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 18:21:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		write_num(char *dest, unsigned long long n)
 	}
 }
 
-char			*ft_new_itoa(long long n)
+char			*ft_lltoa(long long n)
 {
 	char				*res;
 	unsigned long long	nbr;
