@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 17:01:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/03 17:54:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			++format;
-			s_cnt = ft_parse_start(ap, &format, cnt);
+			s_cnt = ft_parse_start(ap, &format);
 			if (s_cnt == -1)
 				return (0);
 			cnt += s_cnt;
