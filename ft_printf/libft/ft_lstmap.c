@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/07 13:26:26 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/13 18:25:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	
+	t_list *curr;
+	t_list *res;
+
+	if (!(res = ft_lstnew(f(lst->content))))
+		return (0);
+	curr = res;
+	lst = lst->next;
+	while (lst)
+	{
+		if (!(curr->next = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&res, del);
+			return (0);
+		}
+		curr = curr->next;
+		lst = lst->next;
+	}
+	return (res);
 }

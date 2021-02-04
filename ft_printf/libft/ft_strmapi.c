@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/28 16:47:47 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 15:44:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	
+	size_t	i;
+	char	*res;
+
+	if (!s)
+		return (0);
+	if (!(res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		res[i] = f(i, s[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }

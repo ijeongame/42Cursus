@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/07 11:22:39 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 13:17:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	
+	new->next = *lst;
+	*lst = new;
 }

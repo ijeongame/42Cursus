@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/17 03:51:59 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 13:56:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+int		ft_isalnum(int c)
 {
-	
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
 }

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/17 03:56:06 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/13 17:04:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+char	*ft_strrchr(const char *str, int c)
 {
-	
+	size_t	len;
+
+	len = ft_strlen(str);
+	while (len != 0 && *(str + len) != c)
+		len--;
+	if (*(str + len) == c)
+		return (char *)(str + len);
+	return (0);
 }

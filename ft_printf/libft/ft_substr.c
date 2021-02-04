@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:26 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/09 16:44:11 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 14:43:13 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list ap, t_format *op)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	
+	char *res;
+
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	ft_memcpy(res, s + start, len);
+	res[len] = '\0';
+	return (res);
 }
