@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/03 22:42:14 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/04 14:57:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct			s_format{
 	int			len_h;
 	int			len_l;
 	int			type;
+	char		*res;
 	char		**str;
 }						t_format;
 
