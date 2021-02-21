@@ -6,20 +6,17 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/21 18:33:41 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		start_printf(const char *format, va_list ap, t_list *op)
 {
-	va_list		ap;
-	int			cnt;
-	int			s_cnt;
+	int s_cnt;
 
-	cnt = 0;
-	va_start(ap, format);
+	s_cnt = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -36,6 +33,20 @@ int		ft_printf(const char *format, ...)
 			format++;
 		}
 	}
+	return (s_cnt);
+}
+
+int		ft_printf(const char *format, ...)
+{
+	va_list		ap;
+	t_format	*op;
+	int			cnt;
+
+	va_start(ap, format);
+	if (!(op = (t_format *)malloc(sizeof(t_format))))
+		return (-1);
+	ft_init_list(op);
+	cnt = start_printf(format, ap, op);
 	va_end(ap);
 	return (cnt);
 }
