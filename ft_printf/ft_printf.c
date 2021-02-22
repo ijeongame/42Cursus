@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/22 01:21:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 01:57:55 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ static int		ft_parse_type(char format, va_list ap, t_format *op)
 {
 	if (format == 'c')
 		return (ft_print_char(ap, op));
-	if (format == 's')
-		return (ft_print_str(ap, op));
-	if (format == 'p')
-		return (ft_print_ptr(ap, op));
+	// if (format == 's')
+	// 	return (ft_print_str(ap, op));
+	// if (format == 'p')
+	// 	return (ft_print_ptr(ap, op));
 	if (format == 'd' || format == 'i')
 		return (ft_print_int(ap, op));
-	if (format == 'u')
-		return (ft_print_un_int(ap, op));
-	if (format == 'x' || format == 'X')
-		return (ft_print_hex(ap, op));
-	if (format == '%')
-		return (ft_print_per(op));
+	// if (format == 'u')
+	// 	return (ft_print_un_int(ap, op));
+	// if (format == 'x' || format == 'X')
+	// 	return (ft_print_hex(ap, op));
+	// if (format == '%')
+	// 	return (ft_print_per(op));
 	return (0);
 }
 
@@ -76,7 +76,7 @@ static int		start_printf(const char *format, va_list ap)
 	t_format	*op;
 
 	s_cnt = 0;
-	if (!(op = malloc(sizeof(t_format))))
+	if (!(op = (t_format *)malloc(sizeof(t_format))))
 		return (-1);
 	while (*format)
 	{
@@ -106,4 +106,16 @@ int		ft_printf(const char *format, ...)
 	cnt = start_printf(format, ap);
 	va_end(ap);
 	return (cnt);
+}
+
+int		main(void)
+{
+	ft_printf("%d끝\n", 10);
+	ft_printf("%010d끝\n", 1234);
+	ft_printf("%-10d끝\n", 1234);
+	ft_printf("%-010d끝\n", 1234);
+	ft_printf("%.10d끝\n", 1234);
+	ft_printf("%.10d끝\n", -1234);
+
+	ft_printf("%10c끝\n",'a');
 }
