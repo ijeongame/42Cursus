@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 14:57:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 01:39:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,25 @@
 
 typedef struct			s_format{
 	int			left;
-	int			sign;
-	int			space;
-	int			base;
 	int			zero;
+	int			sign;
 	int			width;
 	int			prec;
-	int			len_h;
-	int			len_l;
-	int			type;
 	char		*res;
-	char		**str;
 }						t_format;
 
 int						ft_printf(const char *format, ...);
+void	ft_init_list(t_format *op);
+size_t	ft_strlen(const char *str);
+void			*ft_memset(void *ptr, int value, size_t size);
+void	*ft_memcpy(void *dest, const void *src, size_t size);
+int				ft_isdigit(int c);
+char			*ft_itoa(int n);
+char	*ft_strdup(const char *src);
+char	*ft_strchr(const char *str, int c);
 
-int						ft_parse_start(va_list ap, const char **format);
-int						ft_parse_format(va_list ap, t_format *op);
-int						ft_parse_width(va_list ap, t_format *op);
-int						ft_parse_prec(va_list ap, t_format *op);
-int						ft_parse_type(va_list ap, t_format *op);
-int						ft_parse_extend(va_list ap, t_format *op);
-
-long long int			ft_extend_di(va_list ap, t_format *op);
-unsigned long long int	ft_extend_u(va_list ap, t_format *op);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
 
 char					*ft_lltoa(long long n);
 
