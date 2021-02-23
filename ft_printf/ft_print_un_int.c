@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:57:39 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 20:18:26 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 21:42:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int			ft_print_un_int(va_list ap, t_format *op)
 	int		cnt;
 
 	n_str = ft_lltoa(va_arg(ap, unsigned int));
+	if (*n_str == '-')
+		op->sign = 1;
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
 	len = ft_strlen(tmp);

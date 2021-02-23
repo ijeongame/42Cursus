@@ -2,7 +2,13 @@
 
 int main(void)
 {
-	printf("%u\n", -1);
-	printf("%010u\n", 12);
-	printf("%-10u\n", 11);
+	int a = 100;
+
+	printf("%p끝\n",a);
+	printf("%10p끝\n",a);
+	printf("%-10p끝\n",a);
+	printf("%010p끝\n",a);
+	printf("%.10p끝\n",a);
+	printf("%3.7p끝\n",a);
+	printf("%10.5p끝\n",a);
 }

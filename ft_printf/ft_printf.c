@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 20:34:57 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 22:47:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static int		ft_parse_type(char format, va_list ap, t_format *op)
 		return (ft_print_char(ap, op));
 	// if (format == 's')
 	// 	return (ft_print_str(ap, op));
-	// if (format == 'p')
-	// 	return (ft_print_ptr(ap, op));
+	if (format == 'p')
+		return (ft_print_ptr(ap, op));
 	if (format == 'd' || format == 'i')
 		return (ft_print_int(ap, op));
 	if (format == 'u')
 		return (ft_print_un_int(ap, op));
-	// if (format == 'x' || format == 'X')
-	//  	return (ft_print_hex(ap, op));
+	if (format == 'x' || format == 'X')
+	 	return (ft_print_hex(ap, op));
 	// if (format == '%')
 	// 	return (ft_print_per(op));
 	return (0);
@@ -111,18 +111,32 @@ int		ft_printf(const char *format, ...)
 
 int		main(void)
 {
-	ft_printf("%03d%d끝\n", 1234,5678);
-	ft_printf("%010d끝\n", 1234);
-	ft_printf("%-10d끝\n", -1234);
-	ft_printf("%-010d끝\n", -1234);
-	ft_printf("%.10d끝\n", 1234);
-	ft_printf("%.10d끝\n", -1234);
-	ft_printf("%8.7d끝\n", 123456);
+	int a = 100;
 
-	ft_printf("%u\n", -1);
-	ft_printf("%010u\n", 12);
-	ft_printf("%-10u\n", 11);
-	// ft_printf("%10c끝\n",'a');
+	// ft_printf("%.0d끝\n", 0);
+	// ft_printf("%010d끝\n", 1234);
+	// ft_printf("%-10d끝\n", -1234);
+	// ft_printf("%-010d끝\n", -1234);
+	// ft_printf("%.10d끝\n", 1234);
+	// ft_printf("%.10d끝\n", -1234);
+	// ft_printf("%8.7d끝\n", 123456);
+
+	// ft_printf("%u\n", -1);
+	// ft_printf("%010u\n", 12);
+	// ft_printf("%-10u\n", 11);
+
+	// ft_printf("%10x\n", 1234);
+	// ft_printf("%X\n",1234);
+	// ft_printf("%010x\n",1234);
+	// ft_printf("%-10X\n",1234);
+	
+	ft_printf("%p끝\n",a);
+	ft_printf("%10p끝\n",a);
+	ft_printf("%-10p끝\n",a);
+	ft_printf("%010p끝\n",a);
+	ft_printf("%.10p끝\n",a);
+	ft_printf("%3.7p끝\n",a);
+	ft_printf("%10.5p끝\n",a);
 	// ft_printf("%-10c끝\n", 'a');
 	// ft_printf("%010c끝\n", 'a');
 }

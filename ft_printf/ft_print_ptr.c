@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 20:30:07 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 22:06:39 by hkwon            ###   ########.fr       */
+/*   Created: 2021/02/23 21:51:28 by hkwon             #+#    #+#             */
+/*   Updated: 2021/02/23 22:49:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static char	*ft_apply_zero(char *n_str, int len, t_format *op)
 		return (NULL);
 	res[len] = '\0';
 	ft_memset(res, '0', len);
-	if (op->sign)
-		res[0] = '-';
 	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
+	res[0] = '0';
+	res[1] = 'x';
 	return (res);
 }
 
@@ -36,13 +36,13 @@ static int	ft_calc_width(char *n_str, t_format *op)
 {
 	int		len;
 
-	len = ft_strlen(n_str);
+	len = ft_strlen(n_str) + 2;
 	if (op->prec < 0 && op->zero && op->width > len)
 		len = op->width;
 	if (op->prec == 0 && *n_str == '0')
 		len = 0;
-	if (op->prec > len - op->sign)
-		len = op->prec + op->sign;
+	if (op->prec > len)
+		len = op->prec + 2;
 	return (len);
 }
 
@@ -74,19 +74,16 @@ static int	ft_print_res(char *tmp, int len, t_format *op)
 	return (cnt);
 }
 
-int			ft_print_hex(va_list ap, t_format *op)
+int			ft_print_ptr(va_list ap, t_format *op)
 {
+	int		num;
 	char	*n_str;
 	char	*tmp;
 	int		len;
 	int		cnt;
 
-	if (op->type == 'x')
-		n_str = ft_convert_base(va_arg(ap, unsigned int), "0123456789abcdef");
-	if (op->type == 'X')
-		n_str = ft_convert_base(va_arg(ap, unsigned int), "0123456789ABCDEF");
-	if (*n_str == '-')
-		op->sign = 1;
+	num = (long long)(va_arg(ap, void *));
+	n_str = ft_convert_base(num, "0123456789abcdef");
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
 	len = ft_strlen(tmp);

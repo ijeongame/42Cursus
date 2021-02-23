@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:54:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 20:32:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 21:58:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ int		ft_putchar(char c);
 int		ft_putstr(char *s);
 
 char					*ft_lltoa(long long n);
+char		*ft_convert_base(unsigned long long n, char *convert);
 
 int						ft_print_int(va_list ap, t_format *op);
 int						ft_print_un_int(va_list ap, t_format *op);
 int						ft_print_char(va_list ap, t_format *op);
+int						ft_print_hex(va_list ap, t_format *op);
+int						ft_print_ptr(va_list ap, t_format *op);
 
 #endif
