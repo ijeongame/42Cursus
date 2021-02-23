@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 22:47:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/23 22:50:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,36 +107,4 @@ int		ft_printf(const char *format, ...)
 	cnt = start_printf(format, ap);
 	va_end(ap);
 	return (cnt);
-}
-
-int		main(void)
-{
-	int a = 100;
-
-	// ft_printf("%.0d끝\n", 0);
-	// ft_printf("%010d끝\n", 1234);
-	// ft_printf("%-10d끝\n", -1234);
-	// ft_printf("%-010d끝\n", -1234);
-	// ft_printf("%.10d끝\n", 1234);
-	// ft_printf("%.10d끝\n", -1234);
-	// ft_printf("%8.7d끝\n", 123456);
-
-	// ft_printf("%u\n", -1);
-	// ft_printf("%010u\n", 12);
-	// ft_printf("%-10u\n", 11);
-
-	// ft_printf("%10x\n", 1234);
-	// ft_printf("%X\n",1234);
-	// ft_printf("%010x\n",1234);
-	// ft_printf("%-10X\n",1234);
-	
-	ft_printf("%p끝\n",a);
-	ft_printf("%10p끝\n",a);
-	ft_printf("%-10p끝\n",a);
-	ft_printf("%010p끝\n",a);
-	ft_printf("%.10p끝\n",a);
-	ft_printf("%3.7p끝\n",a);
-	ft_printf("%10.5p끝\n",a);
-	// ft_printf("%-10c끝\n", 'a');
-	// ft_printf("%010c끝\n", 'a');
 }
