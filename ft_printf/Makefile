@@ -16,10 +16,13 @@ SRCS_DIR = ./srcs
 INCLUD_DIR = ./includes
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		ft_printf.c ft_parse_start.c ft_parse_format.c \
-		ft_print_int.c ft_print_char.c \ ft_print_str.c \
-		ft_print_per.c ft_store_res.c \
-		ft_check_extend.c)
+		ft_printf.c\
+		ft_init_list.c\
+		ft_print_char.c\
+		ft_print_int.c\
+		ft_print_un_int.c\
+		ft_print_hex.c\
+		ft_print_ptr.c )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
@@ -45,8 +48,6 @@ clean :
 fclean : clean
 	@$(RM) $(LIB_DIR)
 	@$(RM) $(NAME)
-
-test : 
 
 re : fclean all
 
