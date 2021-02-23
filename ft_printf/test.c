@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	printf("%-10d끝\n", 12345);
-	printf("%*.*d끝\n", 8, 4, 12);
-
+	printf("%u\n", -1);
+	printf("%010u\n", 12);
+	printf("%-10u\n", 11);
 }

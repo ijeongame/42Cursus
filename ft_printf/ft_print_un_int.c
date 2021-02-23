@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_un_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 16:05:18 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 20:28:00 by hkwon            ###   ########.fr       */
+/*   Created: 2021/02/23 19:57:39 by hkwon             #+#    #+#             */
+/*   Updated: 2021/02/23 20:18:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,14 @@ static int	ft_print_res(char *tmp, int len, t_format *op)
 	return (cnt);
 }
 
-int			ft_print_int(va_list ap, t_format *op)
+int			ft_print_un_int(va_list ap, t_format *op)
 {
 	char	*n_str;
 	char	*tmp;
 	int		len;
 	int		cnt;
 
-	n_str = ft_itoa(va_arg(ap, int));
-	if (*n_str == '-')
-		op->sign = 1;
+	n_str = ft_lltoa(va_arg(ap, unsigned int));
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
 	len = ft_strlen(tmp);

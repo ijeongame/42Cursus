@@ -46,7 +46,7 @@ fclean : clean
 	@$(RM) $(LIB_DIR)
 	@$(RM) $(NAME)
 
-test :  
+test : 
 
 re : fclean all
 

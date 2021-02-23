@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 18:37:53 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 22:49:10 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/21 20:55:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ void	ft_res_str(char **res, char *s)
 	}
 	else
 		ft_putstr_fd(s, 1);
+}
+
+void	ft_res_print(char **res, char *s, int len)
+{
+	
 }

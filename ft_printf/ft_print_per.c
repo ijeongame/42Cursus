@@ -6,8 +6,17 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 18:22:35 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/04 16:46:30 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/02/21 20:56:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_print_per(t_format *op)
+{
+	int	cnt;
+	int	s_width;
+
+	cnt = 0;
+	s_width = op->width - 1;
+}
