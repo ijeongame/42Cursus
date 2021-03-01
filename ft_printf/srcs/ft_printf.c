@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/24 01:05:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/01 23:01:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static int		ft_parse_type(char format, va_list ap, t_format *op)
 {
 	op->type = format;
-	// if (format == 'c')
-	// 	return (ft_print_char(ap, op));
-	// if (format == 's')
-	// 	return (ft_print_str(ap, op));
-	// if (format == 'p')
-	// 	return (ft_print_ptr(ap, op));
+	if (format == 'c')
+		return (ft_print_char(ap, op));
+	if (format == 's')
+		return (ft_print_str(ap, op));
+	if (format == 'p')
+		return (ft_print_ptr(ap, op));
 	if (format == 'd' || format == 'i')
 		return (ft_print_int(ap, op));
 	if (format == 'u')
-	// 	return (ft_print_un_int(ap, op));
-	// if (format == 'x' || format == 'X')
-	//  	return (ft_print_hex(ap, op));
-	// if (format == '%')
-	// 	return (ft_print_per(op));
+		return (ft_print_un_int(ap, op));
+	if (format == 'x' || format == 'X')
+	 	return (ft_print_hex(ap, op));
+	if (format == '%')
+		return (ft_print_per(op));
 	return (0);
 }
 
@@ -107,14 +107,4 @@ int		ft_printf(const char *format, ...)
 	cnt = start_printf(format, ap);
 	va_end(ap);
 	return (cnt);
-}
-
-int main(void)
-{
-	int cnt;
-
-
-	cnt = ft_printf("%*.*d\n", 0, 10, -12345);
-	ft_printf("%6d\n",-123456);
-	ft_printf("%d", cnt);
 }
