@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 LIBFT = libft.a
 
-AR = ar
+AR = ar r
 ARFLAGS = crs
 
 CC = gcc
@@ -32,12 +32,11 @@ bonus : all
 
 $(NAME) : $(OBJS)
 	@make -C $(LIB_DIR)
-	@cp $(LIB_DIR)/$(LIBFT)
+	@cp $(LIB_DIR)/$(LIBFT) .
 	@mv $(LIBFT) $(NAME)
 	@$(AR) $(NAME) $(OBJS)
 
-
-$(OBJS_DIR)/%.o : $(SRC_DIR)/%.c
+$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) $(DEBUG) -I$(INCLUD_LIBFT) -I $(LIB_DIR) -c $< -o $@ 
 
