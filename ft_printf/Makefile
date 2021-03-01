@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/01 22:22:03 by hkwon             #+#    #+#              #
-#    Updated: 2021/03/01 22:25:18 by hkwon            ###   ########.fr        #
+#    Updated: 2021/03/01 23:14:21 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,12 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 		ft_printf.c\
 		ft_init_list.c\
 		ft_print_char.c\
+		ft_print_str.c\
 		ft_print_int.c\
 		ft_print_un_int.c\
 		ft_print_hex.c\
-		ft_print_ptr.c )
+		ft_print_ptr.c\
+		ft_print_per.c )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
