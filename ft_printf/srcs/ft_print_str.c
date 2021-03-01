@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:40:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/01 23:14:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/01 23:51:31 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_print_str(va_list ap, t_format *op)
 
 	tmp = va_arg(ap, char *);
 	if (!tmp)
-		tmp = "(NULL)";
+		tmp = "(null)";
 	len = ft_strlen(tmp);
 	if (len > op->prec && op->prec > -1)
 		len = op->prec;
