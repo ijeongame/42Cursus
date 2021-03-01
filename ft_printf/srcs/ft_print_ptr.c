@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 21:51:28 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 22:49:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/01 23:51:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static char	*ft_apply_zero(char *n_str, int len, t_format *op)
 	res[len] = '\0';
 	ft_memset(res, '0', len);
 	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
-	res[0] = '0';
-	res[1] = 'x';
 	return (res);
 }
 
@@ -86,7 +84,8 @@ int			ft_print_ptr(va_list ap, t_format *op)
 	n_str = ft_convert_base(num, "0123456789abcdef");
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
-	len = ft_strlen(tmp);
+	tmp = ft_strjoin("0x", tmp);
+	len += 2;
 	if (len > op->width)
 		op->width = len;
 	cnt = ft_print_res(tmp, len, op);
