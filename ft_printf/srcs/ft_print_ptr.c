@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 21:51:28 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/02 22:42:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 22:46:50 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,12 @@ int			ft_print_ptr(va_list ap, t_format *op)
 	n_str = ft_convert_base(num, "0123456789abcdef");
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
-	tmp = ft_strjoin("0x", tmp);
-	len = ft_strlen(tmp);
+	free(n_str);
+	n_str = ft_strjoin("0x", tmp);
+	len = ft_strlen(n_str);
 	if (len > op->width)
 		op->width = len;
-	cnt = ft_print_res(tmp, len, op);
+	cnt = ft_print_res(n_str, len, op);
 	free(n_str);
 	free(tmp);
 	return (cnt);
