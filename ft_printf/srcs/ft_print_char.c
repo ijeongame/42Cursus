@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 21:26:34 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/22 01:24:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/03 00:12:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	ft_print_char(va_list ap, t_format *op)
 	int s_width;
 
 	cnt = 0;
-	s_width = op->width - 1;
-	if (op->left == 1)
+	s_width = 0;
+	if (op->left)
 	{
 		cnt += ft_putchar(va_arg(ap, int));
-		while (s_width-- > 0)
+		while (s_width++ < (op->width - 1))
 			cnt += ft_putchar(' ');
 	}
 	else
 	{
-		while (s_width-- > 0)
+		while (s_width++ < (op->width - 1))
 			cnt += ft_putchar(' ');
 		cnt += ft_putchar(va_arg(ap, int));
 	}
