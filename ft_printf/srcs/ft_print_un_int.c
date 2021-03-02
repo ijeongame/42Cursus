@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:57:39 by hkwon             #+#    #+#             */
-/*   Updated: 2021/02/23 21:42:35 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 22:26:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static char	*ft_apply_zero(char *n_str, int len, t_format *op)
 		return (ft_strdup(""));
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	res[len] = '\0';
 	ft_memset(res, '0', len);
+	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
 	if (op->sign)
 		res[0] = '-';
-	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
+	res[len] = '\0';
 	return (res);
 }
 
@@ -37,6 +37,8 @@ static int	ft_calc_width(char *n_str, t_format *op)
 	int		len;
 
 	len = ft_strlen(n_str);
+	if (*n_str == '-')
+		op->sign = 1;
 	if (op->prec < 0 && op->zero && op->width > len)
 		len = op->width;
 	if (op->prec == 0 && *n_str == '0')
@@ -82,8 +84,6 @@ int			ft_print_un_int(va_list ap, t_format *op)
 	int		cnt;
 
 	n_str = ft_lltoa(va_arg(ap, unsigned int));
-	if (*n_str == '-')
-		op->sign = 1;
 	len = ft_calc_width(n_str, op);
 	tmp = ft_apply_zero(n_str, len, op);
 	len = ft_strlen(tmp);
