@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/02 22:43:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 23:21:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,7 @@ static int		start_printf(const char *format, va_list ap)
 				ft_parse_format(*(format++), ap, op);
 			if (op->left == 1 || op->prec > -1)
 				op->zero = 0;
-			if (*format && !ft_strchr("cspdiuxX%", *format))
-				s_cnt += ft_parse_type(*(format++), ap, op);
+			s_cnt += ft_parse_type(*(format++), ap, op);
 		}
 		else
 			s_cnt += ft_putchar(*(format++));
