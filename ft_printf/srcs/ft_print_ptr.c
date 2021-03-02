@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 21:51:28 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/02 22:23:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 22:31:50 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static char	*ft_apply_zero(char *n_str, int len, t_format *op)
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	ft_memset(res, '0', len);
+	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
 	if (op->sign)
 		res[0] = '-';
-	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
 	res[len] = '\0';
 	return (res);
 }
