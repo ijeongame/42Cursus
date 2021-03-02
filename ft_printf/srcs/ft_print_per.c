@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 18:22:35 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/03 00:12:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/03 00:20:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_print_per(t_format *op)
 	}
 	else
 	{
-		while (s_width++ < (op->width - ))
+		while (s_width++ < (op->width - 1))
 		{
 			if (op->zero)
 				cnt += ft_putchar('0');
