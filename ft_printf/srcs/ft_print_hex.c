@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 20:30:07 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/02 23:13:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 23:19:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static int	ft_calc_width(char *n_str, t_format *op)
 		len = op->prec + op->sign;
 	return (len);
 }
-
 
 static int	ft_print_res(char *tmp, int len, t_format *op)
 {
