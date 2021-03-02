@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/01 23:01:25 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 22:43:09 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		ft_parse_type(char format, va_list ap, t_format *op)
 	if (format == 'u')
 		return (ft_print_un_int(ap, op));
 	if (format == 'x' || format == 'X')
-	 	return (ft_print_hex(ap, op));
+		return (ft_print_hex(ap, op));
 	if (format == '%')
 		return (ft_print_per(op));
 	return (0);
@@ -89,7 +89,8 @@ static int		start_printf(const char *format, va_list ap)
 				ft_parse_format(*(format++), ap, op);
 			if (op->left == 1 || op->prec > -1)
 				op->zero = 0;
-			s_cnt += ft_parse_type(*(format++), ap, op);
+			if (*format && !ft_strchr("cspdiuxX%", *format))
+				s_cnt += ft_parse_type(*(format++), ap, op);
 		}
 		else
 			s_cnt += ft_putchar(*(format++));
@@ -98,7 +99,7 @@ static int		start_printf(const char *format, va_list ap)
 	return (s_cnt);
 }
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			cnt;
