@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:37:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/03 01:33:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/03 01:43:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void		ft_parse_format(char format, va_list ap, t_format *op)
 		ft_parse_width_prec(format, ap, op);
 }
 
-static int		start_printf(const char *format, va_list ap)
+static int		ft_start_printf(const char *format, va_list ap)
 {
 	int			s_cnt;
 	t_format	*op;
@@ -104,7 +104,7 @@ int				ft_printf(const char *format, ...)
 	int			cnt;
 
 	va_start(ap, format);
-	cnt = start_printf(format, ap);
+	cnt = ft_start_printf(format, ap);
 	va_end(ap);
 	return (cnt);
 }
