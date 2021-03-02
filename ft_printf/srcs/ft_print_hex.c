@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 20:30:07 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/02 22:50:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/02 23:13:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ static char	*ft_apply_zero(char *n_str, int len, t_format *op)
 		return (ft_strdup(""));
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
+	res[len] = '\0';
 	ft_memset(res, '0', len);
 	if (op->sign)
 		res[0] = '-';
 	ft_memcpy(res + len - n_len, n_str + op->sign, n_len);
-	res[len] = '\0';
 	return (res);
 }
+
 static int	ft_calc_width(char *n_str, t_format *op)
 {
 	int		len;
@@ -47,6 +48,7 @@ static int	ft_calc_width(char *n_str, t_format *op)
 	return (len);
 }
 
+
 static int	ft_print_res(char *tmp, int len, t_format *op)
 {
 	char	*res;
@@ -54,6 +56,7 @@ static int	ft_print_res(char *tmp, int len, t_format *op)
 
 	if (!(res = (char *)malloc(sizeof(char) * (op->width + 1))))
 		return (-1);
+	res[op->width] = '\0';
 	if (op->prec < 0 && op->zero && !op->left)
 	{
 		ft_memset(res, '0', op->width);
@@ -69,7 +72,6 @@ static int	ft_print_res(char *tmp, int len, t_format *op)
 		ft_memset(res, ' ', op->width);
 		ft_memcpy(res, tmp, len);
 	}
-	res[op->width] = '\0';
 	cnt = ft_putstr(res);
 	free(res);
 	return (cnt);
