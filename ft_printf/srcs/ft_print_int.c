@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 16:05:18 by hkwon             #+#    #+#             */
-/*   Updated: 2021/03/03 00:12:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/03/03 23:39:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_calc_width(char *n_str, t_format *op)
 		op->sign = 1;
 	if (op->prec < 0 && op->zero && op->width > len)
 		len = op->width;
-	if (op->prec == 0 && *n_str == '0')
+	if (op->prec == 0 && *n_str == '0' && len == 1)
 		len = 0;
 	if (op->prec > len - op->sign)
 		len = op->prec + op->sign;
