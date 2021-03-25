@@ -21,17 +21,17 @@
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-	
+
 	return 301 https://$host$request_uri;
 }
 
 # SSL configuration
 #
 server {
-	
+
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
-	
+
 	# ssl setting
 	ssl on;
 	ssl_certificate /etc/ssl/certs/localhost.dev.crt;
@@ -50,10 +50,10 @@ server {
 		# First attemp to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		# add autoindex
-		autoindex on;
+		autoindex off;
 		try_files $uri $uri/ =404;
 	}
-	
+
 	# php
 	location ~ \.php$ {
 		include snippets/fastcgi-php.conf;
