@@ -46,4 +46,4 @@ RUN 	chown -R www-data:www-data /var/www/html/
 
 EXPOSE	80 443
 
-CMD bash run.sh
+ENTRYPOINT ["/bin/bash", "-C", "/run.sh"]
