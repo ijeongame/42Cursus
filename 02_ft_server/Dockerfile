@@ -1,25 +1,19 @@
-# 어떤 image를 기반으로 시작하는지 정의한다.
 FROM	debian:buster
 
 ENV		AUTOINDEX on
 
-# ARG를 통해 wordpress database의 값을 할당한다.
 ARG		WP_NAME=wordpress
 ARG		WP_USER=hkwon
 ARG		WP_PWD=hkwon
 
-# 생성된 image에 대해 여러가지 정보를 담는다.
 LABEL	maintainer="hkwon@student.42seoul.kr"
 
-# 패키지 관리자 설치
 RUN		apt-get -y update; apt-get -y upgrade
 
-# 서버 구축에 필요한 패키지 설치
 RUN		apt-get -y install nginx openssl php-fpm mariadb-server php-mysql php-mbstring vim curl
 
 COPY	./srcs/* ./
 
-# openssl
 RUN		openssl req -newkey rsa:4096 -days 365 -nodes -x509 \
 		-subj "/C=KR/ST=Seoul/L=Gaepo/O=42Seoul/OU=hkwon/CN=localhost" \
 		-keyout localhost.dev.key -out localhost.dev.crt; \
@@ -28,7 +22,6 @@ RUN		openssl req -newkey rsa:4096 -days 365 -nodes -x509 \
 		chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key; \
 		cp /default /etc/nginx/sites-available/default
 
-# wordpres
 RUN		curl -O https://wordpress.org/latest.tar.gz; \
 		tar -xzf latest.tar.gz -C var/www/html/; \
 		chown -R www-data:www-data /var/www/html/wordpress; \
@@ -37,13 +30,11 @@ RUN		curl -O https://wordpress.org/latest.tar.gz; \
 		sed -i "s/username_here/${WP_USER}/g" /var/www/html/wordpress/wp-config.php; \
 		sed -i "s/password_here/${WP_PWD}/g" /var/www/html/wordpress/wp-config.php
 
-# phpmyadmin
 RUN		curl -O https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz; \
 		tar -xzf phpMyAdmin-5.0.4-all-languages.tar.gz -C var/www/html; \
 		mv var/www/html/phpMyAdmin-5.0.4-all-languages var/www/html/phpmyadmin; \
 		cp /config.inc.php var/www/html/phpmyadmin/
 
-# mySQL
 RUN		service mysql start; \
 		mysql -e "CREATE DATABASE ${WP_NAME}; \
 		USE ${WP_NAME}; \
@@ -53,9 +44,6 @@ RUN		service mysql start; \
 
 RUN 	chown -R www-data:www-data /var/www/html/
 
-# 어떤 포트를 사용할 지 알려 container 내부에서 네트워크 포트를 수신 대기 상태로 만든다.
 EXPOSE	80 443
 
-# -C option : /bin/bash 를 이용해 run.sh를 실행하겠다.
-ENTRYPOINT ["/bin/bash", "-C", "/run.sh"]
-#CMD bash run.sh
+CMD bash run.sh
