@@ -1,6 +1,6 @@
 FROM	debian:buster
 
-ENV		AUTOINDEX on
+ENV		AUTOINDEX off
 
 ARG		WP_NAME=wordpress
 ARG		WP_USER=hkwon
@@ -42,8 +42,8 @@ RUN		service mysql start; \
 		GRANT ALL PRIVILEGES ON wordpress.* TO '${WP_USER}'@'localhost' WITH GRANT OPTION; \
 		FLUSH PRIVILEGES;"
 
-RUN 	chown -R www-data:www-data /var/www/html/
+RUN		chown -R www-data:www-data /var/www/html/
 
 EXPOSE	80 443
 
-ENTRYPOINT ["/bin/bash", "-C", "/run.sh"]
+ENTRYPOINT	[ "/bin/bash", "-C", "/run.sh" ]
