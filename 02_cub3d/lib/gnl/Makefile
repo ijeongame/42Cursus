@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 01:44:40 by hkwon             #+#    #+#              #
-#    Updated: 2021/04/28 02:10:59 by hkwon            ###   ########.fr        #
+#    Updated: 2021/05/18 02:59:40 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
-INCLUD_DIR = ./includes
+INCLUDE_DIR = ./includes
 
 SRCS = $(addprefix $(SRCS_DIR)/, get_next_line.c get_next_line_utils.c)
 
@@ -29,23 +29,20 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@make -C $(LIB_DIR)
-	@cp $(LIB_DIR)/$(LIBFT) .
-	@mv $(LIBFT) $(NAME)
-	@$(AR) $(NAME) $(OBJS)
+	@$(AR) $@ $^
 
-$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
+$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c $< -o $@
+
+$(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) $(DEBUG) -I $(INCLUD_DIR) -I $(LIB_DIR) -c $< -o $@
 
 clean :
-	@make -C $(LIB_DIR) clean
-	$(RM) -rd $(OBJS_DIR)
+	@$(RM) -rd $(OBJS_DIR)
 
 fclean : clean
-	@$(RM) $(LIB_DIR)/$(LIBFT)
 	@$(RM) $(NAME)
 
 re : fclean all
-
 .PHONY : all clean fclean re
+

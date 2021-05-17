@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2021/02/23 22:57:27 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 02:43:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+int				ft_count(int n);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s1, char const *set);
