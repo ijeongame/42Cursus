@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 01:58:33 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/15 01:51:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 04:01:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		event_key_press(int keycode, t_cub *c)
 	// if (keycode == KEY_DOWN)
 	// 	c->key.key_down = 1;
 	if (keycode == KEY_ESC)
-		c_exit(c, SUCESS);
+		exit_cub3d(c);
 	return (0);
 }
 
@@ -56,8 +56,8 @@ int		event_key_release(int keycode, t_cub *c)
 	return (0);
 }
 
-int		event_exit(int keycode, t_cub *c)
+int		event_exit(t_cub *c)
 {
-	exit_cub(c, SUCESS);
+	exit_cub3d(c);
 	return (0);
 }
