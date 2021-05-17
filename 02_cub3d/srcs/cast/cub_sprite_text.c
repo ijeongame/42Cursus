@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 04:16:42 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/16 03:43:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 04:00:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	sprite_text(t_cub *c, t_sc *s, int i)
 				t.color = c->info.texture[c->map[(int)c->sp[s->sp_order[i]].x]\
 				[(int)c->sp[s->sp_order[i]].y] + 4][TEXT_W * t.t_y + t.t_x];
 				if (t.color && 0X00FFFFFF != 0)
-					c->img.data = t.color;
+						c->img.data[y * c->tid.s_width + x] = t.color;
 			}
 		}
 	}

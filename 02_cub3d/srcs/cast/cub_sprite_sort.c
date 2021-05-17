@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 04:14:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/16 01:21:14 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 03:59:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	select_sort(t_cub *c, t_sc *s)
 	}
 }
 
-void	strite_sort(t_cub *c, t_sc *s)
+void	sprite_sort(t_cub *c, t_sc *s)
 {
 	int	i;
 
