@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:30:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/16 04:12:52 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 04:07:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@
 # include "cub3d_struct.h"
 # include "cub3d_key.h"
 # include "cub3d_linux.h"
-# include "cub3d_mac.h"
-
-# define ERROR	1
-# define SUCESS	0
+// # include "cub3d_mac.h"
 
 int		cub_init(t_cub *c);
 void	cub_load_texture(t_cub *c);
@@ -37,6 +34,8 @@ void	key_w(t_cub *c);
 void	key_s(t_cub *c);
 void	key_a(t_cub *c);
 void	key_d(t_cub *c);
+void	key_left(t_cub *c);
+void	key_right(t_cub *c);
 
 void	cub_floor(t_cub *c);
 
@@ -46,9 +45,26 @@ void	wall_hit(t_cub *c, t_wc *w);
 void	wall_text(t_cub *c, t_wc *w, int x);
 
 void	cub_sprite(t_cub *c);
-void	strite_sort(t_cub *c, t_sc *s);
+void	sprite_sort(t_cub *c, t_sc *s);
 void	sprite_text(t_cub *c, t_sc *s, int i);
 
 void	cub_draw(t_cub *c);
+void	cub_bmp(t_cub *c);
+
+void	cub_exit(t_cub *c, char *msg);
+void		exit_cub3d(t_cub *c);
+int		err_msg(char *msg);
+
+int		map_parse(t_cub *c, char *name);
+int		map_check(t_cub *c, int fd, char **line);
+int		map_floor(t_cub *c, char *line);
+int		map_ceiling(t_cub *c, char *line);
+int		map_color(char *line);
+void	map_resolution(t_cub *c);
+int		map_render(t_cub *c, int fd, char **line);
+void	set_pos(t_cub *c, char pos, int i, int j);
+int		map_valid(t_cub *c);
+
+int		main(int ac, char **av);
 
 #endif

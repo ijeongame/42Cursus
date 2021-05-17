@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 02:01:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/16 04:09:02 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 03:23:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@
 # define SO						1
 # define WE						2
 # define EA						3
-# define FL						4
-# define CE						5
-# define SP						6
+# define SP						4
+# define FL						5
+# define CE						6
 # define RE						7
 
 #endif

@@ -6,13 +6,14 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 01:09:58 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/15 01:10:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/18 03:23:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_LINUX_H
-# define CUB3D_LINUX_H
+#ifndef CUB3D_VAR_H
+# define CUB3D_VAR_H
 
+# define TILE_SIZE			7
 # define TEXT_W				64
 # define TEXT_H				64
 
@@ -34,9 +35,9 @@
 # define SO						1
 # define WE						2
 # define EA						3
-# define FL						4
-# define CE						5
-# define SP						6
+# define SP						4
+# define FL						5
+# define CE						6
 # define RE						7
 
 #endif
