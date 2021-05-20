@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 03:10:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/16 03:36:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 07:42:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	sprite_init(t_cub *c, t_sc *s, int i)
 	c->info.dir_x * s->sp_y);
 	s->trans_y = s->sp_dev * (-c->info.plane_y * s->sp_x + \
 	c->info.plane_x * s->sp_y);
-	s->sp_screen_x = (int)(c->tid.s_width / 2) * \
-	(1 + s->trans_x / s->trans_y);
+	s->sp_screen_x = (int)((c->tid.s_width / 2) * \
+	(1 + s->trans_x / s->trans_y));
 }
 
 void	cub_sprite(t_cub *c)
@@ -36,7 +36,7 @@ void	cub_sprite(t_cub *c)
 	while (++i < c->tid.sprite_num)
 	{
 		sprite_init(c, &s, i);
-		sprite_text(c, &s, i);
+		sprite_text(c, &s);
 	}
 	if (s.sp_order)
 		free(s.sp_order);

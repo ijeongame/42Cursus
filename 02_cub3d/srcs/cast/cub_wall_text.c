@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_wall_text.c                                    :+:      :+:    :+:   */
+/*   c_wall_text.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 04:01:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/15 04:30:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 06:03:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,18 @@ void	wall_hit(t_cub *c, t_wc *w)
 			w->map_y += w->step_y;
 			w->side = 1;
 		}
-		if (c->map[w->map_x][w->map_y] > 0)
+		if (c->map[w->map_x][w->map_y] == 1)
 			w->hit = 1;
 	}
 }
 
 void	wall_text_clac(t_cub *c, t_wc *w, t_text *t)
 {
-	t->t_x = (int)(w->wall_x * (double)TEXT_W);
+	t->t_x = (int)(w->wall_x * (double)TEXTW);
 	if (w->side == 0 && w->ray_dir_x > 0)
-		t->t_x = TEXT_W - t->t_x - 1;
+		t->t_x = TEXTW - t->t_x - 1;
 	if (w->side == 1 && w->ray_dir_y < 0)
-		t->t_x = TEXT_W - t->t_x - 1;
+		t->t_x = TEXTW - t->t_x - 1;
 	if (w->side == 0)
 	{
 		if (w->ray_dir_x < 0)
@@ -101,7 +101,7 @@ void	wall_text_init(t_cub *c, t_wc *w)
 	else
 		w->wall_x = c->info.pos_x + w->perp_w_dist * w->ray_dir_x;
 	w->wall_x -= floor(w->wall_x);
-	w->step = 1.0 * TEXT_H / w->line_h;
+	w->step = 1.0 * TEXTH / w->line_h;
 }
 
 void	wall_text(t_cub *c, t_wc *w, int x)
@@ -114,9 +114,9 @@ void	wall_text(t_cub *c, t_wc *w, int x)
 	y = w->draw_start - 1;
 	while (++y < w->draw_end)
 	{
-		t.t_y = (int)t.t_pos & (TEXT_H - 1);
+		t.t_y = (int)t.t_pos & (TEXTH - 1);
 		t.t_pos += w->step;
-		t.color = c->info.texture[t.t_num][TEXT_H * t.t_y + t.t_x];
-		c->img.data[y * c->tid.s_width + x] = t.color;
+		t.color = c->info.texture[t.t_num][TEXTH * t.t_y + t.t_x];
+		c->info.buffer[y][x] = t.color;
 	}
 }
