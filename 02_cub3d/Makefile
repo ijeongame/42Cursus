@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 01:15:50 by hkwon             #+#    #+#              #
-#    Updated: 2021/05/21 21:38:42 by hkwon            ###   ########.fr        #
+#    Updated: 2021/05/21 22:33:42 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,10 @@ NAME = cub3D
 GNL = libgnl.a
 LIBFT = libft.a
 MLX = libmlx.a
-MLX_MMS = libmlx.dylib
+MLX_MMS = libmlxmms.dylib
 
 CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
-# CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 
@@ -44,12 +43,11 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 		$(addprefix $(SRCS_CAST_DIR)/, cub_bmp.c cub_draw.c cub_floor.c\
 		cub_sprite_sort.c cub_sprite_text.c cub_sprite.c cub_wall_text.c cub_wall.c)\
 		$(addprefix $(SRCS_KEY_DIR)/, key_event.c key_look.c key_move.c key_play.c)\
-		$(addprefix $(SRCS_MAP_DIR)/, map_render.c map_fc.c\
-		map_resolution.c map_valid.c map_vec.c map_parse.c map_check.c)\
+		$(addprefix $(SRCS_MAP_DIR)/, map_render.c map_fc.c	map_resolution.c map_valid.c map_vec.c map_parse.c map_check.c)\
 		$(addprefix $(SRCS_BONUS_DIR)/, cub_sound.c))
 
 OPENGL = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
-MMS = -L$(MLX_MMS_DIR) -lmlx
+MMS = -L$(MLX_MMS_DIR) -lmlxmms
 
 all : $(NAME)
 

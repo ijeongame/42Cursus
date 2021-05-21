@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 21:19:06 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 21:21:38 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 21:58:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	cub_sound(void)
 {
-	system("afplay -v 0.40 sound/purple_bgm_2.mp3");
+	system("afplay -v 0.40 sound/purple_bgm_2.mp3 &");
 }
