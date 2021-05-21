@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 01:20:02 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:16:51 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 05:49:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	load_image(t_cub *c, int t_num, char *path)
 	while (++y < img.height)
 	{
 		x = -1;
-		while (++x <img.width)
+		while (++x < img.width)
 			c->info.texture[t_num][img.width * y + x] = \
-			img.data[img.width * y + x];
+			img.data[(img.size_l / (img.bpp / 8)) * y + x];
 	}
-	mlx_destroy_image(c->mlx, img.img);
 }
 
 void	cub_load_texture(t_cub *c)
@@ -41,10 +40,9 @@ void	cub_load_texture(t_cub *c)
 	load_image(c, SO, c->tid.so_path);
 	load_image(c, WE, c->tid.we_path);
 	load_image(c, EA, c->tid.ea_path);
-	load_image(c, SP, c->tid.sp_path);
 	if (c->tid.floor_t)
 		load_image(c, FL, c->tid.fl_path);
 	if (c->tid.ceil_t)
 		load_image(c, CE, c->tid.ce_path);
-
+	load_image(c, SP, c->tid.sp_path);
 }
