@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:58:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:53:35 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 07:09:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ typedef struct	s_wc
 	int				draw_start;
 	int				draw_end;
 	double			wall_x;
-	int				step;
+	double			step;
 }				t_wc;
 
 typedef struct	s_sc
@@ -148,8 +148,8 @@ typedef struct	s_info
 	double			plane_y;
 	double			m_speed;
 	double			r_speed;
-	// int		buf[height][width];
 	double			*z_buffer;
+	int				**buffer;
 	int				**texture;
 }				t_info;
 
@@ -159,8 +159,6 @@ typedef struct	s_key
 	int				key_w;
 	int				key_s;
 	int				key_d;
-	// int			key_up;
-	// int			key_down;
 	int				key_left;
 	int				key_right;
 	int				key_esc;
