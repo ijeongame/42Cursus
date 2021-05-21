@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 22:18:04 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:48:55 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 09:25:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ int		map_change(t_cub *c, int **map, char *tmp, int i)
 		(*map)[j] = -1;
 	j = -1;
 	k = 0;
-	while (tmp[++j] != 0)
+	while (tmp[++j] != 0 && (*map)[j])
 	{
-		if (tmp[j] == 'N' || tmp[j] == 'E' || \
-		tmp[j] == 'W' || tmp[j] == 'S')
+		if (ft_strchr("NEWS", tmp[j]))
 		{
 			set_pos(c, tmp[j], i, j);
 			tmp[j] = '0';
@@ -35,7 +34,7 @@ int		map_change(t_cub *c, int **map, char *tmp, int i)
 			(*map)[j] = -1;
 		else
 			(*map)[j] = tmp[j] - '0';
-		if (*map[j] == 2 || (*map)[j] == 3)
+		if ((*map)[j] == 2)
 			c->tid.sprite_num++;
 	}
 	return (k);
@@ -88,7 +87,6 @@ int		map_render(t_cub *c, int fd, char **line)
 	fd_tmp = open("tmp", O_CREAT | O_RDWR | O_TRUNC, 0777);
 	map_size(c, fd, fd_tmp, line);
 	map_malloc(c);
-	close(fd);
 	close(fd_tmp);
 	fd_tmp = open("tmp", O_RDONLY);
 	i = 0;

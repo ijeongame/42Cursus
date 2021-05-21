@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 04:33:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:34:51 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 20:13:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int		map_parse(t_cub *c, char *name)
 
 	fd = open(name, O_RDONLY);
 	if (!name_check(name) || fd < 0)
-		return (err_msg("map name error"));
+		return (err_msg("map name & file open error"));
 	if (!map_check(c, fd, &line))
-		return (0);
+		return (err_msg("map check error"));
 	while (line[0] != ' ' && !ft_isdigit(line[0]))
 	{
 		get_next_line(fd, &line);
@@ -41,7 +41,6 @@ int		map_parse(t_cub *c, char *name)
 	map_render(c, fd, &line);
 	if (!map_valid(c))
 		return (0);
-	if (line)
-		free(line);
+	close(fd);
 	return (1);
 }

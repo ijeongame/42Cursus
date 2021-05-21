@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_ceiling.c                                      :+:      :+:    :+:   */
+/*   map_resolution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 01:47:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/17 02:46:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 00:34:47 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,4 @@ void	map_resolution(t_cub *c)
 		c->tid.s_height = h_size;
 	else
 		c->tid.s_height = c->tid.s_height;
-	if (c->tid.s_width < 600)
-		c->tid.s_width = 600;
-	if (c->tid.s_height < 500)
-		c->tid.s_height = 500;
 }

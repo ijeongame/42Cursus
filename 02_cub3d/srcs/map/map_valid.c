@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 01:16:11 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:58:37 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 08:10:07 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	map_valid_init(t_cub *c, int ***check)
 	i = -1;
 	k = 0;
 	if (!(c->sp = \
-	(t_sprite *)malloc(sizeof(t_sprite) * c-> tid.sprite_num)))
+	(t_sprite *)malloc(sizeof(t_sprite) * c->tid.sprite_num)))
 		return ;
 	while (++i < c->tid.m_height + 2)
 	{
@@ -41,10 +41,9 @@ void	map_valid_init(t_cub *c, int ***check)
 			else
 			{
 				(*check)[i][j] = c->map[i - 1][j - 1];
-				if (c->map[i - 1][j - 1] == 2 || c->map[i - 1][j - 1] == 3)
+				if (c->map[i - 1][j - 1] == 2)
 					sprite_count(c, i, j, &k);
 			}
-
 		}
 	}
 }
@@ -61,9 +60,8 @@ int		is_road(t_cub *c, int x, int y, int ***check)
 	dir_x[3] = 0;
 	i = -1;
 	while (++i < 4)
-		dir_y[3 - i] = dir_x[x];
-	i = -1;
-	if ((*check)[x][y] == 1 || (*check)[x][y] == 2)
+		dir_y[3 - i] = dir_x[i];
+	if ((*check)[x][y] == 1 || (*check)[x][y] == -2)
 		return (1);
 	if ((*check)[x][y] == -1)
 		return (0);
