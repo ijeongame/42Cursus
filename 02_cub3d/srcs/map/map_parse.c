@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 04:33:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 20:13:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 22:16:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int		map_parse(t_cub *c, char *name)
 	map_render(c, fd, &line);
 	if (!map_valid(c))
 		return (0);
+	if (line)
+		free(line);
 	close(fd);
 	return (1);
 }
