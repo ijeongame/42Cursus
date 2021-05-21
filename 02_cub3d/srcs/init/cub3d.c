@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 00:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 21:21:10 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 22:24:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int		main(int ac, char **av)
 	if (cub_init(&c) < 0)
 		cub_exit(&c, "init error");
 	cub_load_texture(&c);
-	cub_sound();
+	if (c.is_bmp != 1)
+		cub_sound();
 	mlx_hook(c.win, X_EVENT_KEY_PRESS, 0, &event_key_press, &c);
 	mlx_hook(c.win, X_EVENT_KEY_RELEASE, 0, &event_key_release, &c);
 	mlx_hook(c.win, X_EVENT_KEY_EXIT, 0, &event_exit, &c);

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 00:42:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 20:53:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 22:30:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		exit_cub3d(t_cub *c)
 	if (c->img.img)
 		mlx_destroy_image(c->mlx, c->img.img);
 	set_free(c);
+	system("killall find; killall afplay");
 	system("leaks cub3D");
 	exit(0);
 }
