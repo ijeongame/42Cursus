@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_wall_text.c                                    :+:      :+:    :+:   */
+/*   cub_wall_text.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 04:01:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 06:03:35 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/21 09:14:47 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/21 09:14:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	wall_text_clac(t_cub *c, t_wc *w, t_text *t)
 		else
 			t->t_num = EA;
 	}
-	t->t_pos = (w->draw_start - c->tid.s_height / 2 + w->line_h) * w->step;
+	t->t_pos = (w->draw_start - c->tid.s_height / 2 + w->line_h / 2) * w->step;
 }
 
 void	wall_text_init(t_cub *c, t_wc *w)

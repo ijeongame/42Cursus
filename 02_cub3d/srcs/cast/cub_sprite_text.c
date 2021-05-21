@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 04:16:42 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 07:42:38 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 09:12:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ int		sprite_text_calc(t_cub *c, t_sc *s, t_text *t, int x)
 void	sprite_text_init(t_cub *c, t_sc *s)
 {
 	s->sp_h = (int)fabs((c->tid.s_height / s->trans_y));
-	s->draw_st_y = -s->sp_h / 2 + c->tid.s_height / 2;
+	s->draw_st_y = (-s->sp_h / 2) + (c->tid.s_height / 2);
 	if (s->draw_st_y < 0)
 		s->draw_st_y = 0;
-	s->draw_end_y = s->sp_h / 2 + c->tid.s_height / 2;
+	s->draw_end_y = (s->sp_h / 2) + (c->tid.s_height / 2);
 	if (s->draw_end_y >= c->tid.s_height)
 		s->draw_end_y = c->tid.s_height - 1;
 	s->sp_w = (int)fabs(c->tid.s_height / s->trans_y);
-	s->draw_st_x = -s->sp_w / 2 + s->sp_screen_x;
+	s->draw_st_x = (-s->sp_w / 2) + s->sp_screen_x;
 	if (s->draw_st_x < 0)
 		s->draw_st_x = 0;
-	s->draw_end_x = s->sp_w / 2 + s->sp_screen_x;
+	s->draw_end_x = (s->sp_w / 2) + s->sp_screen_x;
 	if (s->draw_end_x >= c->tid.s_width)
 		s->draw_end_x = c->tid.s_width - 1;
 }
@@ -56,12 +56,11 @@ void	sprite_text(t_cub *c, t_sc *s)
 			y = s->draw_st_y - 1;
 			while (++y < s->draw_end_y)
 			{
-				t.t_y = ((y * 256 - c->tid.s_height * 128 + s->sp_h * 128 * TEXTH) \
-				/ s->sp_h) / 256;
+				t.t_y = ((y * 256 - c->tid.s_height * 128 + \
+				s->sp_h * 128) * TEXTH / s->sp_h) / 256;
 				t.color = c->info.texture[SP][TEXTW * t.t_y + t.t_x];
 				if ((t.color & 0x00FFFFFF) != 0)
 					c->info.buffer[y][x] = t.color;
-				// c->img.data[y *  (c->img.size_l / (c->img.bpp / 8)) + x] = t.color;
 			}
 		}
 	}

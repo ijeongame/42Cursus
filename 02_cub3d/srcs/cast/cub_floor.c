@@ -6,11 +6,35 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 00:22:33 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 05:30:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 19:14:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	floor_color(t_cub *c, t_text t, int x, int y)
+{
+	if (c->tid.ceil_t)
+	{
+		t.color = c->info.texture[CE][TEXTW * t.t_y + t.t_x];
+		c->info.buffer[c->tid.s_height - y - 1][x] = t.color;
+	}
+	else
+	{
+		t.color = c->tid.ceiling;
+		c->info.buffer[c->tid.s_height - y - 1][x] = t.color;
+	}
+	if (c->tid.floor_t)
+	{
+		t.color = c->info.texture[FL][TEXTW * t.t_y + t.t_x];
+		c->info.buffer[y][x] = t.color;
+	}
+	else
+	{
+		t.color = c->tid.floor;
+		c->info.buffer[y][x] = t.color;
+	}
+}
 
 void	floor_text(t_cub *c, t_fc f, int y)
 {
@@ -26,21 +50,7 @@ void	floor_text(t_cub *c, t_fc f, int y)
 		(int)(TEXTH * (f.floor_y - (int)f.floor_y)) & (TEXTH - 1);
 		f.floor_x += f.f_step_x;
 		f.floor_y += f.f_step_y;
-		if (c->tid.ceil_t)
-		{
-			t.color = c->info.texture[CE][TEXTW * t.t_y + t.t_x];
-			c->info.buffer[c->tid.s_height - y - 1][x] = t.color;
-		}
-		if (c->tid.floor_t)
-		{
-			t.color = c->info.texture[FL][TEXTW * t.t_y + t.t_x];
-			c->info.buffer[y][x] = t.color;
-		}
-		// if (c->tid.ceil_t)
-		// 	t.color = c->info.texture[CE][TEXTW * t.t_y + t.t_x];
-		// if (c->tid.floor_t)
-		// 	t.color = c->info.texture[FL][TEXTW * t.t_y + t.t_x];
-		// c->img.data[y *  (c->img.size_l / (c->img.bpp / 8)) + x] = t.color;
+		floor_color(c, t, x, y);
 	}
 }
 
