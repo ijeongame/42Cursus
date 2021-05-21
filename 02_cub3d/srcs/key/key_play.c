@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 22:46:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/15 01:49:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 02:50:04 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,4 @@ void	key_play(t_cub *c)
 		key_left(c);
 	if (c->key.key_right)
 		key_right(c);
-	// if (c->key.key_up)
-	// 	key_up(c);
-	// if (c->key.key_down)
-	// 	key_down(c);
 }

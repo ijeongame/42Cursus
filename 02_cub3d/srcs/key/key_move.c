@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 00:00:44 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 03:51:17 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/21 03:07:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	key_w(t_cub *c)
 	if (c->map\
 	[(int)(c->info.pos_x + c->info.dir_x * c->info.m_speed)]\
 	[(int)(c->info.pos_y)] == 0)
-		c->info.pos_x += c->info.dir_x * c->info.m_speed;
+		c->info.pos_x = c->info.pos_x + c->info.dir_x * c->info.m_speed;
 	if (c->map\
 	[(int)(c->info.pos_x)]\
 	[(int)(c->info.pos_y + c->info.dir_y * c->info.m_speed)] == 0)
-		c->info.pos_y += c->info.dir_y * c->info.m_speed;
+		c->info.pos_y = c->info.pos_y + c->info.dir_y * c->info.m_speed;
 }
 
 void	key_s(t_cub *c)
@@ -46,11 +46,11 @@ void	key_a(t_cub *c)
 	if (c->map\
 	[(int)(c->info.pos_x + old_dir_x * c->info.m_speed)]\
 	[(int)(c->info.pos_y)] == 0)
-		c->info.pos_x += old_dir_x * c->info.m_speed;
+		c->info.pos_x = c->info.pos_x + old_dir_x * c->info.m_speed;
 	if (c->map\
 	[(int)(c->info.pos_x)]\
 	[(int)(c->info.pos_y + old_dir_y * c->info.m_speed)] == 0)
-		c->info.pos_y += old_dir_y * c->info.m_speed;
+		c->info.pos_y = c->info.pos_y + old_dir_y * c->info.m_speed;
 }
 
 void	key_d(t_cub *c)
