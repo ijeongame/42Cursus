@@ -6,11 +6,25 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 00:34:27 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 12:59:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 20:28:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		color_atoi(char **str)
+{
+	int	res;
+
+	res = 0;
+	while (**str && ft_isdigit(**str))
+	{
+		res *= 10;
+		res += **str - '0';
+		(*str)++;
+	}
+	return (res);
+}
 
 int		map_color(char *line)
 {
@@ -18,25 +32,19 @@ int		map_color(char *line)
 	int		g;
 	int		b;
 
-	r = ft_atoi(line);
-	while (*line != ',' && *line)
-	{
-		line++;
-		if (!(*line))
-			return (-1);
-	}
-	if (!ft_isdigit(*(++line)))
+	r = color_atoi(&line);
+	if (*line != ',')
 		return (-1);
-	g = ft_atoi(line);
-	while (*line != ',' && *line)
-	{
-		line++;
-		if (!(*line))
-			return (-1);
-	}
-	if (!ft_isdigit(*(++line)) && !(*line))
+	line++;
+	g = color_atoi(&line);
+	if (*line != ',')
 		return (-1);
-	b = ft_atoi(line);
+	line++;
+	b = color_atoi(&line);
+	if (*line)
+		return (-1);
+	if (r > 255 || g > 255 || b > 255)
+		return (-1);
 	return ((r * 256 * 256) + (g * 256) + b);
 }
 

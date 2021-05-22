@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 15:50:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 20:31:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int		map_check_sfc(t_cub *c, char *line, unsigned char *flag, int i)
 		if ((i = map_flag_check(2, FL, flag, line)) < 0)
 			return (err_msg("floor overlap"));
 		if (!map_floor(c, line + i))
-			return (0);
+			return (err_msg("wrong color"));
 	}
 	if (ft_strnstr(line, "C ", 2))
 	{
 		if ((i = map_flag_check(2, CE, flag, line)) < 0)
 			return (err_msg("ceiling overlap"));
 		if (!map_ceiling(c, line + i))
-			return (0);
+			return (err_msg("wrong color"));
 	}
 	return (1);
 }
