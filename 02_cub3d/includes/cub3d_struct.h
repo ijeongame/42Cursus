@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:58:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 07:09:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 17:54:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,6 @@ typedef struct	s_sprite
 	double			x;
 	double			y;
 }				t_sprite;
-
-typedef struct	s_bmp
-{
-	unsigned char	bf_type1;
-	unsigned char	bf_type2;
-	unsigned int	bf_size;
-	unsigned short	bf_reser1;
-	unsigned short	bf_reser2;
-	unsigned int	bf_off;
-	unsigned int	bi_size;
-	int				bi_width;
-	int				bi_height;
-	unsigned short	bi_planes;
-	unsigned short	bi_count;
-	unsigned int	bi_compre;
-	unsigned int	bi_img_size;
-	int				bi_x_ppm;
-	int				bi_y_ppm;
-	unsigned int	bi_c_used;
-	unsigned int	bi_c_import;
-}				t_bmp;
 
 typedef struct	s_text
 {

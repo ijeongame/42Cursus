@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 01:09:58 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 02:48:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 17:54:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 # define TEXTW					64
 # define TEXTH					64
 
-# define KEY_ESC		53
-# define KEY_W			13
-# define KEY_S			1
-# define KEY_A			0
-# define KEY_D			2
-# define KEY_LEFT		123
-# define KEY_RIGHT		124
+# define KEY_ESC				53
+# define KEY_W					13
+# define KEY_S					1
+# define KEY_A					0
+# define KEY_D					2
+# define KEY_LEFT				123
+# define KEY_RIGHT				124
 
 # define X_EVENT_KEY_EXIT		17
 # define X_EVENT_KEY_PRESS		2
@@ -39,5 +39,8 @@
 # define FL						5
 # define CE						6
 # define RE						7
+
+# define BITMAPFILEHEADER		14
+# define BITMAPINFOHEADER		40
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:30:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 13:50:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 17:54:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sprite_sort(t_cub *c, t_sc *s);
 void	sprite_text(t_cub *c, t_sc *s);
 
 void	cub_draw(t_cub *c);
-void	cub_bmp(t_cub *c);
+int		cub_bmp(t_cub *c);
 
 void	cub_exit(t_cub *c, char *msg);
 void	exit_cub3d(t_cub *c);
