@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:30:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 21:20:57 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 13:50:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	map_resolution(t_cub *c);
 int		map_render(t_cub *c, int fd, char **line);
 void	set_pos(t_cub *c, char pos, int i, int j);
 int		map_valid(t_cub *c);
+int		map_line_free(char **line, int check);
 
 void	set_free(t_cub *c);
 
