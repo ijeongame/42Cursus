@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 01:58:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 17:54:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 18:01:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,6 @@ typedef struct	s_cub
 	t_key			key;
 	t_tid			tid;
 	t_sprite		*sp;
-	t_bmp			bmp;
 }				t_cub;
 
 #endif
