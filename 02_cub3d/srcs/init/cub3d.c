@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 00:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 15:34:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 17:21:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main_loop(t_cub *c)
 	cub_wall(c);
 	cub_sprite(c);
 	cub_draw(c);
-	if (!c->is_bmp)
+	if (c->is_bmp != 1)
 	{
 		mlx_put_image_to_window(c->mlx, c->win, c->img.img, 0, 0);
 		mlx_do_sync(c->mlx);
