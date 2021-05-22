@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 01:15:50 by hkwon             #+#    #+#              #
-#    Updated: 2021/05/22 15:47:38 by hkwon            ###   ########.fr        #
+#    Updated: 2021/05/22 17:22:21 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = cub3D
 GNL = libgnl.a
 LIBFT = libft.a
 MLX = libmlx.a
-MLX_MMS = libmlxmms.dylib
+MLX_MMS = libmlx.dylib
 
 CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
@@ -46,7 +46,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 		$(addprefix $(SRCS_BONUS_DIR)/, cub_sound.c))
 
 OPENGL = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
-MMS = -L$(MLX_MMS_DIR) -lmlxmms -framework OpenGL -framework AppKit
+MMS = -L$(MLX_MMS_DIR) -lmlx -framework OpenGL -framework AppKit
 
 all : $(NAME)
 
