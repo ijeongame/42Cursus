@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/21 22:33:48 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/22 15:09:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,11 @@ int		map_check(t_cub *c, int fd, char **line)
 	while (flag != 255 && (res = get_next_line(fd, line)) > 0)
 	{
 		if (!map_check_news(c, *line, &flag, i))
-			return (err_msg("check news error"));
+			return (map_line_free(line, 1));
 		else if (!map_check_sfc(c, *line, &flag, i))
-			return (err_msg("check sfc error"));
+			return (map_line_free(line, 2));
 		else if (!map_check_re(c, *line, &flag, i))
-			return (err_msg("check resolution error"));
+			return (map_line_free(line, 3));
 		if (*line)
 			free(*line);
 	}

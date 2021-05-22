@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_resolution.c                                   :+:      :+:    :+:   */
+/*   map_line_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 01:47:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/22 12:13:24 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/22 00:43:03 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/22 15:32:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	map_resolution(t_cub *c)
+int		map_line_free(char **line, int check)
 {
-	int		w_size;
-	int		h_size;
-
-	mlx_get_screen_size(c->mlx, &w_size, &h_size);
-	if (c->tid.s_width > w_size)
-		c->tid.s_width = w_size;
-	else
-		c->tid.s_width = c->tid.s_width;
-	if (c->tid.s_height > h_size)
-		c->tid.s_height = h_size;
-	else
-		c->tid.s_height = c->tid.s_height;
+	if (check == 1)
+	{
+		if (*line)
+			free(*line);
+		return (err_msg("check news error"));
+	}
+	if (check == 2)
+	{
+		if (*line)
+			free(*line);
+		return (err_msg("check sfc error"));
+	}
+	if (check == 3)
+	{
+		if (*line)
+			free(*line);
+		return (err_msg("check resolution error"));
+	}
+	return (1);
 }
