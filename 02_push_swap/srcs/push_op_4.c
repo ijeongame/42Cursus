@@ -6,23 +6,24 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 21:36:53 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:45:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/24 23:55:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_sawp.h"
+#include "push_swap.h"
 
-void	op_rra(t_lst **a, t_lst **b)
+void	op_rra(t_lst **a)
 {
 
 }
 
-void	op_rrb(t_lst **a, t_lst **b)
+void	op_rrb(t_lst **b)
 {
 
 }
 
 void	op_rrr(t_lst **a, t_lst **b)
 {
-
+	op_rra(*a);
+	op_rrb(*b);
 }

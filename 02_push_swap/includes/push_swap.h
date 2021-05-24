@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:40:30 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/24 23:52:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 typedef struct		s_lst
 {
 	long			val;
-	struct t_lst	*next;
-	struct t_lst	*prev;
+	struct s_lst	*next;
+	struct s_lst	*prev;
 }					t_lst;
 
 typedef struct		s_info
