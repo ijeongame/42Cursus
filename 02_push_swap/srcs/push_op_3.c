@@ -6,9 +6,25 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:12:09 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/23 19:12:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/24 23:48:20 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_sawp.h"
 
+void	op_ra(t_lst **a, t_lst **b)
+{
+	t_lst	*node;
+	long	tmp;
+
+}
+
+void	op_rb(t_lst **a, t_lst **b)
+{
+
+}
+
+void	op_rr(t_lst **a, t_lst **b)
+{
+
+}

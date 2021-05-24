@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:40:30 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/07 12:42:12 by hkwon             #+#    #+#             */
+/*   Updated: 2021/01/14 21:07:04 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
-#include "push_swap_op.h"
 
-typedef struct		s_lst
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	long			val;
-	struct t_lst	*next;
-	struct t_lst	*prev;
-}					t_lst;
+	t_list *tmp;
 
-typedef struct		s_info
-{
-
-}					t_info;
-
-
-
-#endif
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = 0;
+}

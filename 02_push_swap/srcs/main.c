@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:40:30 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/24 16:58:55 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/24 21:49:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_sawp.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "push_swap_op.h"
-
-typedef struct		s_lst
-{
-	long			val;
-	struct t_lst	*next;
-	struct t_lst	*prev;
-}					t_lst;
-
-typedef struct		s_info
+void	ps_start(char ***save, char ***av, t_lst *a,)
 {
 
-}					t_info;
+}
 
+int		main(int ac, char **av)
+{
+	char	**save;
+	t_lst	*a;
+	t_lst	*b;
+	t_info	*info;
 
-
-#endif
+	if (ac == 1)
+		return (-1);
+	else
+		ps_start(&save, &av, &a, &info);
+}

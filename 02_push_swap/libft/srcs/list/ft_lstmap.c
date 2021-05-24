@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:40:30 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/07 13:26:26 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/13 18:25:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
-#include "push_swap_op.h"
 
-typedef struct		s_lst
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	long			val;
-	struct t_lst	*next;
-	struct t_lst	*prev;
-}					t_lst;
+	t_list *curr;
+	t_list *res;
 
-typedef struct		s_info
-{
-
-}					t_info;
-
-
-
-#endif
+	if (!(res = ft_lstnew(f(lst->content))))
+		return (0);
+	curr = res;
+	lst = lst->next;
+	while (lst)
+	{
+		if (!(curr->next = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&res, del);
+			return (0);
+		}
+		curr = curr->next;
+		lst = lst->next;
+	}
+	return (res);
+}

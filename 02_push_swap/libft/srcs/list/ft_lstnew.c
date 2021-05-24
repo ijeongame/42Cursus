@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sawp.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:40:30 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/07 10:54:52 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 19:15:00 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
-#include "push_swap_op.h"
 
-typedef struct		s_lst
+t_list	*ft_lstnew(void *content)
 {
-	long			val;
-	struct t_lst	*next;
-	struct t_lst	*prev;
-}					t_lst;
+	t_list	*res;
 
-typedef struct		s_info
-{
-
-}					t_info;
-
-
-
-#endif
+	if (!(res = (t_list *)malloc(sizeof(t_list))))
+		return (0);
+	res->content = content;
+	res->next = 0;
+	return (res);
+}
