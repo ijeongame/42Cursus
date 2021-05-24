@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:12:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:52:10 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/25 00:55:20 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ void	op_sa(t_lst *a)
 	long	tmp;
 
 	node = a;
-	if (node)
+	if (node && node->prev)
 	{
-		if (node->prev)
-		{
 			node->val = tmp;
 			node->val = node->prev->val;
 			node->prev->val = tmp;
-		}
 	}
 }
 
@@ -35,14 +32,11 @@ void	op_sb(t_lst *b)
 	long	tmp;
 
 	node  = b;
-	if (node)
+	if (node && node->prev)
 	{
-		if (node->prev)
-		{
 			node->val = tmp;
 			node->val = node->prev->val;
 			node->prev->val = tmp;
-		}
 	}
 }
 
