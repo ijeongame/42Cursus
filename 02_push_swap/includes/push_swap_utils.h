@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 21:14:22 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/25 23:10:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_UTILS_H
+# define PUSH_SWAP_UTILS_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "push_swap_op.h"
-#include "push_swap_utils.h"
-
-typedef struct		s_lst
-{
-	long			val;
-	struct s_lst	*next;
-	struct s_lst	*prev;
-}					t_lst;
-
-typedef struct		s_info
-{
-	int				a_size;
-	int				b_size;
-}					t_info;
+#include "push_swap.h"
 
 
+t_lst	*move_stat(t_lst *lst);
+t_lst	*new_node_head(t_lst *lst, long value);
+t_lst	*new_node_tail(t_lst *lst, long value);
+void	delete_lst(t_lst *lst);
 
 #endif
