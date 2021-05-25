@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:10:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/25 23:36:23 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 
 t_lst	*move_stat(t_lst *lst);
-t_lst	*new_node_head(t_lst *lst, long value);
-t_lst	*new_node_tail(t_lst *lst, long value);
+t_lst	*new_lst_head(t_lst *lst, long value);
+t_lst	*new_lst_tail(t_lst *lst, long value);
 void	delete_lst(t_lst *lst);
 
 #endif
