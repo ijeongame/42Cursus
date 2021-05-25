@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_op_4.c                                        :+:      :+:    :+:   */
+/*   op_ra.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 21:36:53 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:55:45 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/23 19:12:09 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/25 21:42:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_rra(t_lst **a)
+void	op_ra(t_lst **a, t_info *info)
 {
+	t_lst	*n_head;
+	long	tmp;
 
-}
-
-void	op_rrb(t_lst **b)
-{
-
-}
-
-void	op_rrr(t_lst **a, t_lst **b)
-{
-	op_rra(*a);
-	op_rrb(*b);
+	if (info->a_size < 0)
+		return ;
+	tmp = (*a)->val;
+	n_head = move_head(*a);
+	n_head->prev = new_node_head(n_head, tmp);
+	delete_lst(a);
 }

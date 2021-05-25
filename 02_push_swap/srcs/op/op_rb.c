@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_op_1.c                                        :+:      :+:    :+:   */
+/*   op_rb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:12:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 00:55:20 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/25 19:32:10 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/25 23:11:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_sa(t_lst *a)
+void	op_rb(t_lst **b, t_info *info)
 {
 	t_lst	*node;
 	long	tmp;
 
-	node = a;
-	if (node && node->prev)
-	{
-			node->val = tmp;
-			node->val = node->prev->val;
-			node->prev->val = tmp;
-	}
-}
-
-void	op_sb(t_lst *b)
-{
-	t_lst	*node;
-	long	tmp;
-
-	node  = b;
-	if (node && node->prev)
-	{
-			node->val = tmp;
-			node->val = node->prev->val;
-			node->prev->val = tmp;
-	}
-}
-
-void	op_ss(t_lst *a, t_lst *b)
-{
-	op_sa(a);
-	op_sb(b);
+	if (info->b_size < 0)
+		return ;
+	tmp = (*b)->val;
+	node = move_stat(*b);
+	node->prev = new_node_head(node, tmp);
+	delete_lst(b);
 }

@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_op_2.c                                        :+:      :+:    :+:   */
+/*   op_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:12:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/24 23:48:10 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/23 19:12:36 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/25 23:11:41 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_pa(t_lst **a, t_lst **b, t_info *info)
+void	op_sa(t_lst **a, t_info *info)
 {
-	t_lst	*node;
 	long	tmp;
 
-	node = *b;
-	if (!node)
+	if (info->a_size < 2)
 		return ;
-	tmp = node->val;
-	if (!node->prev)
-		b = 0;
-	else
-		b = node->prev;
-	lst_free(node);
-	if (!*(*a))
-		new_lst(*a);
-
-
-}
-
-void	op_pb(t_lst **a, t_lst **b, t_info *info)
-{
-
+	tmp = (*a)->val;
+	(*a)->val = (*a)->prev->val;
+	(*a)->prev->val = tmp;
 }
