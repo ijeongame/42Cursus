@@ -6,12 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:33:40 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:41:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/25 23:50:30 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	op_rrb(t_lst **b, t_info *info)
 {
