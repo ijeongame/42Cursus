@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:32:10 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:11:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/25 23:30:50 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	op_rb(t_lst **b, t_info *info)
 		return ;
 	tmp = (*b)->val;
 	node = move_stat(*b);
-	node->prev = new_node_head(node, tmp);
+	node->prev = new_lst_head(node, tmp);
 	delete_lst(b);
 }
