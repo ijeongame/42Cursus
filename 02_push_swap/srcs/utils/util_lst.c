@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:07:56 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:10:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/25 23:30:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_lst	*move_stat(t_lst *lst)
 	return (lst);
 }
 
-t_lst	*new_node_head(t_lst *lst, long value)
+t_lst	*new_lst_head(t_lst *lst, long value)
 {
 	t_lst	*new;
 
@@ -37,7 +37,7 @@ t_lst	*new_node_head(t_lst *lst, long value)
 	return (new);
 }
 
-t_lst	*new_node_tail(t_lst *lst, long value)
+t_lst	*new_lst_tail(t_lst *lst, long value)
 {
 	t_lst	*new;
 
