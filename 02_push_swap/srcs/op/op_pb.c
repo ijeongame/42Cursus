@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:31:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/26 00:38:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 16:47:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	op_pb(t_lst **a, t_lst **b, t_info *info)
 	{
 		(*b)->next = new_lst_tail(*b, (*a)->val);
 		(*b) = (*b)->next;
-		delete_lst(**a);
+		delete_lst(a);
 	}
 	info->a_size++;
 	info->b_size--;
