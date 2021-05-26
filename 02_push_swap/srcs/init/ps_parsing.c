@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:47:50 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/26 22:19:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 22:54:40 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ps_link_create(t_link **link, long num)
 		*link = new_link_head(*link, num);
 	else
 	{
-		(*link)->next = new_link_next(*link, num);
+		(*link)->next = new_link_tail(*link, num);
 		*link = (*link)->next;
 	}
 }
@@ -66,8 +66,9 @@ t_link	*ps_start(char *av[], t_info *info)
 		while (save[++j])
 		{
 			if (!ps_check_int(save[j], &num))
-				ps_link_free(&link);
+				return (0);
 			ps_link_create(&link, num);
+			info->a_size++;
 		}
 	}
 	return (link);
