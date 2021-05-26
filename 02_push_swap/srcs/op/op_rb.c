@@ -6,21 +6,21 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:32:10 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:30:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 22:10:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_rb(t_lst **b, t_info *info)
+void	op_rb(t_link **b, t_info *info)
 {
-	t_lst	*node;
+	t_link	*link;
 	long	tmp;
 
 	if (info->b_size < 0)
 		return ;
 	tmp = (*b)->val;
-	node = move_stat(*b);
-	node->prev = new_lst_head(node, tmp);
+	link = move_stat(*b);
+	link->prev = new_lst_head(link, tmp);
 	delete_lst(b);
 }

@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:30:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:31:13 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 21:47:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_sb(t_lst **b, t_info *info)
+void	op_sb(t_link **b, t_info *info)
 {
 	long	tmp;
 

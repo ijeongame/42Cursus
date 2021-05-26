@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:12:22 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/26 16:47:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 21:46:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_pa(t_lst **a, t_lst **b, t_info *info)
+void	op_pa(t_link **a, t_link **b, t_info *info)
 {
 	if (!info->b_size)
 		return ;
