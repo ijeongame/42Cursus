@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:32:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/26 22:10:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 22:48:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	op_rra(t_link **a, t_info *info)
 	tmp = link->val;
 	link->next->prev = 0;
 	free(link);
-	(*a)->next = new_lst_tail(*a, tmp);
+	(*a)->next = new_link_tail(*a, tmp);
 	(*a) = (*a)->next;
 }
