@@ -5,60 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 20:07:56 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/25 23:30:39 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/26 22:17:24 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/26 22:44:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst	*move_stat(t_lst *lst)
+t_link	*move_stat(t_link *link)
 {
-	while (lst)
+	while (link)
 	{
-		if (lst->prev)
-			lst = lst->prev;
+		if (link->prev)
+			link = link->prev;
 		else
 			break ;
 	}
-	return (lst);
+	return (link);
 }
 
-t_lst	*new_lst_head(t_lst *lst, long value)
+t_link	*new_link_head(t_link *link, long value)
 {
-	t_lst	*new;
+	t_link	*new;
 
-	new = (t_lst *)malloc(sizeof(t_lst) + 1);
+	new = (t_link *)malloc(sizeof(t_link) + 1);
 	if (!new)
 		return (0);
-	new->next = lst;
+	new->next = link;
 	new->prev = 0;
 	new->val = value;
 	return (new);
 }
 
-t_lst	*new_lst_tail(t_lst *lst, long value)
+t_link	*new_link_tail(t_link *link, long value)
 {
-	t_lst	*new;
+	t_link	*new;
 
-	new = (t_lst *)malloc(sizeof(t_lst) + 1);
+	new = (t_link *)malloc(sizeof(t_link) + 1);
 	if (!new)
 		return (0);
 	new->next = 0;
-	new->prev = lst;
+	new->prev = link;
 	new->val = value;
 	return (new);
 }
 
-void	delete_lst(t_lst **lst)
+void	delete_link(t_link **link)
 {
-	t_lst	*tmp;
+	t_link	*tmp;
 
-	if ((*lst)->prev)
+	tmp = 0;
+	if ((*link)->prev)
 	{
-		tmp = (*lst)->prev;
+		tmp = (*link)->prev;
 		tmp->next = 0;
 	}
-	free(*lst);
-	*lst = tmp;
+	free(*link);
+	*link = tmp;
 }
