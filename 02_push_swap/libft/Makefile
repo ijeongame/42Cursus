@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 01:44:43 by hkwon             #+#    #+#              #
-#    Updated: 2021/05/24 17:48:27 by hkwon            ###   ########.fr        #
+#    Updated: 2021/05/27 01:08:46 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-OBJS_DIR = objs
-SRCS_DIR = srcs
-INCLUDE_DIR = includes
+OBJS_DIR = ./objs
+SRCS_DIR = ./srcs
+INCLUDE_DIR = ./includes
 
 SRCS_CHECK_DIR = $(SRCS_DIR)/check
 SRCS_CHECK = $(addprefix $(SRCS_CHECK_DIR)/, \
@@ -53,6 +53,7 @@ SRCS_NUM = $(addprefix $(SRCS_NUM_DIR)/, \
 			ft_count.c\
 			ft_atoi.c\
 			ft_itoa.c\
+			ft_atol.c\
 )
 
 SRCS_MEMORY_DIR = $(SRCS_DIR)/memory
