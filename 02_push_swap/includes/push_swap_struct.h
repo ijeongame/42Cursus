@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.h                                  :+:      :+:    :+:   */
+/*   push_swap_struct.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:01:19 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/26 22:35:47 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/27 18:31:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_UTILS_H
-# define PUSH_SWAP_UTILS_H
+#ifndef PUSH_SWAP_STRUCT_H
+# define PUSH_SWAP_STRUCT_H
 
-# include "push_swap_struct.h"
+typedef struct		s_link
+{
+	long			val;
+	struct s_link	*next;
+	struct s_link	*prev;
+}					t_link;
 
-// void	move_stat_head(t_link **link);
-// void	move_list_tail(t_link **link);
-t_link	*move_link_head(t_link *link);
-t_link	*move_link_tail(t_link *link);
-t_link	*new_link_head(t_link *link, long value);
-t_link	*new_link_tail(t_link *link, long value);
-void	delete_link(t_link **link);
+typedef struct		s_info
+{
+	int				max;
+	int				min;
+	int				a_size;
+	int				b_size;
+}					t_info;
 
 #endif
