@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:12:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 00:36:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/27 19:36:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	op_sa(t_link **a, t_info *info)
 	if (info->a_size < 2)
 		return ;
 	tmp = (*a)->val;
-	(*a)->val = (*a)->prev->val;
-	(*a)->prev->val = tmp;
+	(*a)->val = (*a)->next->val;
+	(*a)->next->val = tmp;
+	write(1, "sa\n", 3);
 }
