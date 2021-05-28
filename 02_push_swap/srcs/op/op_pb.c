@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:31:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:52:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 18:45:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	op_pb(t_link **a, t_link **b, t_info *info)
 	else
 	{
 		(*b)->prev = new_link_head(*b, (*a)->val);
-		(*b) = (*b)->prev;
+		*b = (*b)->prev;
 	}
 	delete_link(a);
 	info->a_size--;

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 16:27:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 16:40:05 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ps_check_overlap(t_link *link)
 	{
 		if (link->prev)
 		{
-			if (!ps_check_dup_num(link, dup))
+			if (!ps_check_overlap_num(link, dup))
 				return (0);
 			link = link->prev;
 		}

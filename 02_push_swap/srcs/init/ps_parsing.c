@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:47:50 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 16:27:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 17:20:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int		ps_check_num(char *save)
 {
 	int		i;
 
-	i = -1;
+	i = 0;
 	if (save[i] == '-')
 		i++;
-	while (save[++i])
+	while (save[i])
 	{
 		if (!ft_isdigit(save[i]))
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -67,6 +68,7 @@ int		ps_create(t_link **link, char *av, t_info *info)
 	free(save);
 	return (1);
 }
+
 t_link	*ps_start(char *av[], t_info *info)
 {
 	t_link	*link;
