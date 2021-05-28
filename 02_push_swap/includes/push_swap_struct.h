@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 22:35:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 18:31:28 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:12:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ typedef struct		s_link
 
 typedef struct		s_info
 {
-	int				max;
-	int				min;
+	long			pivot;
 	int				a_size;
 	int				b_size;
 }					t_info;
