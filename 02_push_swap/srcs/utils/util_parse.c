@@ -6,13 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 16:24:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 16:27:40 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ps_check_dup_num(t_link *link, t_link *dup)
+int		ps_check_overlap_num(t_link *link, t_link *dup)
 {
 	dup = link->prev;
 	while (dup)
@@ -27,7 +27,7 @@ int		ps_check_dup_num(t_link *link, t_link *dup)
 	return (1);
 }
 
-int		ps_check_dup(t_link *link)
+int		ps_check_overlap(t_link *link)
 {
 	t_link	*dup;
 
