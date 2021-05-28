@@ -6,12 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:47:50 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/26 22:54:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/28 16:27:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int		ps_check_num(char *save)
 {
@@ -32,7 +31,7 @@ int		ps_check_int(char *save, long *num)
 {
 	if (!ps_check_num(save))
 		return (0);
-	*num = ft_ltoi(save);
+	*num = ft_atol(save);
 	if (*num > INT_MAX || *num < INT_MIN)
 		return (0);
 	return (1);
@@ -49,27 +48,38 @@ void	ps_link_create(t_link **link, long num)
 	}
 }
 
+int		ps_create(t_link **link, char *av, t_info *info)
+{
+	char	**save;
+	int		i;
+	long	num;
+
+	save = ft_split(av, ' ');
+	i = -1;
+	while (save[++i])
+	{
+		if (!ps_check_int(save[i], &num))
+			return (free_array(&save));
+		ps_link_create(link, num);
+		free(save[i]);
+		info->a_size++;
+	}
+	free(save);
+	return (1);
+}
 t_link	*ps_start(char *av[], t_info *info)
 {
 	t_link	*link;
-	char	**save;
-	int		i,j;
-	long	num;
+	int		i;
 
 	i = 0;
 	link = 0;
-	num = 0;
 	while (av[++i])
 	{
-		save = ft_split(av[i], ' ');
-		j = -1;
-		while (save[++j])
-		{
-			if (!ps_check_int(save[j], &num))
-				return (0);
-			ps_link_create(&link, num);
-			info->a_size++;
-		}
+		if (!ps_create(&link, av[i], info))
+			free_exit(&link);
 	}
+	if (!ps_check_overlap(link))
+		free_exit(&link);
 	return (link);
 }
