@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:58:55 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 18:56:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/29 22:09:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,9 @@ int		main(int ac, char *av[])
 	ps_info_init(&info);
 	a = ps_start(av, &info);
 	a = move_link_head(a);
-
 	algo_init(&a, &b, &info);
 
-	// op_sa(&a, &info);
-	// op_ra(&a, &info);
-	// op_rra(&a, &info);
-	// op_ss(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pb(&a, &b, &info);
-	// op_pa(&a, &b, &info);
-	// op_pa(&a, &b, &info);
-	// op_rr(&a, &b, &info);
-	// op_rr(&a, &b, &info);
-	// op_rr(&a, &b, &info);
+	printf("==========\n");
 	printf("main\n");
 	printf("==========\n");
 	while (a)
@@ -69,4 +51,8 @@ int		main(int ac, char *av[])
 	}
 	printf("-\t-\n");
 	printf("a\tb\n");
+
+	free_link(&a);
+
+
 }
