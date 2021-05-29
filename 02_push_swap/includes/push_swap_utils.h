@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 16:58:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/29 17:03:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_link	*new_link_tail(t_link *link, long value);
 void	delete_link(t_link **link);
 
 int		ps_check_overlap(t_link *link);
-
+int		sort_check(t_link *link);
 void	algo_pivot(t_link *link, t_info *info);
 
 int		free_array(char ***array);
