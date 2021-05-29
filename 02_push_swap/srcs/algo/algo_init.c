@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:13:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/29 22:09:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/29 22:29:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,17 @@ void	algo_init(t_link **a, t_link **b, t_info *info)
 
 	algo_pivot(*a, info);
 	i = info->a_size;
-	while (!sort_check(*a) && i > 0)
-	{
-		if ((*a)->val == info->max)
-			op_ra(a, info);
-		if ((*a)->val > (*a)->next->val)
-			op_sa(a, info);
+	if ((*a)->val == info->min)
+		op_rra(a, info);
+	else if ((*a)->val == info->max)
+		op_ra(a, info);
+	else
+		op_sa(a, info);
+
 		// if ((*a)->val <= info->pivot)
 		// 	op_pb(a, b, info);
 		// else
 		// 	op_ra(a, info);
-		i--;
-	}
 	// while (info->b_size)
 	// {
 	// 	algo_pivot(*b, info);
