@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:22:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 18:33:04 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/29 16:26:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ void	algo_find_max(t_link *link, t_info *info)
 void	algo_pivot(t_link *link, t_info *info)
 {
 	algo_find_min(link, info);
-	printf("min : %ld\n", info->min);
 	algo_find_max(link, info);
-	printf("max : %ld\n", info->max);
 	info->pivot = ((info->min + info->max) / 2);
-	printf("pivot : %ld\n", info->pivot);
-	printf("==============\n");
 }
