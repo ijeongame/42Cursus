@@ -6,21 +6,21 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 16:40:05 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 14:28:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ps_check_overlap_num(t_link *link, t_link *dup)
+int		ps_check_overlap_num(t_link *link, t_link *over)
 {
-	dup = link->prev;
-	while (dup)
+	over = link->prev;
+	while (over)
 	{
-		if (link->val == dup->val)
+		if (link->val == over->val)
 			return (0);
-		if (dup->prev)
-			dup = dup->prev;
+		if (over->prev)
+			over = over->prev;
 		else
 			break ;
 	}
@@ -29,14 +29,14 @@ int		ps_check_overlap_num(t_link *link, t_link *dup)
 
 int		ps_check_overlap(t_link *link)
 {
-	t_link	*dup;
+	t_link	*over;
 
-	dup = 0;
+	over = 0;
 	while (link)
 	{
 		if (link->prev)
 		{
-			if (!ps_check_overlap_num(link, dup))
+			if (!ps_check_overlap_num(link, over))
 				return (0);
 			link = link->prev;
 		}

@@ -6,11 +6,22 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:22:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/29 16:26:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 15:48:13 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	algo_find_pos(t_link *link, t_info *info)
+{
+	while (link)
+	{
+		if (link->val == info->min)
+			break ;
+		info->pos++;
+		link = link->next;
+	}
+}
 
 void	algo_find_min(t_link *link, t_info *info)
 {
