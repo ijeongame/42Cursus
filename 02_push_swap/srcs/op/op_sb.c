@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:30:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:55:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 16:31:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ void	op_sb(t_link **b, t_info *info)
 	tmp = (*b)->val;
 	(*b)->val = (*b)->prev->val;
 	(*b)->prev->val = tmp;
-	write(1, "sb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 21:36:53 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:36:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 16:31:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ void	op_rrr(t_link **a, t_link **b, t_info *info)
 {
 	op_rra(a, info);
 	op_rrb(b, info);
-	write(1, "rrr\n", 4);
 }

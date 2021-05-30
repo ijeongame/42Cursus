@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:32:10 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:37:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 16:30:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ void	op_rb(t_link **b, t_info *info)
 	link = move_link_tail(*b);
 	link->next = new_link_tail(link, tmp);
 	delete_link(b);
-	write(1, "rb\n", 3);
 }

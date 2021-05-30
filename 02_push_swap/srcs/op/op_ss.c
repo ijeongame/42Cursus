@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:31:01 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/27 19:36:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 16:37:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ void	op_ss(t_link **a, t_link **b, t_info *info)
 {
 	op_sa(a, info);
 	op_sb(b, info);
-	write(1, "ss\n", 3);
 }

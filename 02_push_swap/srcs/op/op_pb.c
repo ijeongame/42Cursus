@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:31:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/28 18:45:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/30 16:30:44 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	op_pb(t_link **a, t_link **b, t_info *info)
 	delete_link(a);
 	info->a_size--;
 	info->b_size++;
-	write(1, "pb\n", 3);
 }
