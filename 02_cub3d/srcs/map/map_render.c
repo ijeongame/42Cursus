@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 22:18:04 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/23 17:43:53 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/26 23:31:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int		map_change(t_cub *c, int **map, char *tmp, int i)
 		(*map)[j] = -1;
 	j = -1;
 	k = 0;
-	while (tmp[j] != 0 && (*map)[j])
+	while (tmp[++j] != 0 && (*map)[j])
 	{
-		++j;
 		if (ft_strchr("NEWS", tmp[j]))
 		{
 			set_pos(c, tmp[j], i, j);
