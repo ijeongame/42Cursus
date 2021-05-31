@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2021/06/01 05:12:42 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 06:01:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ t_list			*ft_lstmap(t_list *lst,
 int				get_next_line(int fd, char **line);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strndup(const char *src, int n);
-
+int				ft_strcmp(const char *s1, const char *s2);
 #endif
