@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 22:35:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 22:12:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/31 20:51:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ typedef struct		s_info
 	long			max;
 	long			min;
 	long			pivot;
+	int				ra_cnt;
+	int				rb_cnt;
+	int				pa_cnt;
+	int				pb_cnt;
 	int				pos;
-	int				cnt;
 	int				a_size;
 	int				b_size;
 }					t_info;
