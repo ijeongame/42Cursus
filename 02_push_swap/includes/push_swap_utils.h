@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/31 22:19:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 06:09:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define PA		9
 # define PB		10
 
+t_link	*ps_start(char *av[], t_info *info);
 t_link	*move_link_head(t_link *link);
 t_link	*move_link_tail(t_link *link);
 t_link	*new_link_head(t_link *link, long value);
@@ -36,10 +37,10 @@ void	delete_link(t_link **link);
 int		ps_check_overlap(t_link *link);
 int		sort_check_a(t_link *link);
 int		sort_check_b(t_link *link);
-void	re_rotate(t_link **a, t_link **b, t_info *info);
-
 int		escape_a(t_link **a, t_link **b, t_info *info, int cnt);
 int		escape_b(t_link **a, t_link **b, t_info *info, int cnt);
+void	swap_a(t_link **a, t_link **b, t_info *info);
+void	swap_b(t_link **a, t_link **b, t_info *info);
 
 void	algo_pivot(t_link *link, t_info *info, int cnt);
 void	algo_find_pos(t_link *link, t_info *info);

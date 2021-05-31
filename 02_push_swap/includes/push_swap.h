@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 21:56:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 06:09:17 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,5 @@
 # include "push_swap_op.h"
 # include "push_swap_utils.h"
 # include "push_swap_algo.h"
-
-int		main(int ac, char *av[]);
-
-t_link	*ps_start(char *av[], t_info *info);
 
 #endif

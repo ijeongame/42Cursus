@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_struct.h                                 :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 22:35:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 03:52:57 by hkwon            ###   ########.fr       */
+/*   Created: 2021/06/01 05:30:24 by hkwon             #+#    #+#             */
+/*   Updated: 2021/06/01 06:00:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_STRUCT_H
-# define PUSH_SWAP_STRUCT_H
+#ifndef CHECKER
+# define CHECKER
 
-typedef struct		s_link
-{
-	long			val;
-	struct s_link	*next;
-	struct s_link	*prev;
-}					t_link;
+# include "push_swap.h"
 
-typedef struct		s_info
-{
-	long			max;
-	long			min;
-	long			pivot;
-	int				pos;
-	int				a_size;
-	int				b_size;
-}					t_info;
+int		check_init(t_link **a, t_link **b, t_info *info);
+void	check_run_swap(t_link **a, t_link **b, t_info *info, char *line);
+void	check_run_rot_up(t_link **a, t_link **b, t_info *info, char *line);
+void	check_run_rot_down(t_link **a, t_link **b, t_info *info, char *line);
+void	check_run_push(t_link **a, t_link **b, t_info *info, char *line);
 
 #endif
