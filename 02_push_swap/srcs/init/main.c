@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:58:55 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 02:14:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 06:27:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,6 @@ int		main(int ac, char *av[])
 	a = ps_start(av, &info);
 	a = move_link_head(a);
 	algo_init(&a, &b, &info);
-	printf("==========\n");
-	printf("main\n");
-	printf("==========\n");
-	while (a)
-	{
-		printf("%ld\n", a->val);
-		a = a->next;
-	}
-	while (b)
-	{
-		printf("\t%ld\n", b->val);
-		b = b->next;
-	}
-	printf("-\t-\n");
-	printf("a\tb\n");
 	free_link(&a);
 	return (0);
 }
