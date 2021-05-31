@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:23:01 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 16:37:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 03:59:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	exec_push(t_link **a, t_link **b, t_info *info, int op)
 
 void	exec_op(t_link **a, t_link **b, t_info *info, int op)
 {
-	if (op >= 0 && op <=2)
+	if (op >= 0 && op <= 2)
 		exec_switch(a, b, info, op);
 	if (op >= 3 && op <= 5)
 		exec_up_rotate(a, b, info, op);

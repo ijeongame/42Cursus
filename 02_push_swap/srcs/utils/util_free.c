@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 21:56:52 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 16:22:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 06:24:17 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	free_exit(t_link **link)
 	ft_putstr_fd("Error\n", 1);
 	*link = move_link_head(*link);
 	free_link(link);
-	exit(0);
+	exit(-1);
 }

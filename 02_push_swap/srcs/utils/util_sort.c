@@ -6,29 +6,37 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:58:15 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/31 23:25:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 04:08:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	re_rotate(t_link **a, t_link **b, t_info *info)
-// {
-// 	if (info->rb_cnt > info->ra_cnt)
-// 	{
-// 		while (info->rb_cnt-- != info->ra_cnt)
-// 			exec_op(a, b, info, RRB);
-// 		while (info->ra_cnt--)
-// 			exec_op(a, b, info, RRR);
-// 	}
-// 	else
-// 	{
-// 		while (info->ra_cnt-- != info->rb_cnt)
-// 			exec_op(a, b, info, RRA);
-// 		while (info->rb_cnt--)
-// 			exec_op(a, b, info, RRR);
-// 	}
-// }
+void	swap_a(t_link **a, t_link **b, t_info *info)
+{
+	if ((*b) && (*b)->next)
+	{
+		if ((*b)->val < (*b)->next->val)
+			exec_op(a, b, info, SS);
+		else
+			exec_op(a, b, info, SA);
+	}
+	else
+		exec_op(a, b, info, SA);
+}
+
+void	swap_b(t_link **a, t_link **b, t_info *info)
+{
+	if ((*a) && (*a)->next)
+	{
+		if ((*a)->val > (*a)->next->val)
+			exec_op(a, b, info, SS);
+		else
+			exec_op(a, b, info, SB);
+	}
+	else
+		exec_op(a, b, info, SB);
+}
 
 int		sort_check_b(t_link *link)
 {
