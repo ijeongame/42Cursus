@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:50:59 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 02:26:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 05:04:55 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,71 +23,50 @@ int		algo_check_big(t_link *link, long pivot)
 	return (1);
 }
 
-void	print_num(t_link *a, t_link *b, t_info *info, int ra, int pb, int cnt)
+void	algo_init_flag_a(t_link **a, t_info *info, int flag[7], int cnt)
 {
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("ra_cnt : %d\n", ra);
-	printf("pb_cnt : %d\n", pb);
-	printf("cnt : %d\n", cnt);
-	printf("============\n");
-	while (a)
+	algo_pivot(*a, info, cnt);
+	ft_memset(flag, 0, sizeof(int) * 6);
+	if (cnt == info->a_size)
+		flag[F_FL] = 1;
+	flag[F_RA] = 0;
+	flag[F_PB] = 0;
+}
+
+void	algo_rotate_a(t_link **a, t_link **b, t_info *info, int flag[7])
+{
+	flag[F_I] = flag[F_RA];
+	while (flag[F_I] && !flag[F_FL])
 	{
-		printf("%ld\n", a->val);
-		a = a->next;
+		exec_op(a, b, info, RRA);
+		flag[F_I]--;
 	}
-	while (b)
-	{
-		printf("\t%ld\n", b->val);
-		b = b->next;
-	}
-	printf("-\t-\n");
-	printf("a\tb\n");
-	printf("============\n");
-	// sleep(1);
 }
 
 void	algo_a_to_b(t_link **a, t_link **b, t_info *info, int cnt)
 {
+	int		flag[7];
+
 	if (escape_a(a, b, info, cnt))
 		return ;
-	int ra = 0;
-	int pb = 0;
-	printf("======a_to_b_start======\n");
-	algo_pivot(*a, info, cnt);
-	print_num(*a, *b, info, ra, pb, cnt);
+	algo_init_flag_a(a, info, flag, cnt);
 	while (cnt > 0)
 	{
-		print_num(*a, *b, info, ra, pb, cnt);
 		if ((*a)->val > info->pivot)
 		{
 			if (algo_check_big(*a, info->pivot))
 				break ;
 			exec_op(a, b, info, RA);
-			ra++;
+			flag[F_RA]++;
 		}
 		else
 		{
 			exec_op(a, b, info, PB);
-			pb++;
+			flag[F_PB]++;
 		}
 		cnt--;
 	}
-	int i = ra;
-	while (i)
-	{
-		exec_op(a, b, info, RRA);
-		i--;
-	}
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("ra_cnt : %d\n", ra);
-	printf("pb_cnt : %d\n", pb);
-	printf("cnt : %d\n", cnt);
-	printf("============\n");
-	printf("======a_to_b_fin======\n");
-	algo_a_to_b(a, b, info, ra + cnt);
-	algo_b_to_a(a, b, info, pb);
+	algo_rotate_a(a, b, info, flag);
+	algo_a_to_b(a, b, info, flag[F_RA] + cnt);
+	algo_b_to_a(a, b, info, flag[F_PB]);
 }

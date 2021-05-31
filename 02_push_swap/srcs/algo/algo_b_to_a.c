@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:51:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 02:26:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 05:04:55 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,68 +23,50 @@ int		algo_check_small(t_link *link, long pivot)
 	return (1);
 }
 
-void	print_b_num(t_link *a, t_link *b, t_info *info, int rb, int pa, int cnt)
+void	algo_init_flag_b(t_link **b, t_info *info, int flag[7], int cnt)
 {
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("rb_cnt : %d\n", rb);
-	printf("pa_cnt : %d\n", pa);
-	printf("cnt : %d\n", cnt);
-	printf("============\n");
-	while (a)
+	algo_pivot(*b, info, cnt);
+	ft_memset(flag, 0, sizeof(int) * 6);
+	if (cnt == info->b_size)
+		flag[F_FL] = 1;
+	flag[F_RB] = 0;
+	flag[F_PA] = 0;
+}
+
+void	algo_rotate_b(t_link **a, t_link **b, t_info *info, int flag[7])
+{
+	flag[F_I] = flag[F_RB];
+	while (flag[F_I] && !flag[F_FL])
 	{
-		printf("%ld\n", a->val);
-		a = a->next;
+		exec_op(a, b, info, RRB);
+		flag[F_I]--;
 	}
-	while (b)
-	{
-		printf("\t%ld\n", b->val);
-		b = b->next;
-	}
-	printf("-\t-\n");
-	printf("a\tb\n");
-	printf("============\n");
-	// sleep(1);
 }
 
 void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt)
 {
-	printf("============\n");
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("cnt : %d\n", cnt);
+	int		flag[7];
+
 	if (escape_b(a, b, info, cnt))
 		return ;
-	int rb = 0;
-	int pa = 0;
-	printf("======b_to_a_start======\n");
-	algo_pivot(*b, info, cnt);
-	print_b_num(*a, *b, info, rb, pa, cnt);
+	algo_init_flag_b(b, info, flag, cnt);
 	while (cnt > 0)
 	{
-		print_b_num(*a, *b, info, rb, pa, cnt);
 		if ((*b)->val > info->pivot)
 		{
 			exec_op(a, b, info, PA);
-			pa++;
+			flag[F_PA]++;
 		}
 		else
 		{
 			if (algo_check_small(*b, info->pivot))
 				break ;
 			exec_op(a, b, info, RB);
-			rb++;
+			flag[F_RB]++;
 		}
 		cnt--;
 	}
-	int i = rb;
-	while (i)
-	{
-		exec_op(a, b, info, RRB);
-		i--;
-	}
-	algo_a_to_b(a, b, info, pa);
-	algo_b_to_a(a, b, info, rb + cnt);
+	algo_rotate_b(a, b, info, flag);
+	algo_a_to_b(a, b, info, flag[F_PA]);
+	algo_b_to_a(a, b, info, flag[F_RB] + cnt);
 }

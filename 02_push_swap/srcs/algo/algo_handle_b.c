@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 22:59:07 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 00:24:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 04:11:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		type4(t_link **a, t_link **b, t_info *info)
 	exec_op(a, b, info, RRB);
 }
 
-void	algo_handle_b(t_link **a, t_link **b, t_info *info)
+void			algo_handle_b(t_link **a, t_link **b, t_info *info)
 {
 	if ((*b)->val < (*b)->next->val && \
 	(*b)->next->val < (*b)->next->next->val)
@@ -57,7 +57,7 @@ void	algo_handle_b(t_link **a, t_link **b, t_info *info)
 		type3(a, b, info);
 	else if ((*b)->next->next->val < (*b)->val && \
 	(*b)->val < (*b)->next->val)
-		exec_op(a, b, info, SB);
+		swap_b(a, b, info);
 	else if ((*b)->next->val < (*b)->next->next->val && \
 	(*b)->next->next->val < (*b)->val)
 		type4(a, b, info);
