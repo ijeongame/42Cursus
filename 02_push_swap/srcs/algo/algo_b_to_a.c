@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:51:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 00:10:05 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 02:26:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,6 @@ void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt)
 		exec_op(a, b, info, RRB);
 		i--;
 	}
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("rb_cnt : %d\n", rb);
-	printf("pa_cnt : %d\n", pa);
-	printf("cnt : %d\n", cnt);
-	printf("============\n");
-	printf("======b_to_a_fin======\n");
 	algo_a_to_b(a, b, info, pa);
 	algo_b_to_a(a, b, info, rb + cnt);
 }

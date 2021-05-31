@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:50:59 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 02:15:48 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 02:26:40 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,6 @@ void	print_num(t_link *a, t_link *b, t_info *info, int ra, int pb, int cnt)
 
 void	algo_a_to_b(t_link **a, t_link **b, t_info *info, int cnt)
 {
-	printf("============\n");
-	printf("min : %ld\n", info->min);
-	printf("max : %ld\n", info->max);
-	printf("pivot : %ld\n", info->pivot);
-	printf("cnt : %d\n", cnt);
 	if (escape_a(a, b, info, cnt))
 		return ;
 	int ra = 0;
