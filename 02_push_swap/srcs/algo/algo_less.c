@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:38:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 16:51:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/31 23:26:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	algo_three_sort(t_link **a, t_link **b, t_info *info)
 {
-	if (sort_check(*a))
+	if (sort_check_a(*a))
 		return ;
-	algo_pivot(*a, info);
+	algo_pivot(*a, info, info->a_size);
 	if ((*a)->val == info->min)
 		exec_op(a, b, info, RRA);
 	else if ((*a)->val == info->max)
@@ -33,11 +33,11 @@ void	algo_three_sort(t_link **a, t_link **b, t_info *info)
 
 void	algo_less(t_link **a, t_link **b, t_info *info)
 {
-	if (sort_check(*a))
+	if (sort_check_a(*a))
 		return ;
 	while (info->a_size > 3)
 	{
-		algo_pivot(*a, info);
+		algo_pivot(*a, info, info->a_size);
 		algo_find_pos(*a, info);
 		if (info->pos < info->a_size / 2)
 		{
@@ -49,7 +49,7 @@ void	algo_less(t_link **a, t_link **b, t_info *info)
 			while ((*a)->val != info->min)
 				exec_op(a, b, info, RRA);
 		}
-		if (sort_check(*a))
+		if (sort_check_a(*a))
 			break ;
 		else
 			exec_op(a, b, info, PB);
