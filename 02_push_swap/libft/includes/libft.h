@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2021/05/27 01:08:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 05:12:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5000
+# endif
 
 typedef struct	s_list
 {
@@ -78,5 +83,9 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst,
 								void *(*f)(void *),
 								void (*del)(void *));
+
+int				get_next_line(int fd, char **line);
+char			*ft_strchr(const char *str, int c);
+char			*ft_strndup(const char *src, int n);
 
 #endif
