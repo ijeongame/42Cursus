@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:30:31 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 16:31:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/31 23:43:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	op_sb(t_link **b, t_info *info)
 	if (info->b_size < 2)
 		return ;
 	tmp = (*b)->val;
-	(*b)->val = (*b)->prev->val;
-	(*b)->prev->val = tmp;
+	(*b)->val = (*b)->next->val;
+	(*b)->next->val = tmp;
 }

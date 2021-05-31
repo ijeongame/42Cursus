@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:33:40 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/30 16:31:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/05/31 20:08:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	op_rrb(t_link **b, t_info *info)
 	tmp = link->val;
 	link->prev->next = 0;
 	free(link);
-	(*b)->prev = new_link_tail(*b, tmp);
+	(*b)->prev = new_link_head(*b, tmp);
 	(*b) = (*b)->prev;
 }
