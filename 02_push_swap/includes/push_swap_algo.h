@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:22:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 05:04:57 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 22:46:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include "push_swap_struct.h"
 
 # define F_I	0
-# define F_RA	1
-# define F_RB	2
-# define F_PA	3
-# define F_PB	4
-# define F_FL	5
+# define F_J	1
+# define F_RA	2
+# define F_RB	3
+# define F_PA	4
+# define F_PB	5
+# define F_FL	6
 
 void	algo_init(t_link **a, t_link **b, t_info *info);
 void	algo_less(t_link **a, t_link **b, t_info *info);

@@ -6,12 +6,12 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 05:30:24 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 06:00:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 15:35:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER
-# define CHECKER
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "push_swap.h"
 

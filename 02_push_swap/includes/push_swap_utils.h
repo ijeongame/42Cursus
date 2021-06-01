@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 06:09:26 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 22:54:24 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_link	*new_link_tail(t_link *link, long value);
 void	delete_link(t_link **link);
 
 int		ps_check_overlap(t_link *link);
-int		sort_check_a(t_link *link);
-int		sort_check_b(t_link *link);
+int		sort_check_a(t_link *link, int cnt);
+int		sort_check_b(t_link *link, int cnt);
 int		escape_a(t_link **a, t_link **b, t_info *info, int cnt);
 int		escape_b(t_link **a, t_link **b, t_info *info, int cnt);
 void	swap_a(t_link **a, t_link **b, t_info *info);
