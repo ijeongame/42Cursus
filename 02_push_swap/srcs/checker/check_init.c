@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 05:29:37 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 06:24:24 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 22:55:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		check_init(t_link **a, t_link **b, t_info *info)
 	}
 	if (line)
 		free(line);
-	if (!info->b_size && sort_check_a(*a))
+	if (!info->b_size && sort_check_a(*a, info->a_size))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);

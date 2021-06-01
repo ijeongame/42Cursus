@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 03:58:56 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 03:59:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/01 22:54:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		escape_a(t_link **a, t_link **b, t_info *info, int cnt)
 	}
 	else if (cnt == 3)
 		algo_handle_a(a, b, info);
-	else if (sort_check_a(*a))
+	else if (sort_check_a(*a, cnt))
 		;
 	else
 		return (0);
@@ -47,7 +47,7 @@ int		escape_b(t_link **a, t_link **b, t_info *info, int cnt)
 		while (cnt--)
 			exec_op(a, b, info, PA);
 	}
-	else if (sort_check_b(*b))
+	else if (sort_check_b(*b, cnt))
 	{
 		while (cnt--)
 			exec_op(a, b, info, PA);
