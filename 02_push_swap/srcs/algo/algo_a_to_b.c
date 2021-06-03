@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:50:59 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 22:57:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/03 21:24:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,11 @@ void	algo_a_to_b(t_link **a, t_link **b, t_info *info, int cnt)
 	if (escape_a(a, b, info, cnt))
 		return ;
 	algo_init_flag_a(a, info, flag, cnt);
-	int pi = (info->pivot + info->min) / 2;
 	while (cnt > 0)
 	{
-		if ((*a)->val > info->pivot)
+		if ((*a)->val > info->pivot[0])
 		{
-			if (algo_check_big(*a, info->pivot))
+			if (algo_check_big(*a, info->pivot[0]))
 				break ;
 			exec_op(a, b, info, RA);
 			flag[F_RA]++;
@@ -82,7 +81,7 @@ void	algo_a_to_b(t_link **a, t_link **b, t_info *info, int cnt)
 		{
 			exec_op(a, b, info, PB);
 			flag[F_PB]++;
-			if (!algo_check_big(*a, info->pivot) && (*b)->val > pi)
+			if (!algo_check_big(*a, info->pivot) && (*b)->val > info->pivot[1])
 			{
 				if (cnt && (*a)->val > info->pivot)
 				{
