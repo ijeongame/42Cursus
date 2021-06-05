@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:51:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 22:57:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/05 21:35:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,15 @@ void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt)
 	if (escape_b(a, b, info, cnt))
 		return ;
 	algo_init_flag_b(b, info, flag, cnt);
-	int pi = (info->pivot + info->min) / 2;
 	while (cnt > 0)
 	{
-		if ((*b)->val > pi)
+		if ((*b)->val > info->pivot[1])
 		{
 			exec_op(a, b, info, PA);
 			flag[F_PA]++;
-			if (!algo_check_small(*b, info->pivot) && (*a)->val < info->pivot)
+			if (!algo_check_small(*b, info->pivot) && (*a)->val < info->pivot[0])
 			{
-				if ((*b)->val > pi)
+				if ((*b)->val > info->pivot[1])
 				{
 					exec_op(a, b, info, RR);
 					cnt--;
@@ -90,7 +89,7 @@ void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt)
 		}
 		else
 		{
-			if (algo_check_small(*b, pi))
+			if (algo_check_small(*b, info->pivot[1]))
 				break ;
 			exec_op(a, b, info, RB);
 			flag[F_RB]++;
