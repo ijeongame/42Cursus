@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/06/01 06:21:39 by hkwon            ###   ########.fr        #
+#    Updated: 2021/06/07 22:08:16 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,8 @@ SRCS_COMMON = $(addprefix $(SRCS_DIR)/, \
 		$(addprefix $(SRCS_ALGO_DIR)/, algo_init.c algo_less.c algo_handle_a.c algo_handle_b.c algo_a_to_b.c algo_b_to_a.c)\
 		$(addprefix $(SRCS_UTILS_DIR)/, util_start.c util_lst.c util_parse.c util_algo.c util_sort.c util_exec.c util_escape.c util_free.c))
 
-SRCS_CHECK = $(addprefix $(SRCS_DIR)/, \
-		$(addprefix $(SRCS_CHECK_DIR)/, main.c check_init.c check_run.c))
+# SRCS_CHECK = $(addprefix $(SRCS_DIR)/, \
+# 		$(addprefix $(SRCS_CHECK_DIR)/, main.c check_init.c check_run.c))
 
 all : $(NAME)
 
