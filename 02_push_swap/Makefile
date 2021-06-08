@@ -6,13 +6,14 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/06/07 22:08:16 by hkwon            ###   ########.fr        #
+#    Updated: 2021/06/08 19:44:46 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
 CHECKER = checker
-NAME = $(PUSH_SWAP) $(CHECKER)
+NAME = $(PUSH_SWAP)
+# $(CHECKER)
 
 LIBFT = libft.a
 
@@ -50,9 +51,9 @@ $(PUSH_SWAP) : $(LIBFT) $(SRCS_PUSH)
 	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
 	-L ./$(LIB_DIR) -lft -o $(PUSH_SWAP) $(SRCS_PUSH) $(SRCS_COMMON)
 
-$(CHECKER) : $(LIBFT) $(SRCS_CHECK)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
-	-L ./$(LIB_DIR) -lft -o $(CHECKER) $(SRCS_CHECK) $(SRCS_COMMON)
+# $(CHECKER) : $(LIBFT) $(SRCS_CHECK)
+# 	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
+# 	-L ./$(LIB_DIR) -lft -o $(CHECKER) $(SRCS_CHECK) $(SRCS_COMMON)
 
 $(LIBFT) :
 	@make -C $(LIB_DIR)
