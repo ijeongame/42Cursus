@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 15:51:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/06 22:26:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/11 22:46:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt)
 		{
 			exec_op(a, b, info, PA);
 			flag[F_PA]++;
-			if (!algo_check_small(*b, info->pivot) && (*a)->val < info->pivot[0])
+			if (!algo_check_small(*b, info->pivot[1]) && (*a)->val < info->pivot[0])
 			{
 				if ((*b)->val > info->pivot[1])
 				{
