@@ -12,6 +12,5 @@ int main(int ac, char *av[])
 	if (argc != 5)
 		return (0);
 	pipe(pipefd);
-
 }
 
