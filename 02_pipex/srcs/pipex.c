@@ -12,5 +12,8 @@ int main(int ac, char *av[])
 	if (argc != 5)
 		return (0);
 	pipe(pipefd);
+	//양 끝단의 redirection 기능부터 구현.
+	//file descriptor 개념을 숙지하기.
+	//notion 확인
 }
 
