@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:58:15 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 22:56:52 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/29 17:45:20 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,24 @@ void	swap_b(t_link **a, t_link **b, t_info *info)
 
 int		sort_check_b(t_link *link, int cnt)
 {
-	while (cnt-- > 1)
+	while (cnt > 1)
 	{
 		if (link->val < link->next->val)
 			return (0);
 		link = link->next;
+		cnt--;
 	}
 	return (1);
 }
 
 int		sort_check_a(t_link *link, int cnt)
 {
-	while (cnt-- > 1)
+	while (cnt > 1)
 	{
 		if (link->val > link->next->val)
 			return (0);
 		link = link->next;
+		cnt--;
 	}
 	return (1);
 }
