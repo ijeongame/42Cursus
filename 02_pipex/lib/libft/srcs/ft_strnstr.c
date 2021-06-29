@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:42 by hkwon            ###   ########.fr       */
+/*   Created: 2020/11/13 15:31:31 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/13 15:34:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../libft/includes/libft.h"
-# include "push_swap_struct.h"
-# include "push_swap_op.h"
-# include "push_swap_utils.h"
-# include "push_swap_algo.h"
+char	*ft_strnstr(const char *big, const char *little, size_t size)
+{
+	size_t i;
+	size_t j;
 
-#endif
+	i = 0;
+	if (little[i] == '\0')
+		return ((char *)big);
+	while (big[i] && i < size)
+	{
+		j = 0;
+		while (little[j] && big[i] == little[j] && i < size)
+		{
+			i++;
+			j++;
+		}
+		if (!little[j])
+			return ((char *)&big[i - j]);
+		i = i - j + 1;
+	}
+	return (0);
+}

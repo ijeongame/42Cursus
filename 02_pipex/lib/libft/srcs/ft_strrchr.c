@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:42 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/17 03:56:06 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/13 17:04:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../libft/includes/libft.h"
-# include "push_swap_struct.h"
-# include "push_swap_op.h"
-# include "push_swap_utils.h"
-# include "push_swap_algo.h"
+char	*ft_strrchr(const char *str, int c)
+{
+	size_t	len;
 
-#endif
+	len = ft_strlen(str);
+	while (len != 0 && *(str + len) != c)
+		len--;
+	if (*(str + len) == c)
+		return (char *)(str + len);
+	return (0);
+}

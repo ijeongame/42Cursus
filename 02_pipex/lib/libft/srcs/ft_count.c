@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_count.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:42 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/17 02:47:30 by hkwon             #+#    #+#             */
+/*   Updated: 2021/05/18 02:43:41 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../libft/includes/libft.h"
-# include "push_swap_struct.h"
-# include "push_swap_op.h"
-# include "push_swap_utils.h"
-# include "push_swap_algo.h"
+int			ft_count(int n)
+{
+	int count;
 
-#endif
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}

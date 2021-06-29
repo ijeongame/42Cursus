@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:15:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:42 by hkwon            ###   ########.fr       */
+/*   Created: 2020/10/18 17:46:07 by hkwon             #+#    #+#             */
+/*   Updated: 2020/11/12 13:29:15 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../libft/includes/libft.h"
-# include "push_swap_struct.h"
-# include "push_swap_op.h"
-# include "push_swap_utils.h"
-# include "push_swap_algo.h"
+char	*ft_strdup(const char *src)
+{
+	size_t	len;
+	char	*dest;
 
-#endif
+	len = ft_strlen(src);
+	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	len = 0;
+	while (src[len])
+	{
+		dest[len] = src[len];
+		len++;
+	}
+	dest[len] = '\0';
+	return (dest);
+}

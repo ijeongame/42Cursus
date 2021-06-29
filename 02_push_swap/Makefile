@@ -6,13 +6,14 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/06/01 06:21:39 by hkwon            ###   ########.fr        #
+#    Updated: 2021/06/12 14:08:52 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
 CHECKER = checker
-NAME = $(PUSH_SWAP) $(CHECKER)
+NAME = $(PUSH_SWAP)
+# $(CHECKER)
 
 LIBFT = libft.a
 
@@ -41,8 +42,8 @@ SRCS_COMMON = $(addprefix $(SRCS_DIR)/, \
 		$(addprefix $(SRCS_ALGO_DIR)/, algo_init.c algo_less.c algo_handle_a.c algo_handle_b.c algo_a_to_b.c algo_b_to_a.c)\
 		$(addprefix $(SRCS_UTILS_DIR)/, util_start.c util_lst.c util_parse.c util_algo.c util_sort.c util_exec.c util_escape.c util_free.c))
 
-SRCS_CHECK = $(addprefix $(SRCS_DIR)/, \
-		$(addprefix $(SRCS_CHECK_DIR)/, main.c check_init.c check_run.c))
+# SRCS_CHECK = $(addprefix $(SRCS_DIR)/, \
+# 		$(addprefix $(SRCS_CHECK_DIR)/, main.c check_init.c check_run.c))
 
 all : $(NAME)
 
@@ -50,9 +51,9 @@ $(PUSH_SWAP) : $(LIBFT) $(SRCS_PUSH)
 	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
 	-L ./$(LIB_DIR) -lft -o $(PUSH_SWAP) $(SRCS_PUSH) $(SRCS_COMMON)
 
-$(CHECKER) : $(LIBFT) $(SRCS_CHECK)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
-	-L ./$(LIB_DIR) -lft -o $(CHECKER) $(SRCS_CHECK) $(SRCS_COMMON)
+# $(CHECKER) : $(LIBFT) $(SRCS_CHECK)
+# 	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
+# 	-L ./$(LIB_DIR) -lft -o $(CHECKER) $(SRCS_CHECK) $(SRCS_COMMON)
 
 $(LIBFT) :
 	@make -C $(LIB_DIR)
