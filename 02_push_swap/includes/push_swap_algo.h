@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:22:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 22:46:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/29 20:45:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,12 @@
 
 # include "push_swap_struct.h"
 
-# define F_I	0
-# define F_J	1
-# define F_RA	2
-# define F_RB	3
-# define F_PA	4
-# define F_PB	5
-# define F_FL	6
-
-void	algo_init(t_link **a, t_link **b, t_info *info);
+void	algo_init(t_info *info);
 void	algo_less(t_link **a, t_link **b, t_info *info);
 void	algo_three_sort(t_link **a, t_link **b, t_info *info);
 void	algo_handle_a(t_link **a, t_link **b, t_info *info);
 void	algo_handle_b(t_link **a, t_link **b, t_info *info);
-void	algo_a_to_b(t_link **a, t_link **b, t_info *info, int cnt);
-void	algo_b_to_a(t_link **a, t_link **b, t_info *info, int cnt);
+void	algo_a_to_b(t_info *info, int cnt);
+void	algo_b_to_a(t_info *info, int cnt);
 
 #endif

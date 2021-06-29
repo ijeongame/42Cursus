@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:08:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/06/01 22:54:24 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/06/29 22:07:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int		sort_check_a(t_link *link, int cnt);
 int		sort_check_b(t_link *link, int cnt);
 int		escape_a(t_link **a, t_link **b, t_info *info, int cnt);
 int		escape_b(t_link **a, t_link **b, t_info *info, int cnt);
+void	algo_rotation_a(t_info *info, t_flag *flag, int *cnt);
+void	algo_rotation_b(t_info *info, t_flag *flag, int *cnt);
+void	algo_reset_rotate(t_link **a, t_link **b, t_info *info, t_flag flag);
 void	swap_a(t_link **a, t_link **b, t_info *info);
 void	swap_b(t_link **a, t_link **b, t_info *info);
 
