@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/06/29 22:19:09 by hkwon            ###   ########.fr        #
+#    Updated: 2021/06/30 13:56:53 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ NAME = $(PUSH_SWAP) $(CHECKER)
 LIBFT = libft.a
 
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 AR = ar rcs
 RM = rm -f
