@@ -6,13 +6,17 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/04 19:42:31 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/05 20:05:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHLIO_H
+# include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/time.h>
 # include <pthread.h>
 
 typedef struct			s_info
@@ -29,13 +33,14 @@ typedef struct			s_info
 
 typedef struct			s_philo
 {
-	int					fork_r;
-	int					fork_l;
+	int					n;
+	pthread_mutex_t		*fork_l;
+	pthread_mutex_t		*fork_r;
 	t_info				*info;		//fork만큼 할당을 해놓고 각각의 정보를 저장한다.
 }						t_philo;
 
 //srcs
-void		print(t_info info);
+int			start_philo(t_info *info, int ac, char *av[]);
 
 //utils
 int			ft_atoi(const char *str);
