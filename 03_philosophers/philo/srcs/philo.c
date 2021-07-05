@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 18:40:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/05 20:05:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/05 21:30:16 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static void	set_philo(t_info *info, int ac, char *av[])
 
 static int	check_philo(t_info *info, int ac)
 {
-	if (info->num_of_philo < 0)
+	if (info->num_of_philo < 0 || info->num_of_philo > 200)
 		return (1);
-	if (info->time_to_die < 0)
+	if (info->time_to_die < 60)
 		return (1);
-	if (info->time_to_eat < 0)
+	if (info->time_to_eat < 60)
 		return (1);
-	if (info->time_to_sleep < 0)
+	if (info->time_to_sleep < 60)
 		return (1);
 	if (ac == 6 && info->num_must_eat < 0)
 		return (1);
@@ -64,7 +64,7 @@ static int	init_philo(t_info *info)
 	return (0);
 }
 
-int			start_philo(t_info *info, int ac, char *av[])
+int	start_philo(t_info *info, int ac, char *av[])
 {
 	set_philo(info, ac, av);
 	if (check_philo(info, ac))
