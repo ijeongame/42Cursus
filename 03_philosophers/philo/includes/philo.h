@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/05 21:28:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/05 22:39:15 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef struct s_info
 	int					finish;
 	pthread_mutex_t		*fork;
 	t_philo				*philo;
-}						t_info;
+	struct timeval		last_eat_time;
+}	t_info;
 
 typedef struct s_philo
 {
@@ -38,15 +39,16 @@ typedef struct s_philo
 	pthread_mutex_t		*fork_l;
 	pthread_mutex_t		*fork_r;
 	t_info				*info;
-}						t_philo;
+	pthread_t			thread;
+	struct timeval		eat_time;
+}	t_philo;
 
-int			start_philo(t_info *info, int ac, char *av[]);
-
-int			ft_atoi(const char *str);
-void		ft_putchar_fd(char c, int fd);
-void		ft_putendl_fd(char *s, int fd);
-void		ft_putnbr_fd(int n, int fd);
-void		ft_putstr_fd(char *s, int fd);
-size_t		ft_strlen(const char *str);
+int		init(t_info *info, int ac, char *av[]);
+int		ft_atoi(const char *str);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(const char *str);
 
 #endif
