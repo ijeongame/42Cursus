@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/05 22:39:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/06 22:22:29 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,25 @@ typedef struct s_info
 	int					num_must_eat;
 	int					finish;
 	pthread_mutex_t		*fork;
+	pthread_mutex_t		fin_mutex;
+	struct timeval		eat_time;
 	t_philo				*philo;
-	struct timeval		last_eat_time;
 }	t_info;
 
 typedef struct s_philo
 {
-	int					n;
-	pthread_mutex_t		*fork_l;
-	pthread_mutex_t		*fork_r;
-	t_info				*info;
-	pthread_t			thread;
-	struct timeval		eat_time;
+	int				n;
+	pthread_mutex_t	*fork_l;
+	pthread_mutex_t	*fork_r;
+	pthread_mutex_t	eat_mutex;
+	pthread_t		thread;
+	struct timeval	last_eat_time;
+	t_info			*info;
 }	t_philo;
 
 int		init(t_info *info, int ac, char *av[]);
+void	*philo(void *av);
+void	*monitor(void *av);
 int		ft_atoi(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
