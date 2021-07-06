@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 16:44:12 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/06 20:11:14 by hkwon            ###   ########.fr       */
+/*   Created: 2021/07/06 19:21:19 by hkwon             #+#    #+#             */
+/*   Updated: 2021/07/06 22:40:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	thinking(t_philo *philo)
+long long	get_time(struct timeval	time)
 {
+	long long	ms;
+
+	ms = time.tv_sec / 1000 + time.tv_usec * 1000;
+	return (ms);
 }
 
-static void	sleeping(t_philo *philo)
+void	*monitor(void *av)
 {
-}
+	t_philo			*philo;
+	struct timeval	time;
+	long long		ms;
 
-static void	eating(t_philo *philo)
-{
-}
-
-void	*philo(void *av)
-{
+	philo = av;
+	if (!philo->info->finish)
+	{
+		pthread_mutex_lock(&philo->eat_mutex);
+		pthread_mutex_lock(&philo->info->fin_mutex);
+		ms = get_time(time) - get_time(philo->last_eat_time);
+		if (ms >= philo->info->time_to_die)
+		{
+		}
+	}
 }

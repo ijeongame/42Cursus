@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 18:40:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/05 22:39:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/06 21:00:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	set_philo(t_info *info, int ac, char *av[])
 	info->time_to_sleep = ft_atoi(av[4]);
 	if (ac == 6)
 		info->num_must_eat = ft_atoi(av[5]);
+	pthread_mutex_init(&info->fin_mutex, NULL);
 }
 
 static int	check_philo(t_info *info, int ac)
@@ -44,20 +45,18 @@ static int	init_philo(t_info *info)
 	info->philo = (t_philo *)malloc(sizeof(t_philo) * info->num_of_philo);
 	info->fork = (pthread_mutex_t *) \
 	malloc(sizeof(pthread_mutex_t) * info->num_of_philo);
-	if (!info->philo)
-		return (1);
-	if (!info->fork)
+	if (!info->philo || !info->fork)
 		return (1);
 	i = 0;
 	while (i < info->num_of_philo)
 	{
 		info->philo[i].n = i;
-		pthread_mutex_init(&info->fork[i], NULL);
-		if (i == 0)
-			info->philo[i].fork_l = &info->fork[info->num_of_philo - 1];
-		else
-			info->philo[i].fork_l = &info->fork[i - 1];
-		info->philo[i].fork_r = &info->fork[i];
+		if (pthread_mutex_init(&info->fork[i], NULL))
+			return (1);
+		if (pthread_mutex_init(&info->philo[i].eat_mutex, NULL))
+			return (1);
+		info->philo[i].fork_l = &info->fork[i];
+		info->philo[i].fork_r = &info->fork[(i + 1) % info->num_of_philo - 1];
 		info->philo[i].info = info;
 		++i;
 	}
