@@ -6,14 +6,11 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/04 20:00:46 by hkwon            ###   ########.fr        #
+#    Updated: 2021/07/06 16:57:20 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PHILO = PHILO
-PHILO_BONUS = PHILO_BONUS
-NAME = $(PHILO)
-BONUS = $(PHILO_BONUS)
+NAME = philo
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -22,34 +19,34 @@ AR = ar rcs
 RM = rm -f
 
 INCLUDE_DIR = ./includes
+OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 UTILS_DIR = ./utils
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c print.c))
+		main.c init.c philo.c))
 
 UTILS = $(addprefix $(UTILS_DIR)/, \
 		ft_atoi.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_strlen.c)
 
+OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
+
 all : $(NAME)
 
-$(PHILO) : $(SRCS)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) \
-	-lft -o $(PHILO) $(SRCS) $(UTILS)
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) -o $@ $^
 
-$(PHILO_BONUS) : $(SRCS)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR)\
-	-lft -o $(PHILO_BONUS) $(UTILS)
+$(OBJS_DIR) :
+	@mkdir -p $(OBJS_DIR)
 
-bonus : $(BONUS)
+$(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
 
 clean :
-	@make -C $(LIB_DIR) clean
+	@$(RM) -r (OBJS_DIR)
 
 fclean : clean
-	@rm -rf $(NAME)
-	@rm -rf $(LIBFT)
-	@make -C $(LIB_DIR) fclean
+	@$(RM) $(NAME)
 
 re : fclean all
 
