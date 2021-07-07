@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/06 22:22:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 21:35:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ typedef struct s_info
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					num_must_eat;
+	int					must_eat_cnt;
 	int					finish;
 	pthread_mutex_t		*fork;
 	pthread_mutex_t		fin_mutex;
-	struct timeval		eat_time;
+	struct timeval		start_time;
 	t_philo				*philo;
 }	t_info;
 
 typedef struct s_philo
 {
 	int				n;
+	int				eat_cnt;
 	pthread_mutex_t	*fork_l;
 	pthread_mutex_t	*fork_r;
 	pthread_mutex_t	eat_mutex;
@@ -45,14 +47,12 @@ typedef struct s_philo
 	t_info			*info;
 }	t_philo;
 
-int		init(t_info *info, int ac, char *av[]);
-void	*philo(void *av);
-void	*monitor(void *av);
-int		ft_atoi(const char *str);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *str);
+int			init(t_info *info, int ac, char *av[]);
+void		*philo(void *av);
+void		*monitor(void *av);
+void		*monitor_must_eat(void *av);
+void		print_philo(t_philo *philo, char *str);
+int			ft_atoi(const char *str);
+long long	get_time(struct timeval	time);
 
 #endif
