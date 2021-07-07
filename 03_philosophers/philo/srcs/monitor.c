@@ -6,18 +6,24 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 19:21:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 17:08:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 21:35:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long long	get_time(struct timeval	time)
+void	*monitor_must_eat(void *av)
 {
-	long long	ms;
+	t_info	*info;
 
-	ms = time.tv_sec / 1000 + time.tv_usec * 1000;
-	return (ms);
+	info = av;
+	while (!info->finish)
+	{
+		pthread_mutex_lock(&info->fin_mutex);
+		if (info->num_of_philo == info->num_must_eat)
+			info->finish = 1;
+		pthread_mutex_unlock(&info->fin_mutex);
+	}
 }
 
 void	*monitor(void *av)
@@ -36,8 +42,8 @@ void	*monitor(void *av)
 		gettimeofday(&time, NULL);
 		if (ms >= philo->info->time_to_die)
 		{
-			printf("%lld %d died\n", get_time(time) - \
-			get_time(philo->info->eat_time), philo->n + 1);
+			printf("%lld\t%d\t %s\n", get_time(time) - \
+			get_time(philo->info->start_time), philo->n + 1, "died");
 			philo->info->finish = 1;
 		}
 		pthread_mutex_unlock(&philo->eat_mutex);
