@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 17:31:56 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 22:10:50 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	init_thread(t_info *info)
 	pthread_t	thread;
 
 	i = 0;
-	gettimeofday(&info->eat_time, NULL);
+	gettimeofday(&info->start_time, NULL);
 	while (i < info->num_of_philo)
 	{
-		info->philo[i].last_eat_time = info->eat_time;
+		info->philo[i].last_eat_time = info->start_time;
 		pthread_create(&info->philo[i].thread, NULL, philo, &info->philo[i]);
 		pthread_create(&thread, NULL, monitor, &info->philo[i]);
 		pthread_detach(thread);
@@ -29,7 +29,8 @@ static void	init_thread(t_info *info)
 	}
 	if (info->num_must_eat)
 	{
-		pthread_create(&thread, NULL, must_eat, &info->philo[i]);
+		pthread_create(&thread, NULL, monitor_must_eat, info);
+		pthread_detach(thread);
 	}
 }
 
