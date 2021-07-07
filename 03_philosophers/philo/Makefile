@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/06 16:57:20 by hkwon            ###   ########.fr        #
+#    Updated: 2021/07/07 22:58:03 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,14 @@ RM = rm -f
 INCLUDE_DIR = ./includes
 OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
-UTILS_DIR = ./utils
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c init.c philo.c))
-
-UTILS = $(addprefix $(UTILS_DIR)/, \
-		ft_atoi.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_strlen.c)
+		main.c init.c philo.c monitor.c util.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
+
+vpath %.c \
+	$(SRCS_DIR)
 
 all : $(NAME)
 
@@ -43,7 +42,7 @@ $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
 
 clean :
-	@$(RM) -r (OBJS_DIR)
+	@$(RM) -r $(OBJS_DIR)
 
 fclean : clean
 	@$(RM) $(NAME)
