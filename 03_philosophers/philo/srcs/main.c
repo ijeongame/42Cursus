@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/06 22:40:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:31:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ static void	init_thread(t_info *info)
 		pthread_create(&thread, NULL, monitor, &info->philo[i]);
 		pthread_detach(thread);
 		++i;
+	}
+	if (info->num_must_eat)
+	{
+		pthread_create(&thread, NULL, must_eat, &info->philo[i]);
 	}
 }
 
