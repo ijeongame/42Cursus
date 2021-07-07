@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 21:35:19 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 23:01:29 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 # include <sys/time.h>
 # include <pthread.h>
 
-typedef struct s_info
+typedef struct s_info	t_info;
+typedef struct s_philo	t_philo;
+
+struct s_info
 {
 	int					num_of_philo;
 	int					time_to_die;
@@ -33,9 +36,9 @@ typedef struct s_info
 	pthread_mutex_t		fin_mutex;
 	struct timeval		start_time;
 	t_philo				*philo;
-}	t_info;
+};
 
-typedef struct s_philo
+struct s_philo
 {
 	int				n;
 	int				eat_cnt;
@@ -45,7 +48,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	struct timeval	last_eat_time;
 	t_info			*info;
-}	t_philo;
+};
 
 int			init(t_info *info, int ac, char *av[]);
 void		*philo(void *av);

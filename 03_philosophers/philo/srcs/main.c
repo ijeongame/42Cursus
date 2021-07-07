@@ -6,11 +6,28 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 22:10:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 23:03:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	join_and_free_philo(t_info *info)
+{
+	int		i;
+
+	i = 0;
+	while (i < info->num_of_philo)
+	{
+		pthread_join(info->philo[i].thread, NULL);
+		pthread_mutex_destroy(&info->philo[i++].eat_mutex);
+	}
+	free(info->philo);
+	i = 0;
+	while (i < info->num_of_philo)
+		pthread_mutex_destroy(&info->fork[i++]);
+	free(info->fork);
+}
 
 static void	init_thread(t_info *info)
 {
@@ -44,4 +61,5 @@ int	main(int ac, char *av[])
 	if (init(&info, ac, av))
 		return (0);
 	init_thread(&info);
+	join_and_free_philo(&info);
 }

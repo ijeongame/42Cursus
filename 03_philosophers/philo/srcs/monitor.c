@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 19:21:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 21:35:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 22:44:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	*monitor_must_eat(void *av)
 			info->finish = 1;
 		pthread_mutex_unlock(&info->fin_mutex);
 	}
+	return (NULL);
 }
 
 void	*monitor(void *av)
@@ -49,4 +50,5 @@ void	*monitor(void *av)
 		pthread_mutex_unlock(&philo->eat_mutex);
 		pthread_mutex_unlock(&philo->info->fin_mutex);
 	}
+	return (NULL);
 }

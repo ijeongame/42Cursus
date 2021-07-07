@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 16:44:12 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 21:35:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 22:41:40 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	*philo(void *av)
 	{
 		take_fork(philo);
 		eating(philo);
-		sleep(philo);
+		sleeping(philo);
 		thinking(philo);
 	}
+	return (NULL);
 }

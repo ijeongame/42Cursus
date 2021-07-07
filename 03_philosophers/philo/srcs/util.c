@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 21:36:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/07 22:57:15 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long long	get_time(struct timeval	time)
 {
 	long long	ms;
 
-	ms = time.tv_sec / 1000 + time.tv_usec * 1000;
+	ms = time.tv_sec * 1000 + time.tv_usec / 1000;
 	return (ms);
 }
 
@@ -45,7 +45,7 @@ int	ft_atoi(const char *str)
 	if (*str == '+' || *str == '-')
 		if (*str++ == '-')
 			sign *= -1;
-	while (ft_isdigit(*str))
+	while ('0' <= *str && *str <= '9')
 	{
 		res *= 10;
 		res += *str++ - '0';
