@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 19:21:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/08 17:13:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 19:19:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*monitor_must_eat(void *av)
 	while (!info->finish)
 	{
 		pthread_mutex_lock(&info->fin_mutex);
-		if (info->num_of_philo == info->num_must_eat)
+		if (info->must_eat_cnt == info->num_of_philo)
 			info->finish = 1;
 		pthread_mutex_unlock(&info->fin_mutex);
 	}
