@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 23:01:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 17:08:24 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ struct s_philo
 {
 	int				n;
 	int				eat_cnt;
-	pthread_mutex_t	*fork_l;
-	pthread_mutex_t	*fork_r;
+	int				fork_l;
+	int				fork_r;
 	pthread_mutex_t	eat_mutex;
 	pthread_t		thread;
 	struct timeval	last_eat_time;

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 19:21:19 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 22:44:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 17:13:07 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*monitor(void *av)
 	long long		ms;
 
 	philo = av;
-	if (!philo->info->finish)
+	while (!philo->info->finish)
 	{
 		pthread_mutex_lock(&philo->eat_mutex);
 		pthread_mutex_lock(&philo->info->fin_mutex);

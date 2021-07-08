@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 18:40:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 23:03:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 17:06:16 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ static int	init_philo(t_info *info)
 	while (i < info->num_of_philo)
 	{
 		info->philo[i].n = i;
+		info->philo[i].fork_l = i;
+		info->philo[i].fork_r = (i + 1) % info->num_of_philo;
+		info->philo[i].info = info;
 		if (pthread_mutex_init(&info->fork[i], NULL))
 			return (1);
 		if (pthread_mutex_init(&info->philo[i].eat_mutex, NULL))
 			return (1);
-		info->philo[i].fork_l = &info->fork[i];
-		info->philo[i].fork_r = &info->fork[(i + 1) % info->num_of_philo - 1];
-		info->philo[i].info = info;
 		++i;
 	}
 	return (0);

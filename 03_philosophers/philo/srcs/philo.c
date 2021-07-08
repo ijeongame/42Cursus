@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 16:44:12 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/07 22:41:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 17:31:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	take_fork(t_philo *philo)
 {
-	pthread_mutex_lock(philo->fork_l);
+	pthread_mutex_lock(&philo->info->fork[philo->fork_l]);
 	print_philo(philo, "has taken a fork");
-	pthread_mutex_lock(philo->fork_r);
+	pthread_mutex_lock(&philo->info->fork[philo->fork_r]);
 	print_philo(philo, "has taken a fork");
 }
 
@@ -35,8 +35,8 @@ static void	eating(t_philo *philo)
 		philo->info->must_eat_cnt += 1;
 	pthread_mutex_unlock(&philo->info->fin_mutex);
 	usleep(philo->info->time_to_eat * 1000);
-	pthread_mutex_unlock(philo->fork_l);
-	pthread_mutex_unlock(philo->fork_r);
+	pthread_mutex_unlock(&philo->info->fork[philo->fork_l]);
+	pthread_mutex_unlock(&philo->info->fork[philo->fork_r]);
 	pthread_mutex_unlock(&philo->eat_mutex);
 }
 

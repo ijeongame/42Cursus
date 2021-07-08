@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/07 22:58:03 by hkwon            ###   ########.fr        #
+#    Updated: 2021/07/08 17:11:50 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = philo
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f
