@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/08 20:55:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/08 22:47:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,10 @@ static void	free_philo(t_info *info)
 	int		i;
 
 	i = -1;
-	while (++i < info->num_of_philo)
-	{
-		pthread_join(info->philo[i].thread, NULL);
-		pthread_mutex_destroy(&info->philo[i].eat_mutex);
-	}
-	free(info->philo);
-	i = -1;
+	pthread_mutex_destroy(&info->fin_mutex);
 	while (++i < info->num_of_philo)
 		pthread_mutex_destroy(&info->fork[i]);
+	free(info->philo);
 	free(info->fork);
 }
 
@@ -48,6 +43,9 @@ static void	init_thread(t_info *info)
 		pthread_create(&thread, NULL, monitor_must_eat, info);
 		pthread_detach(thread);
 	}
+	i = -1;
+	while (++i < info->num_of_philo)
+		pthread_join(info->philo[i].thread, NULL);
 }
 
 int	main(int ac, char *av[])
