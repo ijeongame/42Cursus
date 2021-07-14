@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/08 22:47:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/14 17:39:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,47 +17,23 @@ static void	free_philo(t_info *info)
 	int		i;
 
 	i = -1;
-	pthread_mutex_destroy(&info->fin_mutex);
+	usleep(2000);
+	pthread_mutex_destroy(&info->text);
 	while (++i < info->num_of_philo)
 		pthread_mutex_destroy(&info->fork[i]);
 	free(info->philo);
 	free(info->fork);
 }
 
-static void	init_thread(t_info *info)
-{
-	int			i;
-	pthread_t	thread;
-
-	i = -1;
-	gettimeofday(&info->start_time, NULL);
-	while (++i < info->num_of_philo)
-	{
-		info->philo[i].last_eat_time = info->start_time;
-		pthread_create(&thread, NULL, philo, &info->philo[i]);
-		pthread_detach(thread);
-		pthread_create(&info->philo[i].thread, NULL, monitor, &info->philo[i]);
-	}
-	if (info->num_must_eat != 0)
-	{
-		pthread_create(&thread, NULL, monitor_must_eat, info);
-		pthread_detach(thread);
-	}
-	i = -1;
-	while (++i < info->num_of_philo)
-		pthread_join(info->philo[i].thread, NULL);
-}
-
 int	main(int ac, char *av[])
 {
 	t_info	info;
 
-	if (ac != 5 && ac != 6)
-		return (0);
 	memset(&info, 0, sizeof(info));
-	if (init(&info, ac, av))
+	if (init_philo(&info, ac, av))
 		return (1);
-	init_thread(&info);
+	if (init_thread(&info))
+		return (1);
 	free_philo(&info);
 	return (0);
 }
