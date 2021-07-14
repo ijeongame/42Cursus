@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/08 22:06:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/14 17:57:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # include <sys/time.h>
 # include <pthread.h>
 
+# define FORK 1
+# define EATING 2
+# define SLEEPING 3
+# define THINKING 4
+# define DIED 5
+# define FULL 6
+
 typedef struct s_info	t_info;
 typedef struct s_philo	t_philo;
 
@@ -32,9 +39,9 @@ struct s_info
 	int					num_must_eat;
 	int					must_eat_cnt;
 	int					finish;
+	int					start_time;
 	pthread_mutex_t		*fork;
-	pthread_mutex_t		fin_mutex;
-	struct timeval		start_time;
+	pthread_mutex_t		text;
 	t_philo				*philo;
 };
 
@@ -44,18 +51,21 @@ struct s_philo
 	int				eat_cnt;
 	int				fork_l;
 	int				fork_r;
-	pthread_mutex_t	eat_mutex;
+	int				last_eat_time;
+	pthread_mutex_t	mutex;
 	pthread_t		thread;
-	struct timeval	last_eat_time;
 	t_info			*info;
 };
 
-int			init(t_info *info, int ac, char *av[]);
-void		*philo(void *av);
-void		*monitor(void *av);
-void		*monitor_must_eat(void *av);
-void		print_philo(t_philo *philo, char *str);
-int			ft_atoi(const char *str);
-long long	get_time(struct timeval	time);
+int		init_phlio(t_info *info, int ac, char *av[]);
 
+int		init_philo(t_info *info, int ac, char *av[]);
+int		init_thread(t_info *info);
+void	eating(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	thinking(t_philo *philo);
+
+int		get_time(void);
+void	print_msg(t_philo *philo, int status);
+int		ft_atoi(const char *str);
 #endif
