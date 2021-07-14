@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/08 19:59:27 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/08 19:59:59 by hkwon            ###   ########.fr        #
+#    Updated: 2021/07/14 14:34:10 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c init.c philo.c monitor.c util.c)
+		main.c init.c philo.c thread.c util.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
@@ -34,7 +34,7 @@ vpath %.c \
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $^ -lpthread
 
 $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)
