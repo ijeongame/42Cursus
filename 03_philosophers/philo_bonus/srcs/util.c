@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 14:34:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 16:45:34 by hkwon            ###   ########.fr       */
+/*   Created: 2021/07/16 17:27:41 by hkwon             #+#    #+#             */
+/*   Updated: 2021/07/16 19:03:15 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-static void	free_philo(t_info *info)
+static sem_t	*ft_sem_init(
+	const char *name,
+	unsigned int value)
 {
+	sem_t	*sem;
 
+	sem = sem_open(name, O_CREAT | O_EXCL, 0644, value);
+	if (sem != SEM_FAILED)
+		return (sem);
+	sem_unlink(name);
+	return (sem_open(name, O_CREAT | O_EXCL, 0644, value));
 }
 
-int	main(int ac, char *av[])
+void	make_sem_name(t_philo *philo)
 {
-	t_info	info;
+	char	*name;
 
-	memset(&info, 0, sizeof(info));
-	if (init_philo(&info, ac, av))
-		return (1);
-	if (init_thread(&info))
-		return (1);
-	free_philo(&info);
-	return (0);
+	name = ft_strdup("sem_name");
+	philo->name = ft_strjoin(name, ft_itoa(philo->n));
 }
