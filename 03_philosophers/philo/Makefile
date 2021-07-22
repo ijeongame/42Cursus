@@ -13,8 +13,7 @@
 NAME = philo
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -lbsd
-# CFLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 AR = ar rcs
 RM = rm -f
@@ -34,7 +33,7 @@ vpath %.c \
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ -lpthread
+	@$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)

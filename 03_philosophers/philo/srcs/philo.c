@@ -26,17 +26,17 @@ static void	get_arg(t_info *info, int ac, char *av[])
 static int	check_arg(t_info *info, int ac)
 {
 	if (ac != 5 && ac != 6)
-		return (0);
+		return (print_error("error : wrong argument\n"));
 	if (info->num_of_philo < 0 || info->num_of_philo > 200)
-		return (1);
+		return (print_error("error : wrong num of philo\n"));
 	if (info->time_to_die < 60)
-		return (1);
+		return (print_error("error : wrong time to die"));
 	if (info->time_to_eat < 60)
-		return (1);
+		return (print_error("error : wrong time to eat"));
 	if (info->time_to_sleep < 60)
-		return (1);
+		return (print_error("error : wrong time to sleep"));
 	if (ac == 6 && info->num_must_eat < 0)
-		return (1);
+		return (print_error("error : worng num"));
 	return (0);
 }
 
