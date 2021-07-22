@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/14 17:57:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/16 18:38:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,13 @@ struct s_philo
 	t_info			*info;
 };
 
-int		init_phlio(t_info *info, int ac, char *av[]);
-
 int		init_philo(t_info *info, int ac, char *av[]);
 int		init_thread(t_info *info);
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
-
 int		get_time(void);
+int		print_error(char *str);
 void	print_msg(t_philo *philo, int status);
 int		ft_atoi(const char *str);
 #endif

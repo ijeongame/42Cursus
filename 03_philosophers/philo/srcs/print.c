@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/14 18:14:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/16 18:37:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int		get_time(void)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -38,6 +30,19 @@ int	ft_atoi(const char *str)
 		res += *str++ - '0';
 	}
 	return (res * sign);
+}
+
+int	print_error(char *str)
+{
+	char	*s;
+	int		i;
+
+	s = str;
+	i = 0;
+	while (*s++)
+		i++;
+	write(2, str, i);
+	return (1);
 }
 
 void	print_status(t_philo *philo, int status)

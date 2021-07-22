@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:14:23 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/14 17:39:19 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/16 16:37:00 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	free_philo(t_info *info)
 	i = -1;
 	usleep(2000);
 	pthread_mutex_destroy(&info->text);
+	pthread_mutex_destroy(&info->philo->mutex);
 	while (++i < info->num_of_philo)
 		pthread_mutex_destroy(&info->fork[i]);
 	free(info->philo);

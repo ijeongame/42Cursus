@@ -6,11 +6,19 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/14 18:14:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/16 19:03:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int		get_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
 
 int		check_full(t_philo *philo)
 {
