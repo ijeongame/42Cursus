@@ -31,9 +31,11 @@ int	main(int ac, char *av[])
 	t_info	info;
 
 	memset(&info, 0, sizeof(info));
+	if (ac != 5 && ac != 6)
+		return (print_error("error : wrong argument\n"));
 	if (init_philo(&info, ac, av))
 		return (1);
-	if (init_thread(&info))
+	if (init_thread(&info) < 0)
 		return (1);
 	free_philo(&info);
 	return (0);

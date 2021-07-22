@@ -14,6 +14,7 @@ NAME = philo
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f
@@ -23,7 +24,7 @@ OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c philo.c thread.c routine.c print.c)
+		main.c init.c thread.c routine.c print.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
