@@ -69,18 +69,7 @@ void	print_status(t_philo *philo, int status)
 		printf("%s\n", " : is died");
 }
 
-void	print_msg(t_philo *philo, int status)
+void	print_full(int status)
 {
-	pthread_mutex_lock(&philo->info->text);
-	if (philo->info->finish)
-	{
-		pthread_mutex_unlock(&philo->info->text);
-		return ;
-	}
-	printf("%d", get_time() - philo->info->start_time);
-	if (status == FULL)
-		printf("%s\n", "\tall philosophers take the meals");
-	else
-		print_status(philo, status);
-	pthread_mutex_unlock(&philo->info->text);
+	printf("%s\n", "\tall philosophers take the meals");
 }

@@ -12,7 +12,15 @@
 
 #include "philo_bonus.h"
 
-static sem_t	*ft_sem_init(
+int 	ft_thread_util(pthread_t *thread, void *func, void *av)
+{
+	if (pthread_create(thread, NULL, func, av))
+		return (1);
+	pthread_detach(*thread);
+	return (0);
+}
+
+sem_t	*ft_sem_init(
 	const char *name,
 	unsigned int value)
 {

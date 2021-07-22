@@ -13,8 +13,8 @@
 NAME = philo_bouns
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-# CFLAGS = -g3 -fsanitize=address
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f
@@ -24,7 +24,7 @@ OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c init.c philo.c thread.c print.c util.c)
+		main.c init.c semaphore.c routine.c util.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
@@ -34,7 +34,7 @@ vpath %.c \
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ -lpthread
+	@$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)

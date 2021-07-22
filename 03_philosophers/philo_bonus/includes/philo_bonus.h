@@ -57,21 +57,17 @@ struct s_philo
 	int			last_eat_time;
 	char		*name;
 	pid_t		pid;
-	pthread_t	thread;
-	pthread_t	end;
 	sem_t		*eating;
 	t_info		*info;
 };
-
-int		init_phlio(t_info *info, int ac, char *av[]);
 
 int		init_philo(t_info *info, int ac, char *av[]);
 int		init_thread(t_info *info);
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
-
-static sem_t	*ft_sem_init(
+int 	ft_thread_util(pthread_t *thread, void *func, void *av);
+sem_t	*ft_sem_init(
 	const char *name,
 	unsigned int value);
 int		get_time(void);
