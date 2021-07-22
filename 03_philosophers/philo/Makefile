@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/14 18:15:41 by hkwon            ###   ########.fr        #
+#    Updated: 2021/07/16 19:03:04 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		main.c philo.c thread.c routine.c util.c)
+		main.c philo.c thread.c routine.c print.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
