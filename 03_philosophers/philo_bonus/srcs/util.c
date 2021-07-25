@@ -3,32 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 17:27:41 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 19:03:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/25 20:42:27 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-int 	ft_thread_util(pthread_t *thread, void *func, void *av)
+int		get_time(void)
 {
-	if (pthread_create(thread, NULL, func, av))
-		return (1);
-	pthread_detach(*thread);
-	return (0);
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
 sem_t	*ft_sem_init(
 	const char *name,
 	unsigned int value)
 {
-	sem_t	*sem;
-
-	sem = sem_open(name, O_CREAT | O_EXCL, 0644, value);
-	if (sem != SEM_FAILED)
-		return (sem);
 	sem_unlink(name);
 	return (sem_open(name, O_CREAT | O_EXCL, 0644, value));
 }
