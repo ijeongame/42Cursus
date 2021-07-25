@@ -37,7 +37,6 @@ struct s_info
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					num_must_eat;
-	int					must_eat_cnt;
 	int					finish;
 	int					start_time;
 	pthread_mutex_t		*fork;
