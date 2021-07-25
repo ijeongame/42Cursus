@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 17:56:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/25 20:48:45 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ struct s_info
 	int			time_to_eat;
 	int			time_to_sleep;
 	int			num_must_eat;
-	int			must_eat_cnt;
 	int			finish;
 	int			start_time;
 	sem_t		*fork;
@@ -62,11 +61,11 @@ struct s_philo
 };
 
 int		init_philo(t_info *info, int ac, char *av[]);
-int		init_thread(t_info *info);
+int		init_sem(t_info *info);
+void	*check_full(void *av);
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
-int 	ft_thread_util(pthread_t *thread, void *func, void *av);
 sem_t	*ft_sem_init(
 	const char *name,
 	unsigned int value);
