@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 19:03:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/26 22:30:52 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ int		check_full(t_philo *philo)
 	return (1);
 }
 
-void	*routine(void *av)
+void	*routine(void *arg)
 {
 	t_philo			*philo;
 
-	philo = av;
+	philo = arg;
 	if (philo->n % 2 == 0)
 		usleep(1000 * philo->info->time_to_eat);
 	while (!philo->info->finish)
@@ -53,11 +53,11 @@ void	*routine(void *av)
 	return (NULL);
 }
 
-void	*monitor(void *av)
+void	*monitor(void *arg)
 {
 	t_philo *philo;
 
-	philo = av;
+	philo = arg;
 	while (!philo->info->finish)
 	{
 		pthread_mutex_lock(&philo->mutex);
