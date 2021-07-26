@@ -1,31 +1,30 @@
-#include "philo.h"
-
+#include "philo_bonus.h"
 
 void	fork_on(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->info->fork[philo->fork_l]);
+	sem_wait(philo->info->fork);
 	print_msg(philo, FORK);
-	pthread_mutex_lock(&philo->info->fork[philo->fork_r]);
+	sem_wait(philo->info->fork);
 	print_msg(philo, FORK);
 }
 
 void	fork_off(t_philo *philo)
 {
-	pthread_mutex_unlock(&philo->info->fork[philo->fork_l]);
-	pthread_mutex_unlock(&philo->info->fork[philo->fork_r]);
+	sem_post(philo->info->fork);
+	sem_post(philo->info->fork);
 }
 
 void	eating(t_philo *philo)
 {
 	fork_on(philo);
-	pthread_mutex_lock(&philo->mutex);
+	sem_wait(philo->eating);
 	print_msg(philo, EATING);
 	philo->last_eat_time = get_time();
-	while (get_time() - philo->last_eat_time <= philo->info->time_to_eat
-	&& !philo->info->finish)
+	while (get_time() - philo->last_eat_time <= \
+	philo->info->time_to_eat && !philo->info->finish)
 		usleep(1000);
+	sem_post(philo->eating);
 	philo->eat_cnt++;
-	pthread_mutex_unlock(&philo->mutex);
 	fork_off(philo);
 }
 

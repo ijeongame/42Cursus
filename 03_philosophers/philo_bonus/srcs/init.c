@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 18:26:27 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/27 00:19:41 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
+
+sem_t	*ft_sem_init(
+	const char *name,
+	unsigned int value)
+{
+	sem_unlink(name);
+	return (sem_open(name, O_CREAT | O_EXCL, 0644, value));
+}
 
 static void	get_arg(t_info *info, int ac, char *av[])
 {
@@ -41,19 +49,20 @@ static int	set_philo(t_info *info)
 {
 	int	i;
 
-	info->died = ft_sem_init("died", 0);
-	info->text = ft_sem_init("text", 1);
 	info->fork = ft_sem_init("fork", info->num_of_philo);
 	info->full = ft_sem_init("full", 0);
-	if (ft_malloc(&info->philo, sizeof(t_philo) * info->num_of_philo))
-		return (ft_puterror("ERROR: malloc failed\n"));
+	info->died = ft_sem_init("died", 0);
+	info->text = ft_sem_init("text", 1);
+	info->philo = malloc(sizeof(t_philo) * info->num_of_philo);
+	if (!info->philo)
+		return (print_error("ERROR: malloc failed\n"));
 	i = -1;
 	while (i < info->num_of_philo)
 	{
 		info->philo[i].n = i;
 		info->philo[i].eat_cnt = 0;
 		info->philo[i].philo_died = 0;
-		info->philo[i].name = make_name("philo", i);
+		info->philo[i].name = make_sem_name(&info->philo[i]);
 		info->philo[i].eating = ft_sem_init(info->philo[i].name, 1);
 		info->philo[i].info = info;
 		++i;

@@ -6,18 +6,38 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/25 20:48:46 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 01:05:25 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	*check_full(void *av)
+void	*monitor_died(void *arg)
 {
-	t_info *info;
+	t_philo	*philo;
+	
+	philo = arg;
+	sem_wait(philo->info->died);
+	if (philo->philo_died)
+	{
+		sem_post(philo->info->died);
+		sem_post(philo->info->fork);
+		sem_post(philo->info->fork);
+		exit(1);
+	}
+	philo->info->finish = DIED;
+	sem_post(philo->info->died);
+	sem_post(philo->info->fork);
+	sem_post(philo->info->fork);
+	exit(0);
+}
+
+void	*monitor_full(void *arg)
+{
+	t_info	*info;
 	int		cnt;
 
-	info = av;
+	info = arg;
 	cnt = 0;
 	while (1)
 	{
@@ -28,15 +48,15 @@ void	*check_full(void *av)
 		if (cnt == info->num_of_philo)
 			break;
 	}
-	print_full(FULL);
+	print_msg(info->philo, FULL);
 	return (NULL);
 }
 
-void	*monitor(void *av)
+void	*monitor(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
-	philo = av;
+	philo = arg;
 	while (1)
 	{
 		sem_wait(philo->eating);
@@ -46,27 +66,10 @@ void	*monitor(void *av)
 			philo->philo_died = 1;
 			sem_post(philo->info->died);
 			sem_post(philo->eating);
+			return (NULL);
 		}
 		sem_post(philo->eating);
 		usleep(100);
-	}
-	return (NULL);
-}
-
-void	*routine(void *av)
-{
-	t_philo			*philo;
-
-	philo = av;
-	if (philo->n % 2 == 0)
-		usleep(1000 * philo->info->time_to_eat);
-	while (!philo->info->finish)
-	{
-		eating(philo);
-		if (philo->info->num_must_eat > 0 && check_full(philo))
-			break ;
-		sleeping(philo);;
-		thinking(philo);
 	}
 	return (NULL);
 }

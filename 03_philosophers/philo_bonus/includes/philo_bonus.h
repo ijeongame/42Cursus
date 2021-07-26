@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/25 20:48:45 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 00:42:57 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,26 @@ struct s_philo
 	t_info		*info;
 };
 
+char	*ft_strdup(const char *src);
+int		ft_atoi(const char *str);
+char	*ft_itoa(int n);
+
 int		init_philo(t_info *info, int ac, char *av[]);
 int		init_sem(t_info *info);
-void	*check_full(void *av);
+
+void	*monitor_died(void *av);
+void	*monitor_full(void *av);
+void	*monitor(void *av);
+
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
-sem_t	*ft_sem_init(
-	const char *name,
-	unsigned int value);
+
+int		ft_thread_util(pthread_t *thread, void *func, void *arg);
+char	*make_sem_name(t_philo *philo);
 int		get_time(void);
+
 int		print_error(char *str);
 void	print_msg(t_philo *philo, int status);
-int		ft_atoi(const char *str);
+
 #endif

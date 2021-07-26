@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:34:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/25 20:22:36 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 00:08:52 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,26 @@
 
 static void	free_philo(t_info *info)
 {
+	int	i;
 
+	i = -1;
+	while (++i < info->num_of_philo)
+	{
+		sem_unlink(info->philo[i].name);
+		sem_close(info->philo[i].eating);
+		free(info->philo[i].name);
+	}
+	if (info->finish == DIED)
+		sem_post(info->full);
+	sem_close(info->fork);
+	sem_close(info->full);
+	sem_close(info->died);
+	sem_close(info->text);
+	sem_unlink("fork");
+	sem_unlink("full");
+	sem_unlink("died");
+	sem_unlink("text");
+	free(info->philo);
 }
 
 int	main(int ac, char *av[])

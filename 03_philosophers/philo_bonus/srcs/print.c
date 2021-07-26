@@ -1,36 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/16 16:37:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/07/26 23:50:58 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-
-int	ft_atoi(const char *str)
-{
-	int	res;
-	int	sign;
-
-	res = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
-			sign *= -1;
-	while ('0' <= *str && *str <= '9')
-	{
-		res *= 10;
-		res += *str++ - '0';
-	}
-	return (res * sign);
-}
+#include "philo_bonus.h"
 
 int	print_error(char *str)
 {
@@ -61,7 +41,20 @@ void	print_status(t_philo *philo, int status)
 		printf("%s\n", " : is died");
 }
 
-void	print_full(int status)
+void	print_msg(t_philo *philo, int status)
 {
-	printf("%s\n", "\tall philosophers take the meals");
+	sem_wait(philo->info->text);
+	if (philo->info->finish)
+	{
+		sem_post(philo->info->text);
+		sem_post(philo->info->fork);
+		sem_post(philo->info->fork);
+		return ;
+	}
+	printf("%d", get_time() - philo->info->start_time);
+	if (status == FULL)
+		printf("%s\n", "\tall philosophers take the meals");
+	else
+		print_status(philo, status);
+	sem_post(philo->info->text);
 }
