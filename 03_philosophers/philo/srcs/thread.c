@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/26 22:30:52 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 00:58:11 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	*routine(void *arg)
 		eating(philo);
 		if (philo->info->num_must_eat > 0 && check_full(philo))
 			break ;
-		sleeping(philo);;
+		sleeping(philo);
 		thinking(philo);
 	}
 	return (NULL);
