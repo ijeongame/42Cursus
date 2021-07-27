@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 01:04:34 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 20:32:47 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		routine(void *arg)
 		return (1);
 	if (ft_thread_util(&thread, monitor_died, philo))
 		return (1);
-	pthread_detach(thread);
 	if (philo->n % 2 == 0)
 		usleep(1000 * philo->info->time_to_eat);
 	while (!philo->info->finish)
@@ -51,14 +50,8 @@ int		routine(void *arg)
 			sem_post(philo->info->full);
 			philo->info->finish = FULL;
 		}
-		if (philo->info->finish)
-			break ;
 		sleeping(philo);
-		if (philo->info->finish)
-			break ;
 		thinking(philo);
-		if (philo->info->finish)
-			break ;
 	}
 	return (0);
 }
@@ -66,7 +59,6 @@ int		routine(void *arg)
 int		init_sem(t_info *info)
 {
 	int			i;
-	int			status;
 	pthread_t	thread;
 
 	if (ft_thread_util(&thread, monitor_full, info))
@@ -82,8 +74,5 @@ int		init_sem(t_info *info)
 		else if (info->philo[i].pid < 0)
 			print_error("error : fork failed\n");
 	}
-	i = -1;
-	while (++i < info->num_of_philo)
-		waitpid(info->philo[i].pid, &status, 0);
 	return (0);
 }

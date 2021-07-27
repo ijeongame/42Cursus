@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/27 01:05:25 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 20:30:41 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	*monitor(void *arg)
 		sem_wait(philo->eating);
 		if (get_time() - philo->last_eat_time >= philo->info->time_to_die)
 		{
+			print_msg(philo, DIED);
 			philo->info->finish = DIED;
 			philo->philo_died = 1;
 			sem_post(philo->info->died);

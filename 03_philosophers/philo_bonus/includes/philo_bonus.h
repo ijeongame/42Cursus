@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 00:42:57 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 20:25:28 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ struct s_info
 	int			num_must_eat;
 	int			finish;
 	int			start_time;
+	int			print_died;
 	sem_t		*fork;
 	sem_t		*full;
 	sem_t		*died;

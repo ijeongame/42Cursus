@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:34:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 00:08:52 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/27 20:32:32 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 static void	free_philo(t_info *info)
 {
 	int	i;
-
+	int	status;
+	
 	i = -1;
 	while (++i < info->num_of_philo)
 	{
+		waitpid(info->philo[i].pid, &status, 0);
 		sem_unlink(info->philo[i].name);
 		sem_close(info->philo[i].eating);
 		free(info->philo[i].name);

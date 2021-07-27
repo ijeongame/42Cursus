@@ -6,11 +6,11 @@
 #    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/08 19:59:27 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/27 00:40:40 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/07/27 01:26:01 by kwonhyukbae      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo_bouns
+NAME = philo_bonus
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
