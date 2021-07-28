@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 00:36:51 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/27 00:42:08 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/28 21:36:26 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,34 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
+// char	*make_sem_name(char *name, int n)
+// {
+// 	char	*result;
+// 	int		num;
+// 	int		i;
+
+// 	i = 0;
+// 	num = n;
+// 	while (num)
+// 	{
+// 		num /= 10;
+// 		++i;
+// 	}
+// 	result = malloc(sizeof(char) * (i + ft_strlen(name) + 1));
+// 	if (result == NULL)
+// 		return (NULL);
+// 	num = -1;
+// 	while (++num < i)
+// 		result[num] = name[num];
+// 	while (n)
+// 	{
+// 		result[i++] = n % 10 + '0';
+// 		n /= 10;
+// 	}
+// 	result[i] = 0;
+// 	return (result);
+// }
 
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {

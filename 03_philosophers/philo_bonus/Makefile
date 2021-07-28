@@ -6,15 +6,15 @@
 #    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/08 19:59:27 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/27 01:26:01 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/07/28 21:37:23 by kwonhyukbae      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo_bonus
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-# CFLAGS = -g3 -fsanitize=address
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f

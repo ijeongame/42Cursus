@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 00:19:41 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/28 21:36:39 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	set_philo(t_info *info)
 	if (!info->philo)
 		return (print_error("ERROR: malloc failed\n"));
 	i = -1;
-	while (i < info->num_of_philo)
+	while (++i < info->num_of_philo)
 	{
 		info->philo[i].n = i;
 		info->philo[i].eat_cnt = 0;
@@ -65,7 +65,6 @@ static int	set_philo(t_info *info)
 		info->philo[i].name = make_sem_name(&info->philo[i]);
 		info->philo[i].eating = ft_sem_init(info->philo[i].name, 1);
 		info->philo[i].info = info;
-		++i;
 	}
 	return (0);
 }

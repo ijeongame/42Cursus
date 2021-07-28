@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 20:25:28 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/28 21:36:02 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ char	*ft_itoa(int n);
 int		init_philo(t_info *info, int ac, char *av[]);
 int		init_sem(t_info *info);
 
-void	*monitor_died(void *av);
-void	*monitor_full(void *av);
-void	*monitor(void *av);
+void	*monitor(void *arg);
+void	*monitor_full(void *arg);
+void	*monitor_died(void *arg);
 
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
@@ -78,6 +78,7 @@ void	thinking(t_philo *philo);
 
 int		ft_thread_util(pthread_t *thread, void *func, void *arg);
 char	*make_sem_name(t_philo *philo);
+// char	*make_sem_name(char *name, int n);
 int		get_time(void);
 
 int		print_error(char *str);
