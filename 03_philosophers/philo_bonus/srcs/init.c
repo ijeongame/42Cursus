@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/30 00:07:40 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 01:04:27 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	get_arg(t_info *info, int ac, char *av[])
 	info->time_to_sleep = ft_atoi(av[4]);
 	if (ac == 6)
 		info->num_must_eat = ft_atoi(av[5]);
+	else
+		info->num_must_eat = -1;
 }
 
 static int	check_arg(t_info *info, int ac)

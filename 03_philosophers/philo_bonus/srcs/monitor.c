@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/30 23:31:43 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 00:32:36 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	*monitor_full(void *arg)
 	{
 		sem_wait(info->full);
 		if (info->finish)
-			return (NULL);
+			break ;
 		full++;
 		if (full == info->num_of_philo)
 			break ;

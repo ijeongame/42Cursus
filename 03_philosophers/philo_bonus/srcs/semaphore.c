@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/30 23:32:49 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 00:29:54 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int		routine(void *arg)
 int		init_sem(t_info *info)
 {
 	int			i;
-	pthread_t	thread;
+	pthread_t	full;
 
-	if (ft_thread_util(&thread, monitor_full, info))
+	if (ft_thread_util(&full, monitor_full, info))
 		return (1);
 	i = -1;
 	info->start_time = get_time();
