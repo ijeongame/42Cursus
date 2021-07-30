@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/29 23:45:30 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/30 23:31:43 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ void	*monitor_died(void *arg)
 void	*monitor_full(void *arg)
 {
 	t_info	*info;
-	int		cnt;
+	int		full;
 
 	info = arg;
-	cnt = 0;
+	full = 0;
 	while (1)
 	{
 		sem_wait(info->full);
 		if (info->finish)
+			return (NULL);
+		full++;
+		if (full == info->num_of_philo)
 			break ;
-		cnt++;
-		if (cnt == info->num_of_philo)
-			break;
 	}
 	print_msg(info->philo, FULL);
 	return (NULL);

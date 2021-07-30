@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/28 20:58:15 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/30 23:32:49 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		init_sem(t_info *info)
 		if (info->philo[i].pid == 0)
 			routine(&info->philo[i]);
 		else if (info->philo[i].pid < 0)
-			print_error("error : fork failed\n");
+			print_error("error : process error\n");
 	}
 	return (0);
 }
