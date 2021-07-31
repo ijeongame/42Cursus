@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/28 21:36:02 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 17:38:53 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <pthread.h>
 # include <semaphore.h>
 # include <fcntl.h>
+# include <signal.h>
 
 # define FORK 1
 # define EATING 2
@@ -82,6 +83,7 @@ char	*make_sem_name(t_philo *philo);
 int		get_time(void);
 
 int		print_error(char *str);
+void	print_died(t_philo *philo);
 void	print_msg(t_philo *philo, int status);
 
 #endif

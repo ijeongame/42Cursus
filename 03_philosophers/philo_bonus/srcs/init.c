@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/31 01:04:27 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 18:32:11 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,3 @@ int	init_philo(t_info *info, int ac, char *av[])
 		return (1);
 	return (0);
 }
-

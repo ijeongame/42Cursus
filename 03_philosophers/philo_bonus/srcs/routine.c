@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/31 18:36:38 by kwonhyukbae       #+#    #+#             */
+/*   Updated: 2021/07/31 18:36:39 by kwonhyukbae      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_bonus.h"
 
 void	fork_on(t_philo *philo)
@@ -43,4 +55,3 @@ void	thinking(t_philo *philo)
 {
 	print_msg(philo, THINKING);
 }
-

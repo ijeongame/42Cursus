@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/31 00:29:08 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 17:38:52 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@ void	print_status(t_philo *philo, int status)
 		printf("%s\n", " : is sleeping");
 	else if (status == THINKING)
 		printf("%s\n", " : is thinking");
-	else if (status == DIED)
-		printf("%s\n", " : is died");
+}
+
+void	print_died(t_philo *philo)
+{
+	printf("%d", get_time() - philo->info->start_time);
+	printf("%s", "\tPhilosopher ");
+	printf("%d", philo->n + 1);
+	printf("%s\n", " : is died");
 }
 
 void	print_msg(t_philo *philo, int status)

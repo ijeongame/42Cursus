@@ -6,13 +6,13 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 17:27:41 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 00:40:11 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 18:45:08 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	res;
 	int	sign;
@@ -32,7 +32,7 @@ int			ft_atoi(const char *str)
 	return (res * sign);
 }
 
-static int		cnt_num(int n)
+static int	cnt_num(int n)
 {
 	int	cnt;
 
@@ -45,7 +45,7 @@ static int		cnt_num(int n)
 	return (cnt);
 }
 
-static void		write_num(char *dest, unsigned int n)
+static void	write_num(char *dest, unsigned int n)
 {
 	if (n < 10)
 		*dest = n + '0';
@@ -56,7 +56,25 @@ static void		write_num(char *dest, unsigned int n)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*change_num(int len, int n, int nbr)
+{
+	char	*res;
+
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (0);
+	if (n < 0)
+	{
+		res[0] = '-';
+		write_num((res + len - 1), -nbr);
+	}
+	else
+		write_num((res + len - 1), nbr);
+	res[len] = '\0';
+	return (res);
+}
+
+char	*ft_itoa(int n)
 {
 	char			*res;
 	unsigned int	nbr;
@@ -67,17 +85,11 @@ char		*ft_itoa(int n)
 		return (ft_strdup("0"));
 	else
 	{
-		len = n < 0 ? cnt_num(n) + 1 : cnt_num(n);
-		if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
-			return (0);
 		if (n < 0)
-		{
-			res[0] = '-';
-			write_num((res + len - 1), -nbr);
-		}
+			len = cnt_num(n) + 1;
 		else
-			write_num((res + len - 1), nbr);
-		res[len] = '\0';
+			len = cnt_num(n);
+		res = change_num(len, n, nbr);
 	}
 	return (res);
 }

@@ -6,15 +6,15 @@
 #    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/08 19:59:27 by hkwon             #+#    #+#              #
-#    Updated: 2021/07/31 00:44:45 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/07/31 17:03:51 by kwonhyukbae      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo_bonus
 
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f
@@ -34,13 +34,13 @@ vpath %.c \
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
-	@$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
+	$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
 
 clean :
 	@$(RM) -r $(OBJS_DIR)

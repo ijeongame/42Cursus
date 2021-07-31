@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 00:36:51 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/28 21:36:26 by kwonhyukbae      ###   ########.fr       */
+/*   Created: 2021/07/31 18:36:09 by kwonhyukbae       #+#    #+#             */
+/*   Updated: 2021/07/31 18:36:11 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,6 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-
-// char	*make_sem_name(char *name, int n)
-// {
-// 	char	*result;
-// 	int		num;
-// 	int		i;
-
-// 	i = 0;
-// 	num = n;
-// 	while (num)
-// 	{
-// 		num /= 10;
-// 		++i;
-// 	}
-// 	result = malloc(sizeof(char) * (i + ft_strlen(name) + 1));
-// 	if (result == NULL)
-// 		return (NULL);
-// 	num = -1;
-// 	while (++num < i)
-// 		result[num] = name[num];
-// 	while (n)
-// 	{
-// 		result[i++] = n % 10 + '0';
-// 		n /= 10;
-// 	}
-// 	result[i] = 0;
-// 	return (result);
-// }
 
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
@@ -79,7 +51,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	if (!(res = (char *)malloc(sizeof(char) + (len1 + len2 + 1))))
+	res = (char *)malloc(sizeof(char) + (len1 + len2 + 1));
+	if (!res)
 		return (0);
 	ft_memcpy(res, s1, len1);
 	ft_memcpy(res + len1, s2, len2);
@@ -93,7 +66,8 @@ char	*ft_strdup(const char *src)
 	char	*dest;
 
 	len = ft_strlen(src);
-	if (!(dest = (char*)malloc(sizeof(char) * (len + 1))))
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dest)
 		return (0);
 	len = 0;
 	while (src[len])
@@ -107,8 +81,11 @@ char	*ft_strdup(const char *src)
 
 char	*make_sem_name(t_philo *philo)
 {
-	char	*name;
+	char	*res;
+	char	*num;
 
-	name = ft_strdup("philo");
-	return (ft_strjoin(name, ft_itoa(philo->n)));
+	num = ft_itoa(philo->n);
+	res = ft_strjoin("philo", num);
+	free(num);
+	return (res);
 }
