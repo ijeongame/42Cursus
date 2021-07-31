@@ -6,13 +6,13 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/27 00:58:11 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 18:28:41 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		get_time(void)
+int	get_time(void)
 {
 	struct timeval	time;
 
@@ -20,7 +20,7 @@ int		get_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int		check_full(t_philo *philo)
+int	check_full(t_philo *philo)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int		check_full(t_philo *philo)
 
 void	*routine(void *arg)
 {
-	t_philo			*philo;
+	t_philo	*philo;
 
 	philo = arg;
 	if (philo->n % 2 == 0)
@@ -55,7 +55,7 @@ void	*routine(void *arg)
 
 void	*monitor(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = arg;
 	while (!philo->info->finish)
@@ -87,7 +87,8 @@ int	init_thread(t_info *info)
 		if (pthread_create(&thread, NULL, routine, &info->philo[i]))
 			return (1);
 		pthread_detach(thread);
-		if (pthread_create(&info->philo[i].thread, NULL, monitor, &info->philo[i]))
+		if (pthread_create(&info->philo[i].thread, \
+			NULL, monitor, &info->philo[i]))
 			return (1);
 	}
 	i = -1;

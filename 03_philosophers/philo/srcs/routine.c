@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 22:30:30 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/26 22:30:31 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/07/31 18:28:26 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	eating(t_philo *philo)
 	print_msg(philo, EATING);
 	philo->last_eat_time = get_time();
 	while (get_time() - philo->last_eat_time <= philo->info->time_to_eat
-	&& !philo->info->finish)
+		&& !philo->info->finish)
 		usleep(1000);
 	philo->eat_cnt++;
 	pthread_mutex_unlock(&philo->mutex);
@@ -55,4 +55,3 @@ void	thinking(t_philo *philo)
 {
 	print_msg(philo, THINKING);
 }
-
