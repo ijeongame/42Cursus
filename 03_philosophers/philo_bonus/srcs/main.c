@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:34:36 by hkwon             #+#    #+#             */
-/*   Updated: 2021/08/04 23:55:01 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/05 00:12:21 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static void	free_philo(t_info *info)
 	i = -1;
 	while (++i < info->num_of_philo)
 		sem_post(info->full);
+	sem_unlink("fork");
+	sem_unlink("full");
+	sem_unlink("died");
+	sem_unlink("text");
 	sem_close(info->fork);
 	sem_close(info->full);
 	sem_close(info->died);

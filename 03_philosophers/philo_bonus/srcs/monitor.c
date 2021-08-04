@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/04 23:43:49 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/05 00:47:34 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	*monitor_full(void *arg)
 	if (info->finish == DIED)
 		return (NULL);
 	print_msg(info->philo, FULL);
+	sem_post(info->died);
 	return (NULL);
 }
 
@@ -50,11 +51,11 @@ void	*monitor(void *arg)
 		sem_wait(philo->eating);
 		if (get_time() - philo->last_eat_time >= philo->info->time_to_die)
 		{
+			sem_post(philo->info->died);
 			sem_wait(philo->info->text);
 			print_died(philo);
-			philo->info->finish = DIED;
 			philo->philo_died = 1;
-			sem_post(philo->info->died);
+			philo->info->finish = DIED;
 			return (NULL);
 		}
 		sem_post(philo->eating);
