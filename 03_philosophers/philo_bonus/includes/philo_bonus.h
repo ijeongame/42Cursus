@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/31 17:38:53 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/04 23:38:13 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void	thinking(t_philo *philo);
 
 int		ft_thread_util(pthread_t *thread, void *func, void *arg);
 char	*make_sem_name(t_philo *philo);
-// char	*make_sem_name(char *name, int n);
 int		get_time(void);
 
 int		print_error(char *str);
+// void	print_full(t_info *info);
 void	print_died(t_philo *philo);
 void	print_msg(t_philo *philo, int status);
 

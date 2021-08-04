@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/31 17:38:52 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/04 23:47:20 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	print_died(t_philo *philo)
 	printf("%s", "\tPhilosopher ");
 	printf("%d", philo->n + 1);
 	printf("%s\n", " : is died");
+	sem_post(philo->info->text);
 }
 
 void	print_msg(t_philo *philo, int status)
