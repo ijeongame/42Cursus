@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/05 00:47:34 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/05 13:44:04 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	*monitor_died(void *arg)
 	sem_wait(info->died);
 	while (++i < info->num_of_philo)
 		kill(info->philo[i].pid, SIGTERM);
+	sem_post(info->text);
 	return (NULL);
 }
 
@@ -37,7 +38,7 @@ void	*monitor_full(void *arg)
 	if (info->finish == DIED)
 		return (NULL);
 	print_msg(info->philo, FULL);
-	sem_post(info->died);
+	sem_post(info->died); //이제 다 먹었을때 종료하는 시그널을 보내줘야하므로 끝을 post.
 	return (NULL);
 }
 
