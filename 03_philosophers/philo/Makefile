@@ -6,7 +6,7 @@
 #    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/08/04 22:49:40 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/08/05 21:47:18 by kwonhyukbae      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
-	@$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
+	$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
 
 clean :
 	@$(RM) -r $(OBJS_DIR)
