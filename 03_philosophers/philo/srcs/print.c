@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 23:18:32 by hkwon             #+#    #+#             */
-/*   Updated: 2021/08/09 20:50:15 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 20:27:15 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ void	print_msg(t_philo *philo, int status)
 		return ;
 	}
 	printf("%d", get_time() - philo->info->start_time);
-	if (status == FULL)
-		printf("%s\n", "\tall philosophers take the meals");
-	else
-		print_status(philo, status);
+	print_status(philo, status);
 	pthread_mutex_unlock(&philo->info->text);
 }

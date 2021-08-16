@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:11:40 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/05 14:18:09 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 20:25:44 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	*monitor_died(void *arg)
 	i = -1;
 	info = arg;
 	sem_wait(info->died);
+	info->finish = DIED;
 	while (++i < info->num_of_philo)
 		kill(info->philo[i].pid, SIGTERM);
 	sem_post(info->text);
@@ -37,7 +38,6 @@ void	*monitor_full(void *arg)
 		sem_wait(info->full);
 	if (info->finish == DIED)
 		return (NULL);
-	print_msg(info->philo, FULL);
 	sem_post(info->died);
 	return (NULL);
 }
@@ -55,8 +55,6 @@ void	*monitor(void *arg)
 			sem_post(philo->info->died);
 			sem_wait(philo->info->text);
 			print_died(philo);
-			philo->philo_died = 1;
-			philo->info->finish = DIED;
 			return (NULL);
 		}
 		sem_post(philo->eating);

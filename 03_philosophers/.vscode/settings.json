@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+      "functional": "c",
+      "philo_bonus.h": "c",
+      "typeinfo": "c"
+    }
+  }

@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/08/05 22:50:38 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 20:29:17 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	check_full(t_philo *philo)
 		if (philo->info->philo[i].eat_cnt != philo->info->num_must_eat)
 			return (0);
 	}
-	print_msg(philo, FULL);
 	philo->info->finish = FULL;
 	return (1);
 }

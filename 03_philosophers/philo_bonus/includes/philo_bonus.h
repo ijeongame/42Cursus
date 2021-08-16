@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/08/04 23:38:13 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 19:45:06 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ struct s_philo
 {
 	int			n;
 	int			eat_cnt;
-	int			philo_died;
 	int			last_eat_time;
 	char		*name;
 	pid_t		pid;
@@ -82,7 +81,6 @@ char	*make_sem_name(t_philo *philo);
 int		get_time(void);
 
 int		print_error(char *str);
-// void	print_full(t_info *info);
 void	print_died(t_philo *philo);
 void	print_msg(t_philo *philo, int status);
 

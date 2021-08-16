@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 14:44:17 by hkwon             #+#    #+#             */
-/*   Updated: 2021/07/31 18:32:11 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 19:45:24 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static int	set_philo(t_info *info)
 	{
 		info->philo[i].n = i;
 		info->philo[i].eat_cnt = 0;
-		info->philo[i].philo_died = 0;
 		info->philo[i].name = make_sem_name(&info->philo[i]);
 		info->philo[i].eating = ft_sem_init(info->philo[i].name, 1);
 		info->philo[i].info = info;

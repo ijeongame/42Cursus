@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:35:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/08/04 23:38:32 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 19:46:39 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,6 @@ int	routine(void *arg)
 	while (!philo->info->finish)
 	{
 		eating(philo);
-		if (philo->info->num_must_eat > 0 && \
-		philo->eat_cnt == philo->info->num_must_eat)
-		{
-			sem_post(philo->info->full);
-			philo->info->finish = FULL;
-		}
 		sleeping(philo);
 		thinking(philo);
 	}
@@ -60,7 +54,7 @@ int	init_sem(t_info *info)
 	int			i;
 	pthread_t	full;
 
-	if (info->num_must_eat > 0)
+	if (info->num_must_eat > 0 && info->finish != DIED)
 		if (ft_thread_util(&full, monitor_full, info))
 			return (1);
 	i = -1;

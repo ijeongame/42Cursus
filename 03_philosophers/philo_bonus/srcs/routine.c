@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 18:36:38 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/07/31 18:36:39 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/16 19:49:00 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	eating(t_philo *philo)
 	sem_wait(philo->eating);
 	print_msg(philo, EATING);
 	philo->last_eat_time = get_time();
-	while (get_time() - philo->last_eat_time <= \
-	philo->info->time_to_eat && !philo->info->finish)
-		usleep(1000);
-	sem_post(philo->eating);
 	philo->eat_cnt++;
+	if (philo->eat_cnt == philo->info->num_must_eat)
+		sem_post(philo->info->full);
+	usleep(philo->info->time_to_eat * 1000);
+	sem_post(philo->eating);
 	fork_off(philo);
 }
 
