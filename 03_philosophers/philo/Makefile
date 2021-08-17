@@ -6,7 +6,7 @@
 #    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/08/05 21:47:18 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/08/17 17:37:47 by kwonhyukbae      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = philo
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-# CFLAGS = -g3 -fsanitize=address
 
 AR = ar rcs
 RM = rm -f
