@@ -1,0 +1,169 @@
+//cat text.txt | grep "Philosopher n : is eating" | wc -l
+1       Philosopher 2 : has taken a fork
+1       Philosopher 2 : has taken a fork
+1       Philosopher 2 : is eating
+1       Philosopher 4 : has taken a fork
+1       Philosopher 4 : has taken a fork
+1       Philosopher 4 : is eating
+201     Philosopher 1 : has taken a fork
+201     Philosopher 2 : is sleeping
+201     Philosopher 1 : has taken a fork
+201     Philosopher 1 : is eating
+201     Philosopher 3 : has taken a fork
+202     Philosopher 4 : is sleeping
+202     Philosopher 3 : has taken a fork
+202     Philosopher 5 : has taken a fork
+202     Philosopher 3 : is eating
+401     Philosopher 1 : is sleeping
+401     Philosopher 5 : has taken a fork
+401     Philosopher 5 : is eating
+402     Philosopher 2 : is thinking
+402     Philosopher 2 : has taken a fork
+403     Philosopher 4 : is thinking
+403     Philosopher 3 : is sleeping
+403     Philosopher 2 : has taken a fork
+403     Philosopher 4 : has taken a fork
+403     Philosopher 2 : is eating
+602     Philosopher 1 : is thinking
+602     Philosopher 5 : is sleeping
+602     Philosopher 4 : has taken a fork
+602     Philosopher 1 : has taken a fork
+602     Philosopher 4 : is eating
+604     Philosopher 3 : is thinking
+604     Philosopher 2 : is sleeping
+604     Philosopher 1 : has taken a fork
+604     Philosopher 3 : has taken a fork
+604     Philosopher 1 : is eating
+803     Philosopher 4 : is sleeping
+803     Philosopher 3 : has taken a fork
+803     Philosopher 3 : is eating
+803     Philosopher 5 : is thinking
+803     Philosopher 5 : has taken a fork
+804     Philosopher 1 : is sleeping
+804     Philosopher 5 : has taken a fork
+804     Philosopher 5 : is eating
+805     Philosopher 2 : is thinking
+805     Philosopher 2 : has taken a fork
+1004    Philosopher 4 : is thinking
+1004    Philosopher 3 : is sleeping
+1004    Philosopher 2 : has taken a fork
+1004    Philosopher 4 : has taken a fork
+1004    Philosopher 2 : is eating
+1005    Philosopher 1 : is thinking
+1005    Philosopher 5 : is sleeping
+1005    Philosopher 4 : has taken a fork
+1005    Philosopher 1 : has taken a fork
+1005    Philosopher 4 : is eating
+1204    Philosopher 2 : is sleeping
+1204    Philosopher 1 : has taken a fork
+1204    Philosopher 1 : is eating
+1205    Philosopher 3 : is thinking
+1205    Philosopher 3 : has taken a fork
+1206    Philosopher 5 : is thinking
+1206    Philosopher 4 : is sleeping
+1206    Philosopher 5 : has taken a fork
+1206    Philosopher 3 : has taken a fork
+1206    Philosopher 3 : is eating
+1404    Philosopher 1 : is sleeping
+1404    Philosopher 5 : has taken a fork
+1404    Philosopher 5 : is eating
+1405    Philosopher 2 : is thinking
+1405    Philosopher 2 : has taken a fork
+1406    Philosopher 3 : is sleeping
+1406    Philosopher 2 : has taken a fork
+1407    Philosopher 2 : is eating
+1407    Philosopher 4 : is thinking
+1407    Philosopher 4 : has taken a fork
+1605    Philosopher 5 : is sleeping
+1605    Philosopher 4 : has taken a fork
+1605    Philosopher 4 : is eating
+1605    Philosopher 1 : is thinking
+1605    Philosopher 1 : has taken a fork
+1607    Philosopher 3 : is thinking
+1607    Philosopher 2 : is sleeping
+1607    Philosopher 1 : has taken a fork
+1607    Philosopher 3 : has taken a fork
+1607    Philosopher 1 : is eating
+1806    Philosopher 5 : is thinking
+1806    Philosopher 4 : is sleeping
+1806    Philosopher 3 : has taken a fork
+1806    Philosopher 5 : has taken a fork
+1806    Philosopher 3 : is eating
+1807    Philosopher 1 : is sleeping
+1807    Philosopher 5 : has taken a fork
+1807    Philosopher 5 : is eating
+1808    Philosopher 2 : is thinking
+1808    Philosopher 2 : has taken a fork
+2006    Philosopher 3 : is sleeping
+2006    Philosopher 2 : has taken a fork
+2006    Philosopher 2 : is eating
+2007    Philosopher 4 : is thinking
+2007    Philosopher 4 : has taken a fork
+2008    Philosopher 5 : is sleeping
+2008    Philosopher 4 : has taken a fork
+2008    Philosopher 1 : is thinking
+2008    Philosopher 4 : is eating
+2008    Philosopher 1 : has taken a fork
+2207    Philosopher 2 : is sleeping
+2207    Philosopher 1 : has taken a fork
+2207    Philosopher 1 : is eating
+2207    Philosopher 3 : is thinking
+2207    Philosopher 3 : has taken a fork
+2209    Philosopher 5 : is thinking
+2209    Philosopher 4 : is sleeping
+2209    Philosopher 5 : has taken a fork
+2209    Philosopher 3 : has taken a fork
+2209    Philosopher 3 : is eating
+2407    Philosopher 1 : is sleeping
+2407    Philosopher 5 : has taken a fork
+2407    Philosopher 5 : is eating
+2408    Philosopher 2 : is thinking
+2408    Philosopher 2 : has taken a fork
+2409    Philosopher 3 : is sleeping
+2409    Philosopher 2 : has taken a fork
+2409    Philosopher 2 : is eating
+2410    Philosopher 4 : is thinking
+2410    Philosopher 4 : has taken a fork
+2607    Philosopher 5 : is sleeping
+2607    Philosopher 4 : has taken a fork
+2607    Philosopher 4 : is eating
+2608    Philosopher 1 : is thinking
+2608    Philosopher 1 : has taken a fork
+2610    Philosopher 3 : is thinking
+2610    Philosopher 2 : is sleeping
+2610    Philosopher 1 : has taken a fork
+2610    Philosopher 3 : has taken a fork
+2610    Philosopher 1 : is eating
+2807    Philosopher 4 : is sleeping
+2807    Philosopher 3 : has taken a fork
+2807    Philosopher 3 : is eating
+2808    Philosopher 5 : is thinking
+2808    Philosopher 5 : has taken a fork
+2811    Philosopher 1 : is sleeping
+2811    Philosopher 5 : has taken a fork
+2811    Philosopher 5 : is eating
+2811    Philosopher 2 : is thinking
+2811    Philosopher 2 : has taken a fork
+3007    Philosopher 3 : is sleeping
+3007    Philosopher 2 : has taken a fork
+3007    Philosopher 2 : is eating
+3008    Philosopher 4 : is thinking
+3008    Philosopher 4 : has taken a fork
+3011    Philosopher 5 : is sleeping
+3011    Philosopher 4 : has taken a fork
+3011    Philosopher 4 : is eating
+3012    Philosopher 1 : is thinking
+3012    Philosopher 1 : has taken a fork
+3208    Philosopher 3 : is thinking
+3208    Philosopher 2 : is sleeping
+3208    Philosopher 3 : has taken a fork
+3208    Philosopher 1 : has taken a fork
+3208    Philosopher 1 : is eating
+3212    Philosopher 4 : is sleeping
+3212    Philosopher 3 : has taken a fork
+3212    Philosopher 3 : is eating
+3212    Philosopher 5 : is thinking
+3212    Philosopher 5 : has taken a fork
+3408    Philosopher 1 : is sleeping
+3408    Philosopher 5 : has taken a fork
+3408    Philosopher 5 : is eating
