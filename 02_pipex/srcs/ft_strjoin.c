@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:44:42 by hkwon             #+#    #+#             */
-/*   Updated: 2020/11/12 17:36:20 by hkwon            ###   ########.fr       */
+/*   Created: 2021/08/17 19:56:31 by kwonhyukbae       #+#    #+#             */
+/*   Updated: 2021/08/17 19:57:08 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		++len;
+	return (len);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -22,7 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	if (!(res = (char *)malloc(sizeof(char) + (len1 + len2 + 1))))
+	res = (char *)malloc(sizeof(char) + (len1 + len2 + 1));
+	if (!res)
 		return (0);
 	ft_memcpy(res, s1, len1);
 	ft_memcpy(res + len1, s2, len2);
