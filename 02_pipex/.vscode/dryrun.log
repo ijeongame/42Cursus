@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kwonhyukbae/Desktop/42Cursus/02_pipex'
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror -o objs/main.o -I./includes -c ./srcs/main.c
+gcc -Wall -Wextra -Werror -o objs/ft_split.o -I./includes -c ./srcs/ft_split.c
+gcc -Wall -Wextra -Werror -o objs/ft_strjoin.o -I./includes -c ./srcs/ft_strjoin.c
+gcc -Wall -Wextra -Werror -o objs/pipe.o -I./includes -c ./srcs/pipe.c
+gcc -Wall -Wextra -Werror -o pipex objs/main.o objs/ft_split.o objs/ft_strjoin.o objs/pipe.o
+make: Leaving directory `/Users/kwonhyukbae/Desktop/42Cursus/02_pipex'
+ 

@@ -6,13 +6,13 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:56:31 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/17 19:57:08 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/19 22:51:30 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 

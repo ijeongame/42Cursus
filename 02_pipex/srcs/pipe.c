@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:53 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/17 21:47:27 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/19 22:54:22 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void	ft_pipe_in(int pipefd[2], int fd, char *cmd)
 
 	close(pipefd[1]);
 	args = ft_split(cmd, ' ');
+	//dup를 사용해 파이프 복사
+	//파이프 닫아주기
+	close(pipefd[0]);
+	wait(NULL);
 }
 
 void	ft_pipe_out(int pipefd[2], int fd, char *cmd)
