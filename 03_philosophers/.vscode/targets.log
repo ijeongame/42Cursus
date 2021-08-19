@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
  
 
-# Make data base, printed on Sat Jul 31 17:03:52 2021
+# Make data base, printed on Tue Aug 17 23:27:43 2021
 
 # Variables
 
@@ -31,26 +31,28 @@ CURDIR := /Users/kwonhyukbae/Desktop/42Cursus/03_philosophers
 # makefile
 SHELL = /bin/sh
 # environment
- 
-VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"0870ca4c13bde4b650a434d6ffe742f8.ko","_translationsConfigFile":"/Users/kwonhyukbae/Library/Application Support/Code/clp/0870ca4c13bde4b650a434d6ffe742f8.ko/tcf.json","_cacheRoot":"/Users/kwonhyukbae/Library/Application Support/Code/clp/0870ca4c13bde4b650a434d6ffe742f8.ko","_resolvedLanguagePackCoreLocation":"/Users/kwonhyukbae/Library/Application Support/Code/clp/0870ca4c13bde4b650a434d6ffe742f8.ko/c3f126316369cd610563c75b1b1725e0679adfb3","_corruptedFile":"/Users/kwonhyukbae/Library/Application Support/Code/clp/0870ca4c13bde4b650a434d6ffe742f8.ko/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"d73a31406898453688dbc99b252fcb3b.ko","_translationsConfigFile":"/Users/kwonhyukbae/Library/Application Support/Code/clp/d73a31406898453688dbc99b252fcb3b.ko/tcf.json","_cacheRoot":"/Users/kwonhyukbae/Library/Application Support/Code/clp/d73a31406898453688dbc99b252fcb3b.ko","_resolvedLanguagePackCoreLocation":"/Users/kwonhyukbae/Library/Application Support/Code/clp/d73a31406898453688dbc99b252fcb3b.ko/379476f0e13988d90fab105c5c19e7abc8b1dea8","_corruptedFile":"/Users/kwonhyukbae/Library/Application Support/Code/clp/d73a31406898453688dbc99b252fcb3b.ko/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile
 MAKEFILE_LIST := 
 # environment
+ 
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-f07eec13-2a7b-4e03-898e-0014b589d670.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-d66e7a88-e882-4d10-b6d4-5ab6c7377e07.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/kwonhyukbae/Library/Python/3.8/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+LaunchInstanceID = 1DD74162-504C-45A3-983F-67E8AEBC983C
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -58,7 +60,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9JwN3x0Sgz/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.YCFY2YSCYn/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -74,7 +76,7 @@ HOME = /Users/kwonhyukbae
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/kwonhyukbae/Library/Application Support/Code/CachedData/c3f126316369cd610563c75b1b1725e0679adfb3
+VSCODE_CODE_CACHE_PATH = /Users/kwonhyukbae/Library/Application Support/Code/CachedData/379476f0e13988d90fab105c5c19e7abc8b1dea8
 # environment
 LOGNAME = kwonhyukbae
 # environment
@@ -112,7 +114,7 @@ TMPDIR = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/kwonhyukbae/Library/Application Support/Code/1.58.2-main.sock
+VSCODE_IPC_HOOK = /Users/kwonhyukbae/Library/Application Support/Code/1.59.0-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -120,7 +122,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.59264.59270
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.1594073.1594079
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -139,6 +141,8 @@ VSCODE_BROWSER_CODE_LOADING = bypassHeatCheck
 PAGER = less
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a9
 # automatic
 ^F = $(notdir $^)
 # default
@@ -150,17 +154,18 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 596
+VSCODE_PID = 371
 # variable set hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=1/89=1%
+# Load=70/1024=7%, Rehash=0, Collisions=1/91=1%
 
 # Pattern-specific Variable Values
 
+ 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 16777220, inode 345647): 6 files, no impossibilities.
+# . (device 16777225, inode 345647): 6 files, no impossibilities.
 
 # 6 files, no impossibilities in 1 directories.
 
@@ -173,7 +178,6 @@ VSCODE_PID = 596
 # Not a target:
 all:
 #  Command-line target.
- 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
@@ -235,6 +239,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Sat Jul 31 17:03:52 2021
+# Finished Make data base on Tue Aug 17 23:27:43 2021
 
  
