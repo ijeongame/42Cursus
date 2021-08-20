@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Thu Aug 19 15:15:59 2021
+# Make data base, printed on Fri Aug 20 22:24:55 2021
 
 # Variables
 
@@ -45,7 +44,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-27030469-f128-4536-8e93-81eb1d396966.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-774289b7-d03f-488d-a60e-a4668c6f894a.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,7 +54,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # makefile (from `Makefile', line 21)
 INCLUDE_DIR = ./includes
 # environment
-LaunchInstanceID = AE6FBB55-451D-4A4D-B120-70B93F841392
+LaunchInstanceID = 6F68504B-DE9C-4C1E-9F42-5F3CE98B1F74
 # makefile (from `Makefile', line 18)
 AR = ar rcs
 # makefile (from `Makefile', line 23)
@@ -67,7 +66,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.D09OqrV3Z9/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rFbD51TUEu/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -171,7 +170,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 404
+VSCODE_PID = 426
 # variable set hash-table stats:
 # Load=80/1024=8%, Rehash=0, Collisions=5/117=4%
 
@@ -303,6 +302,7 @@ fclean: clean
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -315,7 +315,6 @@ fclean: clean
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 re: fclean all
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -356,6 +355,6 @@ vpath %.c ./srcs
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Aug 19 15:15:59 2021
+# Finished Make data base on Fri Aug 20 22:24:55 2021
 
  

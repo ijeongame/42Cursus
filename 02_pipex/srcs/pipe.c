@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:53 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/19 22:54:22 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/20 23:10:56 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@ void	ft_pipe(int ac, char *av[])
 	//자식-자식 vs 부모-자식 -> minishell을 갔을 때 원래 실행해야하는 부모 단의 프로세스가 날아간다.
 	//-> 에러가 발생했는지 정확히 모른다.
 	in = open(av[1], O_RDONLY);
-	pid_in = fork();
-	if (in == -1)
-		ft_pipe_exit("Failed input file");
-	if (pid_in == -1)
-		ft_pipe_exit("Failed to fork process");
-	else
-		ft_pipe_in(pipefd, in, av[2]);
+	ft_pipe_open(in, &pid_in, pipefd, av[2]);
 	out = open(av[4], O_WRONLY);
 	pid_out = fork();
 	if (pid_out == -1)
@@ -50,14 +44,26 @@ void	ft_pipe(int ac, char *av[])
 		ft_pipe_exit("Failed to create pipe");
 }
 
+void	ft_pipe_open(int file, pid_t *pid, int pipefd[2], char *av)
+{
+	pid = fork();
+	if (file == -1)
+		ft_pipe_exit("Failed input file");
+	if (pid == -1)
+		ft_pipe_exit("Failed to fork process");
+	else
+		ft_pipe_in(pipefd, file, av);
+}
+
 void	ft_pipe_in(int pipefd[2], int fd, char *cmd)
 {
 	char	**args;
 
-	close(pipefd[1]);
+	close(pipefd[0]);
 	args = ft_split(cmd, ' ');
 	//dup를 사용해 파이프 복사
 	//파이프 닫아주기
+	if ()
 	close(pipefd[0]);
 	wait(NULL);
 }
@@ -69,3 +75,13 @@ void	ft_pipe_out(int pipefd[2], int fd, char *cmd)
 	close(pipefd[0]);
 	args = ft_split(cmd, ' ');
 }
+
+// void	ft_exec(char *cmd, char **args)
+// {
+
+// }
+
+// void	ft_paths(char *cmd, char *args, char **path)
+// {
+
+// }
