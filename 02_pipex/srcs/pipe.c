@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:53 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/20 23:10:56 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/08/21 20:13:00 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,21 @@ void	ft_pipe_in(int pipefd[2], int fd, char *cmd)
 	args = ft_split(cmd, ' ');
 	//dup를 사용해 파이프 복사
 	//파이프 닫아주기
-	if ()
-	close(pipefd[0]);
+	if (dup2(fd, 0) == -1)
+		ft_pipe_exit("Error");
+	if (dup2(pipefd[1], 1) == -1)
+		ft_pipe_exit("Error");
+	if (args[0][0] == '/')
+	{
+		if (execve(args[0], args, NULL) == -1);
+			ft_pipe_exit("Error");
+
+	}
+	else
+		//실행
+	// ft_pipe_free(args);
+	close(fd);
+	close(pipefd[1]);
 	wait(NULL);
 }
 
@@ -72,8 +85,26 @@ void	ft_pipe_out(int pipefd[2], int fd, char *cmd)
 {
 	char	**args;
 
-	close(pipefd[0]);
+	close(pipefd[1]);
 	args = ft_split(cmd, ' ');
+	//dup를 사용해 파이프 복사
+	//파이프 닫아주기
+	if (dup2(fd, 0) == -1)
+		ft_pipe_exit("Error");
+	if (dup2(pipefd[1], 1) == -1)
+		ft_pipe_exit("Error");
+	if (args[0][0] == '/')
+	{
+		if (execve(args[0], args, NULL) == -1);
+			ft_pipe_exit("Error");
+
+	}
+	else
+		//실행
+	// ft_pipe_free(args);
+	close(fd);
+	close(pipefd[0]);
+	wait(NULL);
 }
 
 // void	ft_exec(char *cmd, char **args)
