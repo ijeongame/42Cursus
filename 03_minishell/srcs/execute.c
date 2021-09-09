@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 05:44:43 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/08 16:07:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/09 17:33:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,56 +35,6 @@ int	exe_process(char *exe, char **args, char **en)
 	return (1);
 }
 
-char	*ft_find_env(char *name, char **env)
-{
-	int	i;
-
-	i = -1;
-	if (ft_strlen(name) == 1 && name[0] == '~')
-		name = "$HOME";
-	name += (name[0] == '$');
-	while (env[++i])
-	{
-		if (!ft_strncmp(name, env[i], ft_strlen(name)))
-			if (env[i][ft_strlen(name)] == '=')
-				return (ft_strchr(env[i], '=') + 1);
-	}
-	return ("");
-}
-
-void	ft_strclr(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			s[i] = '\0';
-			i++;
-		}
-	}
-}
-
-char	*ft_strcat(char *s1, const char *s2)
-{
-	int	i;
-	int	k;
-
-	i = 0;
-	k = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[k] != '\0')
-	{
-		s1[i + k] = s2[k];
-		k++;
-	}
-	s1[i + k] = '\0';
-	return (s1);
-}
-
 // Find command
 void	find_cmd(char **args, char **en)
 {
@@ -99,8 +49,7 @@ void	find_cmd(char **args, char **en)
 	{
 		ft_strclr(path);
 		ft_strcat(path, p[i]);
-		if (args[0][0] != '/')
-			ft_strcat(path, "/");
+		(args[0][0] != '/') ? ft_strcat(path, "/") : 0;
 		ft_strcat(path, args[0]);
 		if (access(path, F_OK) != -1)
 		{

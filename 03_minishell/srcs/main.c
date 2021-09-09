@@ -6,11 +6,22 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 10:59:00 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/08 04:48:07 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/09 15:38:00 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	*ft_malloc(size_t size)
+{
+	unsigned char	*mem;
+
+	mem = (unsigned char *)malloc(sizeof(size_t) * size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
+}
 
 // 환경변수를 조작할 시 malloc과 free에 있어서 main 변수 envp를 그대로 사용하면
 // error가 발생한다고 한다.
@@ -21,12 +32,12 @@ void	init_env(char ***en, char *envp[])
 
 	i = -1;
 	while (envp[++i])
-		;
-	(*en) = (char **)malloc(sizeof(char *) * i);
+		NULL;
+	(*en) = (char **)ft_malloc(sizeof(char *) * i);
 	i = -1;
 	while (envp[++i])
 	{
-		(*en)[i] = (char *)malloc(PATH_MAX + 1);
+		(*en)[i] = (char *)ft_malloc(PATH_MAX + 1);
 		j = -1;
 		while (envp[i][++j])
 			(*en)[i][j] = envp[i][j];

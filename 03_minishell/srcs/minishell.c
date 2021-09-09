@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 22:45:48 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/08 16:05:25 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/09 17:45:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // | 로 들어왔을 때 파싱해서 저장하는 게 필요할 것 같아요.
 // "" $문자만 읽어오도록 하자. -> 유효성 검사 -> 파싱하는 부분에서 검사
+// gnl -> getch() 함수 이용
 static char	*read_line(void)
 {
 	char	*line;
@@ -27,13 +28,11 @@ static char	*read_line(void)
 char	*ft_strnew(size_t size)
 {
 	char	*str;
-	size_t	i;
 
-	i = 0;
 	str = (char *)malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
-	ft_memset(str, '\0', size + 1);
+	ft_memset((char *)str, (int)'\0', (size + 1));
 	return (str);
 }
 
@@ -85,7 +84,7 @@ char	**ft_token(char *s, char *sep)
 	int		j;
 
 	parts = count_parts(s, sep);
-	token = (char **)malloc(sizeof(char *) * parts + 1);
+	token = (char **)ft_malloc(sizeof(char *) * (parts + 1));
 	if (!token)
 		return (NULL);
 	i = 0;
@@ -135,6 +134,23 @@ char	**run_cmd(char **cmd, char **en)
 	return (en);
 }
 
+void	set_dir(char **en)
+{
+	char	**args;
+
+	args = (char **)ft_malloc(sizeof(char *) * 4);
+	args[0] = NULL;
+	args[1] = ft_strdup("PWD");
+	args[2] = ft_strnew(PATH_MAX);
+	args[3] = 0;
+	getcwd(args[2], PATH_MAX);
+	cmd_setenv(args, en);
+	free(args[1]);
+	free(args[2]);
+	free(args);
+	return ;
+}
+
 void	minishell(char **en)
 {
 	int		status;
@@ -147,11 +163,12 @@ void	minishell(char **en)
 	while (status)
 	{
 		write(1, "minishell>", ft_strlen("minishell>"));
+		set_dir(en);
 		line = read_line();
 		// parsing pipe
 		// get_next_line->getch()함수
 		// enter 예외처리
-		cmd = ft_token(line, "|");
+		cmd = ft_token(line, ";");
 		en = run_cmd(cmd, en);
 		if (!en)
 			status = 0;
