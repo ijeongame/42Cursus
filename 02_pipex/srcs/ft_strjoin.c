@@ -6,7 +6,7 @@
 /*   By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:56:31 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/08/19 22:51:30 by kwonhyukbae      ###   ########.fr       */
+/*   Updated: 2021/09/05 19:52:54 by kwonhyukbae      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ size_t	ft_strlen(const char *s)
 	while (s[len])
 		++len;
 	return (len);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t size)
+{
+	unsigned char		*dp;
+	const unsigned char	*sp;
+	size_t				i;
+
+	if (!dest && !src)
+		return (0);
+	dp = (unsigned char *)dest;
+	sp = (const unsigned char *)src;
+	i = 0;
+	while (i < size)
+	{
+		dp[i] = sp[i];
+		i++;
+	}
+	return (dest);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
