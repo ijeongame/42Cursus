@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 22:45:48 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/09 17:45:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/13 16:19:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ static int	count_parts(char *s, char *sep)
 }
 
 // tokenization : separate using pipe
+// split을 사용안하는 이유 -> ls -l | pwd 이렇게 들어오면 하나의 라인으로 인식을 하고 |를 기준으로 나눠야한다.
+// ls -l 과 pwd로 나눠야하는데 split을 하면 ls, -l, pwd로 나눠지기 때문에 사용하지 않는다.
 char	**ft_token(char *s, char *sep)
 {
 	char	**token;
@@ -151,6 +153,15 @@ void	set_dir(char **en)
 	return ;
 }
 
+void	prompt(void)
+{
+	char	buf[PATH_MAX];
+	
+	getcwd(buf, PATH_MAX);
+	write(1, buf, ft_strlen(buf));
+	write(1, " > ", 3);
+}
+
 void	minishell(char **en)
 {
 	int		status;
@@ -163,6 +174,7 @@ void	minishell(char **en)
 	while (status)
 	{
 		write(1, "minishell>", ft_strlen("minishell>"));
+		prompt();
 		set_dir(en);
 		line = read_line();
 		// parsing pipe
