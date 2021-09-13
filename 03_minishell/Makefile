@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kwonhyukbae <kwonhyukbae@student.42.fr>    +#+  +:+       +#+         #
+#    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/04 03:12:03 by kwonhyukbae       #+#    #+#              #
-#    Updated: 2021/09/04 14:42:34 by kwonhyukbae      ###   ########.fr        #
+#    Updated: 2021/09/13 16:20:15 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,17 @@ LIBFT = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -g3 -fsanitize=address
 
-AR = ar rcs
+AR = ar rc
 RM = rm -f
 
 INCLUDE_DIR = ./includes
-# OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
+# OBJS_DIR = ./objs
 LIB_DIR = ./libft
 
-SRCS_BUILTIN_DIR = $(SRCS_DIR)/builtin
+SRCS_BUILTIN_DIR = $(SRCS_DIR)/builtin_func
 SRCS_BUILTIN = $(addprefix $(SRCS_BUILTIN_DIR)/, \
 		ft_echo.c \
 		ft_cd.c \
@@ -36,22 +37,22 @@ SRCS_BUILTIN = $(addprefix $(SRCS_BUILTIN_DIR)/, \
 )
 
 SRCS_MAIN = $(addprefix $(SRCS_DIR)/, \
-		main.c minishell.c builtin.c)
+		main.c minishell.c execute.c builtin.c setenv.c)
 
 SRCS =  $(SRCS_MAIN) \
-		$(SRCS_BUILTIN_DIR)
+		# $(SRCS_BUILTIN)
 		
 
 # OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 vpath %.c \
 	$(SRCS_DIR) \
-	$(SRCS_BUILTIN_DIR)
+	# $(SRCS_BUILTIN_DIR)
 
 all : $(NAME)
 
 $(NAME) : $(LIBFT)
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIB_DIR)/$(INCLUDE_DIR) \
+	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -I $(LIB_DIR)/$(INCLUDE_DIR) \
 	-L ./$(LIB_DIR) -lft -o $(NAME) $(SRCS)
 
 # $(OBJS_DIR) :
