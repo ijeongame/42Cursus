@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 21:29:08 by hkwon             #+#    #+#              #
-#    Updated: 2021/09/26 15:52:42 by hkwon            ###   ########.fr        #
+#    Updated: 2021/09/26 20:55:27 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
-		ft_pipe.c ft_pipe_process.c ft_pipe_execute.c \
+		ft_pipe.c ft_pipe_process.c ft_pipe_execute.c ft_parsing.c ft_parsing_utils.c\
 		ft_split.c ft_strjoin.c ft_strncmp.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))

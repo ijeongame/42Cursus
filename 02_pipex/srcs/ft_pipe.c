@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 21:42:56 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/26 15:53:27 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/26 21:47:41 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_pipe_exit(char *error)
 {
 	write(2, error, ft_strlen(error));
-	exit(EXIT_FAILURE);
+	exit(1);
 }
 
 int	main(int argc, char *argv[], char *envp[])
