@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 10:59:00 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/13 16:19:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/25 14:09:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,3 @@ int	main(int argc, char *argv[], char *envp[])
 	(void)argv;
 	return (0);
 }
-
-// 언제 error기 1이 나오고 0이 나오는지
