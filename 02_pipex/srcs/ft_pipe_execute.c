@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 23:27:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/26 21:28:25 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/27 16:53:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_pipe_execute(t_info *info, char *cmd, char *envp[])
 	{
 		info->path = ft_strjoin(info->paths[i], "/");
 		info->path_cmd = ft_strjoin(info->path, info->command[0]);
-		if (access(info->path_cmd, F_OK) == 0)
+		if (access(info->path_cmd, F_OK | X_OK) == 0)
 		{
 			if (execve(info->path_cmd, info->command, envp) == -1)
 				ft_pipe_exit("Error : command not found\n");
@@ -62,4 +62,5 @@ void	ft_pipe_execute(t_info *info, char *cmd, char *envp[])
 	}
 	ft_free(info->command);
 	ft_free(info->paths);
+	ft_pipe_exit("Error : command not found\n");
 }
