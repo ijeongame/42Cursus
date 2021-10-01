@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 01:44:43 by hkwon             #+#    #+#              #
-#    Updated: 2021/06/29 22:20:03 by hkwon            ###   ########.fr        #
+#    Updated: 2021/09/18 13:34:07 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRCS_NUM_DIR = $(SRCS_DIR)/num
 SRCS_NUM = $(addprefix $(SRCS_NUM_DIR)/, \
 			ft_lltoa.c\
 			ft_convert_base.c\
-			ft_count.c\
+			ft_count_num.c\
 			ft_atoi.c\
 			ft_itoa.c\
 			ft_atol.c\
@@ -60,6 +60,7 @@ SRCS_MEMORY_DIR = $(SRCS_DIR)/memory
 SRCS_MEMORY = $(addprefix $(SRCS_MEMORY_DIR)/, \
 			ft_memset.c\
 			ft_bzero.c\
+			ft_malloc.c\
 			ft_memcpy.c\
 			ft_memccpy.c\
 			ft_memmove.c\
@@ -83,6 +84,7 @@ SRCS_STRING = $(addprefix $(SRCS_STRING_DIR)/, \
 			ft_strlen.c\
 			ft_strlcpy.c\
 			ft_strlcat.c\
+			ft_strncat.c\
 			ft_strchr.c\
 			ft_strrchr.c\
 			ft_strnstr.c\
@@ -95,6 +97,7 @@ SRCS_STRING = $(addprefix $(SRCS_STRING_DIR)/, \
 			ft_strtrim.c\
 			ft_split.c\
 			ft_strmapi.c\
+			ft_strnew.c\
 			get_next_line.c\
 )
 

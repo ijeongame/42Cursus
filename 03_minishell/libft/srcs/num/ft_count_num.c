@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_count.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:36:54 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/17 23:18:06 by hkwon            ###   ########.fr       */
+/*   Created: 2021/05/17 02:47:30 by hkwon             #+#    #+#             */
+/*   Updated: 2021/09/18 13:33:47 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int			ft_count_num(int n)
 {
-	while (*str != c)
+	int count;
+
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
 	{
-		if (*str == '\0')
-			return (0);
-		str++;
+		n /= 10;
+		count++;
 	}
-	return ((char *)str);
+	return (count);
 }

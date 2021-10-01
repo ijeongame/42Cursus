@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:36:54 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/17 23:18:06 by hkwon            ###   ########.fr       */
+/*   Created: 2021/09/17 21:20:31 by hkwon             #+#    #+#             */
+/*   Updated: 2021/09/17 21:20:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	while (*str != c)
+	size_t i;
+	size_t k;
+
+	i = 0;
+	k = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (k < n && s2[k] != '\0')
 	{
-		if (*str == '\0')
-			return (0);
-		str++;
+		s1[i + k] = s2[k];
+		k++;
 	}
-	return ((char *)str);
+	s1[i + k] = '\0';
+	return (s1);
 }

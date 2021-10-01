@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:36:54 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/17 23:18:06 by hkwon            ###   ########.fr       */
+/*   Created: 2021/09/18 03:28:29 by hkwon             #+#    #+#             */
+/*   Updated: 2021/09/18 03:28:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strnew(size_t size)
 {
-	while (*str != c)
-	{
-		if (*str == '\0')
-			return (0);
-		str++;
-	}
-	return ((char *)str);
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	ft_memset((char *)str, 0, (size + 1));
+	return (str);
 }

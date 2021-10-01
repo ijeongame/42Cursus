@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/18 13:34:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@
 #  define BUFFER_SIZE 5000
 # endif
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void				*content;
 	struct s_list		*next;
-}				t_list;
+}	t_list;
 
 void			*ft_memset(void *ptr, int value, size_t size);
 void			ft_bzero(void *ptr, size_t size);
+void			*ft_malloc(size_t size);
 void			*ft_memcpy(void *dest, const void *src, size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t size);
 void			*ft_memmove(void *dest, const void *src, size_t size);
@@ -40,6 +41,7 @@ void			*ft_calloc(size_t nelem, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
+char			*ft_strncat(char *s1, const char *s2, size_t n);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
 char			*ft_strnstr(const char *big, const char *little, size_t size);
@@ -55,7 +57,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
-int				ft_count(int n);
+int				ft_count_num(int n);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s1, char const *set);
@@ -88,4 +90,6 @@ int				get_next_line(int fd, char **line);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strndup(const char *src, int n);
 int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strnew(size_t size);
+
 #endif

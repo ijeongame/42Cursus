@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count.c                                         :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 02:47:30 by hkwon             #+#    #+#             */
-/*   Updated: 2021/05/18 02:43:41 by hkwon            ###   ########.fr       */
+/*   Created: 2021/09/12 23:06:17 by hkwon             #+#    #+#             */
+/*   Updated: 2021/09/12 23:06:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_count(int n)
+void	*ft_malloc(size_t size)
 {
-	int count;
+	unsigned char	*mem;
 
-	count = 0;
-	if (n == 0)
-		return (1);
-	while (n != 0)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
+	mem = (unsigned char *)malloc(sizeof(size_t) * size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }
