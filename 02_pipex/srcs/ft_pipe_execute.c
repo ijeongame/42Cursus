@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 23:27:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/27 16:57:19 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/27 17:46:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	ft_pipe_execute(t_info *info, char *cmd, char *envp[])
 
 	info->command = ft_parsing(cmd);
 	info->paths = ft_pipe_path(envp);
-	if (info->paths == NULL)
-		ft_pipe_exit("Error : no PATH\n");
 	i = -1;
 	while (info->paths[++i])
 	{
@@ -60,7 +58,5 @@ void	ft_pipe_execute(t_info *info, char *cmd, char *envp[])
 		free(info->path);
 		free(info->path_cmd);
 	}
-	ft_free(info->command);
-	ft_free(info->paths);
 	ft_pipe_exit("Error : command not found\n");
 }
