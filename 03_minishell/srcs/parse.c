@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 21:15:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/26 17:04:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/02 17:44:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ t_cmd	*cmd_init(void)
 	cmd = (t_cmd *)malloc(sizeof(t_cmd));
 	if (!cmd)
 		return (NULL);
-	// cmd->name = ft_strdup("");
 	cmd->type = 0;
 	cmd->arg = NULL;
 	cmd->prev = NULL;
@@ -126,7 +125,6 @@ t_cmd	*cmd_check(char *cmd_list, int cmd_flag)
 		else
 			res->type = ARG;
 		res->arg = ft_strdup(cmd_list);
-		printf("res argument check : %s\n", res->arg);
 	}
 	return (res);
 }
@@ -163,11 +161,7 @@ t_cmd	*make_cmd_set(char **cmd_list)
 	}
 	free(cmd_list);
 	while (cmd->prev)
-	{
-		printf("token list check : %s\n", cmd->arg);
 		cmd = cmd->prev;
-	}
-	printf("token list check : %s\n", cmd->arg);
 	return (cmd);
 }
 
@@ -178,48 +172,34 @@ t_mini	*parse(char	*line)
 	int		j;
 	int		cnt;
 	int		ch_cnt;
-	t_cmd	*tmp;
+	t_mini	*tmp;
 
 	if (!line)
 		return (NULL);
 	ft_strskip(&line, " \t\n");
 	cnt = ft_count(line);
 	cmd_list = (char **)malloc(sizeof(char *) * (cnt + 1));
-	printf("cnt = %d\n", cnt);
 	i = -1;
 	while (++i < cnt)
 	{
-		printf("===========\n");
-		printf("while start\n");
 		j = -1;
 		ch_cnt = ft_ch_count(line);
-		printf("ch_cnt check : %d\n", ch_cnt);
 		cmd_list[i] = ft_strnew(ch_cnt);
-		printf("line check before input : %s\n", line);
 		while (*line && !ft_strchr(" \t\n", *line) && ++j < ch_cnt)
-		{
-			cmd_list[i][j] = *line;
-			line++;
-			printf("cmd_list[%d][%d] check : %c\n", i, j, cmd_list[i][j]);
-		}
+			cmd_list[i][j] = *(line++);
 		cmd_list[i][j + 1] = '\0';
 		ft_strskip(&line, " \t\n");
-		printf("skip after line : %s\n", line);
 		if (!line)
 			return (NULL);
 	}
 	cmd_list[cnt] = NULL;
-	printf("===========\n");
-	printf("finish while\n");
-	i = -1;
-	while (cmd_list[++i])
-		printf("cmd_list check : %s\n", cmd_list[i]);
-	tmp = (t_cmd *)malloc(sizeof(t_cmd));
-	tmp = make_cmd_set(cmd_list);
-	// while (tmp)
-	// {
-	// 	printf("token list check : %s\n", tmp->arg);
-	// 	tmp = tmp->next;
-	// }
-	return (NULL);
+	tmp = (t_mini *)malloc(sizeof(t_mini));
+	tmp->cmd = make_cmd_set(cmd_list);
+	while (tmp->cmd)
+	{
+		printf("token list argument check after parsing : %s\n", tmp->cmd->arg);
+		printf("token list type check after parsing : %d\n", tmp->cmd->type);
+		tmp->cmd = tmp->cmd->next;
+	}
+	return (tmp);
 }

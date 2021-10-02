@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 19:16:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/25 15:56:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/02 17:44:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	minishell(char **en)
 	int			status;
 	char		*line;
 	t_mini	*shell;
-	// char	**cmd;
 
 	status = 1;
 	while (status)
