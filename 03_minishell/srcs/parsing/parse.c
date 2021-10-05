@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 21:15:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/02 17:44:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/05 18:03:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,8 @@ t_cmd	*make_cmd_set(char **cmd_list)
 		tmp = cmd_check(cmd_list[i], cmd_flag);
 		if (tmp->type == CMD)
 			cmd_flag = 1;
+		if (tmp->type == PIPE)
+			cmd_flag = 0;
 		make_cmd_list(&cmd, &tmp);
 		free(cmd_list[i]);
 		i++;
@@ -165,41 +167,45 @@ t_cmd	*make_cmd_set(char **cmd_list)
 	return (cmd);
 }
 
-t_mini	*parse(char	*line)
+t_cmd	*parse(char	*line)
 {
 	char	**cmd_list;
-	int		i;
-	int		j;
-	int		cnt;
-	int		ch_cnt;
-	t_mini	*tmp;
+	// int		i;
+	// int		j;
+	// int		cnt;
+	// int		ch_cnt;
+	t_cmd	*tmp;
 
 	if (!line)
 		return (NULL);
-	ft_strskip(&line, " \t\n");
-	cnt = ft_count(line);
-	cmd_list = (char **)malloc(sizeof(char *) * (cnt + 1));
-	i = -1;
-	while (++i < cnt)
-	{
-		j = -1;
-		ch_cnt = ft_ch_count(line);
-		cmd_list[i] = ft_strnew(ch_cnt);
-		while (*line && !ft_strchr(" \t\n", *line) && ++j < ch_cnt)
-			cmd_list[i][j] = *(line++);
-		cmd_list[i][j + 1] = '\0';
-		ft_strskip(&line, " \t\n");
-		if (!line)
-			return (NULL);
-	}
-	cmd_list[cnt] = NULL;
-	tmp = (t_mini *)malloc(sizeof(t_mini));
-	tmp->cmd = make_cmd_set(cmd_list);
-	while (tmp->cmd)
-	{
-		printf("token list argument check after parsing : %s\n", tmp->cmd->arg);
-		printf("token list type check after parsing : %d\n", tmp->cmd->type);
-		tmp->cmd = tmp->cmd->next;
-	}
+	// ft_strskip(&line, " \t\n");
+	// cnt = ft_count(line);
+	// cmd_list = (char **)malloc(sizeof(char *) * (cnt + 1));
+	// i = -1;
+	// while (++i < cnt)
+	// {
+	// 	j = -1;
+	// 	ch_cnt = ft_ch_count(line);
+	// 	cmd_list[i] = ft_strnew(ch_cnt);
+	// 	while (*line && !ft_strchr(" \t\n", *line) && ++j < ch_cnt)
+	// 		cmd_list[i][j] = *(line++);
+	// 	cmd_list[i][j + 1] = '\0';
+	// 	ft_strskip(&line, " \t\n");
+	// 	if (!line)
+	// 		return (NULL);
+	// }
+	// cmd_list[cnt] = NULL;
+	cmd_list = ft_parsing(line);
+	int i = -1;
+	while (cmd_list[++i])
+		printf("cmd list check after parsing : %s\n", cmd_list[i]);
+	// tmp = (t_cmd *)malloc(sizeof(t_cmd));
+	// tmp = make_cmd_set(cmd_list);
+	// while (tmp)
+	// {
+	// 	printf("parsing cmd arg check before return : %s\n", tmp->arg);
+	// 	printf("parsing cmd type check before return : %d\n", tmp->type);
+	// 	tmp = tmp->next;
+	// }
 	return (tmp);
 }

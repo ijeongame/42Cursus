@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 10:59:00 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/25 14:09:51 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/02 18:14:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // 환경변수를 조작할 시 malloc과 free에 있어서 main 변수 envp를 그대로 사용하면
 // error가 발생한다고 한다.
+
 void	init_env(char ***en, char *envp[])
 {
 	int	i;

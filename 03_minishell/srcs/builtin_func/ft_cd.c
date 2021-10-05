@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 14:11:37 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/10/02 17:42:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/04 11:18:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ int		ft_cd(char *line, char **en)
 		cd_home(path, buff, en);
 	else if (buff[1][0] == '$')
 		cd_en(path, buff, en);
-	// 실패했을 경우에 프로그램을 어떻게 해야하지?
 	return (0);
 }

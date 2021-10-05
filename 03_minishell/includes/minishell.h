@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:10:37 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/26 13:56:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/04 14:11:05 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,54 +24,44 @@
 # define PATH_MAX 1024
 # define BLTIN_NUM 7
 
+# define NONE 0
 # define CMD 1
 # define REDIRECT 2
 # define PIPE 3
 # define ARG 4
 
-# define RD_IN 1
-# define RD_OUT 2
-# define RD_APPEND 3
-# define RD_HEREDOC	4
-# define VALUE 5
+# define RD_IN 5
+# define RD_OUT 6
+# define RD_APPEND 7
+# define RD_HEREDOC	8
 
-// typedef struct s_minishell	t_minishell;
-typedef struct s_cmd		t_cmd;
-typedef struct s_mini		t_mini;
+typedef struct s_mini	t_mini;
+typedef struct s_cmd	t_cmd;
+// typedef struct s_token	t_token;
+typedef struct s_parse	t_parse;
 
-// 환경변수를 저장할 필요가 있다면 key/value값을 나눠 저장하자.
-// "="을 기준으로 나눈다.
-// struct s_env
+struct s_parse
+{
+	int		i;
+	int		j;
+	int		k;
+	int		cnt;
+	char	**pstr;
+};
+
+// // token struct
+// struct s_token
 // {
-// 	char	*key;
-// 	char	*value;
-// 	t_env	*next;
+// 	int		type;
+// 	char	*arg;
+// 	t_token	*next;
+// 	t_token	*prev;
 // };
 
-// typedef struct s_cmd
-// {
-// 	char *cmd;
-// 	char *buff;
-// 	//t_minishell next_perv
-// }				t_cmd;
-
-// typedef struct s_minishell
-// {
-// 	struct	s_minishell *next;
-// 	struct	s_minishell *prev;
-// 	struct	s_minishell *head;
-// 	t_cmd	*cmd;
-// 	int		exit_status;
-// 	int		pipe_flag;
-// 	int		pre_flag;
-// 	int		re_flag;
-// 	int		fds[2];
-// }	t_minishell;
-
-// // cmd struct
+// cmd struct
 struct	s_cmd
 {
-	// char	*name;
+	//t_token *token;
 	int		type;
 	char	*arg;
 	t_cmd	*next;
@@ -95,10 +85,10 @@ void	minishell(char **en);
 /*
 ** parsing
 */
-t_mini	*parse(char	*line);
-char	**separate(char *line, char c);
-t_cmd	*get_token(char *line);
+t_cmd	*parse(char	*line);
+char	**ft_parsing(char *cmd);
 void	ft_strskip(char **str, char *charset);
+// t_cmd	*get_token(char *line);
 
 /*
 ** execute commands
