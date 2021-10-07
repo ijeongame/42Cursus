@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipe_parse.c                                       :+:      :+:    :+:   */
+/*   parse_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 11:46:25 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/05 17:59:22 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/07 00:22:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,6 @@ int	count_parse(char *line)
 	return (cnt);
 }
 
-char	*ft_strcpy_i_to_j(char *line, int i, int j)
-{
-	char	*result;
-	int		k;
-
-	if (!(result = (char *)malloc(sizeof(char) * (j - i + 1))))
-		return (NULL);
-	k = 0;
-	while (i < j)
-		result[k++] = line[i++];
-	result[k] = '\0';
-	return (result);
-}
-
 char	**make_cmd_array(char *line, char **res, t_parse *parse)
 {
 	parse->i = 0;
@@ -95,7 +81,7 @@ char	**make_cmd_array(char *line, char **res, t_parse *parse)
 	return (res);
 }
 
-char	**ft_parsing(char *line)
+char	**parse_line(char *line)
 {
 	t_parse	parse;
 

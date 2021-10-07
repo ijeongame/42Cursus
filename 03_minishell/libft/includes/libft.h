@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 20:11:04 by kwon              #+#    #+#             */
-/*   Updated: 2021/09/18 13:34:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/07 00:15:44 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			*ft_memmove(void *dest, const void *src, size_t size);
 void			*ft_memchr(const void *ptr, int value, size_t size);
 int				ft_memcmp(const void *s1, const void *s2, size_t size);
 void			*ft_calloc(size_t nelem, size_t size);
+void			ft_free_array(char **arr);
 
 size_t			ft_strlen(const char *str);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
@@ -83,13 +84,15 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst,
-								void *(*f)(void *),
-								void (*del)(void *));
+					void *(*f)(void *),
+					void (*del)(void *));
 
 int				get_next_line(int fd, char **line);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strndup(const char *src, int n);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strnew(size_t size);
+char			*ft_strcpy_i_to_j(char *line, int i, int j);
+void			ft_strskip(char *skip, char **str);
 
 #endif

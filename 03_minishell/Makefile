@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/04 03:12:03 by kwonhyukbae       #+#    #+#              #
-#    Updated: 2021/09/13 16:20:15 by hkwon            ###   ########.fr        #
+#    Updated: 2021/10/07 00:05:38 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = minishell
 LIBFT = libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-# CFLAGS = -g3 -fsanitize=address
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -fsanitize=address
 
 AR = ar rc
 RM = rm -f
@@ -36,17 +36,27 @@ SRCS_BUILTIN = $(addprefix $(SRCS_BUILTIN_DIR)/, \
 		ft_exit.c \
 )
 
-SRCS_MAIN = $(addprefix $(SRCS_DIR)/, \
-		main.c minishell.c execute.c builtin.c setenv.c)
+SRCS_PARSE_DIR = $(SRCS_DIR)/parsing
+SRCS_PARSE = $(addprefix $(SRCS_PARSE_DIR)/, \
+		parse_start.c \
+		parse_line.c \
+		parse_token.c \
+)
 
-SRCS =  $(SRCS_MAIN) \
-		# $(SRCS_BUILTIN)
+SRCS_MAIN = $(addprefix $(SRCS_DIR)/, \
+		main.c minishell.c)
+
+SRCS = \
+	$(SRCS_MAIN) \
+	$(SRCS_PARSE) \
+	# $(SRCS_BUILTIN)
 		
 
 # OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 vpath %.c \
 	$(SRCS_DIR) \
+	$(SRCS_PARSE_DIR) \
 	# $(SRCS_BUILTIN_DIR)
 
 all : $(NAME)
