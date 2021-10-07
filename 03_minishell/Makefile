@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/04 03:12:03 by kwonhyukbae       #+#    #+#              #
-#    Updated: 2021/10/07 00:05:38 by hkwon            ###   ########.fr        #
+#    Updated: 2021/10/07 18:10:05 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,11 @@ SRCS_BUILTIN = $(addprefix $(SRCS_BUILTIN_DIR)/, \
 
 SRCS_PARSE_DIR = $(SRCS_DIR)/parsing
 SRCS_PARSE = $(addprefix $(SRCS_PARSE_DIR)/, \
-		parse_start.c \
-		parse_line.c \
-		parse_token.c \
+		parse_start.c\
+		parse_line.c\
+		parse_token.c\
+		parse_token_arr.c\
+		parse_token_list.c\
 )
 
 SRCS_MAIN = $(addprefix $(SRCS_DIR)/, \
@@ -50,7 +52,7 @@ SRCS = \
 	$(SRCS_MAIN) \
 	$(SRCS_PARSE) \
 	# $(SRCS_BUILTIN)
-		
+
 
 # OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
@@ -68,13 +70,13 @@ $(NAME) : $(LIBFT)
 # $(OBJS_DIR) :
 # 	@mkdir -p $(OBJS_DIR)
 
-# $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR) 
+# $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
 # 	$(CC) $(CFLAGS) -o $@ -I$(INCLUDE_DIR) -c $^
 
 $(LIBFT) :
 	@make -C $(LIB_DIR)
 	@cp $(LIB_DIR)/$(LIBFT) .
-	
+
 clean :
 	@$(RM) -r $(OBJS_DIR)
 	@make -C $(LIB_DIR) clean
@@ -83,7 +85,7 @@ fclean : clean
 	@$(RM) $(NAME)
 	@$(RM) $(LIBFT)
 	@make -C $(LIB_DIR) fclean
-	
+
 re : fclean all
 
 .PHONY : all clean fclean re

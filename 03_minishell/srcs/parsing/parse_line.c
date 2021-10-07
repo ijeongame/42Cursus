@@ -6,31 +6,38 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 11:46:25 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/07 00:22:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:57:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	quote_onoff(char line, int *s_q, int *d_q)
+/*
+** single quote ascii number 39
+** double quote ascii number 34
+** "" 안의 ""를 처리를 해줄 것 인가?
+** echo "\"hello\"" -> "hello"
+** echo "\'hello\' -> 'hello'
+*/
+static void	quote_onoff(char *line, int *s_q, int *d_q, int i)
 {
-	if (line == 39)
+	if (*line == 39)
 	{
 		if (*s_q == 0)
 			*s_q = 1;
 		else if (*s_q == 1)
 			*s_q = 0;
 	}
-	else if (line == 34)
+	else if (*line == 34)
 	{
-		if (*d_q == 0)
+		if (i == 0 || (*d_q == 0 && *(line - 1) != '\\'))
 			*d_q = 1;
-		else if (*d_q == 1)
+		else if (*d_q == 1 && *(line - 1) != '\\')
 			*d_q = 0;
 	}
 }
 
-void	count_quote(char *line, int *i)
+static void	count_quote(char *line, int *i)
 {
 	int	s_q;
 	int	d_q;
@@ -41,7 +48,7 @@ void	count_quote(char *line, int *i)
 	while (line[*i])
 	{
 		if (line[*i] == 34 || line[*i] == 39)
-			quote_onoff(line[*i], &s_q, &d_q);
+			quote_onoff(&(line[*i]), &s_q, &d_q, *i);
 		if (line[*i] == '|' && (s_q == 0 && d_q == 0))
 			break ;
 		(*i)++;

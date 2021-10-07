@@ -6,12 +6,29 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 19:16:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/06 23:44:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/07 18:16:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
+**
+** NONE 0
+** CMD 1
+** REDIRECT 2
+** PIPE 4
+** ARG 8
+** S_QUOTE 16
+** D_QUOTE 32
+
+** RD_IN 1
+** RD_OUT 2
+** RD_APPEND 4
+** RD_HEREDOC	8
+** COMMAND 16
+** ARGUMENT 32
+*/
 static char	*read_line(void)
 {
 	char	*line;
@@ -69,12 +86,16 @@ void	minishell(char **en)
 		// {
 			line = read_line();
 			shell->cmd = parse_start(line);
-			// while (shell->cmd)
-			// {
-			// 	printf("parsing cmd check after return : %s\n", shell->cmd->arg);
-			// 	printf("parsing cmd check after return : %d\n", shell->cmd->type);
-			// 	shell->cmd = shell->cmd->next;
-			// }
+			while (shell->cmd)
+			{
+				while(shell->cmd->token)
+				{
+					printf("parsing cmd check after return : %s\n", shell->cmd->token->arg);
+					printf("parsing cmd check after return : %d\n", shell->cmd->token->type);
+					shell->cmd->token = shell->cmd->token->next;
+				}
+				shell->cmd = shell->cmd->next;
+			}
 			// status = run_shell(shell->cmd);
 			free(line);
 		// }

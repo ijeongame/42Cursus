@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 22:22:25 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/06 22:22:41 by hkwon            ###   ########.fr       */
+/*   Created: 2021/10/07 15:14:43 by hkwon             #+#    #+#             */
+/*   Updated: 2021/10/07 15:15:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strcpy_i_to_j(char *line, int i, int j)
 {
-	char	*res;
+	char	*result;
 	int		k;
 
-	res = (char *)malloc(sizeof(char) * (j - i + 1));
-	if (!res)
+	result = (char *)malloc(sizeof(char) * (j - i + 1));
+	if (!result)
 		return (NULL);
 	k = 0;
 	while (i < j)
-		res[k++] = line[i++];
-	res[k] = '\0';
-	return (res);
+		result[k++] = line[i++];
+	result[k] = '\0';
+	return (result);
 }

@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 01:44:43 by hkwon             #+#    #+#              #
-#    Updated: 2021/10/07 00:14:17 by hkwon            ###   ########.fr        #
+#    Updated: 2021/10/07 16:08:30 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ SRCS_MEMORY = $(addprefix $(SRCS_MEMORY_DIR)/, \
 			ft_memchr.c\
 			ft_memcmp.c\
 			ft_calloc.c\
-			ft_free_array.c\
+			ft_free_arr.c\
 )
 
 SRCS_PRINT_DIR = $(SRCS_DIR)/print
@@ -95,12 +95,12 @@ SRCS_STRING = $(addprefix $(SRCS_STRING_DIR)/, \
 			ft_strndup.c\
 			ft_substr.c\
 			ft_strjoin.c\
+			ft_strjoin_free.c\
 			ft_strtrim.c\
 			ft_split.c\
 			ft_strmapi.c\
 			ft_strnew.c\
 			ft_strcpy_i_to_j.c\
-			ft_strskip.c\
 			get_next_line.c\
 )
 

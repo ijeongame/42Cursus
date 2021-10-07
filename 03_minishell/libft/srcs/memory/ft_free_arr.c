@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strskip.c                                       :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 00:13:25 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/07 00:15:50 by hkwon            ###   ########.fr       */
+/*   Created: 2021/10/07 15:11:29 by hkwon             #+#    #+#             */
+/*   Updated: 2021/10/07 15:11:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strskip(char *skip, char **str)
+void	ft_free_arr(char **arr)
 {
-	if (!(*str))
+	int	i;
+
+	if (!arr)
 		return ;
-	while (**str && ft_strchr(skip, **str))
-		++(*str);
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }

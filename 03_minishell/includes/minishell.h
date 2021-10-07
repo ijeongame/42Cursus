@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:10:37 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/10/06 23:52:40 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/07 18:10:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,14 @@
 # define RD_OUT 2
 # define RD_APPEND 4
 # define RD_HEREDOC	8
+# define COMMAND 16
+# define ARGUMENT 32
 
 typedef struct s_mini	t_mini;
 typedef struct s_cmd	t_cmd;
 typedef struct s_token	t_token;
 typedef struct s_parse	t_parse;
 
-/*
-** parse struct
-*/
 struct s_parse
 {
 	int		i;
@@ -54,9 +53,7 @@ struct s_parse
 	char	**pstr;
 };
 
-/*
-** token struct
-*/
+// token struct
 struct s_token
 {
 	int		type;
@@ -65,19 +62,16 @@ struct s_token
 	t_token	*prev;
 };
 
-/*
-** cmd struct
-*/
+// cmd struct
 struct	s_cmd
 {
+	int		type;
 	t_token	*token;
 	t_cmd	*next;
 	t_cmd	*prev;
 };
 
-/*
-** minishell struct
-*/
+// 하면서 필요한 부분을 구조체에 넣어서
 struct s_mini
 {
 	t_cmd	*cmd;
@@ -95,9 +89,10 @@ void	minishell(char **en);
 ** parsing
 */
 t_cmd	*parse_start(char *line);
-char	**parse_line(char *cmd);
+char	**parse_line(char *line);
 t_token	*parse_token(char *cmd_list);
-t_token	*parse_token_arg(char **args, char *cmd_list);
+char	**parse_token_arr(char **args, char *cmd_list);
+t_token	*make_token_list(char **args);
 
 /*
 ** execute commands
