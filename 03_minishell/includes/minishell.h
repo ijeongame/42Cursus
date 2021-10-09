@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:10:37 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/10/07 18:10:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/09 19:02:29 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@
 # define COMMAND 16
 # define ARGUMENT 32
 
-typedef struct s_mini	t_mini;
-typedef struct s_cmd	t_cmd;
-typedef struct s_token	t_token;
-typedef struct s_parse	t_parse;
+typedef struct s_mini		t_mini;
+typedef struct s_cmd		t_cmd;
+typedef struct s_token		t_token;
+typedef struct s_parse		t_parse;
+typedef struct s_history	t_history;
 
+/*
+** parse struct
+*/
 struct s_parse
 {
 	int		i;
@@ -53,7 +57,9 @@ struct s_parse
 	char	**pstr;
 };
 
-// token struct
+/*
+** token struct
+*/
 struct s_token
 {
 	int		type;
@@ -62,7 +68,9 @@ struct s_token
 	t_token	*prev;
 };
 
-// cmd struct
+/*
+** cmd struct
+*/
 struct	s_cmd
 {
 	int		type;
@@ -71,15 +79,27 @@ struct	s_cmd
 	t_cmd	*prev;
 };
 
-// 하면서 필요한 부분을 구조체에 넣어서
+/*
+** history struct
+*/
+struct s_history
+{
+	char		*curr;
+	char		*backup;
+	t_history	*next;
+	t_history	*prev;
+};
+
 struct s_mini
 {
-	t_cmd	*cmd;
-	int		exit_status;
-	int		pipe_flag;
-	int		pre_flag;
-	int		re_flag;
-	int		fds[2];
+	t_cmd			*cmd;
+	t_history		*hist;
+	int				exit_status;
+	int				pipe_flag;
+	int				pre_flag;
+	int				re_flag;
+	int				fds[2];
+	struct termios	term;
 };
 
 int		main(int argc, char *argv[], char *envp[]);

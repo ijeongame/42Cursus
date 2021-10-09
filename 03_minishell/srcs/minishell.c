@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 19:16:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/07 18:16:22 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/08 23:43:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,13 @@ void	minishell(char **en)
 	while (status)
 	{
 		show_prompt();
+		run_term(shell->term);
 		// if (get_next_line(0, &line) > 0)
 		// {
-			line = read_line();
+			line = read_line(); //history && read_line->getch()
+			//check_error;
 			shell->cmd = parse_start(line);
+			//debug
 			while (shell->cmd)
 			{
 				while(shell->cmd->token)
@@ -96,6 +99,7 @@ void	minishell(char **en)
 				}
 				shell->cmd = shell->cmd->next;
 			}
+			//end
 			// status = run_shell(shell->cmd);
 			free(line);
 		// }

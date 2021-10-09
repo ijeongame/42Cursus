@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:32:48 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/07 17:48:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/08 14:22:23 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,11 @@ char	**parse_token_arr(char **args, char *cmd_list)
 		//end
 	}
 	args[index[2]] = NULL;
+	//debug
 	index[2] = -1;
 	while (args[++index[2]])
 		printf("arument check atfer copy : %s\n", args[index[2]]);
 	printf("==========================================\n");
+	//end
 	return (args);
 }
