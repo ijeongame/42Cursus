@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 17:05:58 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/26 21:29:05 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/27 18:12:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	**make_cmd(char *cmd, char **res, t_parse *parse)
 	parse->j = 0;
 	while (cmd[parse->i] && parse->j < parse->len)
 	{
-		parse->cnt = 0;
+		parse->k = 0;
 		if (cmd[parse->i] != ' ')
 		{
 			if (cmd[parse->i] == '\'')
@@ -71,7 +71,7 @@ char	**make_cmd(char *cmd, char **res, t_parse *parse)
 			else
 				space(cmd, res, parse);
 		}
-		res[parse->j][parse->cnt] = '\0';
+		res[parse->j][parse->k] = '\0';
 		parse->i++;
 		parse->j++;
 	}

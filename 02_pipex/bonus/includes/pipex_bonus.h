@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 17:29:25 by kwonhyukbae       #+#    #+#             */
-/*   Updated: 2021/09/27 18:13:14 by hkwon            ###   ########.fr       */
+/*   Created: 2021/09/12 04:15:24 by hkwon             #+#    #+#             */
+/*   Updated: 2021/09/12 04:15:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
-
-typedef struct s_parse
-{
-	int		i;
-	int		j;
-	int		k;
-	int		len;
-	char	**pstr;
-}	t_parse;
 
 typedef struct s_info
 {
@@ -39,10 +30,6 @@ typedef struct s_info
 }	t_info;
 
 void	ft_pipe_process(t_info *info, char *argv[], char *envp[]);
-char	**ft_parsing(char *cmd);
-void	s_quote(char *cmd, char **res, t_parse *parse);
-void	d_quote(char *cmd, char **res, t_parse *parse);
-void	space(char *cmd, char **res, t_parse *parse);
 void	ft_pipe_execute(t_info *info, char *cmd, char *envp[]);
 void	ft_pipe_exit(char *error);
 

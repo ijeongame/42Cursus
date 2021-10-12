@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 19:35:26 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/26 21:21:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/27 18:13:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	s_quote(char *cmd, char **res, t_parse *parse)
 	if (!res)
 		return ;
 	while (cmd[parse->i] != '\0' && cmd[parse->i] != '\'')
-		res[parse->j][parse->cnt++] = cmd[parse->i++];
+		res[parse->j][parse->k++] = cmd[parse->i++];
 }
 
 void	d_quote(char *cmd, char **res, t_parse *parse)
@@ -48,7 +48,7 @@ void	d_quote(char *cmd, char **res, t_parse *parse)
 	if (!res)
 		return ;
 	while (cmd[parse->i] != '\0' && cmd[parse->i] != '\"')
-		res[parse->j][parse->cnt++] = cmd[parse->i++];
+		res[parse->j][parse->k++] = cmd[parse->i++];
 }
 
 void	space(char *cmd, char **res, t_parse *parse)
@@ -60,5 +60,5 @@ void	space(char *cmd, char **res, t_parse *parse)
 	if (!res)
 		return ;
 	while (cmd[parse->i] != '\0' && cmd[parse->i] != ' ')
-		res[parse->j][parse->cnt++] = cmd[parse->i++];
+		res[parse->j][parse->k++] = cmd[parse->i++];
 }

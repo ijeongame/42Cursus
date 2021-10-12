@@ -1,10 +1,14 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kwonhyukbae/Desktop/42Cursus/02_pipex'
 mkdir -p ./objs
-gcc -Wall -Wextra -Werror -o objs/main.o -I./includes -c ./srcs/main.c
+gcc -Wall -Wextra -Werror -o objs/ft_pipe.o -I./includes -c ./srcs/ft_pipe.c
+gcc -Wall -Wextra -Werror -o objs/ft_pipe_process.o -I./includes -c ./srcs/ft_pipe_process.c
+gcc -Wall -Wextra -Werror -o objs/ft_pipe_execute.o -I./includes -c ./srcs/ft_pipe_execute.c
+gcc -Wall -Wextra -Werror -o objs/ft_parsing.o -I./includes -c ./srcs/ft_parsing.c
+gcc -Wall -Wextra -Werror -o objs/ft_parsing_utils.o -I./includes -c ./srcs/ft_parsing_utils.c
 gcc -Wall -Wextra -Werror -o objs/ft_split.o -I./includes -c ./srcs/ft_split.c
 gcc -Wall -Wextra -Werror -o objs/ft_strjoin.o -I./includes -c ./srcs/ft_strjoin.c
-gcc -Wall -Wextra -Werror -o objs/pipe.o -I./includes -c ./srcs/pipe.c
-gcc -Wall -Wextra -Werror -o pipex objs/main.o objs/ft_split.o objs/ft_strjoin.o objs/pipe.o
+gcc -Wall -Wextra -Werror -o objs/ft_strncmp.o -I./includes -c ./srcs/ft_strncmp.c
+gcc -Wall -Wextra -Werror -o pipex objs/ft_pipe.o objs/ft_pipe_process.o objs/ft_pipe_execute.o objs/ft_parsing.o objs/ft_parsing_utils.o objs/ft_split.o objs/ft_strjoin.o objs/ft_strncmp.o
 make: Leaving directory `/Users/kwonhyukbae/Desktop/42Cursus/02_pipex'
  

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 23:27:51 by hkwon             #+#    #+#             */
-/*   Updated: 2021/09/27 17:46:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/09/27 18:09:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ void	ft_pipe_execute(t_info *info, char *cmd, char *envp[])
 		free(info->path);
 		free(info->path_cmd);
 	}
-	ft_pipe_exit("Error : command not found\n");
+	ft_free(info->command);
+	ft_free(info->paths);
+	ft_pipe_exit("Error : command not found & no access\n");
 }
