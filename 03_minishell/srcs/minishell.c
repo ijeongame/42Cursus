@@ -6,14 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 19:16:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/08 23:43:02 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/12 17:58:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /*
-**
 ** NONE 0
 ** CMD 1
 ** REDIRECT 2
@@ -29,23 +28,6 @@
 ** COMMAND 16
 ** ARGUMENT 32
 */
-static char	*read_line(void)
-{
-	char	*line;
-
-	line = NULL;
-	get_next_line(0, &line);
-	return (line);
-}
-
-void	show_prompt(void)
-{
-	char	buf[PATH_MAX];
-
-	getcwd(buf, PATH_MAX);
-	write(1, buf, ft_strlen(buf));
-	write(1, " > ", 3);
-}
 
 // static int	run_shell(t_mini *shell)
 // {
@@ -76,33 +58,47 @@ void	minishell(char **en)
 {
 	int		status;
 	char	*line;
-	t_mini	*shell;
+	int		ret;
+	t_mini	shell;
 
 	status = 1;
 	while (status)
 	{
-		show_prompt();
-		run_term(shell->term);
-		// if (get_next_line(0, &line) > 0)
-		// {
-			line = read_line(); //history && read_line->getch()
-			//check_error;
-			shell->cmd = parse_start(line);
-			//debug
-			while (shell->cmd)
-			{
-				while(shell->cmd->token)
-				{
-					printf("parsing cmd check after return : %s\n", shell->cmd->token->arg);
-					printf("parsing cmd check after return : %d\n", shell->cmd->token->type);
-					shell->cmd->token = shell->cmd->token->next;
-				}
-				shell->cmd = shell->cmd->next;
-			}
-			//end
-			// status = run_shell(shell->cmd);
+		//터미널을 종료시키는 인터럽트를 발생시켰을 때, 터미널이 종료되는게 아니라 우리의 minishell 프로그램만 종료되도록 액션을 변경해줘야 한다. 이런 핸들러 역할을 하는게 아래의 signal 함수이다.
+		// show_prompt();
+		// run_term(shell->term);
+		//history && read_line->getch()
+		line = readline("input> ");
+		if (line == NULL)
+		{
+			printf("exit\n");
 			free(line);
+			exit(0);
+		}
+		else if (ft_strchr("\n", *line))
+			continue ;
+		else
+		{
+			printf("output> %s\n", line);
+			shell.cmd = parse_start(line);
+			add_history(line);
+			free(line);
+			line = NULL;
+		}
+		// debug
+		// shell.cmd = parse_start(line);
+		// while (shell.cmd)
+		// {
+		// 	while(shell.cmd->token)
+		// 	{
+		// 		printf("parsing cmd check after return : %s\n", shell.cmd->token->arg);
+		// 		printf("parsing cmd check after return : %d\n", shell.cmd->token->type);
+		// 		shell.cmd->token = shell.cmd->token->next;
+		// 	}
+		// 	shell.cmd = shell.cmd->next;
 		// }
+		// end
+		// status = run_shell(shell->cmd, &en);
 	}
 	(void)en;
 }

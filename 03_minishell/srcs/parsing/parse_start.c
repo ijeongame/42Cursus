@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 21:15:38 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/08 14:20:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/10 17:45:01 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ t_cmd	*make_cmd_list(char **cmd_list)
 t_cmd	*parse_start(char *line)
 {
 	char	**cmd_list;
-	t_cmd	*tmp;
 
 	if (!line)
 		return (NULL);

@@ -1,8 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/kwonhyukbae/Desktop/42Cursus/03_minishell'
-make -C ./libft
-cp ./libft/libft.a .
-gcc -g3 -fsanitize=address -I ./includes -I ./libft/./includes \
-	-L ././libft -lft -o minishell ./srcs/main.c ./srcs/minishell.c ./srcs/parsing/parse_start.c ./srcs/parsing/parse_line.c ./srcs/parsing/parse_token.c ./srcs/parsing/parse_token_arr.c ./srcs/parsing/parse_token_list.c 
+make: Nothing to be done for `all'.
+ 
 make: Leaving directory `/Users/kwonhyukbae/Desktop/42Cursus/03_minishell'
  

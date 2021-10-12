@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/04 03:12:03 by kwonhyukbae       #+#    #+#              #
-#    Updated: 2021/10/07 18:10:05 by hkwon            ###   ########.fr        #
+#    Updated: 2021/10/11 23:14:37 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,11 @@ SRCS_BUILTIN = $(addprefix $(SRCS_BUILTIN_DIR)/, \
 		ft_exit.c \
 )
 
+SRCS_INIT_DIR = $(SRCS_DIR)/init
+SRCS_INIT = $(addprefix $(SRCS_INIT_DIR)/, \
+		init_shell.c\
+)
+
 SRCS_PARSE_DIR = $(SRCS_DIR)/parsing
 SRCS_PARSE = $(addprefix $(SRCS_PARSE_DIR)/, \
 		parse_start.c\
@@ -50,6 +55,7 @@ SRCS_MAIN = $(addprefix $(SRCS_DIR)/, \
 
 SRCS = \
 	$(SRCS_MAIN) \
+	$(SRCS_INIT) \
 	$(SRCS_PARSE) \
 	# $(SRCS_BUILTIN)
 
@@ -58,14 +64,15 @@ SRCS = \
 
 vpath %.c \
 	$(SRCS_DIR) \
+	$(SRCS_INIT_DIR) \
 	$(SRCS_PARSE_DIR) \
-	# $(SRCS_BUILTIN_DIR)
 
 all : $(NAME)
 
 $(NAME) : $(LIBFT)
 	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -I $(LIB_DIR)/$(INCLUDE_DIR) \
-	-L ./$(LIB_DIR) -lft -o $(NAME) $(SRCS)
+	-L ./$(LIB_DIR) -lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include \
+	-lft -o $(NAME) $(SRCS)
 
 # $(OBJS_DIR) :
 # 	@mkdir -p $(OBJS_DIR)

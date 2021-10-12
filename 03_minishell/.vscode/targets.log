@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Fri Oct  8 23:08:37 2021
+# Make data base, printed on Tue Oct 12 17:57:58 2021
 
 # Variables
 
@@ -27,6 +28,7 @@ VSCODE_LOG_NATIVE = false
 CURDIR := /Users/kwonhyukbae/Desktop/42Cursus/03_minishell
 # makefile
 SHELL = /bin/sh
+ 
 # makefile (from `Makefile', line 21)
 RM = rm -f
 # environment
@@ -43,26 +45,28 @@ LIB_DIR = ./libft
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
+# makefile (from `Makefile', line 40)
+SRCS_INIT = $(addprefix $(SRCS_INIT_DIR)/, init_shell.c )
 # environment
 P9K_SSH = 0
-# makefile (from `Makefile', line 48)
+# makefile (from `Makefile', line 53)
 SRCS_MAIN = $(addprefix $(SRCS_DIR)/, main.c minishell.c)
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-68693e7c-452f-4f90-9228-cfb35999e92a.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/wf/t59nrjx112n3cv17xmz7zkjr0000gn/T/vscode-ipc-dace4892-73b4-41b4-b3a5-78830da8c88b.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/kwonhyukbae/Library/Python/3.8/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
-# makefile (from `Makefile', line 39)
+# makefile (from `Makefile', line 44)
 SRCS_PARSE_DIR = $(SRCS_DIR)/parsing
 # makefile (from `Makefile', line 23)
 INCLUDE_DIR = ./includes
-# makefile (from `Makefile', line 40)
+# makefile (from `Makefile', line 45)
 SRCS_PARSE = $(addprefix $(SRCS_PARSE_DIR)/, parse_start.c parse_line.c parse_token.c parse_token_arr.c parse_token_list.c )
 # environment
-LaunchInstanceID = 693B5833-E6EB-49D7-874F-676283CCAC71
+LaunchInstanceID = 6B51A2BF-5DFC-4F82-B0A6-AF1816ECB510
 # makefile (from `Makefile', line 20)
 AR = ar rc
 # makefile (from `Makefile', line 24)
@@ -74,7 +78,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.601eLUO9Ll/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.YXNbucqJg1/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -109,8 +113,8 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# makefile (from `Makefile', line 51)
-SRCS = $(SRCS_MAIN) $(SRCS_PARSE) 
+# makefile (from `Makefile', line 56)
+SRCS = $(SRCS_MAIN) $(SRCS_INIT) $(SRCS_PARSE) 
 # environment
 SHLVL = 1
 # makefile (from `Makefile', line 14)
@@ -149,6 +153,7 @@ MFLAGS = -Rrqp
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 XPC_SERVICE_NAME = application.com.microsoft.VSCode.2801395.2801401
+ 
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -166,7 +171,7 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186aa
+SECURITYSESSIONID = 186a9
 # automatic
 ^F = $(notdir $^)
 # default
@@ -177,10 +182,12 @@ SUFFIXES :=
 MAKELEVEL := 0
 # environment
 LANG = C
+# makefile (from `Makefile', line 39)
+SRCS_INIT_DIR = $(SRCS_DIR)/init
 # environment
-VSCODE_PID = 423
+VSCODE_PID = 365
 # variable set hash-table stats:
-# Load=84/1024=8%, Rehash=0, Collisions=3/115=3%
+# Load=86/1024=8%, Rehash=0, Collisions=4/119=3%
 
 # Pattern-specific Variable Values
 
@@ -188,11 +195,12 @@ VSCODE_PID = 423
 
 # Directories
 
-# . (device 16777221, inode 2164384): 11 files, no impossibilities.
-# ./srcs (device 16777221, inode 2165055): No files, no impossibilities so far.
-# ./srcs/parsing (device 16777221, inode 3065511): No files, no impossibilities so far.
+# . (device 16777220, inode 2164384): 12 files, no impossibilities.
+# ./srcs (device 16777220, inode 2165055): No files, no impossibilities so far.
+# ./srcs/parsing (device 16777220, inode 3065511): No files, no impossibilities so far.
+# ./srcs/init (device 16777220, inode 3187604): No files, no impossibilities so far.
 
-# 11 files, no impossibilities in 3 directories.
+# 12 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
@@ -222,7 +230,7 @@ all: minishell
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-08 00:11:49
+#  Last modified 2021-10-11 23:14:37
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -230,22 +238,23 @@ Makefile:
 
 libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-08 14:08:24
+#  Last modified 2021-10-12 17:57:00
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 77):
+#  commands to execute (from `Makefile', line 84):
 	@make -C $(LIB_DIR)
 	@cp $(LIB_DIR)/$(LIBFT) .
 	
 
 minishell: libft.a
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-08 14:08:24
+#  Last modified 2021-10-12 17:57:00
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 67):
+#  commands to execute (from `Makefile', line 73):
 	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -I $(LIB_DIR)/$(INCLUDE_DIR) \
-	-L ./$(LIB_DIR) -lft -o $(NAME) $(SRCS)
+	-L ./$(LIB_DIR) -lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include \
+	-lft -o $(NAME) $(SRCS)
 	
 
 fclean: clean
@@ -253,7 +262,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 85):
+#  commands to execute (from `Makefile', line 92):
 	@$(RM) $(NAME)
 	@$(RM) $(LIBFT)
 	@make -C $(LIB_DIR) fclean
@@ -276,17 +285,16 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 81):
+#  commands to execute (from `Makefile', line 88):
 	@$(RM) -r $(OBJS_DIR)
 	@make -C $(LIB_DIR) clean
 	
 
 # files hash-table stats:
 # Load=10/1024=1%, Rehash=0, Collisions=0/32=0%
- 
 # VPATH Search Paths
 
-vpath %.c ./srcs:./srcs/parsing
+vpath %.c ./srcs:./srcs/init:./srcs/parsing
 
 # 1 `vpath' search paths.
 
@@ -297,6 +305,7 @@ vpath %.c ./srcs:./srcs/parsing
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Oct  8 23:08:37 2021
+ 
+# Finished Make data base on Tue Oct 12 17:57:58 2021
 
  
