@@ -1,0 +1,26 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kwonhyukbae/Desktop/42Cursus/01_ft_printf'
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_printf.c -o objs/ft_printf.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_init_list.c -o objs/ft_init_list.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_char.c -o objs/ft_print_char.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_str.c -o objs/ft_print_str.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_int.c -o objs/ft_print_int.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_un_int.c -o objs/ft_print_un_int.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_hex.c -o objs/ft_print_hex.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_ptr.c -o objs/ft_print_ptr.o 
+mkdir -p ./objs
+gcc -Wall -Wextra -Werror  -I ./includes -I ./libft -c srcs/ft_print_per.c -o objs/ft_print_per.o 
+make -C ./libft
+cp ./libft/libft.a .
+mv libft.a libftprintf.a
+ar rcs libftprintf.a ./objs/ft_printf.o ./objs/ft_init_list.o ./objs/ft_print_char.o ./objs/ft_print_str.o ./objs/ft_print_int.o ./objs/ft_print_un_int.o ./objs/ft_print_hex.o ./objs/ft_print_ptr.o ./objs/ft_print_per.o
+make: Leaving directory `/Users/kwonhyukbae/Desktop/42Cursus/01_ft_printf'
+ 
