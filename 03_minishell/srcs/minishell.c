@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 19:16:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/12 17:58:37 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/12 18:49:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	minishell(char **en)
 		// show_prompt();
 		// run_term(shell->term);
 		//history && read_line->getch()
+		tcsetattr(STDIN_FILENO, TCSANOW, &g_mini.term_ori);
 		line = readline("input> ");
 		if (line == NULL)
 		{
@@ -79,24 +80,24 @@ void	minishell(char **en)
 			continue ;
 		else
 		{
-			printf("output> %s\n", line);
+			// printf("output> %s\n", line);
 			shell.cmd = parse_start(line);
 			add_history(line);
 			free(line);
 			line = NULL;
 		}
 		// debug
-		// shell.cmd = parse_start(line);
-		// while (shell.cmd)
-		// {
-		// 	while(shell.cmd->token)
-		// 	{
-		// 		printf("parsing cmd check after return : %s\n", shell.cmd->token->arg);
-		// 		printf("parsing cmd check after return : %d\n", shell.cmd->token->type);
-		// 		shell.cmd->token = shell.cmd->token->next;
-		// 	}
-		// 	shell.cmd = shell.cmd->next;
-		// }
+		shell.cmd = parse_start(line);
+		while (shell.cmd)
+		{
+			while(shell.cmd->token)
+			{
+				printf("parsing cmd check after return : %s\n", shell.cmd->token->arg);
+				printf("parsing cmd check after return : %d\n", shell.cmd->token->type);
+				shell.cmd->token = shell.cmd->token->next;
+			}
+			shell.cmd = shell.cmd->next;
+		}
 		// end
 		// status = run_shell(shell->cmd, &en);
 	}

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:45:14 by hkwon             #+#    #+#             */
-/*   Updated: 2021/10/12 17:39:23 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/10/12 18:52:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	init_env(char ***en, char *envp[])
 // terminal setting
 void	init_term(void)
 {
-	tcgetattr(STDIN_FILENO, &g_mini.term_sh);
 	tcgetattr(STDIN_FILENO, &g_mini.term_ori);
+	tcgetattr(STDIN_FILENO, &g_mini.term_sh);
 	g_mini.term_sh.c_lflag &= ~(ICANON | ECHO);
 	g_mini.term_sh.c_lflag |= VEOF;
 	g_mini.term_sh.c_cc[VMIN] = 1;
@@ -75,6 +75,10 @@ void	signal_int(int sig_num)
 void	signal_quit(int sig_num)
 {
 	g_mini.sig_flag = sig_num;
+	if (rl_on_new_line() == -1)
+		exit(1);
+	rl_replace_line("", 1);
+	rl_redisplay();
 }
 
 void	init_shell(char ***en, char *envp[])
