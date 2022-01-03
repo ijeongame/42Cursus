@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:02:54 by hkwon             #+#    #+#             */
-/*   Updated: 2021/11/24 16:59:41 by hkwon            ###   ########.fr       */
+/*   Created: 2022/01/03 11:03:42 by hkwon             #+#    #+#             */
+/*   Updated: 2022/01/03 17:48:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include "Convert.hpp"
 
-#include "Weapon.hpp"
-
-class HumanB{
-	private:
-		Weapon		*weapon;
-		std::string name;
-	public:
-		HumanB(std::string name);
-		void	attack();
-		void	setWeapon(Weapon &weapon);
-		~HumanB();
-};
-
-#endif
+int main(int argc, char *argv[])
+{
+	if (argc != 2)
+	{
+		std::cout << "Error : Cannot Convert! Check Argument [./convert arg]" << std::endl;
+		return (1);
+	}
+	Convert c(argv[1]);
+	std::cout << c;
+	return (0);
+}

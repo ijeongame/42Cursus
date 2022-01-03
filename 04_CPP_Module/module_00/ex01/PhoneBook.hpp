@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:40:18 by hkwon             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 20:49:31 by hkwon            ###   ########.fr       */
-=======
-/*   Updated: 2021/12/28 21:05:01 by hkwon            ###   ########.fr       */
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
+/*   Created: 2021/11/30 22:47:42 by hkwon             #+#    #+#             */
+/*   Updated: 2021/12/22 18:34:29 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <iomanip>
 
-class Karen{
+class PhoneBook {
 	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+		std::string	darkest_secret;
 	public:
-		Karen();
-		void complain(std::string level);
-		~Karen();
+		PhoneBook();
+		~PhoneBook();
+
+		void	ContactAdd();
+		void	ContactSearch();
+		int		getIndex(int size);
+		void	setString(std::string info);
+		void	showShortInfo(int);
+		void	SearchInfo(PhoneBook pb[8], int size);
+
 };
 
 #endif

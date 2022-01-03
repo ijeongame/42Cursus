@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/24 20:40:54 by hkwon             #+#    #+#              #
-#    Updated: 2021/11/24 20:41:08 by hkwon            ###   ########.fr        #
+#    Created: 2021/12/02 00:45:05 by hkwon             #+#    #+#              #
+#    Updated: 2021/12/02 00:45:06 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Karen
+NAME = account
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
 
 OBJS_DIR = ./objs
-SRCS =	./main.cpp \
-		./Karen.cpp
+SRCS =	./Account.cpp \
+		./tests.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 RM = rm -f

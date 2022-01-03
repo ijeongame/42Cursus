@@ -6,12 +6,17 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:09:26 by hkwon             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/11/24 14:08:25 by hkwon            ###   ########.fr       */
+=======
+/*   Updated: 2021/12/28 17:44:05 by hkwon            ###   ########.fr       */
+>>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+<<<<<<< HEAD
 std::string	randomName(void)
 {
 	std::string	name;
@@ -21,6 +26,8 @@ std::string	randomName(void)
 
 	return (name);
 }
+=======
+>>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 
 int	main(void)
 {
@@ -35,7 +42,11 @@ int	main(void)
 	delete	heapZombie;
 
 	// randomChump use stack memory
+<<<<<<< HEAD
 	for (int i = 0; i < 10; i++)
 		randomChump(randomName());
+=======
+	randomChump("RandomZombie");
+>>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 	return (0);
 }

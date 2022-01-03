@@ -5,18 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/24 15:41:36 by hkwon             #+#    #+#              #
-#    Updated: 2021/11/24 20:41:18 by hkwon            ###   ########.fr        #
+#    Created: 2021/11/25 20:36:14 by hkwon             #+#    #+#              #
+#    Updated: 2021/11/30 23:29:45 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Brain
+NAME = phonebook
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
 
 OBJS_DIR = ./objs
-SRCS =	./main.cpp \
+SRCS =	./main.cpp\
+		./PhoneBook.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 RM = rm -f

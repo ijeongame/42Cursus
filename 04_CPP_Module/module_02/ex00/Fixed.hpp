@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:40:18 by hkwon             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 20:49:31 by hkwon            ###   ########.fr       */
-=======
-/*   Updated: 2021/12/28 21:05:01 by hkwon            ###   ########.fr       */
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
+/*   Created: 2021/12/03 13:43:24 by hkwon             #+#    #+#             */
+/*   Updated: 2021/12/30 16:19:19 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include <iostream>
+# include <iostream>
 
-class Karen{
+class Fixed{
 	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+		int		value;
+		static const int fractionalBits = 8;
 	public:
-		Karen();
-		void complain(std::string level);
-		~Karen();
+		Fixed(void);
+		~Fixed(void);
+		Fixed(const Fixed& f);
+		Fixed&	operator=(const Fixed& f);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 };
 
 #endif

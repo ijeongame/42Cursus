@@ -5,23 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/24 20:40:54 by hkwon             #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2021/11/24 21:17:04 by hkwon            ###   ########.fr        #
-=======
-#    Updated: 2021/12/28 22:23:07 by hkwon            ###   ########.fr        #
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
+#    Created: 2021/11/25 00:31:18 by hkwon             #+#    #+#              #
+#    Updated: 2021/11/25 00:56:03 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = karenFilter
+NAME = megaphone
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
 
 OBJS_DIR = ./objs
-SRCS =	./main.cpp \
-		./Karen.cpp
+SRCS =	./megaphone.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 RM = rm -f
