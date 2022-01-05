@@ -6,62 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:44:08 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/03 18:11:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/05 12:17:44 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
-
-Convert::Convert(void) : _input(""), _e(false)
-{
-}
-
-Convert::Convert(const std::string &input): _input(input), _e(false)
-{
-
-	int i = 0;
-	int flag = 0;
-	try
-	{
-		if (_input[0] == '-' || _input[0] == '+')
-			i++;
-		while (_input.find('.') != std::string::npos)
-		{
-			i++;
-			flag = 1;
-		}
-		std::cout << i <<std::endl;
-		if (flag)
-		{
-			if (_input[i] != '.' && _input[++i] == 'f')
-				throw(false);
-		}
-		else
-		{
-			for (i++ ; i < static_cast<int>(_input.size()); i++)
-				if (!isdigit(_input[i]) && _input[i] != 'f')
-					throw (true);
-		}
-	}
-	catch(bool e)
-	{
-		_e = e;
-	}
-}
-
-Convert::Convert(const Convert& c)
-{
-	*this = c;
-}
-
-Convert::~Convert(void) {}
-
-Convert& Convert::operator=(const Convert& c)
-{
-	if (this != &c)
-		return (*this);
-	return (*this);
-}
 
 const std::string& Convert::getInput(void) const
 {
@@ -73,6 +22,7 @@ bool	Convert::getError(void) const
 	return (_e);
 }
 
+//Convert
 char	Convert::toChar(void) const
 {
 	int n;
@@ -89,7 +39,7 @@ char	Convert::toChar(void) const
 	{
 		throw Convert::ImpossibleException();
 	}
-	if (!isprint(n))
+	if (!std::isprint(n))
 	{
 		throw Convert::NonDisplayableException();
 	}
@@ -141,6 +91,7 @@ double	Convert::toDouble(void) const
 	return (n);
 }
 
+//PrintConvert
 static void	printChar(std::ostream &o, Convert &c)
 {
 	o << "char : ";
@@ -208,11 +159,58 @@ static void	printDouble(std::ostream &o, Convert &c)
 	}
 }
 
+static int	printCheck(std::string _input)
+{
+	int	i = 0;
+	int	f = 0;
+	int	error = 0;
+	if (_input.compare("inf") == 0			\
+		|| _input.compare("+inf") == 0		\
+		|| _input.compare("-inf") == 0		\
+		|| _input.compare("nan") == 0)
+		f = 1;
+	if (_input.compare("inff") == 0			\
+		|| _input.compare("+inff") == 0		\
+		|| _input.compare("-inff") == 0		\
+		|| _input.compare("nanf") == 0)
+		f = 1;
+	if (!f && _input[0] != '-' && _input[0] != '+' && !std::isdigit(_input[0]))
+		error = 1;
+	if (!f)
+	{
+		while (_input[++i])
+		{
+			if (std::isalpha(_input[i]) && _input[i] != 'f')
+			{
+				error = 1;
+				break ;
+			}
+			if (_input[i] == 'f')
+			{
+				if (std::isprint(_input[i + 1]))
+				{
+					error = 1;
+					break ;
+				}
+			}
+			if (_input[i] == '.')
+			{
+				if (std::isprint(_input[i + 1]) && _input[i + 1] != 'f')
+				{
+					error = 1;
+					break ;
+				}
+			}
+		}
+	}
+	return (error);
+}
+
 std::ostream&	operator<<(std::ostream &o, Convert &c)
 {
 	if (c.getError())
 	{
-		o << "Argment InVaild" << std::endl;
+		o << "Argment Invaild" << std::endl;
 		return (o);
 	}
 	printChar(o, c);
@@ -220,4 +218,35 @@ std::ostream&	operator<<(std::ostream &o, Convert &c)
 	printFloat(o, c);
 	printDouble(o, c);
 	return (o);
+}
+
+Convert::Convert(void) : _input(""), _e(false)
+{
+}
+
+Convert::Convert(const std::string &input): _input(input), _e(false)
+{
+	try
+	{
+		if (printCheck(_input))
+			throw true;
+	}
+	catch(...)
+	{
+		_e = true;
+	}
+}
+
+Convert::Convert(const Convert& c)
+{
+	*this = c;
+}
+
+Convert::~Convert(void) {}
+
+Convert& Convert::operator=(const Convert& c)
+{
+	if (this != &c)
+		return (*this);
+	return (*this);
 }

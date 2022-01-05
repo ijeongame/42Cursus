@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 09:46:27 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/03 17:43:43 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/05 12:13:44 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ class Convert
 
 		const std::string& getInput(void) const;
 		bool	getError(void) const;
+		//Convert
 		char	toChar(void) const;
 		int		toInt(void) const;
 		float	toFloat(void) const;
 		double	toDouble(void) const;
 
+		//Exception
 		class ImpossibleException : public std::exception
 		{
 			const char *what() const throw()

@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 11:03:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 12:13:14 by hkwon            ###   ########.fr       */
+/*   Created: 2022/01/05 19:16:27 by hkwon             #+#    #+#             */
+/*   Updated: 2022/01/05 19:58:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int argc, char *argv[])
+# include <exception>
+# include <iostream>
+# include <string>
+
+class Base{
+	private:
+	public:
+		virtual ~Base(void){};
+};
+
+class A : public Base
 {
-	if (argc != 2)
-	{
-		std::cout << "Error : Cannot Convert! Check Argument [./convert arg]" << std::endl;
-		return (1);
-	}
-	Convert c(argv[1]);
-	std::cout << c;
-	return (0);
-}
+};
+
+class B : public Base
+{
+};
+
+class C : public Base
+{
+};
+
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif

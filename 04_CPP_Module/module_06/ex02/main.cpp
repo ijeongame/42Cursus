@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 11:03:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 12:13:14 by hkwon            ###   ########.fr       */
+/*   Created: 2022/01/05 19:56:39 by hkwon             #+#    #+#             */
+/*   Updated: 2022/01/05 20:01:31 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#include "Base.hpp"
 
-int main(int argc, char *argv[])
+int main(void)
 {
-	if (argc != 2)
+	for (int i = 0 ; i < 10 ; ++i)
 	{
-		std::cout << "Error : Cannot Convert! Check Argument [./convert arg]" << std::endl;
-		return (1);
+		Base*	base = generate();
+		identify(base);
+		identify(*base);
+		std::cout << std::endl;
+		delete base;
 	}
-	Convert c(argv[1]);
-	std::cout << c;
 	return (0);
 }
