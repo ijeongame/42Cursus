@@ -6,20 +6,13 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 17:49:57 by hkwon             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 20:34:18 by hkwon            ###   ########.fr       */
-=======
-/*   Updated: 2021/12/28 22:09:34 by hkwon            ###   ########.fr       */
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
+/*   Updated: 2022/01/05 22:04:43 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-<<<<<<< HEAD
-=======
 #include <string>
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 
 //npos : size_type 으로 정의된 특수값
 //find() 함수에 의해서 found 되지 못하는 경우 npos값이 리턴
@@ -35,16 +28,10 @@ int main(int ac, char *av[])
 	std::string s2 = av[3];
 	std::string newLine;
 	std::string str;
-<<<<<<< HEAD
-	std::ifstream infile(filename.data());
-	if (!infile.is_open())
-	{
-		std::cout << "Error : Wrong File" << std::endl;
+
+	//input chack
+	if (filename.empty() || s1.empty() || s2.empty())
 		return (1);
-	}
-	std::ofstream outfile(filename.append(".replace").data());
-	if (!outfile.is_open())
-=======
 
 	//infile
 	std::ifstream infile(filename.data());
@@ -57,16 +44,11 @@ int main(int ac, char *av[])
 	//outfile
 	std::ofstream outfile(filename.append(".replace").data());
 	if (outfile.fail())
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 	{
 		infile.close();
 		std::cout << "Error : File Open Fail" << std::endl;
 		return (1);
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
 	while (true)
 	{
 		std::getline(infile, str);

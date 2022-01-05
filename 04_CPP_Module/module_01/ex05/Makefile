@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/24 20:40:54 by hkwon             #+#    #+#              #
-#    Updated: 2022/01/04 22:51:42 by hkwon            ###   ########.fr        #
+#    Created: 2022/01/04 22:51:04 by hkwon             #+#    #+#              #
+#    Updated: 2022/01/04 22:51:05 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = karenFilter
+NAME = Karen
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address

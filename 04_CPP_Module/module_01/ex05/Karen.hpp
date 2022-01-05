@@ -6,11 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:40:18 by hkwon             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 20:49:31 by hkwon            ###   ########.fr       */
-=======
-/*   Updated: 2021/12/28 21:05:01 by hkwon            ###   ########.fr       */
->>>>>>> 64486e2be31f95f0ddcc8b6a18b59d1662c43400
+/*   Updated: 2022/01/04 22:45:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +14,7 @@
 # define KAREN_HPP
 
 #include <iostream>
+#include <string>
 
 class Karen{
 	private:
