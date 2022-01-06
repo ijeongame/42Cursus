@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:29:02 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/22 18:34:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 17:29:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ PhoneBook::PhoneBook() {}
 PhoneBook::~PhoneBook() {}
 
 //1 ContactAdd()
-//getline을 통해
 void	PhoneBook::ContactAdd()
 {
 	std::cout << "first name : ";
@@ -48,7 +47,6 @@ void	PhoneBook::ContactSearch()
 	std::cout << "lastName : " + last_name << std::endl;
 	std::cout << "nickName : " + nickname << std::endl;
 	std::cout << "phoneNumber : " + phone_number << std::endl;
-	std::cout << "darkestSecret : " + darkest_secret << std::endl;
 }
 
 void	PhoneBook::setString(std::string info)
@@ -95,7 +93,7 @@ void PhoneBook::SearchInfo(PhoneBook pb[8], int size)
 	std::cout << "|" << std::setw(10) << std::right << "index";
 	std::cout << "|" << std::setw(10) << std::right << "firstName";
 	std::cout << "|" << std::setw(10) << std::right << "lastName";
-	std::cout << "|" << std::setw(11) << std::right << "nickName|" << std::endl;
+	std::cout << "|" << std::setw(10) << std::right << "nickName" << "|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	for (i = 0; i < size; i++)
 	{
