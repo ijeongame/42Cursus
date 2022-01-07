@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:47:42 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/22 18:34:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/07 21:26:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
-#include <algorithm>
 #include <iomanip>
 
 class PhoneBook {
@@ -34,7 +33,8 @@ class PhoneBook {
 		void	setString(std::string info);
 		void	showShortInfo(int);
 		void	SearchInfo(PhoneBook pb[8], int size);
-
 };
+
+std::string makeUpper(std::string command);
 
 #endif

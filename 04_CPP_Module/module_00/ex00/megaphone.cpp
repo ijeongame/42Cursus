@@ -6,12 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:32:43 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/06 17:29:30 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/07 21:27:15 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <algorithm>
 #include <string>
 
 int	main(int ac, char *av[])
@@ -20,12 +19,11 @@ int	main(int ac, char *av[])
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
-		//case1
-		for (int i = 1 ; i < ac ; i++)
+		for (int i = 1 ; i < ac ; ++i)
 		{
-			std::string str = av[i];
-			std::transform(str.begin(), str.end(), str.begin(), toupper);
-			std::cout << str;
+			for (int j = 0; av[i][j]; ++j)
+				av[i][j] = toupper(av[i][j]);
+			std::cout << av[i];
 		}
 		std::cout << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:29:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/06 17:29:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/07 21:26:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ PhoneBook::PhoneBook() {}
 
 PhoneBook::~PhoneBook() {}
 
-//1 ContactAdd()
 void	PhoneBook::ContactAdd()
 {
 	std::cout << "first name : ";
@@ -106,4 +105,15 @@ void PhoneBook::SearchInfo(PhoneBook pb[8], int size)
 		pb[i - 1].ContactSearch();
 		std::cin.ignore();
 	}
+}
+
+
+std::string makeUpper(std::string command)
+{
+	std::string res;
+	int i = -1;
+
+	while (command[++i])
+		res.append(1, toupper(command[i]));
+	return (res);
 }
