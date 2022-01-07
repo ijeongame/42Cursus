@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 21:16:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/04 22:46:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/07 22:10:42 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,18 @@ void Karen::error(void)
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
+static int findIndex(std::string level, std::string comp[4])
+{
+	for (int i = 0 ; i < 4 ; i++)
+		if (level == comp[i])
+			return (i);
+	return (-1);
+}
+
 void Karen::complain(std::string level)
 {
-	std::string	comp[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	int	index = 0;
+	std::string	comp[4] = {"DEBUG", "INFO", "WARNING", "ERROR" };
 
 	void (Karen:: *funcPtr[4])(void) = {
 		&Karen::debug,
@@ -53,8 +62,7 @@ void Karen::complain(std::string level)
 		&Karen::error
 	};
 
-	std::string *level_ptr = std::find(comp, comp + 4, level);
-	int index = level_ptr - comp;
+	index = findIndex(level, comp);
 
 	switch(index)
 	{
@@ -67,7 +75,7 @@ void Karen::complain(std::string level)
 		case 3:
 			(this->*funcPtr[3])();
 			break ;
-		default :
+		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }

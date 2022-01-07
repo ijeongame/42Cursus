@@ -6,15 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:44:13 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/04 22:44:56 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/07 22:10:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Member func pointer
-//함수의 포인터를 가지고 있는 것
-//호출방법 : 명시적 & 암묵적
 #include "Karen.hpp"
-#include <algorithm>
 
 Karen::Karen(){
 }
