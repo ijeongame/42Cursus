@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:47:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/08 23:32:19 by hkwon            ###   ########.fr       */
+/*   Created: 2022/01/08 18:02:08 by hkwon             #+#    #+#             */
+/*   Updated: 2022/01/08 23:48:03 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Contact.hpp"
+#include <string>
 
-class PhoneBook {
+class Contact
+{
 	private:
-		Contact c[8];
-		int		index;
-		int		old_index;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+		std::string	darkest_secret;
 	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-
-		void	AddContact();
-		void	SearchContact();
-		void	PrintPhoneBook();
-		void	PrintContact();
+		Contact(void);
+		~Contact(void);
+		void ContactInput();
+		void ContactShow();
+		void setString(std::string info);
+		void showShortInfo(int i);
 };
-
-std::string makeUpper(std::string command);
 
 #endif

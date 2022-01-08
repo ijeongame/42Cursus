@@ -6,85 +6,59 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:29:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/07 21:26:59 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/08 23:59:48 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {}
+PhoneBook::PhoneBook() {
+	index = 0;
+	old_index = 0;
+}
 
 PhoneBook::~PhoneBook() {}
 
-void	PhoneBook::ContactAdd()
+void	PhoneBook::AddContact()
 {
-	std::cout << "first name : ";
-	std::getline(std::cin, first_name);
-	if (std::cin.eof())
-		return ;
-	std::cout << "last name : ";
-	std::getline(std::cin, last_name);
-	if (std::cin.eof())
-		return ;
-	std::cout << "nickname : ";
-	std::getline(std::cin, nickname);
-	if (std::cin.eof())
-		return ;
-	std::cout << "phone number : ";
-	std::getline(std::cin, phone_number);
-	if (std::cin.eof())
-		return ;
-	std::cout << "darkest secret : ";
-	std::getline(std::cin, darkest_secret);
-	if (std::cin.eof())
-		return ;
-}
-
-void	PhoneBook::ContactSearch()
-{
-	std::cout << "firstName : " + first_name << std::endl;
-	std::cout << "lastName : " + last_name << std::endl;
-	std::cout << "nickName : " + nickname << std::endl;
-	std::cout << "phoneNumber : " + phone_number << std::endl;
-}
-
-void	PhoneBook::setString(std::string info)
-{
-	if (info.length() > 10)
-		std::cout << "|" << std::setw(10) << std::right << info.substr(0, 9) + ".";
+	if (index == 8)
+	{
+		Contact temp_c;
+		temp_c.ContactInput();
+		c[old_index] = temp_c;
+		old_index++;
+		if (old_index == 8)
+			old_index = 0;
+	}
 	else
-		std::cout << "|" << std::setw(10) << std::right << info;
+	{
+		Contact temp_c;
+		temp_c.ContactInput();
+		c[index] = temp_c;
+		index++;
+	}
 }
 
-void	PhoneBook::showShortInfo(int i)
+void	PhoneBook::PrintContact()
 {
-	std::cout << "|" << std::setw(10) << std::right << i + 1;
-	setString(first_name);
-	setString(last_name);
-	setString(nickname);
-	std::cout << "|" << std::endl;
-}
-
-int	PhoneBook::getIndex(int size)
-{
-	int	i;
+	int i;
 
 	std::cout << "Enter index to get full page : ";
 	std::cin >> i;
 	if (std::cin.eof())
-		return (-1);
-	if (std::cin.fail() || i < 1 || i >= size + 1)
+		return ;
+	if (std::cin.fail() || i < 1 || i >= index + 1)
 	{
 		std::cout << "Wrong Index" << std::endl;
 		std::cin.clear();
 		std::cin.ignore(256, '\n');
-		return getIndex(size);
+		return PrintContact();
 	}
 	else
-		return (i);
+		c[i - 1].ContactShow();
 }
 
-void PhoneBook::SearchInfo(PhoneBook pb[8], int size)
+void PhoneBook::PrintPhoneBook()
 {
 	int			i;
 
@@ -94,17 +68,23 @@ void PhoneBook::SearchInfo(PhoneBook pb[8], int size)
 	std::cout << "|" << std::setw(10) << std::right << "lastName";
 	std::cout << "|" << std::setw(10) << std::right << "nickName" << "|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	for (i = 0; i < size; i++)
+	for (i = 0; i < index; i++)
 	{
-		pb[i].showShortInfo(i);
+		c[i].showShortInfo(i);
 		std::cout << "|----------|----------|----------|----------|" << std::endl;
 	}
-	if (size > 0)
+}
+
+void	PhoneBook::SearchContact()
+{
+	if (index == 0)
 	{
-		i = getIndex(size);
-		pb[i - 1].ContactSearch();
-		std::cin.ignore();
+		std::cout << "PhoneBook is empty" << std::endl;
+		return ;
 	}
+	PrintPhoneBook();
+	PrintContact();
+	return ;
 }
 
 

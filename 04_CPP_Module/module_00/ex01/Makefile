@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 20:36:14 by hkwon             #+#    #+#              #
-#    Updated: 2021/11/30 23:29:45 by hkwon            ###   ########.fr        #
+#    Updated: 2022/01/08 23:33:11 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
 
 OBJS_DIR = ./objs
-SRCS =	./main.cpp\
+SRCS =	./main.cpp \
+		./Contact.cpp \
 		./PhoneBook.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
