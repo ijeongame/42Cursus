@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:23:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:21:49 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap <" << name << "> remained " << hitPoints << " Point" << std::endl;
 }
 
-std::string	const	ClapTrap::getName(void) const
+std::string		ClapTrap::getName(void) const
 {
 	return (name);
 }

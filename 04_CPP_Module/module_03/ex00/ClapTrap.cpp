@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:24:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:21:40 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(void) : name("Defalut")
 
 ClapTrap::ClapTrap(std::string _name) : name(_name)
 {
-	std::cout << "ClapTrap <" << _name << "> Constructor" << std::endl;
+	std::cout << "ClapTrap <" << name << "> Constructor" << std::endl;
 	hitPoints = 10;
 	energyPoint = 10;
 	attackDamage = 0;
@@ -74,7 +74,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap <" << name << "> remained " << hitPoints << " Point" << std::endl;
 }
 
-std::string	const	ClapTrap::getName(void) const
+std::string		ClapTrap::getName(void) const
 {
 	return (name);
 }

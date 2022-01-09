@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:21:59 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/04 23:57:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:37:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,7 @@ int	main(void)
 
 	std::cout << std::endl;
 	a.whoAmI();
-	std::cout << std::endl;
 
-	{
-		DiamondTrap b("B");
-		DiamondTrap c("C");
-
-
-		std::cout << std::endl;
-
-		b.whoAmI();
-		c.whoAmI();
-		c.highFivesGuys();
-
-		std::cout << std::endl;
-
-		b.attack("C");
-		c.takeDamage(b.getAttackDamage());
-
-		std::cout << std::endl;
-
-		b.attack("C");
-		c.takeDamage(b.getAttackDamage());
-
-		std::cout << std::endl;
-
-		b.guardGate();
-
-		std::cout << std::endl;
-	}
-
-	std::cout << "===============" << std::endl;
 	std::cout << std::endl;
 
 	DiamondTrap d;
@@ -71,3 +41,35 @@ int	main(void)
 	std::cout << std::endl;
 	return (0);
 }
+
+// std::cout << std::endl;
+
+	// {
+	// 	DiamondTrap b("B");
+	// 	DiamondTrap c("C");
+
+
+	// 	std::cout << std::endl;
+
+	// 	b.whoAmI();
+	// 	c.whoAmI();
+	// 	c.highFivesGuys();
+
+	// 	std::cout << std::endl;
+
+	// 	b.attack("C");
+	// 	c.takeDamage(b.getAttackDamage());
+
+	// 	std::cout << std::endl;
+
+	// 	b.attack("C");
+	// 	c.takeDamage(b.getAttackDamage());
+
+	// 	std::cout << std::endl;
+
+	// 	b.guardGate();
+
+	// 	std::cout << std::endl;
+	// }
+
+	// std::cout << "===============" << std::endl;

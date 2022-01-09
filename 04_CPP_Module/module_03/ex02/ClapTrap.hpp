@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:23:05 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:11:22 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 20:04:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ class ClapTrap
 		ClapTrap(const ClapTrap& c);
 		ClapTrap&	operator=(const ClapTrap& c);
 
-		virtual void attack(std::string const &target);
+		void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		std::string	const getName(void) const;
+		std::string		getName(void) const;
 		unsigned int	getHitPoints(void) const;
 		unsigned int	getEnergyPoint(void) const;
 		unsigned int	getAttackDamage(void) const;

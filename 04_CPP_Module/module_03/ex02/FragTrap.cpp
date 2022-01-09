@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 01:11:17 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:18:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/05 23:03:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ FragTrap::FragTrap(const FragTrap& f) : ClapTrap(f)
 	*this = f;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& f) {
-	this->ClapTrap::operator=(f);
-	// if (this != &s)
-	// {
-	// 	name = s.getName();
-	// 	hitPoints = s.getHitPoints();
-	// 	energyPoint = s.getEnergyPoint();
-	// 	attackDamage = s.getAttackDamage();
-	// }
+FragTrap& FragTrap::operator=(const FragTrap& f)
+{
+	if (this != &f)
+	{
+		name = f.getName();
+		hitPoints = f.getHitPoints();
+		energyPoint = f.getEnergyPoint();
+		attackDamage = f.getAttackDamage();
+	}
 	std::cout << "FragTrap Operator = <" << name << "> Overload" << std::endl;
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:21:59 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:10:37 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 23:04:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,19 @@ int main(void)
 	b.guardGate();
 
 	std::cout << std::endl;
+
+	std::cout << "====" << std::endl;
+	//upcasting - overriding
+	// ScavTrap d;
+	// ClapTrap *e = &d;
+
+	// d.attack("a");
+	// e->attack("a");
+
+	ClapTrap	*c = new ScavTrap("c");
+
+	c->attack("a");
+	delete c;
+
 	return (0);
 }

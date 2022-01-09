@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:23:05 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/01 22:46:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 16:37:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		std::string	const getName(void) const;
+		std::string		 getName(void) const;
 		unsigned int	getHitPoints(void) const;
 		unsigned int	getEnergyPoint(void) const;
 		unsigned int	getAttackDamage(void) const;

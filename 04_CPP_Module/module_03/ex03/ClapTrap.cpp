@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 00:36:52 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:35:34 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(void) : name("Defalut")
 
 ClapTrap::ClapTrap(std::string _name) : name(_name)
 {
-	std::cout << "ClapTrap <" << _name << "> Constructor" << std::endl;
+	std::cout << "ClapTrap <" << name << "> Constructor" << std::endl;
 	hitPoints = 10;
 	energyPoint = 10;
 	attackDamage = 0;
@@ -31,7 +31,10 @@ ClapTrap::ClapTrap(std::string _name) : name(_name)
 ClapTrap::ClapTrap(const ClapTrap& c)
 {
 	std::cout << "ClapTrap Copy Constructor" << std::endl;
-	*this = c;
+	name = c.getName();
+	hitPoints = c.getHitPoints();
+	energyPoint = c.getEnergyPoint();
+	attackDamage = c.getAttackDamage();
 }
 
 ClapTrap::~ClapTrap(void)
@@ -41,13 +44,10 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& c)
 {
-	if (this != &c)
-	{
-		name = c.getName();
-		hitPoints = c.getHitPoints();
-		energyPoint = c.getEnergyPoint();
-		attackDamage = c.getAttackDamage();
-	}
+	name = c.getName();
+	hitPoints = c.getHitPoints();
+	energyPoint = c.getEnergyPoint();
+	attackDamage = c.getAttackDamage();
 	std::cout << "ClapTrap Operator = <" << name << "> Overload" << std::endl;
 	return (*this);
 }
@@ -74,7 +74,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap <" << name << "> remained " << hitPoints << " Point" << std::endl;
 }
 
-std::string	const	ClapTrap::getName(void) const
+std::string		ClapTrap::getName(void) const
 {
 	return (name);
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 01:37:20 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 00:36:50 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:46:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		~DiamondTrap(void);
 		DiamondTrap	&operator=(const DiamondTrap &d);
 
-		std::string	const getName(void) const;
+		std::string		getName(void) const;
 		void	attack(std::string const &target);
 		void	whoAmI(void);
 };

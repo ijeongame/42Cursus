@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 01:08:06 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:42:33 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/05 23:15:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,13 @@ ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& s)
 {
-	this->ClapTrap::operator=(s);
-	// if (this != &s)
-	// {
-	// 	name = s.getName();
-	// 	hitPoints = s.getHitPoints();
-	// 	energyPoint = s.getEnergyPoint();
-	// 	attackDamage = s.getAttackDamage();
-	// }
+	if (this != &s)
+	{
+		name = s.getName();
+		hitPoints = s.getHitPoints();
+		energyPoint = s.getEnergyPoint();
+		attackDamage = s.getAttackDamage();
+	}
 	std::cout << "ScavTrap Operator = <" << name << "> Overload" << std::endl;
 	return (*this);
 }

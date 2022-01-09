@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:21:59 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/01 22:40:24 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/06 19:20:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,10 @@ int	main(void)
 	a.beRepaired(25);
 
 	std::cout << std::endl;
+
+	// ClapTrap	d;
+	// d = a;
+	// d.attack("c");
+	// std::cout << std::endl;
 	return (0);
 }
