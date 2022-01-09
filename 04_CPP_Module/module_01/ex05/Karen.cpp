@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:44:13 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/07 22:10:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/09 22:20:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void Karen::complain(std::string level)
 {
 	std::string	comp[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
-	void (Karen:: *funcPtr[4])(void) = {
+	void (Karen::*funcPtr[4])(void) = {
 		&Karen::debug,
 		&Karen::info,
 		&Karen::warning,
