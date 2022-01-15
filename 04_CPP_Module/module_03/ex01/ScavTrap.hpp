@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 01:08:01 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/02 23:10:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/15 19:30:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(void);
 		ScavTrap(std::string _name);
 		ScavTrap(const ScavTrap &s);
-		~ScavTrap(void);
+		virtual ~ScavTrap(void);
 		ScavTrap	&operator=( ScavTrap const &s);
 
 		void	attack(std::string const &target);

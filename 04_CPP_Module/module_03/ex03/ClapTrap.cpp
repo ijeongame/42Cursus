@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:24:29 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/06 19:35:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/15 20:45:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,13 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& c)
 {
-	name = c.getName();
-	hitPoints = c.getHitPoints();
-	energyPoint = c.getEnergyPoint();
-	attackDamage = c.getAttackDamage();
+	if (this != &c)
+	{
+		name = c.getName();
+		hitPoints = c.getHitPoints();
+		energyPoint = c.getEnergyPoint();
+		attackDamage = c.getAttackDamage();
+	}
 	std::cout << "ClapTrap Operator = <" << name << "> Overload" << std::endl;
 	return (*this);
 }

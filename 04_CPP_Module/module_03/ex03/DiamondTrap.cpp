@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 01:47:45 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/06 23:25:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/15 20:45:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	DiamondTrap::whoAmI(void){
 DiamondTrap::DiamondTrap(void) : name(ClapTrap::name)
 {
 	ClapTrap::name += "_clap_name";
+	FragTrap::setHitPoints(100);
+	ScavTrap::setEnergyPoint(50);
+	FragTrap::setAttackDamage(30);
 	std::cout << "DiamondTrap <"<< name <<"> Constructor" << std::endl;
 }
 
