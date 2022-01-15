@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 23:38:08 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/30 20:55:16 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/10 17:32:02 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ Fixed&	Fixed::operator=(const Fixed& src)
 
 Fixed::Fixed(const int _int)
 {
+	std::cout << "Int constructor called" << std::endl;
 	value = _int << fractionalBits;
-	std::cout << "value : " << value << std::endl;
 }
 
 Fixed::Fixed(const float _float)
