@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:21:59 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/15 19:44:19 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 20:51:09 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,8 @@ int main(void)
 	// d.attack("a");
 	// e->attack("a");
 
-	ClapTrap	*c = new ScavTrap("c");
+	ClapTrap	*c = new ScavTrap("test");
 
-	c->attack("a");
 	delete c;
 
 	return (0);
