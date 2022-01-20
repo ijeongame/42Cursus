@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 02:32:39 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/19 23:36:02 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/19 20:47:09 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 AMateria::AMateria(void)
 {
 	this->type = "Default";
-	std::cout << "Default Constructor AMateria" << std::endl;
+	// std::cout << "Default Constructor AMateria" << std::endl;
 }
 
 AMateria::AMateria(std::string const & _type)
 {
 	this->type = _type;
-	std::cout << "Named Constructor AMateria" << std::endl;
+	// std::cout << "Named Constructor AMateria" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &am)
 {
 	this->type = am.getType();
-	std::cout << this->type << " Copy Constructor AMateria" << std::endl;
+	// std::cout << this->type << " Copy Constructor AMateria" << std::endl;
 }
 
 AMateria &AMateria::operator=(AMateria const &am)
@@ -39,7 +39,7 @@ AMateria &AMateria::operator=(AMateria const &am)
 
 AMateria::~AMateria(void)
 {
-	std::cout << "Destructor AMateria" << std::endl;
+	// std::cout << "Destructor AMateria" << std::endl;
 }
 
 std::string const & AMateria::getType() const

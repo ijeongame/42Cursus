@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 02:32:47 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/15 03:06:25 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 21:43:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,22 @@
 
 int main()
 {
-	Animal *Animals[10];
+	{
+		std::cout << "-----------------------------" << std::endl;
+		// const Animal *meta = new Animal();
+		// meta->makeSound();
+		// delete meta;
+		const Animal *dog = new Dog();
+		const Animal *cat = new Cat();
+		cat->makeSound();
+		dog->makeSound();
+		delete cat;
+		delete dog;
+		std::cout << "-----------------------------" << std::endl;
+		std::cout << std::endl;
+	}
+	{
+		Animal *Animals[10];
 		for (int i = 0; i < 10; ++i)
 		{
 			if (i % 2 == 0)
@@ -25,6 +40,7 @@ int main()
 			else
 				Animals[i] = new Cat();
 		}
+		std::cout << std::endl;
 		std::cout << "DEEP COPY!!" << std::endl;
 		std::cout << "-----------------------------" << std::endl;
 		Dog copy(*(Dog *)Animals[4]);
@@ -39,5 +55,6 @@ int main()
 		{
 			delete Animals[i];
 		}
-	return (0);
+	}
+	system("leaks brain");
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 23:05:49 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/15 02:31:32 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 21:00:27 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BRAIN_HPP
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 
 class Brain{
 	private:

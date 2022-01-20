@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:19:53 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/18 02:29:28 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/19 20:48:32 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
 		Cure(std::string const _type);
 		Cure(Cure const &cu);
 		Cure	&operator=(Cure const &cu);
-		~Cure(void);
+		virtual ~Cure(void);
 
 		AMateria*	clone() const;
 		void		use(ICharacter& target);

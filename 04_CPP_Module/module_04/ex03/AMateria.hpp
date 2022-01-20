@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:57:20 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/18 02:07:52 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 23:43:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class AMateria
 		AMateria & operator=(AMateria const &am);
 		virtual ~AMateria(void);
 
-		std::string const & getType() const; //Returns the materia type
-		unsigned int	getXp() const;
+		std::string const &getType() const; //Returns the materia type
+		// unsigned int	getXp() const;
 
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);

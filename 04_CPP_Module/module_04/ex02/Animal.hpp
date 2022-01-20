@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:52:44 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/15 02:33:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 21:35:18 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Animal{
 		std::string	type;
 	public:
 		Animal(void);
-		Animal(std::string _type);
 		Animal(const Animal &a);
 		virtual ~Animal(void);
 		Animal&	operator=(const Animal& a);
@@ -31,3 +30,4 @@ class Animal{
 };
 
 #endif
+

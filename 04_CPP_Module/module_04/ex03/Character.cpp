@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:08:37 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/20 00:00:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/19 20:47:46 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,46 @@
 
 Character::Character(void)
 {
-	this->name = "Default";
+	name = "Default";
 	for (int i = 0; i < 4; i++)
-		this->inven[i] = NULL;
-	std::cout << this->name << " Constructor Character" << std::endl;
+		inven[i] = NULL;
+	// std::cout << "Default Constructor Character" << std::endl;
 }
 
 Character::Character(std::string const &_name)
 {
-	this->name = _name;
+	name = _name;
 	for (int i = 0; i < 4; i++)
-		this->inven[i] = NULL;
-	std::cout << this->name << " Constructor Character" << std::endl;
+		inven[i] = NULL;
+	// std::cout << "Named Constructor Character" << std::endl;
 }
 
 Character::Character(Character const &ch)
 {
 	const AMateria*		temp;
 
-	this->name = ch.getName();
+	name = ch.getName();
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inven[i])
+		if (inven[i])
 		{
-			delete this->inven[i];
-			this->inven[i] = NULL;
+			delete inven[i];
+			inven[i] = NULL;
 		}
 		temp = ch.getAMateria(i);
 		if (temp)
-			this->inven[i] = temp->clone();
+			inven[i] = temp->clone();
 	}
-	std::cout << "Copy Constructor Character" << std::endl;
+	// std::cout << "Copy Constructor Character" << std::endl;
 }
 
 Character &Character::operator=(Character const &ch)
 {
-	const AMateria*		temp;
+	const AMateria*	temp;
 
 	if (this != &ch)
 	{
-		this->name = ch.getName();
+		name = ch.getName();
 		for (int i = 0; i < 4; i++)
 		{
 			if (inven[i])
@@ -63,9 +63,10 @@ Character &Character::operator=(Character const &ch)
 			}
 			temp = ch.getAMateria(i);
 			if (temp)
-				this->inven[i] = temp->clone();
+				inven[i] = temp->clone();
 		}
 	}
+	// std::cout << "Operator= Overload" << std::endl;
 	return (*this);
 }
 
@@ -73,13 +74,13 @@ Character::~Character(void)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inven[i])
+		if (inven[i])
 		{
-			delete this->inven[i];
-			this->inven[i] = NULL;
+			delete inven[i];
+			inven[i] = NULL;
 		}
 	}
-	std::cout << "Destructor Character" << std::endl;
+	// std::cout << "Destructor Character" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -89,7 +90,7 @@ std::string const &Character::getName() const
 
 AMateria const *Character::getAMateria(int index) const
 {
-	return (this->inven[index]);
+	return (inven[index]);
 }
 
 void Character::equip(AMateria* m)
@@ -98,10 +99,9 @@ void Character::equip(AMateria* m)
 		return ;
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->inven[i])
+		if (!inven[i])
 		{
-			this->inven[i] = m;
-			std::cout << "equip Character : " << name << std::endl;
+			inven[i] = m;
 			return ;
 		}
 	}
@@ -110,12 +110,14 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && this->inven[idx])
-		this->inven[idx] = NULL;
+	{
+		inven[idx] = NULL;
+	}
 	return ;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4 && this->inven[idx])
-		this->inven[idx]->use(target);
+		inven[idx]->use(target);
 }

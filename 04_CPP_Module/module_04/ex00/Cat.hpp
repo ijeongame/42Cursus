@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 00:10:21 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/10 02:40:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 20:40:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Cat : public Animal
 	public:
 		Cat(void);
 		Cat(const Cat &c);
-		virtual ~Cat(void);
+		~Cat(void);
 		Cat&	operator=(const Cat& c);
 
 		void makeSound(void) const;

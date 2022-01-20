@@ -6,36 +6,40 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 01:43:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/10 23:49:28 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/18 21:12:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog")
+Dog::Dog(void) : Animal()
 {
-	this->brain = new Brain();
+	type = "Dog";
+	brain = new Brain();
+	std::cout << "<Dog> Animal Constructor" << std::endl;
 }
 
-Dog::Dog(const Dog& d) : Animal(d)
+Dog::Dog(const Dog& c) : Animal()
 {
-	*this = d;
-	this->brain = new Brain(*d.getBrain());
+	type = c.getType();
+	brain = new Brain(*c.getBrain());
+	std::cout << "<Dog> Animal Copy Constructor" << std::endl;
 }
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog Destructor" << std::endl;
-	delete this->brain;
+	std::cout << "<Dog> Animal Destructor" << std::endl;
+	delete brain;
 }
 
-Dog	&Dog::operator=(const Dog& d)
+Dog	&Dog::operator=(const Dog& c)
 {
-	if (this != &d)
+	if (this != &c)
 	{
-		this->Animal::operator=(d);
-		this->brain = new Brain(*d.getBrain());
+		type = c.getType();
+		*brain = *c.getBrain();
 	}
+	std::cout << "<Dog> Operator= Overload" << std::endl;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 01:19:13 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/19 23:58:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/19 20:48:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-	std::cout << "Default Constructor Ice" << std::endl;
+	// std::cout << "Default Constructor Ice" << std::endl;
 }
 
 Ice::Ice(std::string const type) : AMateria(type)
 {
-	std::cout << "Named Constructor Ice" << std::endl;
+	// std::cout << "Named Constructor Ice" << std::endl;
 }
 
 Ice::Ice(Ice const &ic) : AMateria(ic.getType())
 {
-	// this->operator=(ic);
 }
 
 Ice	&Ice::operator=(Ice const &ic)
@@ -36,7 +35,7 @@ Ice	&Ice::operator=(Ice const &ic)
 
 Ice::~Ice(void)
 {
-	std::cout << "Desturtor Ice" << std::endl;
+	// std::cout << "Destructor Ice" << std::endl;
 }
 
 AMateria*	Ice::clone() const
