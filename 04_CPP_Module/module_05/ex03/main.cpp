@@ -6,42 +6,59 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/19 22:11:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2021/12/21 01:36:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "stdlib.h"
 
 int main(void)
 {
-	Bureaucrat a("Bure_A", 10);
+	srand((unsigned int)time(NULL));
+	Bureaucrat a("Bure_A", 5);
 	Bureaucrat b("Bure_B", 75);
 	Bureaucrat c("Bure_C", 150);
 
-	Form test10("test_10", 10, 5);
-	Form test75("test_75", 75, 70);
-	Form test150("test_150", 150, 145);
+	ShrubberyCreationForm shr("shrubbery");
+	RobotomyRequestForm rob("roboto");
+	PresidentialPardonForm pre("president");
 
-	std::cout << test10;
-	std::cout << test75;
-	std::cout << test150;
 	std::cout << std::endl;
 	try
 	{
-		a.signForm(test150);
-		a.signForm(test75);
-		a.signForm(test10);
+		a.executeForm(shr);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
+	a.signForm(shr);
+	a.signForm(rob);
+	a.signForm(pre);
+	std::cout << std::endl;
+	std::cout << std::endl;
+	try
+	{
+		a.executeForm(shr);
+		a.executeForm(rob);
+		a.executeForm(pre);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+	std::cout << std::endl;
 	try
 	{
-		b.signForm(test150);
-		b.signForm(test75);
-		b.signForm(test10);
+		b.executeForm(shr);
+		b.executeForm(rob);
 	}
 	catch(const std::exception& e)
 	{
@@ -50,12 +67,11 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		test75.beSigned(c);
+		c.executeForm(shr);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-	return (0);
+	return 0;
 }
