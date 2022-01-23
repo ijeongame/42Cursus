@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:35:06 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/19 23:20:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/23 15:57:53 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
-#include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 #include <iostream>
 
 class MateriaSource : public IMateriaSource

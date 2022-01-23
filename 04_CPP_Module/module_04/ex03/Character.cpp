@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:08:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/19 20:47:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/22 17:25:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Character::Character(void)
 	name = "Default";
 	for (int i = 0; i < 4; i++)
 		inven[i] = NULL;
-	// std::cout << "Default Constructor Character" << std::endl;
+	std::cout << "Default Constructor Character" << std::endl;
 }
 
 Character::Character(std::string const &_name)
@@ -25,7 +25,7 @@ Character::Character(std::string const &_name)
 	name = _name;
 	for (int i = 0; i < 4; i++)
 		inven[i] = NULL;
-	// std::cout << "Named Constructor Character" << std::endl;
+	std::cout << "Named Constructor Character" << std::endl;
 }
 
 Character::Character(Character const &ch)
@@ -44,7 +44,7 @@ Character::Character(Character const &ch)
 		if (temp)
 			inven[i] = temp->clone();
 	}
-	// std::cout << "Copy Constructor Character" << std::endl;
+	std::cout << "Copy Constructor Character" << std::endl;
 }
 
 Character &Character::operator=(Character const &ch)
@@ -66,7 +66,7 @@ Character &Character::operator=(Character const &ch)
 				inven[i] = temp->clone();
 		}
 	}
-	// std::cout << "Operator= Overload" << std::endl;
+	std::cout << "Operator= Overload" << std::endl;
 	return (*this);
 }
 
@@ -80,7 +80,7 @@ Character::~Character(void)
 			inven[i] = NULL;
 		}
 	}
-	// std::cout << "Destructor Character" << std::endl;
+	std::cout << "Destructor Character" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -102,6 +102,7 @@ void Character::equip(AMateria* m)
 		if (!inven[i])
 		{
 			inven[i] = m;
+			std::cout << "i : " << i << " inven check : " << inven[i]->getType() << std::endl;
 			return ;
 		}
 	}

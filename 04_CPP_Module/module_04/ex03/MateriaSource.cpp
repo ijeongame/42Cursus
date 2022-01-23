@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 01:20:50 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/19 20:49:17 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/22 17:26:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
 		materia[i] = NULL;
-	// std::cout << "Constructor MateriaSource" << std::endl;
+	std::cout << "Constructor MateriaSource" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const & ms)
@@ -34,7 +34,7 @@ MateriaSource::MateriaSource(MateriaSource const & ms)
 		if (temp)
 			this->materia[i] = temp->clone();
 	}
-	// std::cout << "Copy Constructor MateriaSource" << std::endl;
+	std::cout << "Copy Constructor MateriaSource" << std::endl;
 }
 
 MateriaSource &MateriaSource::operator=(MateriaSource const & ms)
@@ -54,7 +54,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const & ms)
 			if (temp)
 				this->materia[i] = temp->clone();
 		}
-		// std::cout << "Copy Constructor MateriaSource" << std::endl;
+		std::cout << "Copy Constructor MateriaSource" << std::endl;
 	}
 	return (*this);
 }
@@ -69,7 +69,7 @@ MateriaSource::~MateriaSource(void)
 			materia[i] = NULL;
 		}
 	}
-	// std::cout << "Destructor MateriaSource" << std::endl;
+	std::cout << "Destructor MateriaSource" << std::endl;
 }
 
 void	MateriaSource::learnMateria(AMateria* am)
@@ -81,7 +81,7 @@ void	MateriaSource::learnMateria(AMateria* am)
 		if (!materia[i])
 		{
 			materia[i] = am;
-			// std::cout << "learnMateria of : " << am->getType() << std::endl;
+			std::cout << "i : " << i << " learnMateria of : " << am->getType() << std::endl;
 			return ;
 		}
 	}
@@ -93,11 +93,11 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (materia[i] && materia[i]->getType() == type)
 		{
-			// std::cout << "CreateMateria of : " << type << std::endl;
+			std::cout << "i : " << i << " CreateMateria of : " << type << std::endl;
 			return (materia[i]->clone());
 		}
 	}
-	// std::cout << "createMateria failed of : " << type << std::endl;
+	std::cout << "createMateria failed of : " << type << std::endl;
 	return (NULL);
 }
 

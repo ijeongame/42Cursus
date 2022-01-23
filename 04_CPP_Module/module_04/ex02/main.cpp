@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 02:32:47 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/18 21:43:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/21 19:45:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 int main()
 {
 	{
+		// const Animal meta; error because Animal class is Abstract class
+
 		std::cout << "-----------------------------" << std::endl;
 		// const Animal *meta = new Animal();
 		// meta->makeSound();
