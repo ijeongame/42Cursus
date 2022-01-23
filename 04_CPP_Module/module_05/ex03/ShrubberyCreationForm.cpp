@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:58:56 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 16:16:04 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/20 16:26:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void	ShrubberyCreationForm::execute(Bureaucrat const &bu) const
 {
 	executeCheck(bu);
-	std::ofstream fout(getName() + ">_shrubbery");
+	std::ofstream fout(getName() + "_shrubbery");
 	if (!fout.is_open() || !fout.good())
 		throw std::ofstream::failure("Cannot open file" + this->getTarget() + "_Shrubbery");
 	fout << "       /\\       " << std::endl;
