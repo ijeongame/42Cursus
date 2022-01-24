@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 01:25:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 16:26:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:58:22 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const &bu) const
 {
 	executeCheck(bu);
 	if (rand() % 2 == 0)
-		std::cout << bu.getName() << " robotomized succes" << std::endl;
+	{
+		std::cout << "drrrrrrrrrrrr" << std::endl;
+		std::cout << bu.getName() << "robotomized succes" << std::endl;
+	}
 	else
-		std::cout << bu.getName() << " robotomized fail" << std::endl;
+		std::cout << bu.getName() << "robotomized fail" << std::endl;
 }

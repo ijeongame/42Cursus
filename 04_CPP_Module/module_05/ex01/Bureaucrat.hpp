@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:23:35 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/20 22:14:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:15:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,19 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Bureaucrat Grade Too High");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Bureaucrat Grade Too Low");
+				}
 		};
 };
 

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/19 22:11:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:24:38 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int main(void)
 	Form test75("test_75", 75, 70);
 	Form test150("test_150", 150, 145);
 
-	std::cout << test10;
-	std::cout << test75;
-	std::cout << test150;
+	std::cout << test10 << std::endl;
+	std::cout << test75 << std::endl;
+	std::cout << test150 << std::endl;
 	std::cout << std::endl;
 	try
 	{
-		a.signForm(test150);
-		a.signForm(test75);
 		a.signForm(test10);
+		a.signForm(test75);
+		a.signForm(test150);
 	}
 	catch(const std::exception& e)
 	{
@@ -39,13 +39,13 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		b.signForm(test150);
-		b.signForm(test75);
 		b.signForm(test10);
+		b.signForm(test75);
+		b.signForm(test150);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	try
@@ -54,7 +54,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 
 	return (0);

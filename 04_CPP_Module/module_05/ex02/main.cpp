@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/21 01:36:51 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:56:20 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int main(void)
 {
-	srand((unsigned int)time(NULL));
 	Bureaucrat a("Bure_A", 5);
 	Bureaucrat b("Bure_B", 75);
 	Bureaucrat c("Bure_C", 150);

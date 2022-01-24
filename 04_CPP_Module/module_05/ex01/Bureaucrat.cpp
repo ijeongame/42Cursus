@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:44:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:15:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,6 @@ void	Bureaucrat::signForm(Form& f)
 	{
 		std::cout << name << " cannot sign " << f << " because " << e.what() << std::endl;
 	}
-}
-
-const char* Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too High");
-}
-
-const char* Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too Low");
 }
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& bu)

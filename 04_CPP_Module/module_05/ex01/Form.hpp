@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:08:00 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:43:33 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:42:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,20 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Form Grade Too High");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Form Grade Too Low");
+				}
 		};
-
 };
 
 std::ostream&	operator<<(std::ostream& o, const Form &f);

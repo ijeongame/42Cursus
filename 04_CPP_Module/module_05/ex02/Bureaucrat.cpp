@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:50:28 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:42:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,6 @@ void	Bureaucrat::executeForm(Form const &f)
 	{
 		std::cout << name << " cannot executes " << f.getName() << " because " << e.what() << std::endl;
 	}
-}
-
-const char* Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too High");
-}
-
-const char* Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too Low");
 }
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& bu)

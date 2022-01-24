@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:38:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:14:44 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,6 @@ void Bureaucrat::decreaseGrade(void)
 		throw GradeTooLowException();
 	else
 		++grade;
-}
-
-const char* Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too High");
-}
-
-const char* Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Bureaucrat Grade Too Low");
 }
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& bu)

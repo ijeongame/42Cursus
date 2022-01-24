@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:08:00 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:46:01 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 23:57:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,28 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Form Grade Too High");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char *what(void) const throw();
+				const char *what(void) const throw()
+				{
+					return ("Form Grade Too Low");
+				}
 		};
 
 		class NoSignedException : public std::exception
 		{
 			public:
-				virtual const char *what(void) const throw();
+				virtual const char *what(void) const throw()
+				{
+					return ("Form No Signed");
+				}
 		};
 
 		void		executeCheck(Bureaucrat const &bu) const;

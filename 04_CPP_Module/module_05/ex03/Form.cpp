@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:22:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 15:47:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/25 00:01:41 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,7 @@ void	Form::beSigned(const Bureaucrat& bu)
 	if (bu.getGrade() < sign_grade)
 		is_signed = true;
 	else
-		throw GradeTooHighException();
-}
-
-const char* Form::GradeTooHighException::what(void) const throw()
-{
-	return ("Form Grade Too High");
-}
-
-const char* Form::GradeTooLowException::what(void) const throw()
-{
-	return ("Form Grade Too Low");
-}
-
-const char* Form::NoSignedException::what(void) const throw()
-{
-	return ("Form No Signed");
+		throw GradeTooLowException();
 }
 
 void		Form::executeCheck(Bureaucrat const &bu) const

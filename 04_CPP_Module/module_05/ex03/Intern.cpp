@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:03:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 16:21:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/25 00:01:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ Form *Intern::makeForm(const std::string & name, const std::string & target)
 				switch(i)
 				{
 					case 0:
-						return new ShrubberyCreationForm(target);
+						return (new ShrubberyCreationForm(target));
 						break;
 					case 1:
-						return new RobotomyRequestForm(target);
+						return (new RobotomyRequestForm(target));
 						break;
 					case 2:
-						return new PresidentialPardonForm(target);
+						return (new PresidentialPardonForm(target));
 						break;
 				}
 			}

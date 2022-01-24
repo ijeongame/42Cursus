@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 02:12:33 by hkwon             #+#    #+#             */
-/*   Updated: 2021/12/20 02:24:55 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/24 22:52:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 	try
 	{
@@ -49,7 +49,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 
 	return (0);
