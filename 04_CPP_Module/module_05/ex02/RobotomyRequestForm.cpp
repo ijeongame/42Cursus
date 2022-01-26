@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 01:25:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 16:06:56 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 18:00:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 void	RobotomyRequestForm::execute(Bureaucrat const &bu) const
 {
 	executeCheck(bu);
+	srand(time(NULL));
 	if (rand() % 2 == 0)
 	{
 		std::cout << "drrrrrrrrrrrr" << std::endl;

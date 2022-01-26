@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:22:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 16:24:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 18:18:21 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ const int &Form::getExecGrade(void) const
 
 void	Form::beSigned(const Bureaucrat& bu)
 {
-	if (bu.getGrade() > sign_grade)
-		throw GradeTooLowException();
-	else
+	if (bu.getGrade() <= getSignGrade())
 		is_signed = true;
+	else
+		throw GradeTooHighException();
 }
 
 std::ostream&	operator<<(std::ostream& o, const Form& f)
 {
 	o << "<" << f.getName() << ">, sign grade <" << f.getSignGrade() << ">, exec grade <" << f.getExecGrade() << ">";
 	if (f.getSign())
-		o << ", signed";
+		o << ", <signed>";
 	else
-		o << ", not signed";
+		o << ", <not signed>";
 	return (o);
 }

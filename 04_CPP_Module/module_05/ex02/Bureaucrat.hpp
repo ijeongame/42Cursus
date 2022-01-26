@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:23:35 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:42:47 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 22:25:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Bureaucrat
 			public:
 				const char *what(void) const throw()
 				{
-					return ("Bureaucrat Grade Too High");
+					return ("Grade Too High");
 				}
 		};
 
@@ -55,7 +55,7 @@ class Bureaucrat
 			public:
 				const char *what(void) const throw()
 				{
-					return ("Bureaucrat Grade Too Low");
+					return ("Grade Too Low");
 				}
 		};
 

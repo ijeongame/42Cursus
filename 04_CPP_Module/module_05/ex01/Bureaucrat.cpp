@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 16:02:08 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 17:57:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,17 @@ void	Bureaucrat::signForm(Form& f)
 	try
 	{
 		f.beSigned(*this);
-		std::cout << "<" << name << ">" << " signs " << f << std::endl;
+		std::cout << "<" << name << ">" << " signs "
+			<< "<" << f.getName() << ">" << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "<" << name << ">" << " cannot sign " << f << " because " << e.what() << std::endl;
+		std::cout << "<" << name << ">" << " cannot sign "
+			<< "<" << f.getName() << ">" << " because <" << e.what() << ">" << std::endl;
 	}
 }
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& bu)
 {
-	return (o << "<" << bu.getName() << ">, bureaucrat grade <" << bu.getGrade() << ">." << std::endl);
+	return (o << "<" << bu.getName() << ">, bureaucrat grade <" << bu.getGrade() << ">.");
 }

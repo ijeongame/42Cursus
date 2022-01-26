@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:14:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 17:47:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void Bureaucrat::decreaseGrade(void)
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& bu)
 {
-	return (o << "<" << bu.getName() << ">, bureaucrat grade <" << bu.getGrade() << ">." << std::endl);
+	return (o << "<" << bu.getName() << ">, bureaucrat grade <" << bu.getGrade() << ">.");
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:08:00 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 15:32:11 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 22:25:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Form
 			public:
 				const char *what(void) const throw()
 				{
-					return ("Form Grade Too High");
+					return ("Grade Too High");
 				}
 		};
 
@@ -57,7 +57,7 @@ class Form
 			public:
 				const char *what(void) const throw()
 				{
-					return ("Form Grade Too Low");
+					return ("Grade Too Low");
 				}
 		};
 
@@ -66,7 +66,7 @@ class Form
 			public:
 				virtual const char *what(void) const throw()
 				{
-					return ("Form No Signed");
+					return ("No Signed");
 				}
 		};
 
