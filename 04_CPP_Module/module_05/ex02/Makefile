@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 02:27:04 by hkwon             #+#    #+#              #
-#    Updated: 2022/01/26 16:09:06 by hkwon            ###   ########.fr        #
+#    Updated: 2022/01/27 00:12:38 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,6 @@ clean :
 
 fclean : clean
 	@$(RM) $(NAME)
+	@$(RM) *_shrubbery
 
 re : fclean all
