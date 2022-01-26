@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:08:00 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:43:29 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:32:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Form
 		Form(const std::string &_name, const int &_sign_grade, const int &_exec_grade);
 		Form(Form const &f);
 		Form & operator=(Form const &f);
-		~Form(void);
+		virtual ~Form(void);
 
 		std::string const & getName(void) const;
 		bool getSign(void) const;

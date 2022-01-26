@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:56:20 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:26:59 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "stdlib.h"
 
 int main(void)
 {
@@ -32,7 +31,7 @@ int main(void)
 	{
 		a.executeForm(shr);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -48,7 +47,7 @@ int main(void)
 		a.executeForm(rob);
 		a.executeForm(pre);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -59,7 +58,7 @@ int main(void)
 		b.executeForm(shr);
 		b.executeForm(rob);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -68,7 +67,7 @@ int main(void)
 	{
 		c.executeForm(shr);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}

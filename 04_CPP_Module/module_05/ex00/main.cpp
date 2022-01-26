@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 02:12:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 22:52:52 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:20:12 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
 	{
 		test3.increaseGrade();
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -47,7 +47,7 @@ int main(void)
 	{
 		test4.decreaseGrade();
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}

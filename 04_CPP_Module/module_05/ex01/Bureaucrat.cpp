@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:15:06 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:20:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	Bureaucrat::signForm(Form& f)
 		f.beSigned(*this);
 		std::cout << name << " signs " << f << std::endl;
 	}
-	catch (const std::exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << name << " cannot sign " << f << " because " << e.what() << std::endl;
 	}

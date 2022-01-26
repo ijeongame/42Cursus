@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:03:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/25 00:01:21 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:24:36 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Form *Intern::makeForm(const std::string & name, const std::string & target)
 		}
 		throw NoNameFormException();
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}

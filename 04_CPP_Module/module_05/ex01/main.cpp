@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/24 23:24:38 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:20:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 		a.signForm(test75);
 		a.signForm(test150);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -43,7 +43,7 @@ int main(void)
 		b.signForm(test75);
 		b.signForm(test150);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -52,7 +52,7 @@ int main(void)
 	{
 		test75.beSigned(c);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
