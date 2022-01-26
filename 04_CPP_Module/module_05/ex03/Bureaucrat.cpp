@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 17:59:45 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:16:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	Bureaucrat::executeForm(Form const &f)
 	catch(std::exception& e)
 	{
 		std::cout << "<" << name << ">" << " cannot executes "
-			<< "<" << f.getName() << ">" << " because " << e.what() << std::endl;
+			<< "<" << f.getName() << ">" << " because <" << e.what() << ">" << std::endl;
 	}
 }
 
