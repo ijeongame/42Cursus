@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 23:46:17 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 23:48:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 
 int main(void)
 {
-  Intern i;
+	Intern i;
 
 	Bureaucrat bu1("bu1", 1);
-	Bureaucrat bu2("bu3", 75);
-	Bureaucrat bu3("bu4", 150);
+	Bureaucrat bu2("bu2", 70);
+	Bureaucrat bu3("bu3", 140);
 
-  Form* f1 = i.makeForm("ShrubberyCreation", "First");
-  Form* f2 = i.makeForm("RobotomyRequest", "Second");
-  Form* f3 = i.makeForm("PresidentialPardon", "Third");
-  i.makeForm("Wrong", "No");
+	Form* f1 = i.makeForm("ShrubberyCreation", "First");
+	Form* f2 = i.makeForm("RobotomyRequest", "Second");
+	Form* f3 = i.makeForm("PresidentialPardon", "Third");
+	i.makeForm("Wrong", "No");
 
 	std::cout << bu1 << std::endl
 		<< bu2 << std::endl
