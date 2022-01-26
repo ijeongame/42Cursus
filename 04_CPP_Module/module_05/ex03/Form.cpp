@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:22:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 16:03:09 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:25:45 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	Form::setTarget(std::string _target) const
 
 void	Form::beSigned(const Bureaucrat& bu)
 {
-	if (bu.getGrade() < sign_grade)
-		is_signed = true;
-	else
+	if (bu.getGrade() > sign_grade)
 		throw GradeTooLowException();
+	else
+		is_signed = true;
 }
 
 void		Form::executeCheck(Bureaucrat const &bu) const

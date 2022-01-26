@@ -6,11 +6,11 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 02:27:04 by hkwon             #+#    #+#              #
-#    Updated: 2021/12/20 23:16:08 by hkwon            ###   ########.fr        #
+#    Updated: 2022/01/26 16:09:06 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = forms
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
