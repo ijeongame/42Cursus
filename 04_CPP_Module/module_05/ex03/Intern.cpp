@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:03:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 15:24:36 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:52:48 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ Intern::~Intern()
 {}
 
 Intern::Intern(const Intern& i)
-{}
+{
+	*this = i;
+}
 
 Intern& Intern::operator=(const Intern& i)
 {
-	return (*this);
 	(void)(i);
+	return (*this);
 }
 
 Form *Intern::makeForm(const std::string & name, const std::string & target)
 {
-	Form *tmp = NULL;
-
 	std::string form[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
 	try
 	{
@@ -60,9 +60,4 @@ Form *Intern::makeForm(const std::string & name, const std::string & target)
 		std::cerr << e.what() << std::endl;
 	}
 
-}
-
-const char* Intern::NoNameFormException::what(void) const throw()
-{
-  return ("No Matching Type");
 }

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:01:48 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 16:16:13 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 15:51:26 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ public:
 
 	class NoNameFormException : public std::exception {
 		public :
-			const char* what() const throw();
+			const char* what() const throw()
+			{
+				return ("No Matching Type");
+			};
 	};
 };
 

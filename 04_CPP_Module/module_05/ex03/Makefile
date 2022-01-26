@@ -6,11 +6,11 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 02:27:04 by hkwon             #+#    #+#              #
-#    Updated: 2021/12/20 23:16:08 by hkwon            ###   ########.fr        #
+#    Updated: 2022/01/26 15:49:09 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = intern
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 #CFLAGS = -g3 -fsanitize=address
@@ -21,7 +21,8 @@ SRCS =	./main.cpp \
 		./Form.cpp \
 		./ShrubberyCreationForm.cpp \
 		./RobotomyRequestForm.cpp \
-		./PresidentialPardonForm.cpp
+		./PresidentialPardonForm.cpp \
+		./Intern.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 RM = rm -f
