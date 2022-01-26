@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:03:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 15:52:48 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:03:11 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Form *Intern::makeForm(const std::string & name, const std::string & target)
 		{
 			if (form[i] == name)
 			{
-				std::cout << "Intern creates <" << name << std::endl;
+				std::cout << "Intern creates <" << name << "> " << std::endl;
 				switch(i)
 				{
 					case 0:
@@ -58,6 +58,7 @@ Form *Intern::makeForm(const std::string & name, const std::string & target)
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		return NULL;
 	}
 
 }
