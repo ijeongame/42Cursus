@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 23:48:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 23:55:57 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 	std::cout << std::endl;
 	bu1.signForm(*f1);
 	bu1.signForm(*f2);
-	bu1.signForm(*f2);
+	bu1.signForm(*f3);
 
 	std::cout << std::endl;
 	bu1.executeForm(*f1);
@@ -52,7 +52,7 @@ int main(void)
 	std::cout << std::endl;
 	bu2.signForm(*f1);
 	bu2.signForm(*f2);
-	bu2.signForm(*f2);
+	bu2.signForm(*f3);
 
 	std::cout << std::endl;
 	bu2.executeForm(*f1);
@@ -62,7 +62,7 @@ int main(void)
 	std::cout << std::endl;
 	bu3.signForm(*f1);
 	bu3.signForm(*f2);
-	bu3.signForm(*f2);
+	bu3.signForm(*f3);
 
 	std::cout << std::endl;
 	bu3.executeForm(*f1);

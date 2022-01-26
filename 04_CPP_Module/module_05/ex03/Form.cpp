@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:22:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 23:44:39 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 23:58:58 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		Form::executeCheck(Bureaucrat const &bu) const
 	if (!is_signed)
 		throw NoSignedException();
 	if (bu.getGrade() > getExecGrade())
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& o, const Form& f)

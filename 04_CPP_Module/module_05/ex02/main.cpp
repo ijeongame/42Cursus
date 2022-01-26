@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 23:48:15 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:11:28 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(void)
 	Bureaucrat bu2("bu2", 70);
 	Bureaucrat bu3("bu3", 140);
 
-	Form* f1 = new PresidentialPardonForm("First");
+	Form* f1 = new ShrubberyCreationForm("First");
 	Form* f2 = new RobotomyRequestForm("Second");
-	Form* f3 = new ShrubberyCreationForm("Third");
+	Form* f3 = new PresidentialPardonForm("Third");
 
 	std::cout << bu1 << std::endl
 		<< bu2 << std::endl
@@ -38,7 +38,7 @@ int main(void)
 	std::cout << std::endl;
 	bu1.signForm(*f1);
 	bu1.signForm(*f2);
-	bu1.signForm(*f2);
+	bu1.signForm(*f3);
 
 	std::cout << std::endl;
 	bu1.executeForm(*f1);
@@ -48,7 +48,7 @@ int main(void)
 	std::cout << std::endl;
 	bu2.signForm(*f1);
 	bu2.signForm(*f2);
-	bu2.signForm(*f2);
+	bu2.signForm(*f3);
 
 	std::cout << std::endl;
 	bu2.executeForm(*f1);
@@ -58,7 +58,7 @@ int main(void)
 	std::cout << std::endl;
 	bu3.signForm(*f1);
 	bu3.signForm(*f2);
-	bu3.signForm(*f2);
+	bu3.signForm(*f3);
 
 	std::cout << std::endl;
 	bu3.executeForm(*f1);
