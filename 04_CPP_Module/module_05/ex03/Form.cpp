@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:22:42 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 18:18:58 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 23:44:39 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	Form::beSigned(const Bureaucrat& bu)
 	if (bu.getGrade() <= getSignGrade())
 		is_signed = true;
 	else
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 void		Form::executeCheck(Bureaucrat const &bu) const
