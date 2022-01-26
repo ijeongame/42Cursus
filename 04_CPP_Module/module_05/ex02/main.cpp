@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/27 00:14:54 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:23:06 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int main(void)
 {
 	Bureaucrat bu1("bu1", 1);
-	Bureaucrat bu2("bu3", 140);
+	Bureaucrat bu2("bu2", 140);
 
 	Form* f1 = new ShrubberyCreationForm("First");
 	Form* f2 = new RobotomyRequestForm("Second");
