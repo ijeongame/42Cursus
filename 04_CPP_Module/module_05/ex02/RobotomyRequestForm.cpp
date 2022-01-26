@@ -6,12 +6,11 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 01:25:02 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 15:59:12 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:06:56 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <stdlib.h>
 
 RobotomyRequestForm::RobotomyRequestForm(void)
 	: Form("", 0, 0)
@@ -48,8 +47,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const &bu) const
 	if (rand() % 2 == 0)
 	{
 		std::cout << "drrrrrrrrrrrr" << std::endl;
-		std::cout << bu.getName() << " robotomized succes" << std::endl;
+		std::cout << "<" << bu.getName() << ">" << " robotomized succes" << std::endl;
 	}
 	else
-		std::cout << bu.getName() << " robotomized fail" << std::endl;
+		std::cout << "<" << bu.getName() << ">" << " robotomized fail" << std::endl;
 }

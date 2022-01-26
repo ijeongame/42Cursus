@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 01:32:51 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/20 16:14:48 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:06:55 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void	PresidentialPardonForm::execute(Bureaucrat const &bu) const
 {
 	executeCheck(bu);
-	std::cout << bu.getName() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << "<" << bu.getName() << ">" << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
