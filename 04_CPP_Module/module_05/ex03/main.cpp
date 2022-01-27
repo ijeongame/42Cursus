@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:44:37 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/27 00:24:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:27:10 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main(void)
 	Form* f3 = i.makeForm("PresidentialPardon", "Third");
 	i.makeForm("Wrong", "No");
 
+	std::cout << std::endl;
 	std::cout << bu1 << std::endl
 		<< bu2 << std::endl;
 
@@ -40,7 +41,7 @@ int main(void)
 	std::cout << std::endl;
 	bu1.signForm(*f1);
 	bu1.signForm(*f2);
-	bu1.signForm(*f2);
+	bu1.signForm(*f3);
 
 	std::cout << std::endl;
 	bu1.executeForm(*f1);
@@ -50,7 +51,7 @@ int main(void)
 	std::cout << std::endl;
 	bu2.signForm(*f1);
 	bu2.signForm(*f2);
-	bu2.signForm(*f2);
+	bu2.signForm(*f3);
 
 	std::cout << std::endl;
 	bu2.executeForm(*f1);

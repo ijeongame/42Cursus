@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 01:16:33 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/26 17:47:51 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 13:37:52 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Bureaucrat::Bureaucrat(std::string const & _name, int _grade)
 	: name(_name)
 {
 	grade = _grade;
+	std::cout << "constructor" << std::endl;
 	if (grade < HIGHEST)
 		throw GradeTooHighException();
 	if (grade > LOWEST)
@@ -43,7 +44,9 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bu)
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+	std::cout << "destructor" << std::endl;
+}
 
 std::string const & Bureaucrat::getName() const
 {
