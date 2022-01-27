@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:44:08 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 12:17:44 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:45:00 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,14 @@ char	Convert::toChar(void) const
 	{
 		n = std::stoi(this->_input);
 		if (n < 0 || n > 255)
-		{
 			throw Convert::ImpossibleException();
-		}
 	}
 	catch (...)
 	{
 		throw Convert::ImpossibleException();
 	}
 	if (!std::isprint(n))
-	{
 		throw Convert::NonDisplayableException();
-	}
 	return (static_cast<char>(n));
 }
 
