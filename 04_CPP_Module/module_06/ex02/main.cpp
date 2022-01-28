@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 19:56:39 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/05 20:01:31 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 18:55:25 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(void)
 {
+	srand(time(NULL));
 	for (int i = 0 ; i < 10 ; ++i)
 	{
 		Base*	base = generate();

@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:44:08 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/27 16:45:00 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:43:35 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	printChar(std::ostream &o, Convert &c)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;;
 	}
 }
 
@@ -111,7 +111,7 @@ static void	printInt(std::ostream &o, Convert &c)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;;
 	}
 }
 
