@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:01:30 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/28 18:18:46 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/28 18:35:08 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Array
 		unsigned int _size;
 		T *_arr;
 	public:
-		Array()
+		Array(void)
 		{
 			_arr = new T[0];
 			_size = 0;

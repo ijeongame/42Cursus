@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:56:41 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/28 18:29:34 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/28 21:26:50 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
+	// numbers = Array<int> counts(10);
 	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
 	for (int i = 0; i < MAX_VAL; i++)
@@ -38,13 +39,15 @@ int main(int, char**)
 	std::cout << std::endl;
 	//SCOPE
 	{
-		Array<int> tmp = numbers;
+		Array<int> tmp1, tmp2;
+		tmp1 = numbers;
+		tmp2 = numbers;
 		std::cout << "======================" << std::endl;
 		std::cout << "tmp print" << std::endl;
 		for (int i = 0; i < MAX_VAL; i++)
-			std::cout << tmp[i] << ' ';
+			std::cout << tmp1[i] << ' ';
 		std::cout << std::endl;
-		Array<int> test(tmp);
+		Array<int> test(tmp1);
 		std::cout << "======================" << std::endl;
 		std::cout << "test print" << std::endl;
 		for (int i = 0; i < MAX_VAL; i++)
