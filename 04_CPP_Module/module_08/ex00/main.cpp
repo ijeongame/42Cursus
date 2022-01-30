@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:58:08 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/30 16:46:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/30 16:47:54 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ int main(void)
 	}
 
 	//print
-	std::cout << "========== print test ==========" << std::endl;
 	std::cout << "========== print vector ==========" << std::endl;
 	for (int i = 0; i < (int)v.size(); i++)
 		std::cout << v[i] << ' ';
+	std::cout << std::endl;
 	std::cout << "========== print deque ==========" << std::endl;
 	for (int i = 0; i < (int)d.size(); i++)
 		std::cout << d[i] << ' ';
+	std::cout << std::endl;
 	std::cout << "========== print list ==========" << std::endl;
 	std::list<int>::iterator itr;
 	for (itr = l.begin(); itr != l.end(); itr++)
@@ -40,7 +41,6 @@ int main(void)
 	std::cout << std::endl;
 
 	//find
-	std::cout << "========== find test ==========" << std::endl;
 	std::cout << "========== find in vector ==========" << std::endl;
 	try{
 		std::vector<int>::iterator itr = easyfind(v, 3);
