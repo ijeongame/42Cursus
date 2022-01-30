@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 22:28:38 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/30 16:40:37 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/30 17:05:14 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,24 +95,6 @@ int main()
 		}
 	}
 	{
-		std::cout << "================ mutant const iterator test ================" << std::endl;
-		MutantStack<double> mstack;
-		mstack.push(1.1);
-		mstack.push(2.2);
-		mstack.push(3.3);
-		mstack.push(4.4);
-		mstack.push(5.5);
-		MutantStack<double>::const_iterator cit = mstack.cbegin();
-		MutantStack<double>::const_iterator cite = mstack.cend();
-		++cit;
-		--cit;
-		while (cit != cite)
-		{
-			std::cout << *cit << std::endl;
-			++cit;
-		}
-	}
-	{
 		std::cout << "================ mutant reverse iterator test ================" << std::endl;
 		MutantStack<char> mstack;
 		mstack.push('a');
@@ -128,24 +110,6 @@ int main()
 		{
 			std::cout << *rit << std::endl;
 			++rit;
-		}
-	}
-	{
-		std::cout << "================ mutant const reverse iterator test ================" << std::endl;
-		MutantStack<std::string> mstack;
-		mstack.push("hello");
-		mstack.push("world");
-		mstack.push("cpp");
-		mstack.push("container");
-		mstack.push("finish");
-		MutantStack<std::string>::const_reverse_iterator crit = mstack.crbegin();
-		MutantStack<std::string>::const_reverse_iterator crite = mstack.crend();
-		++crit;
-		--crit;
-		while (crit != crite)
-		{
-			std::cout << *crit << std::endl;
-			++crit;
 		}
 	}
 }
