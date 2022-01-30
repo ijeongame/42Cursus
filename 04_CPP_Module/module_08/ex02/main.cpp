@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 22:28:38 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/30 16:38:18 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/30 16:40:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int main()
 		--it;
 		while (it != ite)
 		{
-		std::cout << *it << std::endl;
-		++it;
+			std::cout << "value : "<< *it << std::endl;
+			++it;
 		}
 		std::stack<int> s(mstack);
 
