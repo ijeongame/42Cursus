@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:36:30 by hkwon             #+#    #+#             */
-/*   Updated: 2022/01/30 15:14:03 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/01/30 21:04:51 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(void)
 
 		sp.addNumber(5);
 		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
 		sp.addNumber(11);
+		sp.addNumber(17);
+		sp.addNumber(42);
 
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
