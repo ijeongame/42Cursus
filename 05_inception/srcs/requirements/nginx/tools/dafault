@@ -22,7 +22,6 @@ server {
         # SSL configuration
         #
         listen 443 ssl;
-        listen [::]:443 ssl;
 
         ssl on;
         ssl_certificate /etc/ssl/certs/server.crt;
@@ -58,7 +57,7 @@ server {
               include snippets/fastcgi-php.conf;
 
               # With php-fpm (or other unix sockets):
-              fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+              # fastcgi_pass unix:/run/php/php7.3-fpm.sock;
               # With php-cgi (or other tcp sockets):
               fastcgi_param SCRIPT_FILENAME /var/www/html/%fastcgi_script_name;
               fastcgi_pass wordpress:9000;

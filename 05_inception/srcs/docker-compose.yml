@@ -1,36 +1,44 @@
 version: '3'
 
-volumes:
-    data: {}
 services:
-    mariadb:
-        image: debian:buster
-        restart: always
-        expose:
-            - "3306"
-        networks:
-            - intra
-        tty: true
     nginx:
-        image: debian:buster
+        container_name : nginx
+        build: requirements/nginx
         restart: always
         ports:
             - "443:443"
         volumes:
-            - data:/var/www/html
+            - wp:/var/www/html
         networks:
             - intra
         tty: true
     wordpress:
-        image: debian:buster
+        container_name : wordpress
+        build: requirements/wordpress
         restart: always
         volumes:
-            - data:/var/www/html
+            - wp:/var/www/html
         expose:
             - "9000"
+        networks:
+            - intra
+        env_file:
+            - .env
+        tty: true
+    mariadb:
+        container_name : mariadb
+        build: requirements/mariadb
+        restart: always
+        volumes :
+            - db:/var/lib/mysql
+        expose:
+            - "3306"
         networks:
             - intra
         tty: true
 networks:
     intra:
         driver: bridge
+volumes:
+    db: {}
+    wp: {}
