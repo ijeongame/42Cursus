@@ -3,7 +3,7 @@ version: '3'
 services:
     nginx:
         container_name : nginx
-        build: requirements/nginx
+        build: ./requirements/nginx
         restart: always
         ports:
             - "443:443"
@@ -14,7 +14,7 @@ services:
         tty: true
     wordpress:
         container_name : wordpress
-        build: requirements/wordpress
+        build: ./requirements/wordpress
         restart: always
         volumes:
             - wp:/var/www/html
@@ -27,7 +27,7 @@ services:
         tty: true
     mariadb:
         container_name : mariadb
-        build: requirements/mariadb
+        build: ./requirements/mariadb
         restart: always
         volumes :
             - db:/var/lib/mysql
@@ -35,6 +35,8 @@ services:
             - "3306"
         networks:
             - intra
+        env_file:
+            - .env
         tty: true
 networks:
     intra:

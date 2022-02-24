@@ -10,4 +10,4 @@ EXPOSE 3306
 
 ENTRYPOINT [ "/bin/bash" ]
 
-CMD [ "mariadb.sh" ]
+CMD [ "setup.sh" ]
