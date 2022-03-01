@@ -45,5 +45,17 @@ networks:
     # db: {}
     # wp: {}
 volumes:
-    db: /home/hkwon/db
-    wp: /home/hkwon/wp
+  wp:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/hkwon/data/wp'
+      # device: '/Users/hyunlee/Desktop/Inception/wp'
+  db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/hkwon/data/db'
+      # device: '/Users/hyunlee/Desktop/Inception/db'

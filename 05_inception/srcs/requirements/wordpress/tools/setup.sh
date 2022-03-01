@@ -11,6 +11,9 @@ if [ ! -e /var/www/html/index.php ]; then
 
   # wordpress 설치
   wp core download --locale=ko_KR --allow-root
+  wp config create \
+    --dbname=$MYSQL_DB_NAME --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=mariadb \
+    --locale=ko_KR
   until
   wp core install --allow-root --url=$DOMAIN_NAME --title='Hello_WordPress' --admin_user=$WP_USER1_ID\
 		--admin_password=$WP_USER1_PASSWORD --admin_email="hkwon@student.42seoul.kr" --path='/var/www/html'; do
