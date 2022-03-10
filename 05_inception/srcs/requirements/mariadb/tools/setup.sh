@@ -1,15 +1,17 @@
 #!/bin/bash
 
-cp ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+if [ ! -d /var/lib/mysql/$MYSQL_DB_NAME ]; then
+  chmod 755 /var/lib/mysql
+  chown -R mysql:mysql /var/lib/mysql
 
-if [! -d /var/lib/mysql/$WP_DB_NAME]; then
+  cp ./50-server.cnf    /etc/mysql/mariadb.conf.d/50-server.cnf
   mysql_install_db --user=mysql --datadir=/var/lib/mysql
   service mysql start
-  mysql -e "CREATE DATABASE '${WP_DB_NAME}';"
-  mysql -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
-  mysql -e "GRANT ALL PRIVILEGES ON '${WP_DB_NAME}'.* TO '${MYSQL_USER}'@'%';"
-  mysql -e "FLUSH PRIVILEGES;"
-  service mysql stop
+  mysql -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DB_NAME};\
+  CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';\
+  GRANT ALL PRIVILEGES ON ${MYSQL_DB_NAME}.* TO '${MYSQL_USER}'@'%';\
+  ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}'; FLUSH PRIVILEGES;"
+  mysqladmin -uroot -p$MYSQL_ROOT_PASSWORD shutdown
 fi
 
 exec mysqld_safe

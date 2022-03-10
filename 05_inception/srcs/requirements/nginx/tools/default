@@ -1,7 +1,7 @@
 server {
         listen 443 ssl;
 
-        # ssl on;
+        ssl on;
         ssl_protocols TLSv1.2 TLSv1.3;
         ssl_certificate /etc/ssl/certs/inception_server.crt;
         ssl_certificate_key /etc/ssl/private/inception_server_pkey.key;

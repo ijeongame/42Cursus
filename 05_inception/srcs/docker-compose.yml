@@ -41,21 +41,21 @@ services:
 networks:
     intra:
         driver: bridge
-# volumes:
-    # db: {}
-    # wp: {}
 volumes:
-  wp:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/home/hkwon/data/wp'
-      # device: '/Users/hyunlee/Desktop/Inception/wp'
-  db:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/home/hkwon/data/db'
-      # device: '/Users/hyunlee/Desktop/Inception/db'
+    db: {}
+    wp: {}
+# volumes:
+#   wp:
+#     driver: local
+#     driver_opts:
+#       type: 'none'
+#       o: 'bind'
+#       device: '/home/hkwon/data/wp'
+#       # device: '/Users/hyunlee/Desktop/Inception/wp'
+#   db:
+#     driver: local
+#     driver_opts:
+#       type: 'none'
+#       o: 'bind'
+#       device: '/home/hkwon/data/db'
+#       # device: '/Users/hyunlee/Desktop/Inception/db'
