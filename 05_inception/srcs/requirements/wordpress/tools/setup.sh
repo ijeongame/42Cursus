@@ -19,7 +19,7 @@ if [ ! -e /var/www/html/index.php ]; then
   #   --dbname=$MYSQL_DB_NAME --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=mariadb \
   #   --locale=ko_KR
 
-  wp core install --allow-root --url=$DOMAIN_NAME --title='Hello_WordPress' --admin_user=$WP_USER1_ID\
+  wp core install --url=$DOMAIN_NAME --allow-root --title='Hello_WordPress' --admin_user=$WP_USER1_ID\
     --admin_password=$WP_USER1_PASSWORD --admin_email="hkwon@student.42seoul.kr" --path='/var/www/html'
 
   # wordpress user 생성

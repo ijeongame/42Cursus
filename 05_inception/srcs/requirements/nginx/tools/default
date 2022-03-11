@@ -19,10 +19,6 @@ server {
         location ~ \.php$ {
               include snippets/fastcgi-php.conf;
 
-              # With php-fpm (or other unix sockets):
-              # fastcgi_pass unix:/run/php/php7.3-fpm.sock;
-              # With php-cgi (or other tcp sockets):
-              # fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
               fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
               fastcgi_pass wordpress:9000;
         }
