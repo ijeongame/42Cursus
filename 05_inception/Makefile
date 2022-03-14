@@ -3,10 +3,10 @@ DOCKER_COMP = docker-compose
 YML = ./srcs/docker-compose.yml
 UP = up
 DOWN = down
-# DB_DATA = /home/hkwon/data/db
-# WP_DATA = /home/hkwon/data/wp
-DB_DATA = ./db
-WP_DATA = ./wp
+DB_DATA = /home/hkwon/data/db
+WP_DATA = /home/hkwon/data/wp
+# DB_DATA = ./db
+# WP_DATA = ./wp
 COMPOSE = $(DOCKER_COMP) -p $(NAME) -f $(YML)
 
 all :
