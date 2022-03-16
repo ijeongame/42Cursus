@@ -6,6 +6,8 @@ RUN apt-get -y update && \
 
 COPY ./tools/ ./
 
+RUN cp ./default /etc/nginx/sites-available/default
+
 EXPOSE 443
 
 ENTRYPOINT [ "/bin/bash" ]
