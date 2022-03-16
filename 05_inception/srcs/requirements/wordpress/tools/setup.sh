@@ -13,7 +13,6 @@ if ! wp core is-installed --allow-root --path='/var/www/html'; then
 
   # wordpress user 생성
   wp user create --allow-root $WP_USER2_ID ijeong@student.42seoul.kr --user_pass=$WP_USER2_PASSWORD --role=author --path='/var/www/html'
-
   chown -R www-data:www-data /var/www/html
 fi
 
