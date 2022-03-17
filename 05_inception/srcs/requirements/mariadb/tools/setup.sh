@@ -4,7 +4,6 @@ if [ ! -d /var/lib/mysql/$MYSQL_DB_NAME ]; then
   chmod 755 /var/lib/mysql
   chown -R mysql:mysql /var/lib/mysql
 
-  cp ./50-server.cnf    /etc/mysql/mariadb.conf.d/50-server.cnf
   mysql_install_db --user=mysql --datadir=/var/lib/mysql
   service mysql start
   mysql -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DB_NAME};\
