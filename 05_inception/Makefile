@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:46:54 by hkwon             #+#    #+#              #
-#    Updated: 2022/03/17 12:53:36 by hkwon            ###   ########.fr        #
+#    Updated: 2022/03/17 12:57:44 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,7 @@ clear:
 makedir:
 	mkdir $(DATA_PATH) $(DB_DATA) $(WP_DATA)
 
-fclean :
-	fdown clear
+fclean : fdown clear
 
 re : fclean all
 
