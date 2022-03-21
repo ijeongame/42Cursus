@@ -2,6 +2,7 @@ version: '3'
 
 services:
     nginx:
+        container_name: nginx
         build: ./requirements/nginx
         restart: always
         ports:
@@ -12,6 +13,7 @@ services:
             - intra
         tty: true
     wordpress:
+        container_name: wordpress
         build: ./requirements/wordpress
         restart: always
         volumes:
@@ -24,6 +26,7 @@ services:
             - .env
         tty: true
     mariadb:
+        container_name: mariadb
         build: ./requirements/mariadb
         restart: always
         volumes :

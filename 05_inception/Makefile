@@ -6,7 +6,7 @@
 #    By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:46:54 by hkwon             #+#    #+#              #
-#    Updated: 2022/03/17 12:57:44 by hkwon            ###   ########.fr        #
+#    Updated: 2022/03/21 14:01:53 by hkwon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ COMPOSE = $(DOCKER_COMP) -p $(NAME) -f $(YML)
 DATA_PATH = /home/hkwon/data
 DB_DATA = /home/hkwon/data/db
 WP_DATA = /home/hkwon/data/wp
+# DB_DATA = ./db
+# WP_DATA = ./wp
 
 all: up
 
@@ -45,10 +47,10 @@ logs:
 	$(COMPOSE) logs
 
 clear:
-	sudo rm -rf $(DATA_PATH)
+	rm -rf $(DB_DATA) $(WP_DATA)
 
 makedir:
-	mkdir $(DATA_PATH) $(DB_DATA) $(WP_DATA)
+	mkdir $(DB_DATA) $(WP_DATA)
 
 fclean : fdown clear
 
