@@ -6,7 +6,7 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:15:03 by hkwon             #+#    #+#             */
-/*   Updated: 2022/03/21 19:56:13 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/03/21 20:08:37 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ namespace ft
 		typedef T* pointer;
 		typedef T& reference;
 		typedef random_access_iterator_tag iterator_category;
-	}
+	};
 
 	template<class T>
 	struct iterator_traits<const T*>
@@ -66,7 +66,7 @@ namespace ft
 		typedef const T* pointer;
 		typedef const T& reference;
 		typedef random_access_iterator_tag iterator_category;
-	}
+	};
 
 	/**
 	 * iterator
@@ -107,7 +107,7 @@ namespace ft
 		iterator_type base() const { return current; };
 
 		/**
-		 * iterator memberfunc
+		 * iterator member function
 		 */
 		reference operator*() const
 		{
