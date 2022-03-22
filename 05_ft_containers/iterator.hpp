@@ -6,25 +6,21 @@
 /*   By: hkwon <hkwon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:15:03 by hkwon             #+#    #+#             */
-/*   Updated: 2022/03/21 20:08:37 by hkwon            ###   ########.fr       */
+/*   Updated: 2022/03/22 19:54:05 by hkwon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITERATOR_HPP
 # define ITERATOR_HPP
 
+/**
+ * iterator implement
+ * iterators_traits
+ * reverse_iterator
+**/
+
 namespace ft
 {
-	/**
-	 * iterator implement
-	 * iterators_traits
-	 * reverse_iterator
-	 * enable_if
-	 * is_integral
-	 * equal/lexicographical compare
-	 * std::pair
-	 * std::make_pair
-	**/
 
 	/**
 	 * iterator categories
@@ -94,36 +90,85 @@ namespace ft
 		protected:
 			Iterator current;
 
+		// default constructor
 		reverse_iterator() : current{}
+		// initialization constructor
 		explicit reverse_iterator (iterator_type it) : current(it) {}
+		// copy / type-cast constructor
 		template <class Iter>
 		reverse_iterator (const reverse_iterator<Iter>& rev_it) : current(rev_it.base()) {}
+
+		/**
+		 * iterator member function
+		**/
 		template <class Iter>
-		reverse_iterator& operator(const reverse_iterator<Iter>& rev_it)
+		reverse_iterator& operator=(const reverse_iterator<Iter>& rev_it)
 		{
 			this->current = rev_it.current;
 			return (*this);
 		}
+
 		iterator_type base() const { return current; };
 
-		/**
-		 * iterator member function
-		 */
 		reference operator*() const
 		{
-
+			iterator_type tmp = this->current;
+			--tmp;
+			return (*tmp);
 		}
+
 		pointer operator->() const
 		{
-
+			return ( &(operator*()) );
 		}
 
 		reverse_iterator& operator++()
 		{
-
+			--(this->current);
+			return (*this);
 		}
 
 		reverse_iterator operator++(int)
+		{
+			reverse_iterator tmp = *this;
+			++(*this);
+			return (tmp);
+		}
+
+		reverse_iterator& operator--()
+		{
+			++(this->current);
+			return (*this);
+		}
+
+		reverse_iterator operator--(int)
+		{
+			reverse_iterator tmp = *this;
+			--(*this);
+			return (tmp);
+		}
+
+		reverse_iterator operator+ (difference_type n) const
+		{
+
+		}
+
+		reverse_iterator& operator+=(difference_type n)
+		{
+
+		}
+
+		reverse_iterator operator- (difference_type n) const
+		{
+
+		}
+
+		reverse_iterator& operator-=(difference_type n)
+		{
+
+		}
+
+		reference operator[](difference_type n) const
 		{
 
 		}
